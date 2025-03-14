@@ -3,7 +3,7 @@ import { themeTokens } from './src/styles/tokens/theme';
 
 const config: Config = {
   darkMode: ['class'],
-  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './stories/**/*.{ts,tsx}'],
   theme: {
     container: {
       center: true,
@@ -13,6 +13,12 @@ const config: Config = {
       },
     },
     extend: {
+      gridTemplateColumns: {
+        '1': 'repeat(1, minmax(0, 1fr))',
+        '2': 'repeat(2, minmax(0, 1fr))',
+        '3': 'repeat(3, minmax(0, 1fr))',
+        '4': 'repeat(4, minmax(0, 1fr))',
+      },
       colors: {
         // Base colors
         background: 'hsl(var(--background))',
@@ -98,6 +104,7 @@ const config: Config = {
         primary: {
           DEFAULT: 'hsl(var(--primary))',
           foreground: 'hsl(var(--primary-foreground))',
+          '80': 'hsl(var(--primary) / 0.8)',
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',

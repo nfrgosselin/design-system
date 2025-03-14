@@ -13,8 +13,11 @@ import { buttonVariants } from './shadcn/button';
 export { buttonVariants };
 
 // Extended components (take precedence over shadcn)
-import { Button, extendedButtonVariants } from './extended/button';
-export { Button, extendedButtonVariants };
+import { Button } from './extended/button';
+import { Link } from './extended/link';
+import { Icon } from './extended/icon';
+
+export { Button, Link, Icon };
 
 // As more components are added, export them here
 

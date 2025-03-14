@@ -84,4 +84,21 @@ export const componentRegistry: ComponentRegistry = {
     shadcnPath: './shadcn/toast',
     docUrl: 'https://ui.shadcn.com/docs/components/toast',
   },
-};
+
+  link: {
+    name: 'Link',
+    description:
+      'A component for navigation between pages or to external resources, with support for various visual styles and states.',
+    category: 'navigation',
+    shadcnPath: './shadcn/link',
+    extendedPath: './extended/link',
+  },
+
+  icon: {
+    name: 'Icon',
+    description: 'A component for displaying Lucide icons with consistent sizing and colors.',
+    category: 'display',
+    shadcnPath: './shadcn/icon',
+    extendedPath: './extended/icon',
+  },
+} as const;

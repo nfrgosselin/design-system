@@ -66,8 +66,18 @@ export const ComponentMetadataExample = () => {
 
 // Example 3: Using the component resolver
 export const ComponentResolverExample = () => {
-  // Resolve Button component (will use extended version)
-  const ResolvedButton = resolveComponent('button');
+  const [ResolvedButton, setResolvedButton] = React.useState<typeof Button | null>(null);
+
+  React.useEffect(() => {
+    // Resolve Button component
+    resolveComponent('button').then(Component => {
+      setResolvedButton(() => Component as typeof Button);
+    });
+  }, []);
+
+  if (!ResolvedButton) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="space-y-4">
