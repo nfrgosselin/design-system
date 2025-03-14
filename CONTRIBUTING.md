@@ -1,5 +1,14 @@
 # Contributing Guidelines
 
+## Commit directions
+
+If you're in Vim (which is often the default git editor), you can:
+
+- Press i to enter insert mode
+- Paste or type the commit message
+- Press Esc to exit insert mode
+- Type :wq and press Enter to save and quit
+
 ## Commit Message Format
 
 We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:

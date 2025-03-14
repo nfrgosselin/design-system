@@ -11,6 +11,7 @@ A modern, accessible, and customizable design system for React applications.
 - 🎭 Storybook documentation
 - 🔧 Highly customizable theming
 - 📱 Responsive by default
+- 🧩 Built on shadcn/ui with a powerful component registry
 
 ## Installation
 
@@ -23,14 +24,72 @@ yarn add @nathangosselin/design-system
 ## Usage
 
 ```tsx
-import { Button, ThemeProvider } from '@your-scope/design-system';
+import { Button, Card } from '@nathangosselin/design-system';
+import '@nathangosselin/design-system/styles.css';
 
 function App() {
   return (
-    <ThemeProvider>
-      <Button variant="primary">Click me</Button>
-    </ThemeProvider>
+    <div>
+      <Card>
+        <h2>Hello World</h2>
+        <Button>Click me</Button>
+      </Card>
+    </div>
   );
+}
+```
+
+## Component Registry System
+
+This design system uses a component registry approach to manage shadcn/ui components. This provides several benefits:
+
+- **Discoverability**: Easily find available components and their documentation
+- **Extensibility**: Extend shadcn components with custom functionality
+- **Consistency**: Maintain a consistent API across all components
+- **Documentation**: Access metadata about each component
+
+### Component Structure
+
+Components are organized into two categories:
+
+1. **Base shadcn/ui components**: Original components from shadcn/ui
+2. **Extended components**: Our customized versions with additional features
+
+The component registry automatically selects the extended version when available, falling back to the base shadcn/ui version.
+
+### Using Component Metadata
+
+You can access component metadata for your application:
+
+```tsx
+import { componentRegistry } from '@nathangosselin/design-system';
+
+// Get information about the Button component
+const buttonInfo = componentRegistry.button;
+
+console.log(buttonInfo);
+// {
+//   name: 'Button',
+//   description: 'Triggers an action or event...',
+//   category: 'form',
+//   shadcnPath: './shadcn/button',
+//   extendedPath: './extended/button',
+//   docUrl: 'https://ui.shadcn.com/docs/components/button'
+// }
+```
+
+### Component Resolver
+
+For advanced use cases, you can use the component resolver:
+
+```tsx
+import { resolveComponent } from '@nathangosselin/design-system';
+
+// Resolve a component by name (will return extended version if available)
+const Button = resolveComponent('button');
+
+function App() {
+  return <Button>Click me</Button>;
 }
 ```
 

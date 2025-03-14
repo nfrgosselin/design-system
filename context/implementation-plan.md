@@ -104,8 +104,6 @@ npm init -y
   - Typography
   - Spacing
   - Border radius
-  - Shadows
-  - Animation
 - Export tokens as both JavaScript objects and CSS variables
 - Document usage
 
