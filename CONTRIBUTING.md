@@ -1,69 +1,32 @@
-# Contributing to Design System
+# Contributing Guidelines
 
-We love your input! We want to make contributing to our design system as easy and transparent as possible, whether it's:
+## Commit Message Format
 
-- Reporting a bug
-- Discussing the current state of the code
-- Submitting a fix
-- Proposing new features
-- Becoming a maintainer
+We follow the [Conventional Commits](https://www.conventionalcommits.org/) specification:
+<type>[optional scope]: <description>
+[optional body]
+[optional footer(s)]
 
-## Development Process
+### Types
 
-We use GitHub to host code, to track issues and feature requests, as well as accept pull requests.
+- **feat**: A new feature
+- **fix**: A bug fix
+- **docs**: Documentation changes
+- **style**: Changes that do not affect the meaning of the code (formatting, etc.)
+- **refactor**: Code changes that neither fix a bug nor add a feature
+- **perf**: Code changes that improve performance
+- **test**: Adding/updating tests
+- **chore**: Changes to the build process or auxiliary tools
 
-1. Fork the repo and create your branch from `main`.
-2. If you've added code that should be tested, add tests.
-3. If you've changed APIs, update the documentation.
-4. Ensure the test suite passes.
-5. Make sure your code lints.
-6. Issue that pull request!
+### Examples
 
-## Pull Request Process
+- feat(button): add new variant for call-to-action buttons
+- fix(typography): correct heading line height on mobile devices
+- docs: update README with v0 integration examples
 
-1. Update the README.md with details of changes to the interface, if applicable.
-2. Update the documentation in Storybook if needed.
-3. The PR will be merged once you have the sign-off of at least one maintainer.
+### Breaking Changes
 
-## Any contributions you make will be under the MIT Software License
+For breaking changes, add BREAKING CHANGE: in the commit footer:
 
-In short, when you submit code changes, your submissions are understood to be under the same [MIT License](LICENSE) that covers the project. Feel free to contact the maintainers if that's a concern.
-
-## Report bugs using GitHub's [issue tracker]
-
-We use GitHub issues to track public bugs. Report a bug by [opening a new issue](../../issues/new).
-
-## Write bug reports with detail, background, and sample code
-
-**Great Bug Reports** tend to have:
-
-- A quick summary and/or background
-- Steps to reproduce
-  - Be specific!
-  - Give sample code if you can.
-- What you expected would happen
-- What actually happens
-- Notes (possibly including why you think this might be happening, or stuff you tried that didn't work)
-
-## Use a Consistent Coding Style
-
-- Use TypeScript for all code files
-- 2 spaces for indentation
-- Run `npm run format` to ensure consistent code formatting
-
-## Component Guidelines
-
-When creating or modifying components:
-
-1. Ensure components are fully typed
-2. Include PropTypes and default props
-3. Write comprehensive tests
-4. Document all props in Storybook
-5. Follow accessibility best practices
-6. Keep components focused and composable
-7. Consider responsive behavior
-8. Include proper error handling
-
-## License
-
-By contributing, you agree that your contributions will be licensed under its MIT License.
+feat(button): change primary button default size
+BREAKING CHANGE: The default button size has increased from 40px to 48px height

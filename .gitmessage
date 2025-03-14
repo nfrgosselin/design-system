@@ -1,0 +1,27 @@
+# <type>(<scope>): <subject>
+# Example: feat(button): add size variants to Button component
+#
+# Types:
+#   feat     (new feature)
+#   fix      (bug fix)
+#   docs     (documentation changes)
+#   style    (formatting, missing semicolons, etc; no code change)
+#   refactor (refactoring production code)
+#   perf     (performance improvements)
+#   test     (adding missing tests, refactoring tests)
+#   chore    (updating build tasks, package manager configs, etc)
+#
+# Scope:
+#   Optional, can be anything specifying the place of the commit change
+#   Examples: button, dialog, core, cli, etc.
+#
+# Subject:
+#   Brief summary of the change in present tense. Not capitalized. No period at the end.
+#
+# Body:
+#   Optional. Detailed description of the change.
+#   Use present tense. Include motivation and contrasts with previous behavior.
+#
+# Footer:
+#   Optional. Reference issues being closed.
+#   Example: Closes #123, #456 

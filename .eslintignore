@@ -1,0 +1,8 @@
+# Include Storybook files
+!.storybook
+!.storybook/**/*
+
+# Exclude build outputs and dependencies
+node_modules
+dist
+coverage 
