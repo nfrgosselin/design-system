@@ -44,12 +44,12 @@ export const ProseLinks: Story = {
     children: 'Example Link',
   },
   render: () => (
-    <div className="space-y-4">
-      <p className="max-w-md">
+    <div className="prose">
+      <p>
         This is a paragraph with an <InlineLink href="#">inline link</InlineLink> in the middle of
         the text. These links are styled to be subtle but noticeable within body content.
       </p>
-      <p className="max-w-md">
+      <p>
         Here&apos;s another paragraph with a{' '}
         <InlineLink href="https://example.com">visited external link</InlineLink> to show the
         visited state.
@@ -69,7 +69,15 @@ export const NavigationLinks: Story = {
       <div className="flex gap-4">
         <NavLink href="#">Home</NavLink>
         <NavLink href="#">Products</NavLink>
-        <NavLink href="#" isActive>
+        <NavLink
+          href="#"
+          isActive
+          className="debug"
+          onClick={e => {
+            e.preventDefault();
+            console.log('Active link classes:', e.currentTarget.className);
+          }}
+        >
           Services
         </NavLink>
         <NavLink href="#">Contact</NavLink>

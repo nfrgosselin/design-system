@@ -1,10 +1,11 @@
-import * as React from 'react';
+import { type ReactNode } from 'react';
 import { Button as ShadcnButton } from '../shadcn/button';
 import { type ButtonProps } from '../shadcn/button';
 import { Icons } from '../../../components/icons';
 
 export interface ExtendedButtonProps extends ButtonProps {
   isLoading?: boolean;
+  children?: ReactNode;
 }
 
 export function Button({ isLoading, children, ...props }: ExtendedButtonProps) {

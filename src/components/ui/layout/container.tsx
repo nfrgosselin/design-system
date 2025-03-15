@@ -1,17 +1,19 @@
 import * as React from 'react';
-import { cn } from '../../../lib/utils';
+import { cn } from '../../../utils/cn';
 
-type ContainerProps<T extends React.ElementType> = {
+type ContainerProps<T extends React.ElementType = 'div'> = {
   size?: 'default' | 'content' | 'form';
   as?: T;
-} & Omit<React.ComponentPropsWithRef<T>, 'size' | 'as'>;
+  className?: string;
+} & Omit<React.ComponentPropsWithRef<T>, 'size' | 'as' | 'className'>;
 
 export function Container<T extends React.ElementType = 'div'>({
   className,
   size = 'default',
-  as: Component = 'div' as T,
+  as,
   ...props
 }: ContainerProps<T>) {
+  const Component = as || 'div';
   return (
     <Component
       className={cn(

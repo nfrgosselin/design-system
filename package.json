@@ -11,11 +11,16 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./styles.css": "./dist/index.css"
+    "./globals.css": "./dist/globals.css"
   },
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "LICENSE",
+    "VERSIONING.md"
   ],
   "scripts": {
     "dev": "storybook dev -p 6006",
@@ -89,7 +94,8 @@
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.2",
     "nodemon": "^3.1.0",
-    "postcss": "^8.4.35",
+    "postcss": "^8.5.3",
+    "postcss-cli": "^11.0.1",
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -115,6 +121,10 @@
     "type": "git",
     "url": "git+https://github.com/nathangosselin/design-system.git"
   },
+  "bugs": {
+    "url": "https://github.com/nathangosselin/design-system/issues"
+  },
+  "homepage": "https://github.com/nathangosselin/design-system#readme",
   "keywords": [
     "react",
     "design-system",
@@ -122,11 +132,56 @@
     "ui",
     "typescript",
     "tailwindcss",
-    "shadcn"
+    "shadcn",
+    "accessible",
+    "customizable",
+    "modern"
   ],
   "author": "Nathan Gosselin",
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "standard-version": {
+    "types": [
+      {
+        "type": "feat",
+        "section": "Features"
+      },
+      {
+        "type": "fix",
+        "section": "Bug Fixes"
+      },
+      {
+        "type": "chore",
+        "section": "Maintenance"
+      },
+      {
+        "type": "docs",
+        "section": "Documentation"
+      },
+      {
+        "type": "style",
+        "section": "Styling"
+      },
+      {
+        "type": "refactor",
+        "section": "Refactoring"
+      },
+      {
+        "type": "perf",
+        "section": "Performance"
+      },
+      {
+        "type": "test",
+        "section": "Testing"
+      }
+    ],
+    "commitUrlFormat": "{{host}}/{{owner}}/{{repository}}/commit/{{hash}}",
+    "compareUrlFormat": "{{host}}/{{owner}}/{{repository}}/compare/{{previousTag}}...{{currentTag}}",
+    "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}"
   }
 }

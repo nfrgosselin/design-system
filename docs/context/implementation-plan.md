@@ -190,7 +190,7 @@ _Integration point: Set up Semantic Versioning (Mitigating Strategy #3)_
 
 ### 4.3 CSS Handling
 
-- Finalize CSS bundling strategy
+- Finalize CSS bundling strategy (Pre-built CSS approach)
 - Ensure Tailwind utilities are properly exported
 - Test CSS inclusion in consuming projects
 - Document CSS import requirements

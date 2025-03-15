@@ -38,58 +38,63 @@
  
 @layer base {
   :root {
+    /* Color variables use space-separated HSL values (not comma-separated)
+     * Format: H S% L% (example: 178 54% 44%)
+     * This format is required for Tailwind's HSL color functions
+     */
+    
     /* Base colors */
-    --black: 20, 14.3%, 4.1%;
-    --white: 60, 33.3%, 98.8%;
+    --black: 20 14.3% 4.1%;
+    --white: 60 33.3% 98.8%;
     
     /* Weathered Scale */
-    --stone-50: 60, 33.3%, 98.8%;
-    --stone-100: 60, 9.1%, 97.8%;
-    --stone-200: 20, 9.1%, 89.1%;
-    --stone-300: 24, 5.7%, 82.7%;
-    --stone-400: 24, 5.3%, 63.9%;
-    --stone-500: 20, 9.8%, 55.7%;
-    --stone-600: 20, 3.8%, 32.9%;
-    --stone-700: 20, 5.9%, 24.9%;
-    --stone-800: 20, 6.1%, 14.9%;
-    --stone-900: 20, 14.3%, 4.1%;
+    --stone-50: 60 33.3% 98.8%;
+    --stone-100: 60 9.1% 97.8%;
+    --stone-200: 20 9.1% 89.1%;
+    --stone-300: 24 5.7% 82.7%;
+    --stone-400: 24 5.3% 63.9%;
+    --stone-500: 20 9.8% 55.7%;
+    --stone-600: 20 3.8% 32.9%;
+    --stone-700: 20 5.9% 24.9%;
+    --stone-800: 20 6.1% 14.9%;
+    --stone-900: 20 14.3% 4.1%;
     
     /* Product Identity Colors */
-    --ocean: 178, 54%, 44%;      /* #34b6ac - Professional tools */
-    --ocean-hover: 178, 54%, 40%;
-    --ocean-active: 178, 54%, 36%;
+    --ocean: 178 54% 44%;      /* #34b6ac - Professional tools */
+    --ocean-hover: 178 54% 40%;
+    --ocean-active: 178 54% 36%;
     
-    --sunset: 14, 100%, 60%;     /* #ff5f35 - Creative tools */
-    --sunset-hover: 14, 100%, 56%;
-    --sunset-active: 14, 100%, 52%;
+    --sunset: 14 100% 60%;     /* #ff5f35 - Creative tools */
+    --sunset-hover: 14 100% 56%;
+    --sunset-active: 14 100% 52%;
     
-    --sun: 45, 100%, 62%;        /* #ffd23f - Publishing tools */
-    --sun-hover: 45, 100%, 58%;
-    --sun-active: 45, 100%, 54%;
+    --sun: 45 100% 62%;        /* #ffd23f - Publishing tools */
+    --sun-hover: 45 100% 58%;
+    --sun-active: 45 100% 54%;
     
-    --marine: 217, 55%, 23%;     /* #1b365d - Technical tools */
-    --marine-hover: 217, 55%, 19%;
-    --marine-active: 217, 55%, 15%;
+    --marine: 217 55% 23%;     /* #1b365d - Technical tools */
+    --marine-hover: 217 55% 19%;
+    --marine-active: 217 55% 15%;
     
     /* Supporting Accents */
-    --seafoam: 174, 61%, 51%;    /* #34d1bf */
-    --coral: 14, 100%, 71%;      /* #ff8b6b */
-    --navy: 213, 41%, 30%;       /* #2d4b6d */
-    --amber: 39, 100%, 57%;      /* #ffb626 */
-    --lagoon: 191, 49%, 49%;     /* #40a4b9 */
-    --peach: 24, 100%, 69%;      /* #ff9f5f */
-    --slate: 213, 32%, 35%;      /* #3d5875 */
-    --gold: 39, 100%, 75%;       /* #ffd07f */
+    --seafoam: 174 61% 51%;    /* #34d1bf */
+    --coral: 14 100% 71%;      /* #ff8b6b */
+    --navy: 213 41% 30%;       /* #2d4b6d */
+    --amber: 39 100% 57%;      /* #ffb626 */
+    --lagoon: 191 49% 49%;     /* #40a4b9 */
+    --peach: 24 100% 69%;      /* #ff9f5f */
+    --slate: 213 32% 35%;      /* #3d5875 */
+    --gold: 39 100% 75%;       /* #ffd07f */
     
     /* Status Colors */
-    --success: 173, 58%, 39%;    /* #2a9d8f */
-    --success-subtle: 173, 58%, 39%, 0.15;
-    --warning: 39, 100%, 57%;    /* #ffb626 - same as amber */
-    --warning-subtle: 39, 100%, 57%, 0.15;
-    --error: 12, 75%, 61%;       /* #e76f51 */
-    --error-subtle: 12, 75%, 61%, 0.15;
-    --info: 206, 39%, 44%;       /* #457b9d */
-    --info-subtle: 206, 39%, 44%, 0.15;
+    --success: 173 58% 39%;    /* #2a9d8f */
+    --success-subtle: 173 58% 39% / 0.15;
+    --warning: 39 100% 57%;    /* #ffb626 - same as amber */
+    --warning-subtle: 39 100% 57% / 0.15;
+    --error: 12 75% 61%;       /* #e76f51 */
+    --error-subtle: 12 75% 61% / 0.15;
+    --info: 206 39% 44%;       /* #457b9d */
+    --info-subtle: 206 39% 44% / 0.15;
 
     /* Special Effects */
     --overlay-light: hsl(var(--black) / 0.1);
@@ -255,6 +260,7 @@
     h1 { @apply mb-8 mt-16 first:mt-0 font-serif text-4xl font-bold; }
     h2 { @apply mb-6 mt-12 first:mt-0 font-serif text-3xl font-bold; }
     h3 { @apply mb-4 mt-8 first:mt-0 font-serif text-2xl font-medium; }
+    p { @apply font-serif text-lg; }
     p + p { @apply mt-6; }
     ul, ol { @apply my-6 space-y-2 md:space-y-3; }
   }

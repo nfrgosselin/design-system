@@ -16,13 +16,12 @@ const linkVariants = cva(
           'font-serif text-primary underline underline-offset-4 decoration-primary hover:decoration-primary visited:text-coral visited:decoration-coral',
 
         // Navigation links - Inter
-        nav: 'font-sans text-sm font-medium text-stone-900 hover:text-primary relative after:absolute after:bottom-[-0.25em] after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-100 after:ease-out hover:after:scale-x-100',
-        'nav-active':
-          'font-sans text-sm font-medium text-primary after:absolute after:bottom-[-0.25em] after:left-0 after:h-[1px] after:w-full after:bg-primary',
+        nav: 'font-sans font-medium text-stone-900 hover:text-primary relative after:absolute after:bottom-[-0.25em] after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-primary after:transition-transform after:duration-100 after:ease-out hover:after:scale-x-100',
+        'nav-active': 'font-sans font-medium text-primary',
 
         // Side navigation links - smaller underline offset
-        'nav-side': 'font-sans text-sm font-medium text-stone-600 hover:text-primary',
-        'nav-side-active': 'font-sans text-sm font-medium text-primary',
+        'nav-side': 'font-sans font-medium text-stone-600 hover:text-primary',
+        'nav-side-active': 'font-sans font-medium text-primary',
 
         // Footer/utility links
         utility: 'font-sans text-xs text-stone-500 hover:text-stone-700',
@@ -62,7 +61,6 @@ const linkVariants = cva(
     },
     defaultVariants: {
       variant: 'prose',
-      size: 'md',
     },
   }
 );
@@ -140,7 +138,7 @@ export function Link({
 
 // Specialized link components for specific use cases
 export function InlineLink(props: Omit<LinkProps, 'variant'>) {
-  return <Link {...props} variant="prose" />;
+  return <Link {...props} variant="prose" size={undefined} />;
 }
 
 export function NavLink(
@@ -151,8 +149,9 @@ export function NavLink(
     >;
   }
 ) {
-  const effectiveVariant = props.variant || (props.isActive ? 'nav-active' : 'nav');
-  return <Link {...props} variant={effectiveVariant} />;
+  // Simplify to just use the base variant and let Link handle active state
+  const baseVariant = props.variant?.includes('side') ? 'nav-side' : 'nav';
+  return <Link {...props} variant={baseVariant} size="sm" />;
 }
 
 export function UtilityLink(props: Omit<LinkProps, 'variant'>) {
