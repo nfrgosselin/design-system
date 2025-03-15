@@ -1,6 +1,6 @@
 {
   "name": "@nathangosselin/design-system",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A modern, accessible, and customizable design system for React applications",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -37,6 +37,7 @@
     "watch-local": "nodemon --watch dist --exec 'yalc push'",
     "changelog": "standard-version --skip.tag --skip.commit",
     "release": "npm run build && npm run test && npm run changelog && npm version",
+    "release:dry-run": "npm run build && npm run test && npm version --dry-run",
     "lint-staged": "lint-staged",
     "add-component": "ts-node scripts/add-component.ts"
   },
