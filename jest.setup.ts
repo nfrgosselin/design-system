@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom';
+import { toHaveNoViolations } from 'jest-axe';
 
 // Mock IntersectionObserver
 class MockIntersectionObserver {
@@ -31,3 +32,5 @@ beforeAll(() => {
     originalError.call(console, ...args);
   };
 });
+
+expect.extend(toHaveNoViolations);

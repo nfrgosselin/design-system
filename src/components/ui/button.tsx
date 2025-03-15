@@ -102,11 +102,12 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       iconPosition = 'left',
       isIconOnly = false,
       children,
+      disabled,
       ...props
     },
     ref
   ) => {
-    const isDisabled = props.disabled;
+    const isDisabled = disabled || isLoading;
 
     const iconSize = {
       sm: 16,
@@ -128,6 +129,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           isDisabled &&
             'cursor-not-allowed bg-stone-200 text-stone-500 hover:bg-stone-200 active:scale-100'
         )}
+        disabled={isDisabled}
         ref={ref}
         {...props}
       >

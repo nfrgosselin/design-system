@@ -57,7 +57,7 @@ export function Icon({
       className={cn('inline-flex items-center justify-center', colorClasses[color], className)}
       {...props}
     >
-      <Icon className={sizeClasses[size]} aria-hidden="true" />
+      <Icon className={sizeClasses[size]} aria-hidden="true" data-testid="icon" />
     </span>
   );
 }
