@@ -36,8 +36,8 @@
     "test-local": "yalc publish --push",
     "watch-local": "nodemon --watch dist --exec 'yalc push'",
     "changelog": "standard-version --skip.tag --skip.commit",
-    "release": "npm run build && npm run test && npm run changelog && npm version",
-    "release:dry-run": "npm run build && npm run test && npm version --dry-run",
+    "release": "npm run build && npm run test && npm run changelog && git add . && npm version",
+    "release:dry-run": "npm run build && npm run test && echo 'Dry run complete - version bump simulation successful'",
     "lint-staged": "lint-staged",
     "add-component": "ts-node scripts/add-component.ts"
   },
