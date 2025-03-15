@@ -1,9 +1,33 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+### 0.1.2 (2025-03-15)
+
+### Features
+
+- complete design system core foundation ([77b687b](https://github.com/nathangosselin/design-system/commit/77b687ba255ad69b77af135d537ef459d537b87b))
+- complete package export and configuration phase ([4ea1c2b](https://github.com/nathangosselin/design-system/commit/4ea1c2b42b916c20f8b65b302c5850cbefe00a02))
+- first batch of migrated components — layout, typography, colors, button, icon, link ([5e7ea3c](https://github.com/nathangosselin/design-system/commit/5e7ea3c3825e2b75418aa1bec9e4048ce94f7449))
+- **testing:** implement phase 5 test suite ([babb0f5](https://github.com/nathangosselin/design-system/commit/babb0f5067a1bce3e8a9aaf5699dd4191f617d29))
+
+### Maintenance
+
+- setup npm publishing workflow ([4a7739f](https://github.com/nathangosselin/design-system/commit/4a7739f297a323f1f065599b8b113c416677a2f9))
+- **setup:** configure commit message validation ([f411ca4](https://github.com/nathangosselin/design-system/commit/f411ca453ff4a39edd83a3091b2021a96ddce3ef))
+
+### 0.1.1 (2025-03-15)
+
+### Features
+
+- complete design system core foundation ([77b687b](https://github.com/nathangosselin/design-system/commit/77b687ba255ad69b77af135d537ef459d537b87b))
+- complete package export and configuration phase ([4ea1c2b](https://github.com/nathangosselin/design-system/commit/4ea1c2b42b916c20f8b65b302c5850cbefe00a02))
+- first batch of migrated components — layout, typography, colors, button, icon, link ([5e7ea3c](https://github.com/nathangosselin/design-system/commit/5e7ea3c3825e2b75418aa1bec9e4048ce94f7449))
+- **testing:** implement phase 5 test suite ([babb0f5](https://github.com/nathangosselin/design-system/commit/babb0f5067a1bce3e8a9aaf5699dd4191f617d29))
+
+### Maintenance
+
+- **setup:** configure commit message validation ([f411ca4](https://github.com/nathangosselin/design-system/commit/f411ca453ff4a39edd83a3091b2021a96ddce3ef))
 
 ## [0.1.0] - 2024-03-14
 
