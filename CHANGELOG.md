@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0] - 2024-03-18
+
+### Features
+
+- **fonts:** Added improved font installation script and CLI commands for easier font integration
+- **components:** Fixed Button component to properly handle iconOnly prop
+- **docs:** Enhanced documentation for local testing and component usage
+- **bundle:** Optimized build configuration for better tree-shaking
+
+### Bug Fixes
+
+- Resolved critical dependency warnings in consuming Next.js applications
+- Fixed font loading issues in consuming applications
+- Corrected component inheritance structure for Button and other UI components
+- Updated test imports to fix failing tests
+
+### Maintenance
+
+- Improved local testing workflow with Yalc
+- Enhanced documentation with clearer examples and guidance
+- Added comprehensive testing checklist
+
 ### 0.1.2 (2025-03-15)
 
 ### Features
