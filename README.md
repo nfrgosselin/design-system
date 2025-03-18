@@ -95,7 +95,7 @@ function App() {
 
 ## Documentation
 
-For full documentation, visit our [Storybook](https://your-storybook-url.com).
+For full documentation, visit our [Storybook](https://github.com/nathangosselin/design-system#running-storybook-locally).
 
 ## Development
 
@@ -118,7 +118,7 @@ cd design-system
 ```bash
 npm install
 # or
-yarn
+yarn install
 ```
 
 3. Start development environment
@@ -209,3 +209,45 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Font Installation
+
+This design system includes custom fonts that need to be installed in your project. We've made this process as simple as possible:
+
+```bash
+# If the package is installed in your project:
+npx design-system-fonts
+
+# Or use the full package name:
+npx @nathangosselin/design-system design-system-fonts
+```
+
+For automatic installation when dependencies change, add to your `package.json`:
+
+```json
+"scripts": {
+  "postinstall": "design-system-fonts"
+}
+```
+
+This will copy all necessary font files to your project's `public/fonts` directory.
+
+### Running Storybook Locally
+
+To run the Storybook documentation locally:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+This will start the Storybook server at [http://localhost:6006](http://localhost:6006).
+
+### Building
+
+```bash
+npm run build
+# or
+yarn build
+```

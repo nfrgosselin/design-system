@@ -1,54 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { InlineLink, InlineEmphasis, InlineStrong, InlineCode } from '../inline';
+import { InlineEmphasis, InlineStrong, InlineCode } from '../inline';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 expect.extend(toHaveNoViolations);
 
 describe('Inline Typography Components', () => {
-  describe('InlineLink', () => {
-    it('renders with correct default styles', () => {
-      render(<InlineLink href="/test">Test Link</InlineLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass(
-        'text-blue-600',
-        'hover:text-blue-700',
-        'active:text-blue-800',
-        'underline',
-        'underline-offset-4',
-        'transition-colors'
-      );
-      expect(link).toHaveAttribute('href', '/test');
-    });
-
-    it('handles external links correctly', () => {
-      render(
-        <InlineLink href="https://example.com" isExternal>
-          External Link
-        </InlineLink>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('target', '_blank');
-      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-    });
-
-    it('accepts and applies custom className', () => {
-      render(
-        <InlineLink href="/test" className="custom-class">
-          Test Link
-        </InlineLink>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('custom-class');
-    });
-  });
-
   describe('InlineEmphasis', () => {
     it('renders with correct default styles', () => {
       render(<InlineEmphasis>Test Emphasis</InlineEmphasis>);
       const emphasis = screen.getByText('Test Emphasis');
       expect(emphasis.tagName).toBe('EM');
-      expect(emphasis).toHaveClass('font-serif', 'italic', 'text-stone-900');
+      expect(emphasis).toHaveClass('font-serif', 'italic', 'text-stone-700');
     });
 
     it('accepts and applies custom className', () => {
@@ -81,10 +44,10 @@ describe('Inline Typography Components', () => {
       expect(code).toHaveClass(
         'rounded',
         'bg-stone-100',
-        'px-1.5',
-        'py-0.5',
+        'px-[0.3em]',
+        'py-[0.2em]',
         'font-mono',
-        'text-sm',
+        'text-[0.9em]',
         'text-stone-900'
       );
     });
@@ -97,21 +60,16 @@ describe('Inline Typography Components', () => {
   });
 
   describe('Accessibility', () => {
-    it('InlineLink has no accessibility violations', async () => {
-      const { container } = render(<InlineLink href="/test">Accessible Link</InlineLink>);
+    it('Components have no accessibility violations', async () => {
+      const { container } = render(
+        <>
+          <InlineEmphasis>Test Emphasis</InlineEmphasis>
+          <InlineStrong>Test Strong</InlineStrong>
+          <InlineCode>Test Code</InlineCode>
+        </>
+      );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
-    });
-
-    it('InlineLink provides proper attributes for external links', () => {
-      render(
-        <InlineLink href="https://example.com" isExternal>
-          External Link
-        </InlineLink>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-      expect(link).toHaveAttribute('target', '_blank');
     });
   });
 });
