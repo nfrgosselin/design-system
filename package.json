@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "bin": {
-    "design-system-fonts": "./scripts/utils/install-fonts.js"
+    "designsystemfonts": "./scripts/utils/install-fonts.js"
   },
   "exports": {
     ".": {
@@ -135,12 +135,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nathangosselin/design-system.git"
+    "url": "git+https://github.com/nfrgosselin/design-system.git"
   },
   "bugs": {
-    "url": "https://github.com/nathangosselin/design-system/issues"
+    "url": "https://github.com/nfrgosselin/design-system/issues"
   },
-  "homepage": "https://github.com/nathangosselin/design-system#readme",
+  "homepage": "https://github.com/nfrgosselin/design-system#readme",
   "keywords": [
     "react",
     "design-system",

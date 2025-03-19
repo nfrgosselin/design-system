@@ -17,7 +17,7 @@ export { componentRegistry, resolveComponent } from './components/registry';
  */
 
 // Layout Components
-export { Button, Link } from './components/registry';
+export { Button, Link, type ButtonProps } from './components/registry';
 export { Container, Content, Grid, Section } from './components/ui/layout';
 
 // Typography Components
@@ -39,7 +39,7 @@ export {
 } from './components/ui/typography';
 
 // Display Components
-export { Icon } from './components/registry';
+export { Icon } from './components/ui/icon';
 
 // Form Components
 export { buttonVariants } from './components/registry';

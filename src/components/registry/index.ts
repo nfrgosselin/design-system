@@ -8,16 +8,11 @@ export { componentRegistry } from './mapping';
 export { resolveComponent } from './component-resolver';
 
 // Export components individually to avoid naming conflicts
-// Shadcn components
-import { buttonVariants } from './shadcn/button';
-export { buttonVariants };
-
 // Extended components (take precedence over shadcn)
-import { Button } from './extended/button';
+import { Button, buttonVariants, type ButtonProps } from './extended/button';
 import { Link } from './extended/link';
-import { Icon } from './extended/icon';
 
-export { Button, Link, Icon };
+export { Button, Link, buttonVariants, type ButtonProps };
 
 // As more components are added, export them here
 

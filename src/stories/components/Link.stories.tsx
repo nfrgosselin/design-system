@@ -7,7 +7,7 @@ import {
   ButtonLink,
   MetadataLink,
   BreadcrumbLink,
-} from '@/components/ui/link';
+} from '@/components/registry/extended/link';
 import { Mail, ChevronRight } from 'lucide-react';
 
 const meta = {

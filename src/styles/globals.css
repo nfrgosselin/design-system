@@ -1,7 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* Font Loading */
 @font-face {
   font-family: 'Freight Text Pro';
-  src: url('/fonts/freight/FreightTextProBook-Regular.ttf') format('truetype');
+  src: url('./fonts/freight/FreightTextProBook-Regular.ttf') format('truetype'),
+       url('/fonts/freight/FreightTextProBook-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -9,7 +14,8 @@
 
 @font-face {
   font-family: 'Freight Text Pro';
-  src: url('/fonts/freight/FreightTextProMedium-Regular.ttf') format('truetype');
+  src: url('./fonts/freight/FreightTextProMedium-Regular.ttf') format('truetype'),
+       url('/fonts/freight/FreightTextProMedium-Regular.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -17,7 +23,8 @@
 
 @font-face {
   font-family: 'Freight Text Pro';
-  src: url('/fonts/freight/FreightTextProBlack-Regular.ttf') format('truetype');
+  src: url('./fonts/freight/FreightTextProBlack-Regular.ttf') format('truetype'),
+       url('/fonts/freight/FreightTextProBlack-Regular.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
@@ -26,16 +33,13 @@
 /* Map Black weight to bold for compatibility */
 @font-face {
   font-family: 'Freight Text Pro';
-  src: url('/fonts/freight/FreightTextProBlack-Regular.ttf') format('truetype');
+  src: url('./fonts/freight/FreightTextProBlack-Regular.ttf') format('truetype'),
+       url('/fonts/freight/FreightTextProBlack-Regular.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
- 
 @layer base {
   :root {
     /* Color variables use space-separated HSL values (not comma-separated)

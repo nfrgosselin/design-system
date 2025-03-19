@@ -8,6 +8,9 @@
 // Button component
 export * from './button';
 
+// Link component
+export * from './link';
+
 // Add more component exports here as they are created
 // Example:
 // export * from './card';

@@ -55,10 +55,18 @@ export const componentRegistry: ComponentRegistry = {
 
   input: {
     name: 'Input',
-    description: 'Displays a form input field or a component that looks like an input field.',
+    description: 'Displays a form input field.',
     category: 'form',
     shadcnPath: './shadcn/input',
     docUrl: 'https://ui.shadcn.com/docs/components/input',
+  },
+
+  label: {
+    name: 'Label',
+    description: 'Renders an accessible label associated with controls.',
+    category: 'form',
+    shadcnPath: './shadcn/label',
+    docUrl: 'https://ui.shadcn.com/docs/components/label',
   },
 
   select: {
@@ -94,11 +102,11 @@ export const componentRegistry: ComponentRegistry = {
     extendedPath: './extended/link',
   },
 
-  icon: {
-    name: 'Icon',
-    description: 'A component for displaying Lucide icons with consistent sizing and colors.',
+  hover: {
+    name: 'Hover',
+    description: 'For sighted users to preview content available behind a click.',
     category: 'display',
-    shadcnPath: './shadcn/icon',
-    extendedPath: './extended/icon',
+    shadcnPath: './shadcn/hover-card',
+    docUrl: 'https://ui.shadcn.com/docs/components/hover-card',
   },
 } as const;

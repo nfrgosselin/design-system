@@ -1,6 +1,7 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { InlineLink, InlineEmphasis, InlineStrong, InlineCode } from './inline';
+import { InlineEmphasis, InlineStrong, InlineCode } from './inline';
+import { InlineLink } from '../../registry/extended/link';
 
 const meta = {
   title: 'Typography/Inline',

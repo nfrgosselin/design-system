@@ -216,17 +216,17 @@ This design system includes custom fonts that need to be installed in your proje
 
 ```bash
 # If the package is installed in your project:
-npx design-system-fonts
+npx designsystemfonts
 
 # Or use the full package name:
-npx @nathangosselin/design-system design-system-fonts
+npx @nathangosselin/design-system designsystemfonts
 ```
 
 For automatic installation when dependencies change, add to your `package.json`:
 
 ```json
 "scripts": {
-  "postinstall": "design-system-fonts"
+  "postinstall": "designsystemfonts"
 }
 ```
 

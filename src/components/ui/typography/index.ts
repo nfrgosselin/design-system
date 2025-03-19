@@ -1,6 +1,7 @@
 export { ArticleTitle, ArticleSubtitle, ArticleHeader, ArticleText } from './article';
 
-export { InlineCode, InlineLink, InlineEmphasis, InlineStrong } from './inline';
+export { InlineCode, InlineEmphasis, InlineStrong } from './inline';
+export { InlineLink } from '../../registry/extended/link';
 
 export { UIHeader, UILabel, UICaption } from './ui';
 

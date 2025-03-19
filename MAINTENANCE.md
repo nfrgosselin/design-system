@@ -18,6 +18,15 @@
 - [ ] Verify component works with Tailwind configuration
 - [ ] Test v0 compatibility (if applicable)
 
+## Font and Asset Handling
+
+- [ ] Store font files in the `public/fonts` directory
+- [ ] Ensure font face definitions in CSS use multiple src formats (`./fonts/... and /fonts/...`)
+- [ ] If adding new fonts, update the copyFonts function in tsup.config.ts
+- [ ] After building, verify fonts are properly copied to dist/fonts with `npm run test-fonts`
+- [ ] Test font loading in consuming applications with `npx @nathangosselin/design-system design-system-fonts`
+- [ ] When distributing new fonts, ensure the bin script in package.json correctly references the font installer
+
 ## Before Publishing
 
 - [ ] Run the full test suite (`npm test`)
