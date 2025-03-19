@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.3.1](https://github.com/nfrgosselin/design-system/compare/v0.3.0...v0.3.1) (2025-03-19)
+
+### Features
+
+- add support for react 19 ([33efec0](https://github.com/nfrgosselin/design-system/commit/33efec0e5e21e56f18b8a82d27282b84fedc6236))
+
 ## [0.3.0](https://github.com/nfrgosselin/design-system/compare/v0.2.0...v0.3.0) (2025-03-19)
 
 ### Features
