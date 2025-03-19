@@ -1,6 +1,6 @@
 {
   "name": "@nathangosselin/design-system",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A modern, accessible, and customizable design system for React applications",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -44,7 +44,7 @@
     "test-fonts": "find dist/fonts -type f | grep -i 'freight' || echo 'No font files found!'",
     "test-cli": "node ./scripts/utils/install-fonts.js",
     "changelog": "standard-version --skip.tag --skip.commit",
-    "release": "npm run build && npm run test && npm run changelog && git add . && npm version",
+    "release": "npm run build && npm run test && standard-version",
     "release:dry-run": "npm run build && npm run test && echo 'Dry run complete - version bump simulation successful'",
     "lint-staged": "lint-staged",
     "add-component": "ts-node scripts/add-component.ts"

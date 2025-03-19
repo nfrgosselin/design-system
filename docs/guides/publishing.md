@@ -58,7 +58,7 @@ This guide explains how to publish updates to the NPM package.
    import '@nathangosselin/design-system/styles.css';
    ```
 
-8. **Important**: Commit all changes before proceeding with the release. This prevents "Git working directory not clean" errors during the release process.
+8. **Important**: Commit all changes before proceeding with the release.
 
    ```bash
    git add .
@@ -88,21 +88,46 @@ See [VERSIONING.md](../../VERSIONING.md) for detailed guidelines.
 
 ### 3. Update Version and Create Release
 
-With all changes committed, run the release script with the appropriate version type:
+There are two recommended approaches to release the package:
+
+#### Option A: Use standard-version (Recommended)
+
+This approach uses `standard-version` to manage the entire release process in one step:
 
 ```bash
-npm run release patch|minor|major
+# For a minor version bump
+npx standard-version --release-as minor
+
+# For other version types
+npx standard-version --release-as patch
+npx standard-version --release-as major
 ```
 
-This script:
+This will:
 
-1. Builds the package
-2. Runs tests
-3. Updates CHANGELOG.md
-4. Creates a new git tag
-5. Commits changes
+1. Bump the version in package.json
+2. Update the CHANGELOG.md
+3. Commit the changes
+4. Create a git tag
 
-> **Note**: If you encounter a "Git working directory not clean" error, ensure you've committed all changes as mentioned in step 8 above.
+#### Option B: Manual two-step process
+
+If you prefer more control, use this approach:
+
+1. First, update the changelog and commit those changes:
+
+   ```bash
+   npm run changelog
+   git add CHANGELOG.md package.json
+   git commit -m "chore: update changelog"
+   ```
+
+2. Then run npm version to create the tag:
+   ```bash
+   npm version patch|minor|major
+   ```
+
+> **Note**: Using the default `npm run release` script may cause a "Git working directory not clean" error because it tries to run `npm version` right after changing files with `standard-version`.
 
 ### 4. Push Release to GitHub
 
@@ -143,24 +168,17 @@ If you see this error during the release process:
 npm ERR! Git working directory not clean.
 ```
 
-It means you have uncommitted changes in your repository. Follow these steps:
+It means that tools like `npm version` require a clean working directory (no uncommitted or staged changes). The issue often occurs when using automated scripts that modify files right before running `npm version`.
 
-1. Check what files are modified:
+To resolve this:
 
-   ```bash
-   git status
-   ```
+1. Use Option A or B from section 3 above instead of the default release script
+2. Or, modify package.json to create a more reliable release script:
 
-2. Commit all changes:
-
-   ```bash
-   git add .
-   git commit -m "chore: prepare for release"
-   ```
-
-3. Run the release command again:
-   ```bash
-   npm run release patch|minor|major
+   ```json
+   "scripts": {
+     "release": "npm run build && npm run test && standard-version"
+   }
    ```
 
 ### Other Publication Issues
@@ -212,7 +230,7 @@ For urgent fixes:
 
 2. Make the necessary changes
 3. **Commit all changes** before proceeding with the release process
-4. Follow the regular release process
+4. Use Option A from section 3 to create the release
 5. After publication, merge the hotfix back to main
 
 ## Beta Releases
@@ -223,6 +241,8 @@ For pre-release versions:
 2. Run:
 
 ```bash
+npx standard-version --prerelease beta
+# or
 npm version prerelease --preid=beta
 npm publish --tag beta
 ```
