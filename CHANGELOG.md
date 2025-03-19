@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/nfrgosselin/design-system/compare/v0.2.0...v0.2.1) (2025-03-19)
+
+### Features
+
+- simplified registry structure - removed shadcn/ui as foundation ([bab9105](https://github.com/nfrgosselin/design-system/commit/bab91054a60c6efc1fb66e457c2c6c084e52875c))
+
+### Maintenance
+
+- merging latest version of files ([db73c53](https://github.com/nfrgosselin/design-system/commit/db73c53bb7d884feff72c2593a5794eee06fbb69))
+
 ## [0.2.0] - 2024-03-18
 
 ### Features

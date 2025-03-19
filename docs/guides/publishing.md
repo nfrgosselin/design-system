@@ -52,9 +52,17 @@ This guide explains how to publish updates to the NPM package.
    ```
 
 7. In your test project, verify the correct CSS import path:
+
    ```tsx
    // This is the correct import path
    import '@nathangosselin/design-system/styles.css';
+   ```
+
+8. **Important**: Commit all changes before proceeding with the release. This prevents "Git working directory not clean" errors during the release process.
+
+   ```bash
+   git add .
+   git commit -m "chore: prepare for release"
    ```
 
 ### 2. Determine Version Update
@@ -80,7 +88,7 @@ See [VERSIONING.md](../../VERSIONING.md) for detailed guidelines.
 
 ### 3. Update Version and Create Release
 
-Run the release script with the appropriate version type:
+With all changes committed, run the release script with the appropriate version type:
 
 ```bash
 npm run release patch|minor|major
@@ -93,6 +101,8 @@ This script:
 3. Updates CHANGELOG.md
 4. Creates a new git tag
 5. Commits changes
+
+> **Note**: If you encounter a "Git working directory not clean" error, ensure you've committed all changes as mentioned in step 8 above.
 
 ### 4. Push Release to GitHub
 
@@ -123,7 +133,37 @@ This will trigger the automated GitHub workflow that publishes to NPM.
    import { Button, Container, Section } from '@nathangosselin/design-system';
    ```
 
-### Troubleshooting Publication Issues
+## Troubleshooting Common Issues
+
+### "Git working directory not clean" Error
+
+If you see this error during the release process:
+
+```
+npm ERR! Git working directory not clean.
+```
+
+It means you have uncommitted changes in your repository. Follow these steps:
+
+1. Check what files are modified:
+
+   ```bash
+   git status
+   ```
+
+2. Commit all changes:
+
+   ```bash
+   git add .
+   git commit -m "chore: prepare for release"
+   ```
+
+3. Run the release command again:
+   ```bash
+   npm run release patch|minor|major
+   ```
+
+### Other Publication Issues
 
 If the automated publish fails:
 
@@ -171,12 +211,16 @@ For urgent fixes:
    ```
 
 2. Make the necessary changes
-3. Follow the regular release process
-4. After publication, merge the hotfix back to main
+3. **Commit all changes** before proceeding with the release process
+4. Follow the regular release process
+5. After publication, merge the hotfix back to main
 
 ## Beta Releases
 
 For pre-release versions:
+
+1. Ensure all changes are committed
+2. Run:
 
 ```bash
 npm version prerelease --preid=beta
