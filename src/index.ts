@@ -18,7 +18,7 @@ export { componentRegistry, resolveComponent } from './components/registry';
 
 // Layout Components
 export { Button, Link, type ButtonProps } from './components/registry';
-export { Container, Content, Grid, Section } from './components/ui/layout';
+export { Container, Content, Grid, Section } from './components/layout';
 
 // Typography Components
 export {
@@ -36,10 +36,10 @@ export {
   UIHeader,
   UILabel,
   UICaption,
-} from './components/ui/typography';
+} from './components/typography';
 
 // Display Components
-export { Icon } from './components/ui/icon';
+export { Icon } from './components/utils/icon';
 
 // Form Components
 export { buttonVariants } from './components/registry';
@@ -100,7 +100,7 @@ export { buttonVariants } from './components/registry';
  */
 
 // Type exports for better IDE support
-export type { ComponentMapping, ComponentRegistry } from './components/registry/registry.types';
+export type { ComponentMetadata, ComponentRegistry } from './components/registry/registry.types';
 
 // Export version information
 export const VERSION = '0.1.0';

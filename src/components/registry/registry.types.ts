@@ -1,32 +1,25 @@
 /**
- * Types for the component registry system
+ * Types for the simplified component registry system
  */
 
-// Interface for component mapping
-export interface ComponentMapping {
-  // Name is the key used to reference the component
+// Component categories as defined in the refactoring plan
+export type ComponentCategory =
+  | 'forms'
+  | 'layout'
+  | 'navigation'
+  | 'feedback'
+  | 'data-display'
+  | 'utils'
+  | 'typography';
+
+// Component metadata without shadcn references
+export interface ComponentMetadata {
   name: string;
-  // Description of the component's purpose
   description: string;
-  // Component category for organization
-  category:
-    | 'layout'
-    | 'form'
-    | 'display'
-    | 'navigation'
-    | 'data'
-    | 'feedback'
-    | 'typography'
-    | 'overlay';
-  // Path to the original shadcn component
-  shadcnPath: string;
-  // Path to the extended version if it exists
-  extendedPath?: string;
-  // Documentation URL for the component
+  category: ComponentCategory;
   docUrl?: string;
+  path: string;
 }
 
-// Registry type - maps component names to their ComponentMapping
-export type ComponentRegistry = {
-  [key: string]: ComponentMapping;
-};
+// Registry type - maps component names to their ComponentMetadata
+export type ComponentRegistry = Record<string, ComponentMetadata>;

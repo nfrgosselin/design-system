@@ -11,7 +11,7 @@ A modern, accessible, and customizable design system for React applications.
 - 🎭 Storybook documentation
 - 🔧 Highly customizable theming
 - 📱 Responsive by default
-- 🧩 Built on shadcn/ui with a powerful component registry
+- 🧩 Built with a powerful component registry system
 
 ## Installation
 
@@ -24,38 +24,39 @@ yarn add @nathangosselin/design-system
 ## Usage
 
 ```tsx
-import { Button, Card } from '@nathangosselin/design-system';
+import { Button, Container, Section } from '@nathangosselin/design-system';
 import '@nathangosselin/design-system/styles.css';
 
 function App() {
   return (
-    <div>
-      <Card>
+    <Container>
+      <Section>
         <h2>Hello World</h2>
         <Button>Click me</Button>
-      </Card>
-    </div>
+      </Section>
+    </Container>
   );
 }
 ```
 
 ## Component Registry System
 
-This design system uses a component registry approach to manage shadcn/ui components. This provides several benefits:
+This design system uses a component registry approach to manage components. This provides several benefits:
 
 - **Discoverability**: Easily find available components and their documentation
-- **Extensibility**: Extend shadcn components with custom functionality
+- **Extensibility**: Extend components with custom functionality
 - **Consistency**: Maintain a consistent API across all components
 - **Documentation**: Access metadata about each component
 
-### Component Structure
+### Component Categories
 
-Components are organized into two categories:
+Components are organized into the following categories:
 
-1. **Base shadcn/ui components**: Original components from shadcn/ui
-2. **Extended components**: Our customized versions with additional features
-
-The component registry automatically selects the extended version when available, falling back to the base shadcn/ui version.
+1. **Forms**: Components for user input (`Button`)
+2. **Layout**: Components for page structure (`Container`, `Section`, `Grid`, `Content`)
+3. **Navigation**: Components for navigation (`Link`)
+4. **Typography**: Components for text styling (`ArticleTitle`, `ArticleSubtitle`, etc.)
+5. **Utils**: Utility components (`Icon`, `NamedIcon`)
 
 ### Using Component Metadata
 
@@ -70,11 +71,9 @@ const buttonInfo = componentRegistry.button;
 console.log(buttonInfo);
 // {
 //   name: 'Button',
-//   description: 'Triggers an action or event...',
-//   category: 'form',
-//   shadcnPath: './shadcn/button',
-//   extendedPath: './extended/button',
-//   docUrl: 'https://ui.shadcn.com/docs/components/button'
+//   description: 'Interactive button component with multiple variants, icons, and loading states',
+//   category: 'forms',
+//   path: '../forms/button'
 // }
 ```
 
@@ -83,10 +82,14 @@ console.log(buttonInfo);
 For advanced use cases, you can use the component resolver:
 
 ```tsx
-import { resolveComponent } from '@nathangosselin/design-system';
+import { resolveComponent, getComponentsByCategory } from '@nathangosselin/design-system';
 
-// Resolve a component by name (will return extended version if available)
+// Resolve a component by name
 const Button = resolveComponent('button');
+
+// Get all components in a specific category
+const layoutComponents = getComponentsByCategory('layout');
+// Returns metadata for Container, Section, Grid, and Content
 
 function App() {
   return <Button>Click me</Button>;
@@ -96,6 +99,16 @@ function App() {
 ## Documentation
 
 For full documentation, visit our [Storybook](https://github.com/nathangosselin/design-system#running-storybook-locally).
+
+### Workflow Guides
+
+We provide comprehensive guides for common workflows:
+
+- [Component Migration Guide](./docs/guides/component-migration.md) - How to migrate components from another project
+- [Publishing Guide](./docs/guides/publishing.md) - How to publish updates to the NPM package
+- [Consuming Guide](./docs/guides/consuming.md) - How to import and use the design system
+
+For a complete list of guides, see the [Guides Index](./docs/guides/index.md).
 
 ## Development
 
@@ -238,16 +251,4 @@ To run the Storybook documentation locally:
 
 ```bash
 npm run dev
-# or
-yarn dev
-```
-
-This will start the Storybook server at [http://localhost:6006](http://localhost:6006).
-
-### Building
-
-```bash
-npm run build
-# or
-yarn build
 ```

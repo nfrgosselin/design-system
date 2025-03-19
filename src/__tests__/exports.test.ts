@@ -10,7 +10,7 @@ import {
   resolveComponent,
 
   // Types
-  ComponentMapping,
+  ComponentMetadata,
   ComponentRegistry,
 
   // Utils
@@ -45,18 +45,18 @@ describe('Design System Exports', () => {
 
   test('type exports compile correctly', () => {
     // Type tests - these just need to compile
-    const mapping: ComponentMapping = {
+    const metadata: ComponentMetadata = {
       name: 'test',
       description: 'test component',
       category: 'layout',
-      shadcnPath: './test',
+      path: '../test',
     };
 
     const registry: ComponentRegistry = {
-      test: mapping,
+      test: metadata,
     };
 
-    expect(mapping).toBeDefined();
+    expect(metadata).toBeDefined();
     expect(registry).toBeDefined();
   });
 });

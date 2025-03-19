@@ -14,7 +14,7 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     },
-    "./globals.css": "./dist/globals.css",
+    "./styles.css": "./dist/styles.css",
     "./fonts/*": "./dist/fonts/*"
   },
   "sideEffects": [

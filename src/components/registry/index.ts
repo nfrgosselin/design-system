@@ -5,16 +5,118 @@ export * from './registry.types';
 export { componentRegistry } from './mapping';
 
 // Export component resolver
-export { resolveComponent } from './component-resolver';
+export {
+  resolveComponent,
+  getComponentMetadata,
+  getComponentsByCategory,
+  getComponentCategories,
+} from './component-resolver';
 
-// Export components individually to avoid naming conflicts
-// Extended components (take precedence over shadcn)
-import { Button, buttonVariants, type ButtonProps } from './extended/button';
-import { Link } from './extended/link';
+// Direct component exports
+import { Button, buttonVariants, type ButtonProps } from '../forms/button';
+import {
+  Link,
+  InlineLink,
+  NavLink,
+  UtilityLink,
+  ButtonLink,
+  MetadataLink,
+  BreadcrumbLink,
+  type LinkProps,
+} from '../navigation/link';
+import { Icon, type IconProps, type IconColor, type IconSize } from '../utils/icon';
+import { NamedIcon, Icons, type IconName, type NamedIconProps } from '../utils/namedIcon';
+// Layout components
+import {
+  Container,
+  Content,
+  Grid,
+  Section,
+  type ContainerProps,
+  type ContentProps,
+  type GridProps,
+  type SectionProps,
+} from '../layout';
+// Typography components
+import {
+  ArticleTitle,
+  ArticleSubtitle,
+  ArticleHeader,
+  ArticleText,
+  InlineEmphasis,
+  InlineStrong,
+  InlineCode,
+  UIHeader,
+  UILabel,
+  UICaption,
+  type ArticleTextProps,
+  type ArticleHeaderProps,
+  type ArticleTitleProps,
+  type ArticleSubtitleProps,
+  type InlineCodeProps,
+  type InlineEmphasisProps,
+  type InlineStrongProps,
+  type UIHeaderProps,
+  type UILabelProps,
+  type UICaptionProps,
+} from '../typography';
 
-export { Button, Link, buttonVariants, type ButtonProps };
-
-// As more components are added, export them here
+// Export components directly
+export {
+  Button,
+  buttonVariants,
+  // Navigation components
+  Link,
+  InlineLink,
+  NavLink,
+  UtilityLink,
+  ButtonLink,
+  MetadataLink,
+  BreadcrumbLink,
+  // Utility components
+  Icon,
+  NamedIcon,
+  Icons,
+  // Layout components
+  Container,
+  Content,
+  Grid,
+  Section,
+  // Typography components
+  ArticleTitle,
+  ArticleSubtitle,
+  ArticleHeader,
+  ArticleText,
+  InlineEmphasis,
+  InlineStrong,
+  InlineCode,
+  UIHeader,
+  UILabel,
+  UICaption,
+  // Types
+  type ButtonProps,
+  type LinkProps,
+  type IconProps,
+  type IconColor,
+  type IconSize,
+  type IconName,
+  type NamedIconProps,
+  type ContainerProps,
+  type ContentProps,
+  type GridProps,
+  type SectionProps,
+  // Typography Types
+  type ArticleTextProps,
+  type ArticleHeaderProps,
+  type ArticleTitleProps,
+  type ArticleSubtitleProps,
+  type InlineCodeProps,
+  type InlineEmphasisProps,
+  type InlineStrongProps,
+  type UIHeaderProps,
+  type UILabelProps,
+  type UICaptionProps,
+};
 
 /**
  * Component registry usage:
@@ -26,11 +128,7 @@ export { Button, Link, buttonVariants, type ButtonProps };
  *    import { componentRegistry } from '@yourusername/design-system';
  *    const buttonInfo = componentRegistry.button;
  *
- * 3. Extending components:
- *    Add your extended component to /extended directory
- *    and update the mapping in mapping.ts with the extendedPath.
- *
- * 4. Using the component resolver:
+ * 3. Using the component resolver:
  *    import { resolveComponent } from '@yourusername/design-system';
- *    const Button = resolveComponent('button');
+ *    const Button = await resolveComponent('button');
  */

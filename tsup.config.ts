@@ -29,12 +29,12 @@ async function copyFonts() {
 
 async function processCss() {
   // Read the source CSS file
-  let css = await fs.readFile('src/styles/globals.css', 'utf8');
+  let css = await fs.readFile('src/styles/styles.css', 'utf8');
 
   // Process with PostCSS (Tailwind + Autoprefixer)
   const result = await postcss([tailwindcss('./tailwind.config.ts'), autoprefixer()]).process(css, {
-    from: 'src/styles/globals.css',
-    to: 'dist/globals.css',
+    from: 'src/styles/styles.css',
+    to: 'dist/styles.css',
   });
 
   // Get the processed CSS
@@ -44,7 +44,7 @@ async function processCss() {
   await mkdir('dist', { recursive: true });
 
   // Write the processed CSS
-  await fs.writeFile('dist/globals.css', css);
+  await fs.writeFile('dist/styles.css', css);
 }
 
 export default defineConfig({

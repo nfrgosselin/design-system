@@ -1,82 +1,106 @@
 # Component Registry
 
-This directory contains the component registry system for our design system. The registry provides a structured way to manage and extend shadcn/ui components.
+This directory contains the component registry system for our design system.
+
+## Overview
+
+The component registry provides:
+
+1. A central location for component metadata
+2. Tools for discovering and resolving components
+3. Categorization of components
+4. Documentation linking
 
 ## Structure
 
-```
-registry/
-├── shadcn/           # Original shadcn/ui components
-├── extended/         # Our extended versions of shadcn components
-├── index.ts          # Main export for all components
-├── mapping.ts        # Component registry mapping
-└── registry.types.ts # Type definitions for the registry
-```
+The registry consists of:
 
-## How the Registry Works
+- **registry.types.ts**: Contains type definitions for the registry
+- **mapping.ts**: Maps component names to their metadata
+- **component-resolver.ts**: Provides utilities for resolving components
+- **index.ts**: Exports everything needed from the registry
 
-1. **Component Discovery**: The `mapping.ts` file contains metadata about all available components, including their paths, descriptions, and categories.
+## Usage
 
-2. **Component Extension**: The registry allows for two versions of each component:
+### Importing Components Directly
 
-   - **Original shadcn/ui component**: Located in the `shadcn/` directory
-   - **Extended version**: Located in the `extended/` directory with additional features/styling
-
-3. **Automatic Exports**: The `index.ts` file automatically exports all components, preferring the extended version when available.
-
-## How to Use Components
-
-Import components directly from the design system:
+The simplest way to use components is to import them directly:
 
 ```tsx
 import { Button } from '@yourusername/design-system';
 
-// Use the component
-<Button>Click me</Button>;
+function MyComponent() {
+  return <Button>Click me</Button>;
+}
 ```
 
-## How to Extend a Component
+### Accessing Component Metadata
 
-1. **Create the Base Component**: First, copy the original shadcn/ui component to the `shadcn/` directory
-2. **Create an Extended Version**: Create your extended component in the `extended/` directory
-3. **Update the Registry**: Update `mapping.ts` to include your extended component's path
-
-### Example Extension Pattern
+You can access component metadata from the registry:
 
 ```tsx
-// In extended/button.tsx
-import { Button as ShadcnButton, ButtonProps as ShadcnButtonProps } from '../shadcn/button';
+import { componentRegistry } from '@yourusername/design-system';
 
-export interface ExtendedButtonProps extends ShadcnButtonProps {
-  // Add new props
-  isLoading?: boolean;
-}
-
-export const Button = ({ isLoading, children, ...props }: ExtendedButtonProps) => {
-  return <ShadcnButton {...props}>{isLoading ? 'Loading...' : children}</ShadcnButton>;
-};
+const buttonInfo = componentRegistry.button;
+console.log(buttonInfo.description); // "Interactive button component with multiple variants..."
 ```
 
-## Component Mapping
+### Getting Components by Category
 
-The component mapping in `mapping.ts` provides metadata for each component:
+You can get all components in a specific category:
 
-```ts
-{
-  button: {
-    name: 'Button',
-    description: 'Triggers an action or event.',
-    category: 'form',
-    shadcnPath: './shadcn/button',
-    extendedPath: './extended/button', // Optional
-    docUrl: 'https://ui.shadcn.com/docs/components/button',
-  },
+```tsx
+import { getComponentsByCategory } from '@yourusername/design-system';
+
+const formComponents = getComponentsByCategory('forms');
+// Returns metadata for Button, Input, Select, etc.
+```
+
+### Using the Component Resolver
+
+For dynamic component resolution:
+
+```tsx
+import { resolveComponent } from '@yourusername/design-system';
+
+async function MyDynamicComponent() {
+  const Button = await resolveComponent('button');
+  return <Button>Click me</Button>;
 }
 ```
 
-This mapping is used for:
+## Adding New Components
 
-- Documentation generation
-- Component discovery
-- Automatic importing
-- Categorization
+To add a new component to the registry:
+
+1. Create your component in the appropriate category directory (e.g., `src/components/forms/new-component.tsx`)
+2. Add an entry to the registry in `mapping.ts`:
+
+```tsx
+newComponent: {
+  name: 'NewComponent',
+  description: 'Description of what the component does',
+  category: 'forms',
+  path: '../forms/new-component',
+},
+```
+
+3. Export the component in the main registry `index.ts` file:
+
+```tsx
+import { NewComponent } from '../forms/new-component';
+
+export { NewComponent };
+```
+
+## Categories
+
+Components are organized into these categories:
+
+- **forms**: Form-related components (Button, Input, etc.)
+- **layout**: Layout components (Container, Grid, etc.)
+- **navigation**: Navigation components (Link, Menu, etc.)
+- **feedback**: Feedback components (Alert, Toast, etc.)
+- **data-display**: Data display components (Table, List, etc.)
+- **utils**: Utility components (Portal, VisuallyHidden, etc.)
+- **typography**: Typography components (Heading, Text, etc.)

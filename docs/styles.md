@@ -5,7 +5,7 @@
 To use the design system styles, import the CSS file in your application's entry point:
 
 ```tsx
-import '@nathangosselin/design-system/globals.css';
+import '@nathangosselin/design-system/styles.css';
 ```
 
 This will include:
@@ -76,7 +76,7 @@ For Next.js projects, we recommend:
 
    ```tsx
    // app/layout.tsx
-   import '@nathangosselin/design-system/globals.css';
+   import '@nathangosselin/design-system/styles.css';
 
    export default function RootLayout({ children }) {
      return (
@@ -93,7 +93,7 @@ Most bundlers like Vite can handle font imports directly:
 
 ```tsx
 // src/main.tsx
-import '@nathangosselin/design-system/globals.css';
+import '@nathangosselin/design-system/styles.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
