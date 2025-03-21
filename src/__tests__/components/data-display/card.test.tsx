@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { ArticleCard, ProjectCard, FeatureCard } from '../../../components/data-display/card';
 
 describe('ArticleCard', () => {

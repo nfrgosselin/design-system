@@ -72,6 +72,7 @@ import {
   type ProjectCardProps,
   type FeatureCardProps,
 } from '../data-display/card';
+import { BlogPostPreview, type BlogPostPreviewProps } from '../data-display/blog-post-preview';
 
 // Export components directly
 export {
@@ -132,6 +133,7 @@ export {
   ArticleCard,
   ProjectCard,
   FeatureCard,
+  BlogPostPreview,
   articleCardVariants,
   projectCardVariants,
   featureCardVariants,
@@ -139,6 +141,7 @@ export {
   type ArticleCardProps,
   type ProjectCardProps,
   type FeatureCardProps,
+  type BlogPostPreviewProps,
 };
 
 /**

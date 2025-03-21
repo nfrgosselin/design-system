@@ -161,4 +161,12 @@ export const componentRegistry: ComponentRegistry = {
     category: 'data-display',
     path: '../data-display/card',
   },
+
+  blogPostPreview: {
+    name: 'BlogPostPreview',
+    description:
+      'A compact component for displaying blog post titles with publish dates in a list format',
+    category: 'data-display',
+    path: '../data-display/blog-post-preview',
+  },
 };
