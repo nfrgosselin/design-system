@@ -4,10 +4,18 @@ This guide explains how to consume the design system in your projects.
 
 ## Basic Installation
 
+1. Install package
+
 ```bash
 npm install @nathangosselin/design-system
 # or
 yarn add @nathangosselin/design-system
+```
+
+2. Install fonts
+
+```bash
+npx designsystemfonts
 ```
 
 ## Basic Usage

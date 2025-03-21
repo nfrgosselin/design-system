@@ -60,6 +60,18 @@ import {
   type UILabelProps,
   type UICaptionProps,
 } from '../typography';
+// Data display components
+import {
+  ArticleCard,
+  ProjectCard,
+  FeatureCard,
+  articleCardVariants,
+  projectCardVariants,
+  featureCardVariants,
+  type ArticleCardProps,
+  type ProjectCardProps,
+  type FeatureCardProps,
+} from '../data-display/card';
 
 // Export components directly
 export {
@@ -116,6 +128,17 @@ export {
   type UIHeaderProps,
   type UILabelProps,
   type UICaptionProps,
+  // Data display components
+  ArticleCard,
+  ProjectCard,
+  FeatureCard,
+  articleCardVariants,
+  projectCardVariants,
+  featureCardVariants,
+  // Data display component types
+  type ArticleCardProps,
+  type ProjectCardProps,
+  type FeatureCardProps,
 };
 
 /**

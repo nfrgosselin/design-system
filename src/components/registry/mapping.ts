@@ -138,4 +138,27 @@ export const componentRegistry: ComponentRegistry = {
     category: 'utils',
     path: '../utils/namedIcons',
   },
+
+  // Data display components
+  articleCard: {
+    name: 'ArticleCard',
+    description: 'A card component for displaying article content with image, title, and metadata',
+    category: 'data-display',
+    path: '../data-display/card',
+  },
+
+  projectCard: {
+    name: 'ProjectCard',
+    description:
+      'A card component for displaying project information with image, details, and metrics',
+    category: 'data-display',
+    path: '../data-display/card',
+  },
+
+  featureCard: {
+    name: 'FeatureCard',
+    description: 'An interactive card for displaying features with expandable content and actions',
+    category: 'data-display',
+    path: '../data-display/card',
+  },
 };
