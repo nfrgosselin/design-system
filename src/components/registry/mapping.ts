@@ -169,4 +169,11 @@ export const componentRegistry: ComponentRegistry = {
     category: 'data-display',
     path: '../data-display/blog-post-preview',
   },
+
+  blogPostList: {
+    name: 'BlogPostList',
+    description: 'A component for displaying a list of blog posts with optional "See all" button',
+    category: 'data-display',
+    path: '../data-display/blog-post-list',
+  },
 };
