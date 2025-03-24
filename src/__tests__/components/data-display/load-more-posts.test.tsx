@@ -1,4 +1,5 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { LoadMorePosts } from '../../../components/data-display/load-more-posts';
 import { type BlogPost } from '../../../types/blog';
 
