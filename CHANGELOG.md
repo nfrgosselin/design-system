@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.0.0](https://github.com/nfrgosselin/design-system/compare/v0.3.1...v1.0.0) (2025-03-24)
+
+### Features
+
+- added blog-post-preview.tsx ([6a95f15](https://github.com/nfrgosselin/design-system/commit/6a95f154d7d0444c0e132b10d53d4f97b9235f7c))
+- adding blog-post-list.tsx ([92c3d0c](https://github.com/nfrgosselin/design-system/commit/92c3d0cac91a0be8422423303602075e1eea5d29))
+- fixing loadmoreposts components ([e8f79de](https://github.com/nfrgosselin/design-system/commit/e8f79de746e94b771fd9d7671b92cbc93c1282f6))
+- migrate load-more-posts component ([59e92f9](https://github.com/nfrgosselin/design-system/commit/59e92f9f71c35de999736c92a1facbe0a76a35af))
+- updating card styling ([225586f](https://github.com/nfrgosselin/design-system/commit/225586f1dc0642d12b413502133956f4d0993aa8))
+
 ### [0.3.1](https://github.com/nfrgosselin/design-system/compare/v0.3.0...v0.3.1) (2025-03-19)
 
 ### Features
