@@ -142,7 +142,7 @@ export const componentRegistry: ComponentRegistry = {
   // Data display components
   articleCard: {
     name: 'ArticleCard',
-    description: 'A card component for displaying article content with image, title, and metadata',
+    description: 'Card component for displaying article content with various layouts',
     category: 'data-display',
     path: '../data-display/card',
   },
@@ -175,5 +175,12 @@ export const componentRegistry: ComponentRegistry = {
     description: 'A component for displaying a list of blog posts with optional "See all" button',
     category: 'data-display',
     path: '../data-display/blog-post-list',
+  },
+
+  loadMorePosts: {
+    name: 'LoadMorePosts',
+    description: 'Component for loading and displaying blog posts with pagination',
+    category: 'data-display',
+    path: '../data-display/load-more-posts',
   },
 };
