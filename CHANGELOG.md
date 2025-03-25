@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/nfrgosselin/design-system/compare/v1.0.0...v1.1.0) (2025-03-25)
+
+### Features
+
+- added pure white base color ([6e09cc3](https://github.com/nfrgosselin/design-system/commit/6e09cc3ac9f069adb6d06b9e2e19d169504db682))
+
 ## [1.0.0](https://github.com/nfrgosselin/design-system/compare/v0.3.1...v1.0.0) (2025-03-24)
 
 ### Features
