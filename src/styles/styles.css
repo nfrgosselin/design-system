@@ -49,9 +49,10 @@
     
     /* Base colors */
     --black: 20 14.3% 4.1%;
-    --white: 60 33.3% 98.8%;
+    --white: 0 0% 100%;
     
     /* Weathered Scale */
+    --pure-white: 0 0% 100%; /* #ffffff */
     --stone-50: 60 33.3% 98.8%;
     --stone-100: 60 9.1% 97.8%;
     --stone-200: 20 9.1% 89.1%;
