@@ -62,15 +62,39 @@ export function ThemeProvider({
   }, []);
 
   // Generate primary color tokens based on the selected option
-  const primaryColorTokens = useMemo(
-    () => ({
-      '--ds-primary': `var(--ds-color-${currentPrimaryColor}-base)`,
-      '--ds-primary-hover': `var(--ds-color-${currentPrimaryColor}-hover)`,
-      '--ds-primary-active': `var(--ds-color-${currentPrimaryColor}-active)`,
-      '--ds-ring': `var(--ds-color-${currentPrimaryColor}-base)`,
-    }),
-    [currentPrimaryColor]
-  );
+  const primaryColorTokens = useMemo(() => {
+    // Direct HSL values for each product identity color
+    const colorValues = {
+      ocean: {
+        base: '178 54% 44%',
+        hover: '178 54% 40%',
+        active: '178 54% 36%',
+      },
+      sunset: {
+        base: '14 100% 60%',
+        hover: '14 100% 56%',
+        active: '14 100% 52%',
+      },
+      sun: {
+        base: '45 100% 62%',
+        hover: '45 100% 58%',
+        active: '45 100% 54%',
+      },
+      marine: {
+        base: '217 55% 23%',
+        hover: '217 55% 19%',
+        active: '217 55% 15%',
+      },
+    };
+
+    return {
+      // Set direct HSL values for Tailwind consumption
+      '--ds-primary': colorValues[currentPrimaryColor].base,
+      '--ds-primary-hover': colorValues[currentPrimaryColor].hover,
+      '--ds-primary-active': colorValues[currentPrimaryColor].active,
+      '--ds-ring': colorValues[currentPrimaryColor].base,
+    };
+  }, [currentPrimaryColor]);
 
   // Merge with any other custom tokens
   const mergedTokens = useMemo(

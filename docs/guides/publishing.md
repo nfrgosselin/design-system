@@ -31,31 +31,50 @@ This guide explains how to publish updates to the NPM package.
    npm run build
    ```
 
-   This builds the following assets:
+   This builds:
 
    - JavaScript modules (ESM and CommonJS)
    - TypeScript declarations
-   - Processed CSS file (`styles.css`)
-   - Font files bundled in the package
+   - CSS files:
+     - `dist/styles.css` (main stylesheet)
+     - `dist/styles/tokens/index.css` (design tokens)
+   - Source maps for debugging
 
-5. Verify that the build includes all necessary files:
+5. Verify the build output:
 
    ```bash
    ls -la dist/
-   # Should include styles.css, index.mjs, index.js, etc.
+   # Should include:
+   # - styles.css (main stylesheet)
+   # - styles/tokens/index.css (design tokens)
+   # - index.mjs (ESM module)
+   # - index.js (CommonJS module)
+   # - index.d.ts (TypeScript declarations)
    ```
 
-6. Test the build locally using yalc
+6. Test the build locally:
 
    ```bash
    npm run test-local
    ```
 
-7. In your test project, verify the correct CSS import path:
+7. In your test project, verify the imports:
 
    ```tsx
-   // This is the correct import path
+   // CSS imports
    import '@nathangosselin/design-system/styles.css';
+
+   // Component imports
+   import { ThemeProvider, Button } from '@nathangosselin/design-system';
+
+   // Verify ThemeProvider works
+   function App() {
+     return (
+       <ThemeProvider>
+         <Button>Test</Button>
+       </ThemeProvider>
+     );
+   }
    ```
 
 8. **Important**: Commit all changes before proceeding with the release.
@@ -155,7 +174,7 @@ This will trigger the automated GitHub workflow that publishes to NPM.
    import '@nathangosselin/design-system/styles.css';
 
    // Component imports
-   import { Button, Container, Section } from '@nathangosselin/design-system';
+   import { ThemeProvider, Button } from '@nathangosselin/design-system';
    ```
 
 ## Troubleshooting Common Issues
@@ -249,16 +268,19 @@ npm publish --tag beta
 
 ## Testing Published Package
 
-Always verify that the published package works correctly in a real project:
+Always verify the published package:
 
-```bash
-# Create a test app or use an existing one
-mkdir test-design-system
-cd test-design-system
-npm init -y
-npm install react react-dom @nathangosselin/design-system@latest
+```tsx
+// Create a test file
+import '@nathangosselin/design-system/styles.css';
+import { ThemeProvider, Button } from '@nathangosselin/design-system';
 
-# Create a test file
-echo "import '@nathangosselin/design-system/styles.css';" > test.js
-echo "import { Button } from '@nathangosselin/design-system';" >> test.js
+// Test primary color system
+function App() {
+  return (
+    <ThemeProvider primaryColor="ocean">
+      <Button>Test Button</Button>
+    </ThemeProvider>
+  );
+}
 ```

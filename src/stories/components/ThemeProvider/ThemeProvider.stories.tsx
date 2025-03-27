@@ -97,12 +97,12 @@ function CustomColorDemo() {
   return (
     <div className="w-[600px] bg-white text-gray-900 p-8 rounded-lg border border-gray-200">
       <div className="mb-4 py-2 px-4 bg-purple-100 text-purple-800 rounded-md">
-        Using custom color: purple
+        Using custom color: HSL(270 100% 50%)
       </div>
 
       <div className="space-y-4">
         <h2 className="text-xl font-semibold">Custom Color Example</h2>
-        <p className="text-gray-600">This example uses a custom purple as the primary color</p>
+        <p className="text-gray-600">This example uses HSL(270 100% 50%) as the primary color</p>
 
         <div className="mt-8 space-y-4">
           <h3 className="text-lg font-medium">Preview</h3>
@@ -133,12 +133,11 @@ export const WithCustomTokens = {
     <ThemeProvider
       theme="light"
       customTokens={{
-        '--ds-primary': 'purple',
-        '--ds-ring': 'purple',
+        '--ds-primary': '270 100% 50%', // Purple in HSL
       }}
     >
       <div className="mb-4 py-2 px-4 bg-purple-100 text-purple-800 rounded-md">
-        Using custom color: purple
+        Using custom color: HSL(270 100% 50%)
       </div>
       <ColorDemo />
     </ThemeProvider>

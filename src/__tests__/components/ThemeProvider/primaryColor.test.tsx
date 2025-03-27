@@ -22,9 +22,7 @@ describe('Primary Color Selection', () => {
     );
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('ocean');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe(
-      'var(--ds-color-ocean-base)'
-    );
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('178 54% 44%');
   });
 
   it('allows setting primary color via prop', () => {
@@ -35,9 +33,7 @@ describe('Primary Color Selection', () => {
     );
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('sunset');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe(
-      'var(--ds-color-sunset-base)'
-    );
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('14 100% 60%');
   });
 
   it('allows changing primary color via hook', async () => {
@@ -53,9 +49,7 @@ describe('Primary Color Selection', () => {
     await user.click(screen.getByText('Change to Sunset'));
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('sunset');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe(
-      'var(--ds-color-sunset-base)'
-    );
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('14 100% 60%');
   });
 
   it('preserves primary color when theme changes', () => {
@@ -74,9 +68,7 @@ describe('Primary Color Selection', () => {
     );
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('marine');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe(
-      'var(--ds-color-marine-base)'
-    );
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('217 55% 23%');
   });
 
   it('allows custom tokens to override primary color', () => {
@@ -84,7 +76,7 @@ describe('Primary Color Selection', () => {
       <ThemeProvider
         primaryColor="ocean"
         customTokens={{
-          '--ds-primary': 'purple',
+          '--ds-primary': '270 100% 50%', // Purple in HSL
         }}
       >
         <TestComponent />
@@ -92,7 +84,7 @@ describe('Primary Color Selection', () => {
     );
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('ocean');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('purple');
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('270 100% 50%');
   });
 
   it('works with different themes', async () => {
@@ -104,9 +96,7 @@ describe('Primary Color Selection', () => {
     );
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('sunset');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe(
-      'var(--ds-color-sunset-base)'
-    );
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('14 100% 60%');
     expect(document.documentElement.classList.contains('dark')).toBe(true);
 
     await user.click(screen.getByText('Change to Sunset'));
@@ -126,18 +116,14 @@ describe('Primary Color Selection', () => {
     );
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('marine');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe(
-      'var(--ds-color-marine-base)'
-    );
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('217 55% 23%');
 
     // Simulate system theme change
     Object.defineProperty(mediaQuery, 'matches', { value: true });
     mediaQuery.dispatchEvent(new Event('change'));
 
     expect(screen.getByTestId('primary-color')).toHaveTextContent('marine');
-    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe(
-      'var(--ds-color-marine-base)'
-    );
+    expect(document.documentElement.style.getPropertyValue('--ds-primary')).toBe('217 55% 23%');
 
     // Cleanup
     Object.defineProperty(mediaQuery, 'matches', { value: originalMatches });

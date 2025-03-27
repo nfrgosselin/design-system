@@ -73,7 +73,7 @@ export default function RootLayout({ children }) {
 
 ## Design Tokens
 
-The design system uses CSS variables for consistent styling. These are available after importing the CSS file:
+The design system uses CSS variables for consistent styling:
 
 ```css
 :root {
@@ -81,11 +81,11 @@ The design system uses CSS variables for consistent styling. These are available
   --black: 20 14.3% 4.1%;
   --white: 60 33.3% 98.8%;
 
-  /* Product Identity Colors */
-  --ocean: 178 54% 44%; /* Professional tools */
-  --sunset: 14 100% 60%; /* Creative tools */
-  --sun: 45 100% 62%; /* Publishing tools */
-  --marine: 217 55% 23%; /* Technical tools */
+  /* Product Identity Colors (HSL values) */
+  --ds-color-ocean-base: 178 54% 44%;
+  --ds-color-sunset-base: 14 100% 60%;
+  --ds-color-sun-base: 45 100% 62%;
+  --ds-color-marine-base: 217 55% 23%;
 
   /* Layout */
   --container-max: 1280px;
@@ -111,21 +111,28 @@ The design system uses CSS variables for consistent styling. These are available
 
 ### Primary Color System
 
-The design system includes a primary color system that can be configured at runtime. The ThemeProvider handles mapping the selected primary color to these CSS variables:
+The `ThemeProvider` maps the selected primary color to CSS variables using HSL values:
 
 ```css
-/* Default (ocean) */
---ds-primary: var(--ds-color-ocean-base);
---ds-ring: var(--ds-color-ocean-base);
+/* When primaryColor="ocean" */
+--ds-primary: 178 54% 44%;
 
 /* When primaryColor="sunset" */
---ds-primary: var(--ds-color-sunset-base);
---ds-ring: var(--ds-color-sunset-base);
+--ds-primary: 14 100% 60%;
 ```
 
-You can customize the primary color by:
+Components use these variables with Tailwind's opacity modifier syntax:
 
-1. Using the `ThemeProvider`:
+```css
+.button {
+  background-color: hsl(var(--ds-primary) / 1); /* full opacity */
+  border-color: hsl(var(--ds-primary) / 0.2); /* 20% opacity */
+}
+```
+
+You can customize the primary color through:
+
+1. The `ThemeProvider` component:
 
 ```tsx
 <ThemeProvider primaryColor="sunset">
@@ -133,20 +140,12 @@ You can customize the primary color by:
 </ThemeProvider>
 ```
 
-2. Using the `customTokens` prop for entirely custom colors:
+2. The `usePrimaryColor` hook for dynamic changes:
 
 ```tsx
-<ThemeProvider
-  customTokens={{
-    '--ds-primary': 'purple',
-    '--ds-ring': 'purple',
-  }}
->
-  <App />
-</ThemeProvider>
+const { setPrimaryColor } = usePrimaryColor();
+setPrimaryColor('sun');
 ```
-
-See the [Consuming Guide](./guides/consuming.md#primary-color-selection) for more details on using the primary color system.
 
 ## Tailwind Configuration
 

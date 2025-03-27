@@ -1,109 +1,168 @@
-# CSS Variables Implementation Plan
+# Design System Primary Color Implementation Plan
 
-## Overview
-
-This document outlines the plan to improve how our design system exports and manages CSS variables. Based on consumer feedback, we need to make our design system the source of truth for color tokens and other design variables rather than requiring consumers to manually define these variables.
+This document outlines the steps to improve our design system's primary color handling to ensure a seamless experience for consuming applications.
 
 ## Current Issues
 
-1. Design system defines CSS variables in `src/styles/styles.css` but doesn't apply them automatically
-2. Consumers must manually define all variables in their own CSS files
-3. This can lead to inconsistencies, errors, and maintenance overhead
-4. There's no clear standard for variable management across applications
+1. CSS variables are being set incorrectly (nested variable references)
+2. Tailwind expects HSL values for color functions but receives variable references
+3. Base color tokens may not be properly defined in consuming applications
+4. Components and utility classes don't consistently apply the primary color
 
-## Implementation Checklist
+## Implementation Plan
 
-### Phase 1: Restructure CSS Variables Export
+### Phase 1: Fix CSS Variable Structure
 
-- [x] Task 1.1: Modify CSS bundle structure
+1. **Modify the ThemeProvider component**:
 
-  - [x] 1.1.1: Separate token variables into a dedicated `tokens.css` file
-  - [x] 1.1.2: Ensure variables are applied at `:root` level when imported
-  - [x] 1.1.3: Update package.json exports configuration
+   - Update the `primaryColorTokens` to use direct HSL values instead of nested variables
+   - Example:
 
-- [x] Task 1.2: Create variables-only build
-  - [x] 1.2.1: Configure build process for variables-only CSS file
-  - [x] 1.2.2: Add dark mode variables
-  - [x] 1.2.3: Organize variables with comments
+     ```typescript
+     // Color mappings - direct HSL values for each primary color option
+     const colorValues = {
+       ocean: {
+         base: '178 54% 44%',
+         hover: '178 54% 39%',
+         active: '178 54% 34%',
+       },
+       sunset: {
+         base: '13 100% 60%',
+         hover: '13 100% 55%',
+         active: '13 100% 50%',
+       },
+       // Add sun and marine color mappings
+     };
 
-### Phase 2: Create Theme Provider Component
+     const primaryColorTokens = useMemo(
+       () => ({
+         // Direct HSL values for Tailwind
+         '--ds-primary': colorValues[currentPrimaryColor].base,
+         '--ds-primary-hover': colorValues[currentPrimaryColor].hover,
+         '--ds-primary-active': colorValues[currentPrimaryColor].active,
+         '--ds-ring': colorValues[currentPrimaryColor].base,
 
-- [x] Task 2.1: Develop React ThemeProvider component
+         // Set Tailwind UI specific variables too
+         '--primary': colorValues[currentPrimaryColor].base,
+         '--primary-foreground': '0 0% 100%',
+       }),
+       [currentPrimaryColor]
+     );
+     ```
 
-  - [x] 2.1.1: Create ThemeProvider with context
-  - [x] 2.1.2: Add system preference detection
-  - [x] 2.1.3: Add theme customization support
-  - [x] 2.1.4: Add tests
+2. **Update global styles**:
+   - Create a base stylesheet that defines all color tokens
+   - Ensure this stylesheet is included in the package's main CSS export
 
-- [x] Task 2.2: Add TypeScript types for theming
-  - [x] 2.2.1: Create type definitions for all theme tokens
-  - [x] 2.2.2: Implement IDE autocompletion support
+### Phase 2: Update Tailwind Configuration
 
-### Phase 3: Implement Primary Color Selection
+1. **Modify tailwind.config.ts**:
 
-- [x] Task 3.1: Extend ThemeProvider with primary color options
+   - Ensure color definitions correctly use HSL function format
+   - Make sure primary colors are properly mapped
 
-  - [x] 3.1.1: Add primaryColor prop to ThemeProvider
-  - [x] 3.1.2: Define PrimaryColorOption type (ocean, sunset, sun, marine)
-  - [x] 3.1.3: Implement logic to map selected option to CSS variables
-  - [x] 3.1.4: Ensure default primary color is maintained for backward compatibility
+2. **Update component styles**:
+   - Audit all components that use primary color
+   - Ensure consistent use of design tokens
+   - Fix any direct color references
 
-- [x] Task 3.2: Test primary color implementation
+### Phase 3: Package and Distribution Updates
 
-  - [x] 3.2.1: Add unit tests for primaryColor functionality
-  - [x] 3.2.2: Create visual tests for each primary color option
-  - [x] 3.2.3: Test interaction with custom tokens and existing themes
+1. **Update build process**:
 
-- [x] Task 3.3: Update API documentation
-  - [x] 3.3.1: Document primaryColor prop and available options
-  - [x] 3.3.2: Create usage examples for common scenarios
-  - [x] 3.3.3: Update existing documentation to reference new capability
+   - Ensure CSS variables are properly exposed in the distributed CSS
+   - Include the base color stylesheet in the package
 
-### Phase 4: Documentation and Usage Examples
+2. **Document in README**:
 
-- [x] Task 4.1: Update package documentation
+   - Explain the new approach and expected usage
+   - Update installation instructions
 
-  - [x] 4.1.1: Create CSS import usage examples
-  - [x] 4.1.2: Create ThemeProvider usage examples
-  - [x] 4.1.3: Document all available variables
-  - [x] 4.1.4: Add customization guidance
+3. **Create helper utilities**:
+   - Add debugging helpers for theme variables
+   - Create testing utilities for theme verification
 
-- [ ] Task 4.2: Update Storybook examples
-  - [ ] 4.2.1: Create theming documentation pages
-  - [ ] 4.2.2: Add interactive theme customization examples
-  - [x] 4.2.3: Add primary color selection examples
+### Phase 4: Documentation and Examples
 
-## Release Tasks
+1. **Update consuming documentation**:
 
-- [ ] Task R.1: Package Release (v1.3.0)
+   - Create clear setup instructions
+   - Document all available design tokens
+   - Explain the ThemeProvider props in detail
 
-  - [ ] R.1.1: Build with new variable export system
-  - [ ] R.1.2: Include updated documentation
-  - [ ] R.1.3: Test tokens.css import flow
+2. **Create example applications**:
+   - Minimal example showing proper setup
+   - Advanced example showing theme switching
+   - Examples of utility class usage
 
-- [ ] Task R.2: Communication
-  - [ ] R.2.1: Document changes and new approach
-  - [ ] R.2.2: Create consumer migration guide
+### Phase 5: Testing
+
+1. **Create test suite**:
+
+   - Unit tests for ThemeProvider behavior
+   - Integration tests for component styling
+   - Visual regression tests for color application
+
+2. **Consuming app tests**:
+   - Create test projects using the design system
+   - Verify functionality across different frameworks
+   - Test with and without Tailwind configured
+
+## Implementation Details
+
+### ThemeProvider Changes
+
+Replace the current variable nesting with direct HSL values:
+
+```typescript
+// BEFORE:
+const primaryColorTokens = {
+  '--ds-primary': `var(--ds-color-${currentPrimaryColor}-base)`,
+  // ...
+};
+
+// AFTER:
+const colorMap = {
+  ocean: { base: '178 54% 44%', hover: '178 54% 39%', active: '178 54% 34%' },
+  // other colors...
+};
+
+const primaryColorTokens = {
+  '--ds-primary': colorMap[currentPrimaryColor].base,
+  '--ds-primary-hover': colorMap[currentPrimaryColor].hover,
+  '--ds-primary-active': colorMap[currentPrimaryColor].active,
+  // Also set Tailwind UI compatible variables
+  '--primary': colorMap[currentPrimaryColor].base,
+  '--primary-foreground': '0 0% 100%',
+};
+```
+
+### CSS Structure
+
+Ensure our design system exports a CSS file that:
+
+1. Sets default variable values
+2. Provides proper fallbacks
+3. Is included in the main package export
+
+### Consumer Documentation
+
+Add clear documentation explaining:
+
+1. How to import the CSS
+2. How to use the ThemeProvider
+3. Available primary color options
+4. How to use color tokens in custom components
 
 ## Timeline
 
-- Phase 1: 2-3 days
-- Phase 2: 2-3 days
-- Phase 3: 1-2 days
-- Phase 4: 1-2 days
-- Testing: 1 day
-- Release: End of week
+1. **Week 1**: Implement ThemeProvider changes and update global styles
+2. **Week 2**: Update component styles and Tailwind configuration
+3. **Week 3**: Create documentation and examples
+4. **Week 4**: Testing and refinement
 
-## Success Metrics
+## Compatibility Considerations
 
-1. **Developer experience**
-   - Simplified setup process
-   - Intuitive theming approach
-2. **Consistency**
-
-   - Applications have consistent appearance
-   - Reliable theme implementation
-
-3. **Extensibility**
-   - Easy to add new themes or customize existing ones
-   - Straightforward path for future enhancements
+- Ensure backward compatibility where possible
+- Document breaking changes clearly
+- Provide migration guide for existing consumers

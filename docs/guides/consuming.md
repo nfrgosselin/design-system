@@ -34,7 +34,7 @@ function App() {
 
 ### ThemeProvider
 
-The design system includes a `ThemeProvider` component that handles theme management. It should be placed at the root of your application:
+The design system uses a `ThemeProvider` component that manages themes and primary colors. Place it at the root of your application:
 
 ```tsx
 import { ThemeProvider } from '@nathangosselin/design-system';
@@ -51,16 +51,12 @@ function MyApp({ Component, pageProps }) {
 
 ### Theme Options
 
-The `ThemeProvider` accepts several props for customization:
+The `ThemeProvider` accepts these props:
 
 ```tsx
 <ThemeProvider
-  theme="light" // Options: 'light', 'dark', 'white', 'system' (default)
-  primaryColor="ocean" // Options: 'ocean', 'sunset', 'sun', 'marine'
-  customTokens={{
-    // Optional custom CSS variables
-    '--ds-primary': 'purple',
-  }}
+  theme="light" // 'light' | 'dark' | 'white' | 'system' (default)
+  primaryColor="ocean" // 'ocean' | 'sunset' | 'sun' | 'marine'
 >
   {children}
 </ThemeProvider>
@@ -68,16 +64,14 @@ The `ThemeProvider` accepts several props for customization:
 
 ### Primary Color Selection
 
-The design system offers four primary color options that can be configured:
+The design system uses HSL values for its primary colors:
 
-- **ocean** (default): Blue-green (#34b6ac) - Professional tools
-- **sunset**: Orange (#ff5f35) - Creative tools
-- **sun**: Yellow (#ffd23f) - Publishing tools
-- **marine**: Navy (#1b365d) - Technical tools
+- **ocean** (default): HSL(178 54% 44%) - Professional tools
+- **sunset**: HSL(14 100% 60%) - Creative tools
+- **sun**: HSL(45 100% 62%) - Publishing tools
+- **marine**: HSL(217 55% 23%) - Technical tools
 
-You can set the primary color in two ways:
-
-1. Using the `primaryColor` prop on the `ThemeProvider`:
+Set the primary color through the `ThemeProvider`:
 
 ```tsx
 <ThemeProvider primaryColor="sunset">
@@ -85,24 +79,18 @@ You can set the primary color in two ways:
 </ThemeProvider>
 ```
 
-2. Using the `usePrimaryColor` hook to change it dynamically:
+Or change it dynamically with the `usePrimaryColor` hook:
 
 ```tsx
 import { usePrimaryColor } from '@nathangosselin/design-system';
 
 function ColorSwitcher() {
   const { primaryColor, setPrimaryColor } = usePrimaryColor();
-
-  return (
-    <div>
-      <p>Current color: {primaryColor}</p>
-      <button onClick={() => setPrimaryColor('sun')}>Switch to Sun</button>
-    </div>
-  );
+  return <button onClick={() => setPrimaryColor('sun')}>Switch to Sun Theme</button>;
 }
 ```
 
-The primary color affects all components that use the `--ds-primary` CSS variable, including buttons, links, and accent elements.
+The primary color is exposed through the `--ds-primary` CSS variable, which components use for styling.
 
 ### Dark Mode
 

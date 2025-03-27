@@ -27,14 +27,19 @@ yarn add @nathangosselin/design-system
 import { Button, Container, Section } from '@nathangosselin/design-system';
 import '@nathangosselin/design-system/styles.css';
 
+// Add ThemeProvider to your app root
+import { ThemeProvider } from '@nathangosselin/design-system';
+
 function App() {
   return (
-    <Container>
-      <Section>
-        <h2>Hello World</h2>
-        <Button>Click me</Button>
-      </Section>
-    </Container>
+    <ThemeProvider>
+      <Container>
+        <Section>
+          <h2>Hello World</h2>
+          <Button>Click me</Button>
+        </Section>
+      </Container>
+    </ThemeProvider>
   );
 }
 ```
@@ -252,3 +257,23 @@ To run the Storybook documentation locally:
 ```bash
 npm run dev
 ```
+
+## Theming
+
+The design system supports multiple themes and primary colors:
+
+```tsx
+<ThemeProvider
+  theme="light" // 'light' | 'dark' | 'white' | 'system'
+  primaryColor="ocean" // 'ocean' | 'sunset' | 'sun' | 'marine'
+>
+  <App />
+</ThemeProvider>
+```
+
+Primary colors are defined using HSL values for consistent theming:
+
+- ocean (178 54% 44%): Professional tools
+- sunset (14 100% 60%): Creative tools
+- sun (45 100% 62%): Publishing tools
+- marine (217 55% 23%): Technical tools
