@@ -11,6 +11,18 @@ export * from './utils/cn';
 // Export registry utilities
 export { componentRegistry, resolveComponent } from './components/registry';
 
+// Export ThemeProvider and related hooks and types
+export {
+  ThemeProvider,
+  useTheme,
+  usePrimaryColor,
+  type ThemeProviderProps,
+  type ThemeOption,
+  type PrimaryColorOption,
+  type ThemeContextValue,
+  type CustomTokens,
+} from './components/ThemeProvider';
+
 /**
  * Component Exports
  * Components are grouped by their functional category for easier discovery

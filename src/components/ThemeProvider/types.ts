@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import type { CustomTokens, DesignToken, TokenValue } from './tokens';
+import type { CustomTokens } from './tokens';
 
 export type ThemeOption = 'light' | 'dark' | 'white' | 'system';
 
