@@ -3,33 +3,33 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { ExternalLink, Loader2 } from 'lucide-react';
 
 const linkVariants = cva(
-  'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary disabled:cursor-not-allowed disabled:opacity-50',
+  'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ds-primary disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
         // Base/prose variant (for inline text links)
         prose:
-          'font-serif text-primary hover:text-primary/80 active:text-primary/70 underline underline-offset-4',
+          'font-serif text-ds-primary hover:text-ds-primary/80 active:text-ds-primary/70 underline underline-offset-4',
 
         // Navigation variants
         nav: 'font-sans text-sm text-stone-600 hover:text-stone-900',
 
         // Navigation links - Inter
-        'nav-active': 'font-sans font-medium text-primary',
+        'nav-active': 'font-sans font-medium text-ds-primary',
 
         // Side navigation links - smaller underline offset
-        'nav-side': 'font-sans font-medium text-stone-600 hover:text-primary',
-        'nav-side-active': 'font-sans font-medium text-primary',
+        'nav-side': 'font-sans font-medium text-stone-600 hover:text-ds-primary',
+        'nav-side-active': 'font-sans font-medium text-ds-primary',
 
         // Footer/utility links
         utility: 'font-sans text-xs text-stone-500 hover:text-stone-700',
 
         // Standalone links (not in paragraph)
-        standalone: 'font-sans text-sm font-medium text-primary hover:text-primary',
+        standalone: 'font-sans text-sm font-medium text-ds-primary hover:text-ds-primary',
         'standalone-icon-right':
-          'font-sans text-sm font-medium text-primary hover:text-primary inline-flex items-center gap-2',
+          'font-sans text-sm font-medium text-ds-primary hover:text-ds-primary inline-flex items-center gap-2',
         'standalone-icon-left':
-          'font-sans text-sm font-medium text-primary hover:text-primary inline-flex items-center gap-2 flex-row-reverse',
+          'font-sans text-sm font-medium text-ds-primary hover:text-ds-primary inline-flex items-center gap-2 flex-row-reverse',
 
         // Button-like links
         button:
@@ -37,7 +37,7 @@ const linkVariants = cva(
         'button-outline':
           'inline-flex items-center justify-center h-10 px-6 font-sans text-sm font-medium border border-stone-200 text-stone-900 rounded-md hover:border-stone-900',
         'button-accent':
-          'inline-flex items-center justify-center h-10 px-6 font-sans text-sm font-medium bg-white text-black border-[1.5px] border-black rounded-md hover:bg-primary hover:text-white hover:border-primary',
+          'inline-flex items-center justify-center h-10 px-6 font-sans text-sm font-medium bg-white text-black border-[1.5px] border-black rounded-md hover:bg-ds-primary hover:text-white hover:border-ds-primary',
 
         // Small/metadata links
         metadata: 'font-sans text-xs text-stone-500 hover:text-stone-700 hover:underline',

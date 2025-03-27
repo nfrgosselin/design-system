@@ -4,6 +4,9 @@
   --ds-background: var(--ds-color-paper);
   --ds-foreground: var(--ds-color-black);
 
+  /* Design System Colors */
+  /* These are set by ThemeProvider based on primaryColor selection */
+
   /* Component Colors */
   --ds-card: var(--ds-color-white);
   --ds-card-foreground: var(--ds-color-black);
@@ -11,8 +14,6 @@
   --ds-popover-foreground: var(--ds-color-black);
 
   /* Brand Colors */
-  --ds-primary: var(--ds-color-ocean-base);
-  --ds-primary-foreground: var(--ds-color-white);
   --ds-secondary: var(--ds-color-stone-200);
   --ds-secondary-foreground: var(--ds-color-stone-900);
 
@@ -31,7 +32,7 @@
 
   /* Form Elements */
   --ds-input: var(--ds-color-stone-200);
-  --ds-ring: var(--ds-color-ocean-base);
+  /* Ring color is set by ThemeProvider based on primaryColor selection */
 
   /* Surface Colors */
   --ds-surface: var(--ds-color-white);

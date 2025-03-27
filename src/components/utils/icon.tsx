@@ -11,7 +11,7 @@ const sizeClasses = {
 const colorClasses = {
   default: 'text-stone-900',
   muted: 'text-stone-500',
-  primary: 'text-primary',
+  primary: 'text-ds-primary',
   success: 'text-success',
   warning: 'text-warning',
   error: 'text-error',

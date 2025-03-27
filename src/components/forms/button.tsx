@@ -29,21 +29,23 @@ const buttonVariants = cva(
         ].join(' '),
         'primary-accent': [
           'bg-white text-black border-[1.5px] border-black',
-          'hover:bg-primary hover:text-white hover:border-black',
-          'active:bg-primary-active active:text-white active:border-primary-active',
+          'hover:bg-ds-primary hover:text-white hover:border-black',
+          'active:bg-ds-primary-active active:text-white active:border-ds-primary-active',
         ].join(' '),
         'primary-accent-reverse': [
-          'bg-primary text-white border-[1.5px] border-black',
+          'bg-ds-primary text-white border-[1.5px] border-black',
           'hover:bg-white hover:text-black',
           'active:bg-white active:text-black',
         ].join(' '),
-        accent: ['bg-primary text-white', 'hover:bg-primary/90', 'active:bg-primary-active'].join(
-          ' '
-        ),
+        accent: [
+          'bg-ds-primary text-white',
+          'hover:bg-ds-primary/90',
+          'active:bg-ds-primary-active',
+        ].join(' '),
         'outline-accent': [
-          'border border-stone-200 text-primary',
-          'hover:border-primary hover:text-primary',
-          'active:border-primary-active active:text-primary-active',
+          'border border-stone-200 text-ds-primary',
+          'hover:border-ds-primary hover:text-ds-primary',
+          'active:border-ds-primary-active active:text-ds-primary-active',
         ].join(' '),
         'outline-subtle': [
           'border border-stone-200 text-black',

@@ -41,7 +41,7 @@ const Image = ({ src, alt, fill, className, quality, sizes, ...props }: ImagePro
 
 // Base card styles
 const cardBase =
-  'rounded-lg border-2 border-stone-900 bg-background transition-all duration-100 hover:border-primary hover:shadow-[0_0_0_2px_hsl(var(--ocean))] group';
+  'rounded-lg border-2 border-stone-900 bg-background transition-all duration-100 hover:border-ds-primary hover:shadow-[0_0_0_2px_hsl(var(--ds-primary))] group';
 
 // Article/Content Card
 const articleCardVariants = cva(cardBase, {
@@ -143,7 +143,7 @@ export function ArticleCard({
           <div className="stack-compact">
             <h3
               className={cn(
-                'font-serif line-clamp-2 font-medium text-stone-900 group-hover:text-primary',
+                'font-serif line-clamp-2 font-medium text-stone-900 group-hover:text-ds-primary',
                 {
                   'text-xl mb-1': size === 'sm',
                   'text-2xl mb-2': size === 'md',
@@ -298,7 +298,7 @@ export function ProjectCard({
       )}
       <div className={cn('flex flex-col', padding, image && 'flex-1')}>
         <div className="flex items-start justify-between">
-          <h3 className="font-serif text-lg font-medium text-stone-900 group-hover:text-primary">
+          <h3 className="font-serif text-lg font-medium text-stone-900 group-hover:text-ds-primary">
             {title}
           </h3>
           {status && (
@@ -433,7 +433,7 @@ export function FeatureCard({
         <div className="flex items-start gap-4">
           {icon && <div className="flex-shrink-0 text-stone-600">{icon}</div>}
           <div className="flex-1 space-y-1">
-            <h3 className="font-serif text-lg font-medium text-stone-900 group-hover:text-primary">
+            <h3 className="font-serif text-lg font-medium text-stone-900 group-hover:text-ds-primary">
               {title}
             </h3>
             <p className="font-serif text-base text-stone-600">{description}</p>

@@ -24,6 +24,13 @@ const config: Config = {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
 
+        // Design System Colors
+        'ds-primary': {
+          DEFAULT: 'hsl(var(--ds-primary))',
+          hover: 'hsl(var(--ds-primary-hover))',
+          active: 'hsl(var(--ds-primary-active))',
+        },
+
         // Product Identity Colors
         ocean: {
           DEFAULT: 'hsl(var(--ocean))',

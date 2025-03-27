@@ -37,8 +37,8 @@ function ColorDemo() {
                 px-4 py-2 rounded-md font-medium transition-colors
                 ${
                   color === primaryColor
-                    ? 'bg-primary text-white'
-                    : 'border border-gray-200 hover:border-primary'
+                    ? 'bg-ds-primary text-white'
+                    : 'border border-gray-200 hover:border-ds-primary'
                 }
               `}
             >
@@ -52,18 +52,18 @@ function ColorDemo() {
         <h3 className="text-lg font-medium text-gray-900">Preview</h3>
         <div className="space-y-6">
           <div className="flex gap-4">
-            <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors">
+            <button className="bg-ds-primary text-white px-4 py-2 rounded-md hover:bg-ds-primary/90 transition-colors">
               Primary Button
             </button>
-            <button className="border border-primary text-primary px-4 py-2 rounded-md hover:bg-primary/10 transition-colors">
+            <button className="border border-ds-primary text-ds-primary px-4 py-2 rounded-md hover:bg-ds-primary/10 transition-colors">
               Secondary Button
             </button>
           </div>
           <div className="grid grid-cols-4 gap-2">
-            <div className="h-16 bg-primary/10 rounded-md" />
-            <div className="h-16 bg-primary/25 rounded-md" />
-            <div className="h-16 bg-primary/50 rounded-md" />
-            <div className="h-16 bg-primary rounded-md" />
+            <div className="h-16 bg-ds-primary/10 rounded-md" />
+            <div className="h-16 bg-ds-primary/25 rounded-md" />
+            <div className="h-16 bg-ds-primary/50 rounded-md" />
+            <div className="h-16 bg-ds-primary rounded-md" />
           </div>
         </div>
       </div>
@@ -108,18 +108,18 @@ function CustomColorDemo() {
           <h3 className="text-lg font-medium">Preview</h3>
           <div className="space-y-6">
             <div className="flex gap-4">
-              <button className="bg-primary text-white px-4 py-2 rounded-md hover:bg-primary/90 transition-colors">
+              <button className="bg-ds-primary text-white px-4 py-2 rounded-md hover:bg-ds-primary/90 transition-colors">
                 Primary Button
               </button>
-              <button className="border border-primary text-primary px-4 py-2 rounded-md hover:bg-primary/10 transition-colors">
+              <button className="border border-ds-primary text-ds-primary px-4 py-2 rounded-md hover:bg-ds-primary/10 transition-colors">
                 Secondary Button
               </button>
             </div>
             <div className="grid grid-cols-4 gap-2">
-              <div className="h-16 bg-primary/10 rounded-md" />
-              <div className="h-16 bg-primary/25 rounded-md" />
-              <div className="h-16 bg-primary/50 rounded-md" />
-              <div className="h-16 bg-primary rounded-md" />
+              <div className="h-16 bg-ds-primary/10 rounded-md" />
+              <div className="h-16 bg-ds-primary/25 rounded-md" />
+              <div className="h-16 bg-ds-primary/50 rounded-md" />
+              <div className="h-16 bg-ds-primary rounded-md" />
             </div>
           </div>
         </div>

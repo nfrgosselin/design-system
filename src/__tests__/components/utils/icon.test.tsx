@@ -35,17 +35,17 @@ describe('Icon Component', () => {
     });
 
     it('renders with different colors', () => {
-      const colors = {
+      const colorMap = {
         default: 'text-stone-900',
         muted: 'text-stone-500',
-        primary: 'text-primary',
+        primary: 'text-ds-primary',
         success: 'text-success',
         warning: 'text-warning',
         error: 'text-error',
         info: 'text-info',
       } as const;
 
-      Object.entries(colors).forEach(([color, expectedClass]) => {
+      Object.entries(colorMap).forEach(([color, expectedClass]) => {
         const { rerender } = render(
           <Icon icon={Mail} color={color as NonNullable<IconProps['color']>} />
         );
@@ -113,9 +113,12 @@ describe('Icon Component', () => {
 
     it('applies color tokens correctly', () => {
       render(<Icon icon={Mail} color="primary" />);
-      const wrapper = screen.getByTestId('icon').parentElement;
+      // Get the icon element
+      const iconSvg = screen.getByTestId('icon');
+      // Get its parent which should have the color class
+      const wrapper = iconSvg.parentElement;
       // Should use the primary color token
-      expect(wrapper).toHaveClass('text-primary');
+      expect(wrapper).toHaveClass('text-ds-primary');
     });
 
     it('maintains consistent spacing in flex container', () => {

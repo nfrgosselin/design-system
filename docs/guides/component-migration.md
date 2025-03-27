@@ -213,7 +213,7 @@ const customButtonVariants = cva(
   {
     variants: {
       variant: {
-        primary: 'bg-primary text-white hover:bg-primary/90',
+        primary: 'bg-ds-primary text-white hover:bg-ds-primary/90',
         secondary: 'bg-stone-200 text-stone-900 hover:bg-stone-300',
         outline: 'border border-stone-200 text-stone-900 hover:border-stone-900',
       },

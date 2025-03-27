@@ -65,6 +65,8 @@ export function ThemeProvider({
   const primaryColorTokens = useMemo(
     () => ({
       '--ds-primary': `var(--ds-color-${currentPrimaryColor}-base)`,
+      '--ds-primary-hover': `var(--ds-color-${currentPrimaryColor}-hover)`,
+      '--ds-primary-active': `var(--ds-color-${currentPrimaryColor}-active)`,
       '--ds-ring': `var(--ds-color-${currentPrimaryColor}-base)`,
     }),
     [currentPrimaryColor]

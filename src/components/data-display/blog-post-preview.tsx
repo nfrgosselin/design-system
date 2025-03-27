@@ -37,19 +37,19 @@ export function BlogPostPreview({
       {...props}
     >
       <div className="flex min-w-0 items-baseline gap-3">
-        <span className="prose-body whitespace-nowrap font-semibold text-stone-900 group-hover:text-primary">
+        <span className="prose-body whitespace-nowrap font-semibold text-stone-900 group-hover:text-ds-primary">
           {title}
         </span>
         {subtitle && (
           <>
-            <span className="shrink-0 text-stone-600 group-hover:text-primary">|</span>
-            <span className="prose-body truncate text-stone-600 group-hover:text-primary">
+            <span className="shrink-0 text-stone-600 group-hover:text-ds-primary">|</span>
+            <span className="prose-body truncate text-stone-600 group-hover:text-ds-primary">
               {subtitle}
             </span>
           </>
         )}
       </div>
-      <time className="prose-caption shrink-0 text-stone-600 group-hover:text-primary">
+      <time className="prose-caption shrink-0 text-stone-600 group-hover:text-ds-primary">
         {publishDate}
       </time>
     </Link>

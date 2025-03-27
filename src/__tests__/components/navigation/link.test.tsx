@@ -22,7 +22,7 @@ describe('Link Component', () => {
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/test');
       expect(link).toHaveTextContent('Test Link');
-      expect(link).toHaveClass('font-serif', 'text-primary'); // prose variant
+      expect(link).toHaveClass('font-serif', 'text-ds-primary'); // prose variant
     });
 
     it('renders with different variants', () => {
@@ -152,7 +152,7 @@ describe('Link Component', () => {
           Active Nav Link
         </Link>
       );
-      expect(screen.getByRole('link')).toHaveClass('text-primary');
+      expect(screen.getByRole('link')).toHaveClass('text-ds-primary');
     });
   });
 
@@ -179,7 +179,7 @@ describe('Link Component', () => {
     it('renders InlineLink with prose variant', () => {
       render(<InlineLink href="/test">Inline Link</InlineLink>);
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('font-serif', 'text-primary');
+      expect(link).toHaveClass('font-serif', 'text-ds-primary');
     });
 
     it('renders NavLink with nav variant', () => {
@@ -231,7 +231,7 @@ describe('Link Component', () => {
       expect(link).toHaveClass(
         'focus-visible:outline-none',
         'focus-visible:ring-2',
-        'focus-visible:ring-primary'
+        'focus-visible:ring-ds-primary'
       );
     });
 

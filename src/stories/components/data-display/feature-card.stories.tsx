@@ -21,7 +21,7 @@ const ExampleIcon = () => (
 );
 
 const ExampleActionButton = () => (
-  <button className="rounded-lg bg-primary px-4 py-2 text-white hover:bg-primary/90">
+  <button className="rounded-lg bg-ds-primary px-4 py-2 text-white hover:bg-ds-primary/90">
     Learn More
   </button>
 );
