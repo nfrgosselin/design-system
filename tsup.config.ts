@@ -1,4 +1,4 @@
-import { defineConfig } from 'tsup';
+import { defineConfig, Format } from 'tsup';
 import { copyFile, mkdir } from 'fs/promises';
 import { glob } from 'glob';
 import path from 'path';
@@ -6,7 +6,11 @@ import postcss from 'postcss';
 import tailwindcss from 'tailwindcss';
 import autoprefixer from 'autoprefixer';
 import fs from 'fs/promises';
+import { readFileSync, writeFileSync } from 'fs';
+import postcssImport from 'postcss-import';
 
+// Function defined but not used - keep for potential future use
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function copyFonts() {
   // Create fonts directory in dist
   await mkdir('dist/fonts', { recursive: true });
@@ -27,6 +31,8 @@ async function copyFonts() {
   );
 }
 
+// Function defined but not used - keep for potential future use
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 async function processCss() {
   // Read the source CSS file
   let css = await fs.readFile('src/styles/styles.css', 'utf8');
@@ -47,22 +53,68 @@ async function processCss() {
   await fs.writeFile('dist/styles.css', css);
 }
 
-export default defineConfig({
-  entry: ['src/index.ts'],
-  format: ['esm', 'cjs'],
-  dts: true,
-  splitting: true,
+// Read package.json
+const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url)).toString());
+
+// Shared PostCSS config
+const postcssConfig = {
+  plugins: [postcssImport(), autoprefixer()],
+};
+
+// Token build configuration
+const tokenBuildConfig = {
+  entry: ['src/styles/tokens/index.css'],
+  outDir: 'dist/styles/tokens',
   sourcemap: true,
   clean: true,
-  treeshake: true,
-  minify: true,
-  external: ['react', 'react-dom'],
   async onSuccess() {
-    await Promise.all([copyFonts(), processCss()]);
+    // Process tokens with PostCSS
+    const css = readFileSync('src/styles/tokens/index.css', 'utf8');
+    const result = await postcss(postcssConfig.plugins).process(css, {
+      from: 'src/styles/tokens/index.css',
+      to: 'dist/styles/tokens/index.css',
+      map: { inline: false },
+    });
+
+    // Write processed CSS
+    writeFileSync('dist/styles/tokens/index.css', result.css);
+    if (result.map) {
+      writeFileSync('dist/styles/tokens/index.css.map', result.map.toString());
+    }
   },
-  esbuildOptions(options) {
-    options.banner = {
-      js: '"use client";',
-    };
+};
+
+// Main component build configuration
+const componentBuildConfig = {
+  entry: ['src/index.ts'],
+  format: ['cjs', 'esm'] as Format[],
+  dts: true,
+  sourcemap: true,
+  clean: false,
+  external: Object.keys(pkg.peerDependencies || {}),
+};
+
+// CSS build configuration
+const cssBuildConfig = {
+  entry: ['src/styles/styles.css'],
+  outDir: 'dist',
+  sourcemap: true,
+  clean: false,
+  async onSuccess() {
+    // Process styles with PostCSS
+    const css = readFileSync('src/styles/styles.css', 'utf8');
+    const result = await postcss(postcssConfig.plugins).process(css, {
+      from: 'src/styles/styles.css',
+      to: 'dist/styles.css',
+      map: { inline: false },
+    });
+
+    // Write processed CSS
+    writeFileSync('dist/styles.css', result.css);
+    if (result.map) {
+      writeFileSync('dist/styles.css.map', result.map.toString());
+    }
   },
-});
+};
+
+export default defineConfig([tokenBuildConfig, componentBuildConfig, cssBuildConfig]);

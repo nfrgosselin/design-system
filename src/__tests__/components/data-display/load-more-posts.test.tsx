@@ -3,13 +3,24 @@ import '@testing-library/jest-dom';
 import { LoadMorePosts } from '../../../components/data-display/load-more-posts';
 import { type BlogPost } from '../../../types/blog';
 
-// Mock fetch
-global.fetch = jest.fn(() =>
+// Mock fetch for this test file
+const mockFetchImplementation = jest.fn(() =>
   Promise.resolve({
     ok: true,
     json: () => Promise.resolve({ posts: mockAdditionalPosts }),
   } as Response)
 );
+
+// Set up fetch mock
+beforeAll(() => {
+  // Override fetch with our mock
+  window.fetch = mockFetchImplementation as unknown as typeof window.fetch;
+});
+
+afterAll(() => {
+  // Reset fetch
+  jest.restoreAllMocks();
+});
 
 const mockInitialPosts: BlogPost[] = [
   {
@@ -73,6 +84,6 @@ describe('LoadMorePosts', () => {
       expect(screen.getByText('Test Post 3')).toBeInTheDocument();
     });
 
-    expect(global.fetch).toHaveBeenCalledWith('/api/posts?limit=6&offset=2');
+    expect(mockFetchImplementation).toHaveBeenCalledWith('/api/posts?limit=6&offset=2');
   });
 });

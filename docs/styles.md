@@ -109,6 +109,45 @@ The design system uses CSS variables for consistent styling. These are available
 }
 ```
 
+### Primary Color System
+
+The design system includes a primary color system that can be configured at runtime. The ThemeProvider handles mapping the selected primary color to these CSS variables:
+
+```css
+/* Default (ocean) */
+--ds-primary: var(--ds-color-ocean-base);
+--ds-ring: var(--ds-color-ocean-base);
+
+/* When primaryColor="sunset" */
+--ds-primary: var(--ds-color-sunset-base);
+--ds-ring: var(--ds-color-sunset-base);
+```
+
+You can customize the primary color by:
+
+1. Using the `ThemeProvider`:
+
+```tsx
+<ThemeProvider primaryColor="sunset">
+  <App />
+</ThemeProvider>
+```
+
+2. Using the `customTokens` prop for entirely custom colors:
+
+```tsx
+<ThemeProvider
+  customTokens={{
+    '--ds-primary': 'purple',
+    '--ds-ring': 'purple',
+  }}
+>
+  <App />
+</ThemeProvider>
+```
+
+See the [Consuming Guide](./guides/consuming.md#primary-color-selection) for more details on using the primary color system.
+
 ## Tailwind Configuration
 
 The design system uses Tailwind CSS for styling. If you're using Tailwind in your project, extend the design system's configuration:

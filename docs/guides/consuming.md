@@ -30,6 +30,98 @@ function App() {
 }
 ```
 
+## Theming
+
+### ThemeProvider
+
+The design system includes a `ThemeProvider` component that handles theme management. It should be placed at the root of your application:
+
+```tsx
+import { ThemeProvider } from '@nathangosselin/design-system';
+import '@nathangosselin/design-system/styles.css';
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <ThemeProvider>
+      <Component {...pageProps} />
+    </ThemeProvider>
+  );
+}
+```
+
+### Theme Options
+
+The `ThemeProvider` accepts several props for customization:
+
+```tsx
+<ThemeProvider
+  theme="light" // Options: 'light', 'dark', 'white', 'system' (default)
+  primaryColor="ocean" // Options: 'ocean', 'sunset', 'sun', 'marine'
+  customTokens={{
+    // Optional custom CSS variables
+    '--ds-primary': 'purple',
+  }}
+>
+  {children}
+</ThemeProvider>
+```
+
+### Primary Color Selection
+
+The design system offers four primary color options that can be configured:
+
+- **ocean** (default): Blue-green (#34b6ac) - Professional tools
+- **sunset**: Orange (#ff5f35) - Creative tools
+- **sun**: Yellow (#ffd23f) - Publishing tools
+- **marine**: Navy (#1b365d) - Technical tools
+
+You can set the primary color in two ways:
+
+1. Using the `primaryColor` prop on the `ThemeProvider`:
+
+```tsx
+<ThemeProvider primaryColor="sunset">
+  <App />
+</ThemeProvider>
+```
+
+2. Using the `usePrimaryColor` hook to change it dynamically:
+
+```tsx
+import { usePrimaryColor } from '@nathangosselin/design-system';
+
+function ColorSwitcher() {
+  const { primaryColor, setPrimaryColor } = usePrimaryColor();
+
+  return (
+    <div>
+      <p>Current color: {primaryColor}</p>
+      <button onClick={() => setPrimaryColor('sun')}>Switch to Sun</button>
+    </div>
+  );
+}
+```
+
+The primary color affects all components that use the `--ds-primary` CSS variable, including buttons, links, and accent elements.
+
+### Dark Mode
+
+You can use the `useTheme` hook to check if dark mode is active and to change the theme:
+
+```tsx
+import { useTheme } from '@nathangosselin/design-system';
+
+function ThemeSwitcher() {
+  const { theme, isDark, setTheme } = useTheme();
+
+  return (
+    <button onClick={() => setTheme(isDark ? 'light' : 'dark')}>
+      Toggle theme (currently {theme})
+    </button>
+  );
+}
+```
+
 ## Component Categories
 
 The design system organizes components into the following categories:

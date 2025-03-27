@@ -1,0 +1,40 @@
+/* White Theme Semantic Tokens */
+:root[data-theme="white"] {
+  /* Base Theme Colors */
+  --ds-background: var(--ds-color-white);
+  --ds-foreground: var(--ds-color-black);
+
+  /* Component Colors */
+  --ds-card: var(--ds-color-paper);
+  --ds-card-foreground: var(--ds-color-black);
+  --ds-popover: var(--ds-color-paper);
+  --ds-popover-foreground: var(--ds-color-black);
+
+  /* Brand Colors */
+  --ds-primary: var(--ds-color-ocean-base);
+  --ds-primary-foreground: var(--ds-color-white);
+  --ds-secondary: var(--ds-color-stone-200);
+  --ds-secondary-foreground: var(--ds-color-stone-900);
+
+  /* UI States */
+  --ds-muted: var(--ds-color-stone-100);
+  --ds-muted-foreground: var(--ds-color-stone-500);
+  --ds-accent: var(--ds-color-stone-100);
+  --ds-accent-foreground: var(--ds-color-stone-900);
+  --ds-destructive: var(--ds-color-error);
+  --ds-destructive-foreground: var(--ds-color-white);
+
+  /* Borders */
+  --ds-border: var(--ds-color-stone-900);
+  --ds-border-subtle: hsl(var(--ds-color-stone-200) / 0.2);
+  --ds-border-hover: var(--ds-color-stone-300);
+
+  /* Form Elements */
+  --ds-input: var(--ds-color-stone-200);
+  --ds-ring: var(--ds-color-ocean-base);
+
+  /* Surface Colors */
+  --ds-surface: var(--ds-color-paper);
+  --ds-surface-hover: var(--ds-color-stone-100);
+  --ds-surface-active: var(--ds-color-stone-200);
+} 

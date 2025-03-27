@@ -1,0 +1,68 @@
+/* Base Colors */
+:root {
+  /* Base Neutrals */
+  --ds-color-black: 20 14.3% 4.1%;  /* Same as stone-900 */
+  --ds-color-white: 0 0% 100%;      /* Pure white */
+  --ds-color-paper: 60 33.3% 98.8%; /* Same as stone-50 */
+
+  /* Stone Scale */
+  --ds-color-stone-50: 60 33.3% 98.8%;
+  --ds-color-stone-100: 60 9.1% 97.8%;
+  --ds-color-stone-200: 20 9.1% 89.1%;
+  --ds-color-stone-300: 24 5.7% 82.7%;
+  --ds-color-stone-400: 24 5.3% 63.9%;
+  --ds-color-stone-500: 20 9.8% 55.7%;
+  --ds-color-stone-600: 20 3.8% 32.9%;
+  --ds-color-stone-700: 20 5.9% 24.9%;
+  --ds-color-stone-800: 20 6.1% 14.9%;
+  --ds-color-stone-900: 20 14.3% 4.1%;
+
+  /* Product Identity Colors */
+  --ds-color-ocean-base: 178 54% 44%;
+  --ds-color-ocean-hover: 178 54% 40%;
+  --ds-color-ocean-active: 178 54% 36%;
+
+  --ds-color-sunset-base: 14 100% 60%;
+  --ds-color-sunset-hover: 14 100% 56%;
+  --ds-color-sunset-active: 14 100% 52%;
+
+  --ds-color-sun-base: 45 100% 62%;
+  --ds-color-sun-hover: 45 100% 58%;
+  --ds-color-sun-active: 45 100% 54%;
+
+  --ds-color-marine-base: 217 55% 23%;
+  --ds-color-marine-hover: 217 55% 19%;
+  --ds-color-marine-active: 217 55% 15%;
+
+  /* Supporting Accents */
+  --ds-color-seafoam: 174 61% 51%;
+  --ds-color-coral: 14 100% 71%;
+  --ds-color-navy: 213 41% 30%;
+  --ds-color-amber: 39 100% 57%;
+  --ds-color-lagoon: 191 49% 49%;
+  --ds-color-peach: 24 100% 69%;
+  --ds-color-slate: 213 32% 35%;
+  --ds-color-gold: 39 100% 75%;
+
+  /* Status Colors */
+  --ds-color-success: 173 58% 39%;
+  --ds-color-success-subtle: 173 58% 39% / 0.15;
+  --ds-color-warning: 39 100% 57%;
+  --ds-color-warning-subtle: 39 100% 57% / 0.15;
+  --ds-color-error: 12 75% 61%;
+  --ds-color-error-subtle: 12 75% 61% / 0.15;
+  --ds-color-info: 206 39% 44%;
+  --ds-color-info-subtle: 206 39% 44% / 0.15;
+
+  /* Special Effects */
+  --ds-color-overlay-light: hsl(var(--ds-color-black) / 0.1);
+  --ds-color-overlay-medium: hsl(var(--ds-color-black) / 0.3);
+  --ds-color-overlay-heavy: hsl(var(--ds-color-black) / 0.6);
+
+  /* Chart Colors */
+  --ds-color-chart-1: 12 76% 61%;
+  --ds-color-chart-2: 173 58% 39%;
+  --ds-color-chart-3: 197 37% 24%;
+  --ds-color-chart-4: 43 74% 66%;
+  --ds-color-chart-5: 27 87% 67%;
+} 

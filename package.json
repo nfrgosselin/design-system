@@ -12,6 +12,7 @@
       "require": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
+    "./tokens.css": "./dist/styles/tokens/index.css",
     "./fonts": {
       "types": "./dist/styles/tokens/fonts.d.ts",
       "import": "./dist/styles/tokens/fonts.mjs",
@@ -84,13 +85,14 @@
     "@storybook/react": "^8.6.4",
     "@storybook/react-vite": "^8.6.4",
     "@storybook/test-runner": "0.22.0",
-    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/jest-dom": "6.6.3",
     "@testing-library/react": "^14.2.1",
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^29.5.12",
     "@types/jest-axe": "^3.5.9",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
+    "@types/testing-library__jest-dom": "6.0.0",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",
