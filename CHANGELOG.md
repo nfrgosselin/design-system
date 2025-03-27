@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/nfrgosselin/design-system/compare/v1.1.0...v1.2.0) (2025-03-27)
+
+### Features
+
+- swapped in newsreader for freight as system serif font ([6b9ad63](https://github.com/nfrgosselin/design-system/commit/6b9ad630c6b555052436346323333cc7cf566cd7))
+
 ## [1.1.0](https://github.com/nfrgosselin/design-system/compare/v1.0.0...v1.1.0) (2025-03-25)
 
 ### Features
