@@ -5,9 +5,6 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "bin": {
-    "designsystemfonts": "./scripts/utils/install-fonts.js"
-  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -15,14 +12,17 @@
       "require": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
-    "./fonts/*": "./dist/fonts/*"
+    "./fonts": {
+      "types": "./dist/styles/tokens/fonts.d.ts",
+      "import": "./dist/styles/tokens/fonts.mjs",
+      "require": "./dist/styles/tokens/fonts.js"
+    }
   },
   "sideEffects": [
     "**/*.css"
   ],
   "files": [
     "dist",
-    "scripts/utils",
     "README.md",
     "LICENSE",
     "VERSIONING.md"
@@ -41,7 +41,7 @@
     "typecheck": "tsc --noEmit",
     "test-local": "yalc publish --push",
     "watch-local": "nodemon --watch dist --exec 'yalc push'",
-    "test-fonts": "find dist/fonts -type f | grep -i 'freight' || echo 'No font files found!'",
+    "test-fonts": "find dist/fonts -type f -name '*.woff*' || echo 'No font files found!'",
     "test-cli": "node ./scripts/utils/install-fonts.js",
     "changelog": "standard-version --skip.tag --skip.commit",
     "release": "npm run build && npm run test && standard-version",

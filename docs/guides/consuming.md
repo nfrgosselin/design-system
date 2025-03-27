@@ -12,12 +12,6 @@ npm install @nathangosselin/design-system
 yarn add @nathangosselin/design-system
 ```
 
-2. Install fonts
-
-```bash
-npx designsystemfonts
-```
-
 ## Basic Usage
 
 ```tsx
@@ -50,167 +44,66 @@ All components are available as direct imports from the package root.
 
 ## Setting Up Fonts
 
-The design system includes custom fonts that need to be installed:
+### Google Fonts
 
-```bash
-# If the package is installed in your project:
-npx designsystemfonts
-
-# Or use the full package name:
-npx @nathangosselin/design-system designsystemfonts
-```
-
-For automatic installation when dependencies change, add to your `package.json`:
-
-```json
-"scripts": {
-  "postinstall": "designsystemfonts"
-}
-```
-
-## Configuring Tailwind
-
-In your `tailwind.config.js`:
-
-```js
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  content: [
-    './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@nathangosselin/design-system/dist/**/*.{js,ts,jsx,tsx}',
-  ],
-  // You can extend the design system's theme
-  theme: {
-    extend: {
-      // Your custom theme extensions
-    },
-  },
-  plugins: [],
-};
-```
-
-## Using the Component Registry
-
-For advanced use cases, you can access component metadata and utility functions:
+The design system uses Google Fonts for its typography. We provide a configuration and helper functions to make font setup easy:
 
 ```tsx
-import {
-  componentRegistry,
-  resolveComponent,
-  getComponentsByCategory,
-  getComponentCategories,
-} from '@nathangosselin/design-system';
+import { fonts, getGoogleFontsUrl } from '@nathangosselin/design-system/fonts';
 
-// Get info about a component
-const buttonInfo = componentRegistry.button;
-console.log(buttonInfo);
-// {
-//   name: 'Button',
-//   description: 'Interactive button component with multiple variants, icons, and loading states',
-//   category: 'forms',
-//   path: '../forms/button'
-// }
-
-// Dynamically resolve a component
-const Button = await resolveComponent('button');
-
-// Get all components in a category
-const layoutComponents = getComponentsByCategory('layout');
-// Returns metadata for Container, Section, Grid, and Content
-
-// Get all available categories
-const categories = getComponentCategories();
-// Returns ['forms', 'layout', 'navigation', 'typography', 'utils']
-```
-
-## Examples
-
-### Basic Layout
-
-```tsx
-import {
-  Container,
-  Section,
-  ArticleTitle,
-  ArticleText,
-  Button,
-} from '@nathangosselin/design-system';
-
-function HomePage() {
+// In your app's root layout or entry point:
+function RootLayout() {
   return (
-    <Container>
-      <Section>
-        <ArticleTitle>Welcome to Our Website</ArticleTitle>
-        <ArticleText>This is an example of using the design system components.</ArticleText>
-        <Button>Get Started</Button>
-      </Section>
-    </Container>
+    <html>
+      <head>
+        <link href={getGoogleFontsUrl()} rel="stylesheet" />
+      </head>
+      <body>{children}</body>
+    </html>
   );
 }
 ```
 
-### Navigation
+For Next.js applications, you can use the Next.js Font Optimization:
 
 ```tsx
-import { Container, NavLink, Link } from '@nathangosselin/design-system';
+import { Inter, JetBrains_Mono } from 'next/font/google';
+import { Newsreader } from 'next/font/google';
+import { fonts } from '@nathangosselin/design-system/fonts';
 
-function Navigation() {
+// Load fonts with weights from our configuration
+const inter = Inter({
+  subsets: ['latin'],
+  weight: fonts.sans.weights,
+  display: fonts.sans.display,
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: fonts.mono.weights,
+  display: fonts.mono.display,
+});
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: fonts.serif.weights,
+  style: fonts.serif.styles,
+  display: fonts.serif.display,
+});
+
+export default function RootLayout({ children }) {
   return (
-    <Container>
-      <nav className="flex gap-4 py-4">
-        <NavLink href="/">Home</NavLink>
-        <NavLink href="/about">About</NavLink>
-        <NavLink href="/contact">Contact</NavLink>
-      </nav>
-      <Link href="/terms">Terms of Service</Link>
-    </Container>
+    <html lang="en">
+      <body className={`${inter.className} ${jetbrainsMono.className} ${newsreader.className}`}>
+        {children}
+      </body>
+    </html>
   );
 }
 ```
 
-## Troubleshooting
+The design system uses these fonts:
 
-### CSS Issues
-
-If components appear unstyled:
-
-- Ensure you've imported `@nathangosselin/design-system/styles.css`
-- Verify your Tailwind content configuration includes the design system
-
-### Font Issues
-
-If fonts aren't loading:
-
-- Verify the fonts were installed correctly in `public/fonts`
-- Check that your application can access the font files
-- Try reinstalling fonts with `npx designsystemfonts`
-
-### TypeScript Issues
-
-If you're seeing TypeScript errors:
-
-- Ensure you're using TypeScript ≥ 4.5
-- Add types to your tsconfig.json:
-  ```json
-  {
-    "compilerOptions": {
-      "types": ["@nathangosselin/design-system"]
-    }
-  }
-  ```
-
-## Testing with Different Versions
-
-For testing against unreleased versions:
-
-```bash
-# Install specific versions
-npm install @nathangosselin/design-system@1.2.3-beta.1
-
-# Or use local testing with yalc
-# In design-system repo:
-npm run test-local
-
-# In your app:
-yalc add @nathangosselin/design-system
-```
+- Newsreader (serif) - For article and long-form content
+- Inter (sans-serif) - For UI elements and navigation
+- JetBrains Mono (monospace) - For code blocks
