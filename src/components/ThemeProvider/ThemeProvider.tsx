@@ -1,11 +1,11 @@
-import { createContext, useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import type { ThemeContextValue, ThemeOption, PrimaryColorOption } from './types';
 import type { CustomTokens } from './tokens';
 
 /**
  * Context for theme values and functions
  */
-export const ThemeContext = createContext<ThemeContextValue>({
+export const ThemeContext = React.createContext<ThemeContextValue>({
   theme: 'system',
   primaryColor: 'ocean',
   isDark: false,

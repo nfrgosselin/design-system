@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React from 'react';
 import { ThemeContext } from './ThemeProvider';
 import type { PrimaryColorOption } from './types';
 
@@ -10,7 +10,7 @@ export function usePrimaryColor(): {
   primaryColor: PrimaryColorOption;
   setPrimaryColor: (color: PrimaryColorOption) => void;
 } {
-  const context = useContext(ThemeContext);
+  const context = React.useContext(ThemeContext);
   if (!context) {
     throw new Error('usePrimaryColor must be used within a ThemeProvider');
   }
