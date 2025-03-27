@@ -15,10 +15,8 @@ export { componentRegistry, resolveComponent } from './components/registry';
 export {
   ThemeProvider,
   useTheme,
-  usePrimaryColor,
   type ThemeProviderProps,
   type ThemeOption,
-  type PrimaryColorOption,
   type ThemeContextValue,
   type CustomTokens,
 } from './components/ThemeProvider';

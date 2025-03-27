@@ -111,14 +111,35 @@ The design system uses CSS variables for consistent styling:
 
 ### Primary Color System
 
-The `ThemeProvider` maps the selected primary color to CSS variables using HSL values:
+The design system uses CSS variables for primary colors that should be defined in your application's CSS:
 
 ```css
-/* When primaryColor="ocean" */
---ds-primary: 178 54% 44%;
+/* In your globals.css or equivalent */
+:root {
+  /* Ocean theme (teal) */
+  --ds-primary: 178 54% 44%;
+  --ds-primary-hover: 178 54% 40%;
+  --ds-primary-active: 178 54% 36%;
+  --ds-ring: 178 54% 44%;
 
-/* When primaryColor="sunset" */
---ds-primary: 14 100% 60%;
+  /* OR Sunset theme (orange) */
+  /* --ds-primary: 14 100% 60%;
+  --ds-primary-hover: 14 100% 56%;
+  --ds-primary-active: 14 100% 52%;
+  --ds-ring: 14 100% 60%; */
+
+  /* OR Sun theme (yellow) */
+  /* --ds-primary: 45 100% 62%;
+  --ds-primary-hover: 45 100% 58%; 
+  --ds-primary-active: 45 100% 54%;
+  --ds-ring: 45 100% 62%; */
+
+  /* OR Marine theme (navy) */
+  /* --ds-primary: 217 55% 23%;
+  --ds-primary-hover: 217 55% 19%;
+  --ds-primary-active: 217 55% 15%;
+  --ds-ring: 217 55% 23%; */
+}
 ```
 
 Components use these variables with Tailwind's opacity modifier syntax:
@@ -130,22 +151,7 @@ Components use these variables with Tailwind's opacity modifier syntax:
 }
 ```
 
-You can customize the primary color through:
-
-1. The `ThemeProvider` component:
-
-```tsx
-<ThemeProvider primaryColor="sunset">
-  <App />
-</ThemeProvider>
-```
-
-2. The `usePrimaryColor` hook for dynamic changes:
-
-```tsx
-const { setPrimaryColor } = usePrimaryColor();
-setPrimaryColor('sun');
-```
+Set these variables directly in your CSS to create a consistent visual identity across your application.
 
 ## Tailwind Configuration
 

@@ -1,5 +1,5 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import type { ThemeContextValue, ThemeOption, PrimaryColorOption } from './types';
+import React, { useEffect, useState } from 'react';
+import type { ThemeContextValue, ThemeOption } from './types';
 import type { CustomTokens } from './tokens';
 
 /**
@@ -7,10 +7,8 @@ import type { CustomTokens } from './tokens';
  */
 export const ThemeContext = React.createContext<ThemeContextValue>({
   theme: 'system',
-  primaryColor: 'ocean',
   isDark: false,
   setTheme: () => undefined,
-  setPrimaryColor: () => undefined,
 });
 
 /**
@@ -18,12 +16,10 @@ export const ThemeContext = React.createContext<ThemeContextValue>({
  */
 export function ThemeProvider({
   theme = 'system',
-  primaryColor = 'ocean',
   customTokens = {},
   children,
 }: {
   theme?: ThemeOption;
-  primaryColor?: PrimaryColorOption;
   customTokens?: CustomTokens;
   children: React.ReactNode;
 }) {
@@ -33,16 +29,11 @@ export function ThemeProvider({
   });
 
   const [currentTheme, setCurrentTheme] = useState<ThemeOption>(theme);
-  const [currentPrimaryColor, setCurrentPrimaryColor] = useState<PrimaryColorOption>(primaryColor);
 
   // Sync props with state when they change
   useEffect(() => {
     setCurrentTheme(theme);
   }, [theme]);
-
-  useEffect(() => {
-    setCurrentPrimaryColor(primaryColor);
-  }, [primaryColor]);
 
   // Compute whether we're in dark mode based on theme setting and system preference
   const isDark = currentTheme === 'dark' || (currentTheme === 'system' && systemIsDark);
@@ -60,50 +51,6 @@ export function ThemeProvider({
     // Remove event listener on cleanup
     return () => media.removeEventListener('change', handler);
   }, []);
-
-  // Generate primary color tokens based on the selected option
-  const primaryColorTokens = useMemo(() => {
-    // Direct HSL values for each product identity color
-    const colorValues = {
-      ocean: {
-        base: '178 54% 44%',
-        hover: '178 54% 40%',
-        active: '178 54% 36%',
-      },
-      sunset: {
-        base: '14 100% 60%',
-        hover: '14 100% 56%',
-        active: '14 100% 52%',
-      },
-      sun: {
-        base: '45 100% 62%',
-        hover: '45 100% 58%',
-        active: '45 100% 54%',
-      },
-      marine: {
-        base: '217 55% 23%',
-        hover: '217 55% 19%',
-        active: '217 55% 15%',
-      },
-    };
-
-    return {
-      // Set direct HSL values for Tailwind consumption
-      '--ds-primary': colorValues[currentPrimaryColor].base,
-      '--ds-primary-hover': colorValues[currentPrimaryColor].hover,
-      '--ds-primary-active': colorValues[currentPrimaryColor].active,
-      '--ds-ring': colorValues[currentPrimaryColor].base,
-    };
-  }, [currentPrimaryColor]);
-
-  // Merge with any other custom tokens
-  const mergedTokens = useMemo(
-    () => ({
-      ...primaryColorTokens,
-      ...customTokens,
-    }),
-    [primaryColorTokens, customTokens]
-  );
 
   // Apply theme class and custom tokens to document
   useEffect(() => {
@@ -123,19 +70,19 @@ export function ThemeProvider({
     }
 
     // Apply custom tokens
-    Object.entries(mergedTokens).forEach(([key, value]) => {
-      document.documentElement.style.setProperty(key, value);
+    Object.entries(customTokens).forEach(([key, value]) => {
+      if (value !== undefined) {
+        document.documentElement.style.setProperty(key, value);
+      }
     });
-  }, [currentTheme, isDark, mergedTokens]);
+  }, [currentTheme, isDark, customTokens]);
 
   return (
     <ThemeContext.Provider
       value={{
         theme: currentTheme,
-        primaryColor: currentPrimaryColor,
         isDark,
         setTheme: setCurrentTheme,
-        setPrimaryColor: setCurrentPrimaryColor,
       }}
     >
       {children}

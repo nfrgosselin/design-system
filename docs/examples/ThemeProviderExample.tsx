@@ -2,86 +2,86 @@
  * ThemeProvider Example
  *
  * This example demonstrates how to use the ThemeProvider component
- * with its various features, including primary color selection.
+ * for theme mode management (light/dark/white/system).
  */
 
 import React from 'react';
-import { ThemeProvider, Button, usePrimaryColor } from '../../src';
+import { ThemeProvider, Button, useTheme } from '../../src';
 
 // Example 1: Basic ThemeProvider with default settings
 export const BasicThemeProviderExample = () => {
   return (
     <div className="space-y-4">
       <h2 className="text-xl font-bold">Basic ThemeProvider</h2>
-      <p>Default setup with system theme and ocean primary color:</p>
+      <p>Default setup with system theme:</p>
       <ThemeProvider>
         <div className="flex gap-2">
-          <Button variant="default">Ocean (Default)</Button>
-          <Button variant="outline">Outline Button</Button>
+          <Button>Primary Button</Button>
+          <Button variant="outline-accent">Outline Button</Button>
         </div>
       </ThemeProvider>
     </div>
   );
 };
 
-// Example 2: ThemeProvider with custom primary color
-export const CustomPrimaryColorExample = () => {
+// Example 2: ThemeProvider with light theme
+export const LightThemeExample = () => {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold">Custom Primary Color</h2>
-      <p>Using sunset as the primary color:</p>
-      <ThemeProvider primaryColor="sunset">
+      <h2 className="text-xl font-bold">Light Theme</h2>
+      <p>Using light theme explicitly:</p>
+      <ThemeProvider theme="light">
         <div className="flex gap-2">
-          <Button variant="default">Sunset Primary</Button>
-          <Button variant="outline">Outline Button</Button>
+          <Button>Primary Button</Button>
+          <Button variant="outline-accent">Outline Button</Button>
         </div>
       </ThemeProvider>
     </div>
   );
 };
 
-// Example 3: Interactive primary color selection
-export const InteractivePrimaryColorExample = () => {
+// Example 3: Interactive theme selection
+export const InteractiveThemeExample = () => {
   return (
     <ThemeProvider>
-      <PrimaryColorSelector />
+      <ThemeSelector />
     </ThemeProvider>
   );
 };
 
-// Primary color selector component that uses the usePrimaryColor hook
-const PrimaryColorSelector = () => {
-  const { primaryColor, setPrimaryColor } = usePrimaryColor();
+// Theme selector component that uses the useTheme hook
+const ThemeSelector = () => {
+  const { theme, setTheme } = useTheme();
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold">Interactive Primary Color Selection</h2>
-      <p>Click a button to change the primary color using the usePrimaryColor hook:</p>
+      <h2 className="text-xl font-bold">Interactive Theme Selection</h2>
+      <p>Click a button to change the theme using the useTheme hook:</p>
 
       <div className="flex gap-2">
-        {(['ocean', 'sunset', 'sun', 'marine'] as const).map(color => (
+        {(['light', 'dark', 'white', 'system'] as const).map(themeOption => (
           <button
-            key={color}
-            onClick={() => setPrimaryColor(color)}
+            key={themeOption}
+            onClick={() => setTheme(themeOption)}
             className={`
               px-4 py-2 rounded-md font-medium
               ${
-                color === primaryColor
-                  ? 'bg-primary text-white'
-                  : 'border border-gray-200 hover:border-primary'
+                themeOption === theme
+                  ? 'bg-ds-primary text-white'
+                  : 'border border-gray-200 hover:border-ds-primary'
               }
             `}
           >
-            {color}
+            {themeOption}
           </button>
         ))}
       </div>
 
       <div className="mt-4">
-        <h3 className="font-medium">Current primary color: {primaryColor}</h3>
+        <h3 className="font-medium">Current theme: {theme}</h3>
         <div className="flex gap-2 mt-2">
-          <Button variant="default">Primary Button</Button>
-          <Button variant="outline">Outline Button</Button>
+          <Button>Primary Button</Button>
+          <Button variant="outline-accent">Outline Button</Button>
         </div>
       </div>
     </div>
@@ -96,36 +96,42 @@ export const CustomTokensExample = () => {
       <p>Using custom color tokens:</p>
       <ThemeProvider
         customTokens={{
-          '--ds-primary': 'purple',
-          '--ds-ring': 'purple',
+          '--ds-color-paper': '60 33.3% 98.8%',
         }}
       >
         <div className="flex gap-2">
-          <Button variant="default">Custom Purple</Button>
-          <Button variant="outline">Outline Button</Button>
+          <Button>Custom Background</Button>
+          <Button variant="outline-accent">Outline Button</Button>
         </div>
       </ThemeProvider>
     </div>
   );
 };
 
-// Example 5: Theme and primary color together
-export const ThemeAndPrimaryColorExample = () => {
+// Example 5: Different theme modes
+export const ThemeModesExample = () => {
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold">Theme & Primary Color</h2>
-      <div className="grid grid-cols-2 gap-4">
+      <h2 className="text-xl font-bold">Theme Modes</h2>
+      <div className="grid grid-cols-3 gap-4">
         <div className="p-4 bg-white rounded-lg">
-          <h3 className="font-medium mb-2">Light Theme + Sun</h3>
-          <ThemeProvider theme="light" primaryColor="sun">
-            <Button variant="default">Sun Button</Button>
+          <h3 className="font-medium mb-2">Light Theme</h3>
+          <ThemeProvider theme="light">
+            <Button>Light Mode</Button>
           </ThemeProvider>
         </div>
 
         <div className="p-4 bg-gray-900 rounded-lg">
-          <h3 className="font-medium mb-2 text-white">Dark Theme + Marine</h3>
-          <ThemeProvider theme="dark" primaryColor="marine">
-            <Button variant="default">Marine Button</Button>
+          <h3 className="font-medium mb-2 text-white">Dark Theme</h3>
+          <ThemeProvider theme="dark">
+            <Button>Dark Mode</Button>
+          </ThemeProvider>
+        </div>
+
+        <div className="p-4 bg-white rounded-lg">
+          <h3 className="font-medium mb-2">White Theme</h3>
+          <ThemeProvider theme="white">
+            <Button>White Mode</Button>
           </ThemeProvider>
         </div>
       </div>
@@ -140,16 +146,15 @@ export const ThemeProviderExamplePage = () => {
       <header className="pb-6 border-b">
         <h1 className="text-3xl font-bold">ThemeProvider System</h1>
         <p className="text-gray-600">
-          Demonstrating the features of the ThemeProvider component, including primary color
-          selection.
+          Demonstrating the features of the ThemeProvider component for managing theme modes.
         </p>
       </header>
 
       <BasicThemeProviderExample />
-      <CustomPrimaryColorExample />
-      <InteractivePrimaryColorExample />
+      <LightThemeExample />
+      <InteractiveThemeExample />
       <CustomTokensExample />
-      <ThemeAndPrimaryColorExample />
+      <ThemeModesExample />
     </div>
   );
 };

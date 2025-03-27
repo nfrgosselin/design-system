@@ -1,10 +1,10 @@
 # Consuming the Design System
 
-This guide explains how to consume the design system in your projects.
+This guide provides step-by-step instructions for setting up the design system in your project.
 
-## Basic Installation
+## Installation Steps
 
-1. Install package
+1. Install the package:
 
 ```bash
 npm install @nathangosselin/design-system
@@ -12,89 +12,141 @@ npm install @nathangosselin/design-system
 yarn add @nathangosselin/design-system
 ```
 
-## Basic Usage
+2. Import the design system CSS in your root layout or entry point:
 
 ```tsx
-import { Button, Container, Section } from '@nathangosselin/design-system';
+// In _app.tsx, RootLayout.tsx, or similar
 import '@nathangosselin/design-system/styles.css';
+```
 
-function App() {
-  return (
-    <Container>
-      <Section>
-        <h2>Hello World</h2>
-        <Button>Click me</Button>
-      </Section>
-    </Container>
-  );
+3. Configure your primary color by adding ONE of these color configurations to your globals.css:
+
+```css
+/* Option 1: Ocean (Professional tools) */
+:root {
+  --ds-primary: 178 54% 44%;
+  --ds-primary-hover: 178 54% 40%;
+  --ds-primary-active: 178 54% 36%;
+  --ds-ring: 178 54% 44%;
+}
+
+/* Option 2: Sunset (Creative tools) */
+:root {
+  --ds-primary: 14 100% 60%;
+  --ds-primary-hover: 14 100% 55%;
+  --ds-primary-active: 14 100% 50%;
+  --ds-ring: 14 100% 60%;
+}
+
+/* Option 3: Sun (Publishing tools) */
+:root {
+  --ds-primary: 45 100% 62%;
+  --ds-primary-hover: 45 100% 58%;
+  --ds-primary-active: 45 100% 54%;
+  --ds-ring: 45 100% 62%;
+}
+
+/* Option 4: Marine (Technical tools) */
+:root {
+  --ds-primary: 217 55% 23%;
+  --ds-primary-hover: 217 55% 19%;
+  --ds-primary-active: 217 55% 15%;
+  --ds-ring: 217 55% 23%;
 }
 ```
 
-## Theming
-
-### ThemeProvider
-
-The design system uses a `ThemeProvider` component that manages themes and primary colors. Place it at the root of your application:
+4. Add the ThemeProvider to handle light/dark mode:
 
 ```tsx
 import { ThemeProvider } from '@nathangosselin/design-system';
-import '@nathangosselin/design-system/styles.css';
 
-function MyApp({ Component, pageProps }) {
+function RootLayout({ children }) {
   return (
-    <ThemeProvider>
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <html lang="en">
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
   );
 }
 ```
 
-### Theme Options
+5. Set up fonts:
 
-The `ThemeProvider` accepts these props:
+The design system uses three Google Fonts:
+
+- Inter (sans-serif) - For UI elements and navigation
+- Newsreader (serif) - For article and long-form content
+- JetBrains Mono (monospace) - For code blocks
+
+For Next.js applications:
+
+```tsx
+import { Inter, JetBrains_Mono, Newsreader } from 'next/font/google';
+import { fonts } from '@nathangosselin/design-system/fonts';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: fonts.sans.weights,
+  display: fonts.sans.display,
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: fonts.mono.weights,
+  display: fonts.mono.display,
+});
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  weight: fonts.serif.weights,
+  style: fonts.serif.styles,
+  display: fonts.serif.display,
+});
+
+function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body className={`${inter.className} ${jetbrainsMono.className} ${newsreader.className}`}>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+For non-Next.js applications:
+
+```tsx
+import { getGoogleFontsUrl } from '@nathangosselin/design-system/fonts';
+
+function App() {
+  return (
+    <html>
+      <head>
+        <link href={getGoogleFontsUrl()} rel="stylesheet" />
+      </head>
+      <body>
+        <ThemeProvider>{children}</ThemeProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+## Theme Mode Configuration
+
+The ThemeProvider handles light/dark/white mode settings. Available options:
 
 ```tsx
 <ThemeProvider
   theme="light" // 'light' | 'dark' | 'white' | 'system' (default)
-  primaryColor="ocean" // 'ocean' | 'sunset' | 'sun' | 'marine'
 >
   {children}
 </ThemeProvider>
 ```
 
-### Primary Color Selection
-
-The design system uses HSL values for its primary colors:
-
-- **ocean** (default): HSL(178 54% 44%) - Professional tools
-- **sunset**: HSL(14 100% 60%) - Creative tools
-- **sun**: HSL(45 100% 62%) - Publishing tools
-- **marine**: HSL(217 55% 23%) - Technical tools
-
-Set the primary color through the `ThemeProvider`:
-
-```tsx
-<ThemeProvider primaryColor="sunset">
-  <App />
-</ThemeProvider>
-```
-
-Or change it dynamically with the `usePrimaryColor` hook:
-
-```tsx
-import { usePrimaryColor } from '@nathangosselin/design-system';
-
-function ColorSwitcher() {
-  const { primaryColor, setPrimaryColor } = usePrimaryColor();
-  return <button onClick={() => setPrimaryColor('sun')}>Switch to Sun Theme</button>;
-}
-```
-
-The primary color is exposed through the `--ds-primary` CSS variable, which components use for styling.
-
-### Dark Mode
-
-You can use the `useTheme` hook to check if dark mode is active and to change the theme:
+You can use the `useTheme` hook to programmatically change themes:
 
 ```tsx
 import { useTheme } from '@nathangosselin/design-system';
@@ -110,9 +162,28 @@ function ThemeSwitcher() {
 }
 ```
 
-## Component Categories
+## Using Components
 
-The design system organizes components into the following categories:
+Import and use components directly from the package:
+
+```tsx
+import { Button, Container, Section } from '@nathangosselin/design-system';
+
+function MyPage() {
+  return (
+    <Container>
+      <Section>
+        <h2>Hello World</h2>
+        <Button>Click me</Button>
+      </Section>
+    </Container>
+  );
+}
+```
+
+### Available Components
+
+Components are organized into these categories:
 
 - **Forms**: `Button`
 - **Layout**: `Container`, `Section`, `Grid`, `Content`

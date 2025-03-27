@@ -1,18 +1,17 @@
 /** @jest-environment jsdom */
-import { render, screen, fireEvent } from '@testing-library/react';
-import { ThemeProvider } from '../../../components/ThemeProvider/ThemeProvider';
-import { useTheme } from '../../../components/ThemeProvider/hooks';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
+import { ThemeProvider, useTheme } from '../../../components/ThemeProvider';
 
 // Mock component that uses the theme context
 function TestComponent() {
-  const { theme, setTheme, isDark } = useTheme();
+  const { theme, isDark, setTheme } = useTheme();
   return (
     <div>
-      <span data-testid="theme">{theme}</span>
-      <span data-testid="dark-mode">{isDark ? 'dark' : 'light'}</span>
+      <div data-testid="theme">{theme}</div>
+      <div data-testid="isDark">{isDark.toString()}</div>
       <button onClick={() => setTheme('dark')}>Set Dark</button>
       <button onClick={() => setTheme('light')}>Set Light</button>
-      <button onClick={() => setTheme('white')}>Set White</button>
     </div>
   );
 }
@@ -24,63 +23,66 @@ describe('ThemeProvider', () => {
     document.documentElement.removeAttribute('data-theme');
   });
 
-  it('provides theme context to children', () => {
+  it('provides default theme context values', () => {
     render(
-      <ThemeProvider theme="light">
+      <ThemeProvider>
         <TestComponent />
       </ThemeProvider>
     );
 
-    expect(screen.getByTestId('theme')).toHaveTextContent('light');
-    expect(screen.getByTestId('dark-mode')).toHaveTextContent('light');
+    expect(screen.getByTestId('theme')).toHaveTextContent('system');
+    expect(screen.getByTestId('isDark')).toHaveTextContent('false');
   });
 
-  it('allows theme switching', () => {
+  it('allows setting theme via props', () => {
     render(
-      <ThemeProvider theme="light">
+      <ThemeProvider theme="dark">
         <TestComponent />
       </ThemeProvider>
     );
 
-    fireEvent.click(screen.getByText('Set Dark'));
     expect(screen.getByTestId('theme')).toHaveTextContent('dark');
-    expect(screen.getByTestId('dark-mode')).toHaveTextContent('dark');
-
-    fireEvent.click(screen.getByText('Set White'));
-    expect(screen.getByTestId('theme')).toHaveTextContent('white');
-    expect(screen.getByTestId('dark-mode')).toHaveTextContent('light');
+    expect(screen.getByTestId('isDark')).toHaveTextContent('true');
   });
 
-  it('applies theme attribute to document', () => {
+  it('allows changing theme via hook', async () => {
     render(
-      <ThemeProvider theme="white">
+      <ThemeProvider>
         <TestComponent />
       </ThemeProvider>
     );
 
-    expect(document.documentElement).toHaveAttribute('data-theme', 'white');
+    await userEvent.click(screen.getByText('Set Dark'));
+    expect(screen.getByTestId('theme')).toHaveTextContent('dark');
+    expect(screen.getByTestId('isDark')).toHaveTextContent('true');
+
+    await userEvent.click(screen.getByText('Set Light'));
+    expect(screen.getByTestId('theme')).toHaveTextContent('light');
+    expect(screen.getByTestId('isDark')).toHaveTextContent('false');
   });
 
-  it('applies custom tokens', () => {
+  it('applies theme attributes to document root', () => {
+    render(
+      <ThemeProvider theme="dark">
+        <TestComponent />
+      </ThemeProvider>
+    );
+
+    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
+    expect(document.documentElement.classList.contains('dark')).toBe(true);
+  });
+
+  it('applies custom tokens to document root', () => {
     const customTokens = {
-      '--ds-color-paper': '60 33.3% 98.8%',
+      '--test-token': 'test-value',
     };
 
     render(
-      <ThemeProvider theme="white" customTokens={customTokens}>
+      <ThemeProvider customTokens={customTokens}>
         <TestComponent />
       </ThemeProvider>
     );
 
-    expect(document.documentElement.style.getPropertyValue('--ds-color-paper')).toBe(
-      '60 33.3% 98.8%'
-    );
-  });
-
-  // Since we now provide default values for the ThemeContext, useTheme won't throw when used outside a provider
-  // This test is no longer valid with our new implementation
-  it('uses default theme when used outside provider', () => {
-    render(<TestComponent />);
-    expect(screen.getByTestId('theme')).toHaveTextContent('system');
+    expect(document.documentElement.style.getPropertyValue('--test-token')).toBe('test-value');
   });
 });

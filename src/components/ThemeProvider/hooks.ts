@@ -1,25 +1,13 @@
-import React from 'react';
+import { useContext } from 'react';
 import { ThemeContext } from './ThemeProvider';
-import type { PrimaryColorOption } from './types';
 
 /**
- * Hook to access and update the primary color
- * @returns Object containing the current primary color and a function to update it
+ * Hook to access and modify theme context values
  */
-export function usePrimaryColor(): {
-  primaryColor: PrimaryColorOption;
-  setPrimaryColor: (color: PrimaryColorOption) => void;
-} {
-  const context = React.useContext(ThemeContext);
+export function useTheme() {
+  const context = useContext(ThemeContext);
   if (!context) {
-    throw new Error('usePrimaryColor must be used within a ThemeProvider');
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
-
-  return {
-    primaryColor: context.primaryColor,
-    setPrimaryColor: context.setPrimaryColor,
-  };
+  return context;
 }
-
-// Re-export existing hooks
-export * from './useTheme';
