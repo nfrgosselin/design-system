@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.3.4](https://github.com/nfrgosselin/design-system/compare/v1.3.3...v1.3.4) (2025-03-27)
+
+### Maintenance
+
+- fix primary color and theme provider ([cd86cbb](https://github.com/nfrgosselin/design-system/commit/cd86cbb48d9e40a0fe67f24138b36445e1af976f))
+
 ### [1.3.3](https://github.com/nfrgosselin/design-system/compare/v1.3.2...v1.3.3) (2025-03-27)
 
 ### Features
