@@ -29,7 +29,7 @@ const buttonVariants = cva(
         ].join(' '),
         'primary-accent': [
           'bg-white text-black border-[1.5px] border-black',
-          'hover:bg-ds-primary hover:text-white hover:border-black',
+          'hover:bg-ds-primary-hover hover:text-white hover:border-black',
           'active:bg-ds-primary-active active:text-white active:border-ds-primary-active',
         ].join(' '),
         'primary-accent-reverse': [

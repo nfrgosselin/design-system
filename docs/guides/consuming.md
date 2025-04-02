@@ -12,12 +12,15 @@ npm install @nathangosselin/design-system
 yarn add @nathangosselin/design-system
 ```
 
-2. Import the design system CSS in your root layout or entry point:
+2. Import the design system CSS files in your root layout or entry point:
 
 ```tsx
 // In _app.tsx, RootLayout.tsx, or similar
-import '@nathangosselin/design-system/styles.css';
+import '@nathangosselin/design-system/tokens.css'; // Import tokens first
+import '@nathangosselin/design-system/styles.css'; // Import component styles second
 ```
+
+**Important**: The import order matters because `styles.css` relies on the CSS custom properties (design tokens) defined in `tokens.css`. Always import `tokens.css` before `styles.css` to ensure proper styling.
 
 3. Configure your primary color by adding ONE of these color configurations to your globals.css:
 

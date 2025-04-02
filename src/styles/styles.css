@@ -15,69 +15,69 @@
 
 @layer base {
   :root {
-    /* Color variables use space-separated HSL values (not comma-separated)
-     * Format: H S% L% (example: 178 54% 44%)
-     * This format is required for Tailwind's HSL color functions
-     */
-    
     /* Base colors */
-    --black: 20 14.3% 4.1%;
-    --white: 0 0% 100%;
+    --black: var(--ds-color-black);
+    --white: var(--ds-color-white);
     
     /* Weathered Scale */
-    --pure-white: 0 0% 100%; /* #ffffff */
-    --stone-50: 60 33.3% 98.8%;
-    --stone-100: 60 9.1% 97.8%;
-    --stone-200: 20 9.1% 89.1%;
-    --stone-300: 24 5.7% 82.7%;
-    --stone-400: 24 5.3% 63.9%;
-    --stone-500: 20 9.8% 55.7%;
-    --stone-600: 20 3.8% 32.9%;
-    --stone-700: 20 5.9% 24.9%;
-    --stone-800: 20 6.1% 14.9%;
-    --stone-900: 20 14.3% 4.1%;
+    --pure-white: var(--ds-color-white);
+    --stone-50: var(--ds-color-stone-50);
+    --stone-100: var(--ds-color-stone-100);
+    --stone-200: var(--ds-color-stone-200);
+    --stone-300: var(--ds-color-stone-300);
+    --stone-400: var(--ds-color-stone-400);
+    --stone-500: var(--ds-color-stone-500);
+    --stone-600: var(--ds-color-stone-600);
+    --stone-700: var(--ds-color-stone-700);
+    --stone-800: var(--ds-color-stone-800);
+    --stone-900: var(--ds-color-stone-900);
     
     /* Product Identity Colors */
-    --ocean: 178 54% 44%;      /* #34b6ac - Professional tools */
-    --ocean-hover: 178 54% 40%;
-    --ocean-active: 178 54% 36%;
+    --ocean: var(--ds-color-ocean-base);
+    --ocean-hover: var(--ds-color-ocean-hover);
+    --ocean-active: var(--ds-color-ocean-active);
     
-    --sunset: 14 100% 60%;     /* #ff5f35 - Creative tools */
-    --sunset-hover: 14 100% 56%;
-    --sunset-active: 14 100% 52%;
+    --sunset: var(--ds-color-sunset-base);
+    --sunset-hover: var(--ds-color-sunset-hover);
+    --sunset-active: var(--ds-color-sunset-active);
     
-    --sun: 45 100% 62%;        /* #ffd23f - Publishing tools */
-    --sun-hover: 45 100% 58%;
-    --sun-active: 45 100% 54%;
+    --sun: var(--ds-color-sun-base);
+    --sun-hover: var(--ds-color-sun-hover);
+    --sun-active: var(--ds-color-sun-active);
     
-    --marine: 217 55% 23%;     /* #1b365d - Technical tools */
-    --marine-hover: 217 55% 19%;
-    --marine-active: 217 55% 15%;
+    --marine: var(--ds-color-marine-base);
+    --marine-hover: var(--ds-color-marine-hover);
+    --marine-active: var(--ds-color-marine-active);
+    
+    /* Design System Primary Role - Using Ocean as default */
+    --ds-primary: var(--ocean);
+    --ds-primary-hover: var(--ocean-hover);
+    --ds-primary-active: var(--ocean-active);
     
     /* Supporting Accents */
-    --seafoam: 174 61% 51%;    /* #34d1bf */
-    --coral: 14 100% 71%;      /* #ff8b6b */
-    --navy: 213 41% 30%;       /* #2d4b6d */
-    --amber: 39 100% 57%;      /* #ffb626 */
-    --lagoon: 191 49% 49%;     /* #40a4b9 */
-    --peach: 24 100% 69%;      /* #ff9f5f */
-    --slate: 213 32% 35%;      /* #3d5875 */
-    --gold: 39 100% 75%;       /* #ffd07f */
+    --seafoam: var(--ds-color-seafoam);
+    --coral: var(--ds-color-coral);
+    --navy: var(--ds-color-navy);
+    --amber: var(--ds-color-amber);
+    --lagoon: var(--ds-color-lagoon);
+    --peach: var(--ds-color-peach);
+    --slate: var(--ds-color-slate);
+    --gold: var(--ds-color-gold);
     
     /* Status Colors */
-    --success: 173 58% 39%;    /* #2a9d8f */
-    --success-subtle: 173 58% 39% / 0.15;
-    --warning: 39 100% 57%;    /* #ffb626 - same as amber */
-    --warning-subtle: 39 100% 57% / 0.15;
-    --error: 12 75% 61%;       /* #e76f51 */
-    --error-subtle: 12 75% 61% / 0.15;
-    --info: 206 39% 44%;       /* #457b9d */
-    --info-subtle: 206 39% 44% / 0.15;
+    --success: var(--ds-color-success);
+    --success-subtle: var(--ds-color-success-subtle);
+    --warning: var(--ds-color-warning);
+    --warning-subtle: var(--ds-color-warning-subtle);
+    --error: var(--ds-color-error);
+    --error-subtle: var(--ds-color-error-subtle);
+    --info: var(--ds-color-info);
+    --info-subtle: var(--ds-color-info-subtle);
 
     /* Special Effects */
-    --overlay-light: hsl(var(--black) / 0.1);
-    --overlay-medium: hsl(var(--black) / 0.3);
-    --overlay-heavy: hsl(var(--black) / 0.6);
+    --overlay-light: var(--ds-color-overlay-light);
+    --overlay-medium: var(--ds-color-overlay-medium);
+    --overlay-heavy: var(--ds-color-overlay-heavy);
 
     /* shadcn/ui integration */
     --background: var(--white);
@@ -87,8 +87,10 @@
     --popover: var(--white);
     --popover-foreground: var(--black);
     
-    /* Using ocean as our primary brand color */
-    --primary: var(--ocean);
+    /* Using ds-primary role variables for shadcn/ui integration */
+    --primary: var(--ds-primary);
+    --primary-hover: var(--ds-primary-hover);
+    --primary-active: var(--ds-primary-active);
     --primary-foreground: var(--white);
     
     --secondary: var(--stone-200);
@@ -117,52 +119,55 @@
     --surface-active: var(--stone-200);
 
     /* Chart Colors */
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    --chart-1: var(--ds-color-chart-1);
+    --chart-2: var(--ds-color-chart-2);
+    --chart-3: var(--ds-color-chart-3);
+    --chart-4: var(--ds-color-chart-4);
+    --chart-5: var(--ds-color-chart-5);
 
-    --radius: 0.5rem;
+    /* Border Radius */
+    --radius: var(--ds-radius);
 
     /* Fonts */
-    --font-serif: "Newsreader", Georgia, serif;
-    --font-sans: "Inter", system-ui, -apple-system, sans-serif;
-    --font-mono: "JetBrains Mono", monospace;
+    --font-serif: var(--ds-font-serif);
+    --font-sans: var(--ds-font-sans);
+    --font-mono: var(--ds-font-mono);
 
     /* Container widths */
-    --container-max: 1280px;
-    --container-content: 768px;
-    --container-form: 640px;
+    --container-max: var(--ds-container-max);
+    --container-content: var(--ds-container-content);
+    --container-form: var(--ds-container-form);
 
-    /* Spacing Scale (based on 8px grid) */
-    --space-1: 0.25rem;  /* 4px */
-    --space-2: 0.5rem;   /* 8px - base */
-    --space-3: 0.75rem;  /* 12px */
-    --space-4: 1rem;     /* 16px */
-    --space-6: 1.5rem;   /* 24px */
-    --space-8: 2rem;     /* 32px */
-    --space-12: 3rem;    /* 48px */
-    --space-16: 4rem;    /* 64px */
+    /* Spacing Scale */
+    --space-1: var(--ds-space-1);
+    --space-2: var(--ds-space-2);
+    --space-3: var(--ds-space-3);
+    --space-4: var(--ds-space-4);
+    --space-6: var(--ds-space-6);
+    --space-8: var(--ds-space-8);
+    --space-12: var(--ds-space-12);
+    --space-16: var(--ds-space-16);
 
     /* Standard Spacing Relationships */
-    --spacing-section: var(--space-16);      /* Major sections */
-    --spacing-content: var(--space-8);       /* Content blocks */
-    --spacing-element: var(--space-4);       /* Related elements */
-    --spacing-relaxed: var(--space-6);       /* Relaxed elements */
-    --spacing-compact: var(--space-2);       /* Tight elements */
+    --spacing-section: var(--ds-spacing-section);
+    --spacing-content: var(--ds-spacing-content);
+    --spacing-element: var(--ds-spacing-element);
+    --spacing-relaxed: var(--ds-spacing-relaxed);
+    --spacing-compact: var(--ds-spacing-compact);
   }
  
   .dark {
-    --background: 20 14.3% 4.1%;
-    --foreground: 60 9.1% 97.8%;
+    /* Base theme colors - using stone scale for dark mode */
+    --background: var(--ds-color-stone-900);
+    --foreground: var(--ds-color-stone-100);
  
-    --card: 20 14.3% 4.1%;
-    --card-foreground: 60 9.1% 97.8%;
+    --card: var(--ds-color-stone-900);
+    --card-foreground: var(--ds-color-stone-100);
  
-    --popover: 20 14.3% 4.1%;
-    --popover-foreground: 60 9.1% 97.8%;
+    --popover: var(--ds-color-stone-900);
+    --popover-foreground: var(--ds-color-stone-100);
  
+    /* These values are unique to dark mode theming */
     --primary: 210 40% 98%;
     --primary-foreground: 222.2 47.4% 11.2%;
  
@@ -183,15 +188,17 @@
     --ring: 212.7 26.8% 83.9%;
  
     /* Product Identity Colors - Dark Mode */
-    --ocean: 178 54% 54%;      /* Brightened for dark mode */
-    --sunset: 14 100% 70%;     /* Brightened for dark mode */
-    --sun: 45 100% 72%;        /* Brightened for dark mode */
-    --marine: 217 55% 63%;     /* Brightened for dark mode */
+    /* Using brightened versions for dark mode */
+    --ocean: 178 54% 54%;
+    --sunset: 14 100% 70%;
+    --sun: 45 100% 72%;
+    --marine: 217 55% 63%;
     
     /* Supporting Accents - Dark Mode */
-    --seafoam: 174, 61%, 61%;
-    --coral: 14, 100%, 81%;
-    --navy: 213, 41%, 70%;
+    /* Using brightened versions for dark mode */
+    --seafoam: 174 61% 61%;
+    --coral: 14 100% 81%;
+    --navy: 213 41% 70%;
     --amber: 39 100% 67%;
     --lagoon: 191 49% 59%;
     --peach: 24 100% 79%;
@@ -199,24 +206,25 @@
     --gold: 39 100% 85%;
     
     /* Status Colors - Dark Mode */
-    --success: 173, 58%, 49%;
-    --success-subtle: 173, 58%, 49%, 0.15;
-    --warning: 39, 100%, 67%;
-    --warning-subtle: 39, 100%, 67%, 0.15;
-    --error: 12, 75%, 71%;
-    --error-subtle: 12, 75%, 71%, 0.15;
-    --info: 206, 39%, 64%;
-    --info-subtle: 206, 39%, 64%, 0.15;
+    /* Using brightened versions for dark mode */
+    --success: 173 58% 49%;
+    --success-subtle: 173 58% 49% / 0.15;
+    --warning: 39 100% 67%;
+    --warning-subtle: 39 100% 67% / 0.15;
+    --error: 12 75% 71%;
+    --error-subtle: 12 75% 71% / 0.15;
+    --info: 206 39% 64%;
+    --info-subtle: 206 39% 64% / 0.15;
 
     /* Surface Colors - Dark Mode */
-    --surface: var(--stone-900);
-    --surface-hover: var(--stone-800);
-    --surface-active: var(--stone-700);
+    --surface: var(--ds-color-stone-900);
+    --surface-hover: var(--ds-color-stone-800);
+    --surface-active: var(--ds-color-stone-700);
 
     /* Border Colors - Dark Mode */
-    --border: var(--stone-100);
-    --border-subtle: hsl(var(--stone-800) / 0.2);
-    --border-hover: var(--stone-700);
+    --border: var(--ds-color-stone-100);
+    --border-subtle: hsl(var(--ds-color-stone-800) / 0.2);
+    --border-hover: var(--ds-color-stone-700);
   }
 }
  

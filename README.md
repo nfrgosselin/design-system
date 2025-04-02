@@ -44,6 +44,20 @@ function App() {
 }
 ```
 
+## CSS Usage
+
+This package includes CSS for styling components and CSS custom properties (tokens) for customization. To ensure styles are applied correctly, you **must** import both CSS files in your application, with the tokens imported **before** the main styles:
+
+```javascript
+// Example in a JavaScript/TypeScript entry file (e.g., main.jsx, _app.js)
+import '@nathangosselin/design-system/tokens.css'; // Import tokens first
+import '@nathangosselin/design-system/styles.css'; // Import component styles second
+
+// Your application code...
+```
+
+This order is crucial because `styles.css` relies on the CSS custom properties defined in `tokens.css`.
+
 ## Component Registry System
 
 This design system uses a component registry approach to manage components. This provides several benefits:
