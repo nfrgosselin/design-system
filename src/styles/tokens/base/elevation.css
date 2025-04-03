@@ -1,0 +1,48 @@
+/**
+ * Shadow/Elevation Token System
+ * 
+ * A minimalist approach that leans toward flat design with very subtle
+ * shadows used only when functionally necessary. Prefers borders over
+ * shadows for most distinction between elements.
+ */
+
+:root {
+  /**
+   * Shadow Level Tokens
+   * 
+   * Extremely subtle shadows for a predominantly flat design.
+   * Default for most components should be level-0 (no shadow).
+   */
+  --ds-shadow-level-0: none;  /* Flat elements (default) */
+  --ds-shadow-level-1: 0 1px 1px rgba(28, 25, 23, 0.05);  /* Extremely subtle */
+  --ds-shadow-level-2: 0 2px 3px rgba(28, 25, 23, 0.07);  /* Minimal elevation */
+  --ds-shadow-level-3: 0 4px 6px rgba(28, 25, 23, 0.08);  /* Reserved for floating elements only */
+
+  /**
+   * Element-Specific Shadow Tokens
+   * 
+   * Applied to specific UI elements that require elevation.
+   */
+  --ds-shadow-card: var(--ds-shadow-level-0);  /* Cards use borders instead of shadows */
+  --ds-shadow-dropdown: 0 2px 4px rgba(28, 25, 23, 0.1);  /* Minimal, just enough to distinguish */
+  --ds-shadow-popover: 0 3px 6px rgba(28, 25, 23, 0.1);  /* Slightly more visible but still subtle */
+  --ds-shadow-dialog: var(--ds-shadow-level-3);  /* Reserved for modal dialogs */
+
+  /**
+   * Interactive State Tokens
+   * 
+   * Focus and hover states use borders rather than shadows.
+   */
+  --ds-focus-ring: 0 0 0 2px var(--ocean);  /* Border-based focus state */
+  
+  /**
+   * Border Tokens for Elevation Alternative
+   * 
+   * Used instead of shadows for distinction between elements.
+   */
+  --ds-border-width-default: 1px;
+  --ds-border-width-hover: 2px;
+  --ds-border-color-default: var(--stone-200);
+  --ds-border-color-hover: var(--stone-400);
+  --ds-border-color-focus: var(--ocean);
+} 

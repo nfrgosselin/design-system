@@ -1,0 +1,28 @@
+/**
+ * Breakpoint Token System
+ * 
+ * A mobile-first responsive system based on your spacing specification.
+ * These breakpoints define the points at which layouts and components 
+ * adapt to different screen sizes.
+ */
+
+:root {
+  /**
+   * Breakpoint Width Tokens
+   * 
+   * Based on common device sizes and your existing specifications.
+   */
+  --ds-breakpoint-sm: 640px;  /* Mobile */
+  --ds-breakpoint-md: 768px;  /* Tablet */
+  --ds-breakpoint-lg: 1024px; /* Desktop */
+  --ds-breakpoint-xl: 1280px; /* Wide Desktop */
+
+  /**
+   * Container Width Tokens
+   * Note: These are already defined in spacing.css
+   * Commenting out to avoid duplication
+   */
+  /* --ds-container-max: 1280px; */     /* Maximum layout width */
+  /* --ds-container-content: 768px; */  /* Maximum content width */
+  /* --ds-container-form: 640px; */     /* Maximum form width */
+} 

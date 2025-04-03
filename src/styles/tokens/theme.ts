@@ -208,6 +208,49 @@ export const themeTokens = {
     content: 'var(--container-content)',
     form: 'var(--container-form)',
   },
+  animation: {
+    duration: {
+      instant: 'var(--duration-instant)',
+      'ultra-fast': 'var(--duration-ultra-fast)',
+      fast: 'var(--duration-fast)',
+      base: 'var(--duration-base)',
+      slow: 'var(--duration-slow)',
+      deliberate: 'var(--duration-deliberate)',
+    },
+    easing: {
+      'in-out': 'var(--ease-in-out)',
+      out: 'var(--ease-out)',
+      in: 'var(--ease-in)',
+      linear: 'var(--ease-linear)',
+    },
+    transition: {
+      fade: 'var(--transition-fade)',
+      slide: 'var(--transition-slide)',
+      expand: 'var(--transition-expand)',
+      color: 'var(--transition-color)',
+      transform: 'var(--transition-transform)',
+    },
+  },
+  screens: {
+    sm: 'var(--breakpoint-sm)',
+    md: 'var(--breakpoint-md)',
+    lg: 'var(--breakpoint-lg)',
+    xl: 'var(--breakpoint-xl)',
+  },
+  elevation: {
+    level: {
+      1: 'var(--shadow-level-1)',
+      2: 'var(--shadow-level-2)',
+      3: 'var(--shadow-level-3)',
+      4: 'var(--shadow-level-4)',
+    },
+    component: {
+      card: 'var(--shadow-card)',
+      dropdown: 'var(--shadow-dropdown)',
+      modal: 'var(--shadow-modal)',
+      focus: 'var(--shadow-focus)',
+    },
+  },
 } as const;
 
 export type ThemeTokens = typeof themeTokens;

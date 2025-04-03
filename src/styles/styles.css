@@ -187,6 +187,61 @@
     --spacing-element: var(--ds-spacing-element);
     --spacing-relaxed: var(--ds-spacing-relaxed);
     --spacing-compact: var(--ds-spacing-compact);
+
+    /* Animation Tokens - Duration */
+    --duration-instant: var(--ds-duration-instant);
+    --duration-ultra-fast: var(--ds-duration-ultra-fast);
+    --duration-fast: var(--ds-duration-fast);
+    --duration-base: var(--ds-duration-base);
+    --duration-slow: var(--ds-duration-slow);
+    --duration-deliberate: var(--ds-duration-deliberate);
+
+    /* Animation Tokens - Easing */
+    --ease-in-out: var(--ds-ease-in-out);
+    --ease-out: var(--ds-ease-out);
+    --ease-in: var(--ds-ease-in);
+    --ease-linear: var(--ds-ease-linear);
+
+    /* Animation Tokens - Transitions */
+    --transition-fade: var(--ds-transition-fade);
+    --transition-slide: var(--ds-transition-slide);
+    --transition-expand: var(--ds-transition-expand);
+    --transition-color: var(--ds-transition-color);
+    --transition-transform: var(--ds-transition-transform);
+
+    /* Animation Tokens - Component Transitions */
+    --transition-button: var(--ds-transition-button);
+    --transition-form: var(--ds-transition-form);
+    --transition-menu: var(--ds-transition-menu);
+    --transition-modal: var(--ds-transition-modal);
+
+    /* Breakpoint Tokens */
+    --breakpoint-sm: var(--ds-breakpoint-sm);
+    --breakpoint-md: var(--ds-breakpoint-md);
+    --breakpoint-lg: var(--ds-breakpoint-lg);
+    --breakpoint-xl: var(--ds-breakpoint-xl);
+
+    /* Shadow Level Tokens */
+    --shadow-level-0: var(--ds-shadow-level-0);
+    --shadow-level-1: var(--ds-shadow-level-1);
+    --shadow-level-2: var(--ds-shadow-level-2);
+    --shadow-level-3: var(--ds-shadow-level-3);
+
+    /* Element-Specific Shadow Tokens */
+    --shadow-card: var(--ds-shadow-card);
+    --shadow-dropdown: var(--ds-shadow-dropdown);
+    --shadow-popover: var(--ds-shadow-popover);
+    --shadow-dialog: var(--ds-shadow-dialog);
+
+    /* Interactive State Tokens */
+    --focus-ring: var(--ds-focus-ring);
+
+    /* Border Tokens for Elevation */
+    --border-width-default: var(--ds-border-width-default);
+    --border-width-hover: var(--ds-border-width-hover);
+    --border-color-default: var(--ds-border-color-default);
+    --border-color-hover: var(--ds-border-color-hover);
+    --border-color-focus: var(--ds-border-color-focus);
   }
  
   .dark {
@@ -271,7 +326,19 @@
   }
 } 
 
-@layer components {
+/**
+ * Component Styles
+ * 
+ * These styles have been moved to their respective component files
+ * to maintain separation of concerns and support the component-based
+ * architecture of the design system.
+ * 
+ * Typography components -> @/components/Typography
+ * Layout components -> @/components/Layout
+ * Spacing utilities -> @/components/Stack
+ */
+
+/* @layer components {
   /* Typography Components */
   .prose {
     @apply max-w-prose;
@@ -317,4 +384,4 @@
   .stack-compact > * + * {
     @apply mt-[var(--spacing-compact)];
   }
-} 
+} */ 

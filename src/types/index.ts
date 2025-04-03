@@ -60,9 +60,13 @@ export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
 };
 
+// Token category types
 export type ColorToken = keyof ThemeTokens['colors'];
 export type SpacingToken = keyof ThemeTokens['spacing'];
 export type RadiusToken = keyof ThemeTokens['radius'];
+export type AnimationToken = keyof ThemeTokens['animation'];
+export type BreakpointToken = keyof ThemeTokens['screens'];
+export type ElevationToken = keyof ThemeTokens['elevation'];
 
 // Hook Types
 export interface UseThemeProps {

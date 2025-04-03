@@ -1,0 +1,56 @@
+/**
+ * Animation Token System
+ * 
+ * A minimalist, purpose-driven animation system that emphasizes
+ * responsiveness and subtle refinement. Aligned with design principles
+ * of purposeful minimalism, material honesty, and refined details.
+ */
+
+:root {
+  /**
+   * Duration Tokens
+   * 
+   * Durations are intentionally quick to create a responsive feel.
+   * Button animations use the ultra-fast setting as the baseline.
+   */
+  --ds-duration-instant: 0ms;
+  --ds-duration-ultra-fast: 50ms;  /* Used for buttons and primary interactions */
+  --ds-duration-fast: 100ms;       /* Used for hover states and small UI elements */
+  --ds-duration-base: 150ms;       /* Standard transitions */
+  --ds-duration-slow: 200ms;       /* Emphasis transitions */
+  --ds-duration-deliberate: 300ms; /* Significant state changes */
+
+  /**
+   * Timing Function Tokens (Easing)
+   * 
+   * Controls acceleration/deceleration of animations.
+   */
+  --ds-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);     /* Natural, balanced feel */
+  --ds-ease-out: cubic-bezier(0, 0, 0.2, 1);          /* Quick start, gentle finish */
+  --ds-ease-in: cubic-bezier(0.4, 0, 1, 1);           /* Gentle start, quick finish */
+  --ds-ease-linear: cubic-bezier(0, 0, 1, 1);         /* Constant speed */
+
+  /**
+   * Transition Preset Tokens
+   * 
+   * Common transition combinations for consistent usage patterns.
+   */
+  --ds-transition-fade: opacity var(--ds-duration-fast) var(--ds-ease-out);
+  --ds-transition-slide: transform var(--ds-duration-base) var(--ds-ease-out);
+  --ds-transition-expand: height var(--ds-duration-base) var(--ds-ease-out), 
+                         width var(--ds-duration-base) var(--ds-ease-out);
+  --ds-transition-color: background-color var(--ds-duration-fast) var(--ds-ease-out),
+                        border-color var(--ds-duration-fast) var(--ds-ease-out),
+                        color var(--ds-duration-fast) var(--ds-ease-out);
+  --ds-transition-transform: transform var(--ds-duration-fast) var(--ds-ease-out);
+  
+  /**
+   * Component-Specific Tokens
+   * 
+   * Apply to specific components for consistent behavior.
+   */
+  --ds-transition-button: all var(--ds-duration-ultra-fast) var(--ds-ease-out);
+  --ds-transition-form: all var(--ds-duration-fast) var(--ds-ease-out);
+  --ds-transition-menu: all var(--ds-duration-base) var(--ds-ease-in-out);
+  --ds-transition-modal: all var(--ds-duration-base) var(--ds-ease-out);
+} 

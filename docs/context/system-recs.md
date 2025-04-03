@@ -113,6 +113,63 @@ Consider implementing:
 - Container-based typography
 - Viewport-aware line heights
 
+## Color System
+
+### Dark Mode Implementation
+
+Current Status:
+
+- Basic dark mode structure implemented
+- Stone scale being used for dark backgrounds
+- Brightened versions of colors defined for dark mode
+- shadcn/ui integration started
+
+Required Decisions:
+
+1. **Color Role Mapping**
+
+   - Review and finalize semantic color roles in dark mode
+   - Ensure consistent contrast ratios across all text/background combinations
+   - Validate accessibility of interactive states
+
+2. **Product Identity Colors**
+
+   - Confirm brightened color values for dark mode:
+     ```css
+     /* Current values - need validation */
+     --ocean: 178 54% 54%;
+     --sunset: 14 100% 70%;
+     --sun: 45 100% 72%;
+     --marine: 217 55% 63%;
+     ```
+   - Test brand recognition with adjusted colors
+   - Validate interaction states (hover, active)
+
+3. **Surface Hierarchy**
+
+   - Define clear elevation system for dark mode
+   - Standardize overlay opacities
+   - Document usage guidelines for each surface level
+
+4. **Component-Specific Colors**
+   - Review shadcn/ui color tokens:
+     ```css
+     /* Need final values */
+     --primary: 210 40% 98%;
+     --secondary: 217.2 32.6% 17.5%;
+     --muted: 217.2 32.6% 17.5%;
+     --accent: 217.2 32.6% 17.5%;
+     ```
+   - Test all component variants in dark mode
+   - Ensure consistent component hierarchy
+
+Implementation Steps:
+
+1. Create dark mode color palette documentation
+2. Test all color combinations for WCAG compliance
+3. Update component examples with dark mode screenshots
+4. Add dark mode guidelines to component documentation
+
 ## Quality & Performance
 
 ### 1. Performance Optimization

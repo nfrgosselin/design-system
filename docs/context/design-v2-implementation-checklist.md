@@ -21,33 +21,33 @@
 
 ### Color Tokens
 
-- [ ] Base colors (black, white)
-- [ ] Stone scale (50-900)
-- [ ] Product identity colors (ocean, orange, gold, indigo)
-- [ ] Supporting accent colors (palm, sunset, storm, etc.)
-- [ ] Semantic UI colors (bg-primary, text-primary, etc.)
-- [ ] Status colors (success, warning, error, info)
-- [ ] Overlay colors and opacities
+- [x] Base colors (black, white, paper)
+- [x] Stone scale (50-900)
+- [x] Product identity colors (ocean, sunset, sun, marine)
+- [x] Supporting accent colors (seafoam, coral, navy, amber, lagoon, peach, slate, gold)
+- [x] Semantic UI colors (primary, secondary, muted) with foreground variants
+- [x] Status colors (success, warning, error, info) with subtle variants
+- [x] Overlay colors and opacities (light, medium, heavy)
 
 ### Animation Tokens
 
-- [ ] Timing functions
-- [ ] Duration values
-- [ ] Transition presets
+- [x] Timing functions
+- [x] Duration values
+- [x] Transition presets
 
 ### Breakpoint Tokens
 
-- [ ] Mobile (sm)
-- [ ] Tablet (md)
-- [ ] Desktop (lg)
-- [ ] Wide (xl)
+- [x] Mobile (sm)
+- [x] Tablet (md)
+- [x] Desktop (lg)
+- [x] Wide (xl)
 
 ### Shadow/Elevation Tokens
 
-- [ ] Shadow levels
-- [ ] Card shadows
-- [ ] Dropdown shadows
-- [ ] Focus state shadows
+- [x] Shadow levels
+- [x] Card shadows
+- [x] Dropdown shadows
+- [x] Focus state shadows
 
 ## Atomic Components
 
