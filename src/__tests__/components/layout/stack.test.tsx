@@ -1,6 +1,9 @@
 import { render, screen } from '@testing-library/react';
-import { Stack } from './stack';
-import { describeUnlessSkipped, testUnlessSkipped } from '../../test/helpers/skipTests';
+import { Stack } from '../../../components/layout/stack';
+import {
+  describeUnlessSkipped,
+  testUnlessSkipped,
+} from '../../../__tests__/helpers/skipTests.helper';
 
 describeUnlessSkipped('Stack v2', () => {
   testUnlessSkipped('renders with default props', () => {
