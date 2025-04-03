@@ -133,6 +133,39 @@
     --font-sans: var(--ds-font-sans);
     --font-mono: var(--ds-font-mono);
 
+    /* Font Sizes */
+    --text-xs: var(--ds-text-xs);
+    --text-sm: var(--ds-text-sm);
+    --text-base: var(--ds-text-base);
+    --text-lg: var(--ds-text-lg);
+    --text-xl: var(--ds-text-xl);
+    --text-2xl: var(--ds-text-2xl);
+    --text-3xl: var(--ds-text-3xl);
+    --text-4xl: var(--ds-text-4xl);
+
+    /* Font Weights */
+    --weight-regular: var(--ds-font-weight-regular);
+    --weight-medium: var(--ds-font-weight-medium);
+    --weight-semibold: var(--ds-font-weight-semibold);
+    --weight-bold: var(--ds-font-weight-bold);
+
+    /* Line Heights */
+    --leading-none: var(--ds-leading-none);
+    --leading-tight: var(--ds-leading-tight);
+    --leading-snug: var(--ds-leading-snug);
+    --leading-normal: var(--ds-leading-normal);
+    --leading-relaxed: var(--ds-leading-relaxed);
+    --leading-loose: var(--ds-leading-loose);
+
+    /* Letter Spacing */
+    --tracking-tightest: var(--ds-tracking-tightest);
+    --tracking-tighter: var(--ds-tracking-tighter);
+    --tracking-tight: var(--ds-tracking-tight);
+    --tracking-normal: var(--ds-tracking-normal);
+    --tracking-wide: var(--ds-tracking-wide);
+    --tracking-wider: var(--ds-tracking-wider);
+    --tracking-widest: var(--ds-tracking-widest);
+
     /* Container widths */
     --container-max: var(--ds-container-max);
     --container-content: var(--ds-container-content);
@@ -243,10 +276,18 @@
   .prose {
     @apply max-w-prose;
 
-    h1 { @apply mb-8 mt-16 first:mt-0 font-serif text-4xl font-bold; }
-    h2 { @apply mb-6 mt-12 first:mt-0 font-serif text-3xl font-bold; }
-    h3 { @apply mb-4 mt-8 first:mt-0 font-serif text-2xl font-medium; }
-    p { @apply font-serif text-lg; }
+    h1 { 
+      @apply mb-8 mt-16 first:mt-0 font-serif text-4xl font-bold tracking-tighter;
+    }
+    h2 { 
+      @apply mb-6 mt-12 first:mt-0 font-serif text-3xl font-bold tracking-tight;
+    }
+    h3 { 
+      @apply mb-4 mt-8 first:mt-0 font-serif text-2xl font-medium tracking-tight;
+    }
+    p { 
+      @apply font-serif text-lg tracking-normal;
+    }
     p + p { @apply mt-6; }
     ul, ol { @apply my-6 space-y-2 md:space-y-3; }
   }

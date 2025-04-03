@@ -4,4 +4,37 @@
   --ds-font-serif: "Newsreader", Georgia, serif;
   --ds-font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --ds-font-mono: "JetBrains Mono", monospace;
+
+  /* Font Weights */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+
+  /* Font Sizes (scale: major third - 1.25) */
+  --ds-text-xs: 0.75rem;      /* 12px */
+  --ds-text-sm: 0.875rem;     /* 14px */
+  --ds-text-base: 1rem;       /* 16px */
+  --ds-text-lg: 1.25rem;      /* 20px */
+  --ds-text-xl: 1.563rem;     /* 25px */
+  --ds-text-2xl: 1.938rem;    /* 31px */
+  --ds-text-3xl: 2.438rem;    /* 39px */
+  --ds-text-4xl: 3.063rem;    /* 49px */
+
+  /* Line Heights */
+  --ds-leading-none: 1;         /* For specific UI elements like buttons */
+  --ds-leading-tight: 1.15;     /* For large headings */
+  --ds-leading-snug: 1.25;      /* For medium headings */
+  --ds-leading-normal: 1.4;     /* For UI text and small headings */
+  --ds-leading-relaxed: 1.65;   /* For body content */
+  --ds-leading-loose: 1.8;      /* For lead paragraphs */
+
+  /* Letter Spacing */
+  --ds-tracking-tightest: -0.03em;  /* For the largest headings */
+  --ds-tracking-tighter: -0.02em;   /* For large headings */
+  --ds-tracking-tight: -0.01em;     /* For medium headings and serif body */
+  --ds-tracking-normal: 0em;        /* Default for most text */
+  --ds-tracking-wide: 0.01em;       /* For small UI text */
+  --ds-tracking-wider: 0.05em;      /* For small caps and buttons */
+  --ds-tracking-widest: 0.1em;      /* For uppercase labels/eyebrows */
 } 

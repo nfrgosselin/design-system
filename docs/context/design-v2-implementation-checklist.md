@@ -4,20 +4,20 @@
 
 ### Spacing Tokens
 
-- [ ] Base unit (8px)
-- [ ] Spacing scale (2, 3, 4, 6, 8, 12, 16)
-- [ ] Content spacing values
-- [ ] Component spacing values
-- [ ] Layout spacing values
-- [ ] Container width definitions
+- [x] Base unit (8px)
+- [x] Spacing scale (2, 3, 4, 6, 8, 12, 16)
+- [x] Content spacing values
+- [x] Component spacing values
+- [x] Layout spacing values
+- [x] Container width definitions
 
 ### Typography Tokens
 
-- [ ] Font families (Freight Text Pro, Inter, JetBrains Mono)
-- [ ] Font weights (Regular, Medium, Semibold, Bold)
-- [ ] Type scale (xs through 4xl)
-- [ ] Line heights
-- [ ] Letter spacing values
+- [x] Font families (Newsreader, Inter, JetBrains Mono)
+- [x] Font weights (Regular, Medium, Semibold, Bold)
+- [x] Type scale (xs through 4xl)
+- [x] Line heights
+- [x] Letter spacing values
 
 ### Color Tokens
 
