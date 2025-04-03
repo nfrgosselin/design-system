@@ -43,3 +43,6 @@ yarn-error.log*
 .cache/
 .next/ 
 *storybook.log
+
+# Allow workbench file to be committed despite any ignores
+!src/pages/workbench.tsx
