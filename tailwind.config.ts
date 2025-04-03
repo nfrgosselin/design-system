@@ -22,6 +22,21 @@ const config: Config = {
         '3': 'repeat(3, minmax(0, 1fr))',
         '4': 'repeat(4, minmax(0, 1fr))',
       },
+      spacing: {
+        1: 'var(--space-1)', // 4px
+        2: 'var(--space-2)', // 8px - Base unit
+        3: 'var(--space-3)', // 12px
+        4: 'var(--space-4)', // 16px
+        6: 'var(--space-6)', // 24px
+        8: 'var(--space-8)', // 32px
+        12: 'var(--space-12)', // 48px
+        16: 'var(--space-16)', // 64px
+        section: 'var(--spacing-section)',
+        content: 'var(--spacing-content)',
+        element: 'var(--spacing-element)',
+        relaxed: 'var(--spacing-relaxed)',
+        compact: 'var(--spacing-compact)',
+      },
       colors: {
         // Base colors
         background: 'hsl(var(--background))',
@@ -154,7 +169,6 @@ const config: Config = {
           heavy: 'hsl(var(--overlay-heavy))',
         },
       },
-      spacing: themeTokens.spacing,
       screens: {
         sm: 'var(--breakpoint-sm)',
         md: 'var(--breakpoint-md)',
