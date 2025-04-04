@@ -1,11 +1,13 @@
-import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import {
   ArticleTitle,
   ArticleSubtitle,
   ArticleHeader,
   ArticleText,
-} from '@/components/typography/article';
+  ArticleList,
+  ArticleListItem,
+  ArticleQuote,
+} from '@/components/typography';
 
 const meta = {
   title: 'Components/Typography/Article',
@@ -41,6 +43,20 @@ export const CompleteArticle: StoryObj = {
         The adoption of component-driven development has revolutionized how teams build and maintain
         digital products, promoting consistency and efficiency across projects.
       </ArticleText>
+      <ArticleQuote attribution="Design Systems Expert, Design Systems Conference 2024">
+        A well-structured design system is more than just a collection of components—it&apos;s a
+        shared language that bridges the gap between design and development.
+      </ArticleQuote>
+      <ArticleHeader level={2}>Key Benefits</ArticleHeader>
+      <ArticleList>
+        <ArticleListItem>Improved consistency across products and platforms</ArticleListItem>
+        <ArticleListItem>Faster development and iteration cycles</ArticleListItem>
+        <ArticleListItem>Better collaboration between designers and developers</ArticleListItem>
+        <ArticleListItem>Reduced technical debt and maintenance costs</ArticleListItem>
+      </ArticleList>
+      <ArticleText>
+        Don&apos;t forget to check out our documentation for more examples and best practices.
+      </ArticleText>
     </div>
   ),
 };
@@ -58,7 +74,6 @@ export const TitleVariations: StoryObj = {
   ),
 };
 
-/* Temporarily disabled during v2 migration
 export const TextVariations: StoryObj = {
   render: () => (
     <div className="space-y-12 p-6 bg-white max-w-3xl">
@@ -86,4 +101,54 @@ export const TextVariations: StoryObj = {
     </div>
   ),
 };
-*/
+
+export const ListVariations: StoryObj = {
+  render: () => (
+    <div className="space-y-12 p-6 bg-white max-w-3xl">
+      <div>
+        <ArticleHeader level={2}>Unordered List</ArticleHeader>
+        <ArticleList>
+          <ArticleListItem>First item in the list</ArticleListItem>
+          <ArticleListItem>Second item with longer content to demonstrate wrapping</ArticleListItem>
+          <ArticleListItem>Third item in the list</ArticleListItem>
+        </ArticleList>
+      </div>
+      <div>
+        <ArticleHeader level={2}>Ordered List</ArticleHeader>
+        <ArticleList variant="ordered">
+          <ArticleListItem>First step in the process</ArticleListItem>
+          <ArticleListItem>Second step with detailed explanation</ArticleListItem>
+          <ArticleListItem>Final step to complete the process</ArticleListItem>
+        </ArticleList>
+      </div>
+    </div>
+  ),
+};
+
+export const QuoteVariations: StoryObj = {
+  render: () => (
+    <div className="space-y-12 p-6 bg-white max-w-3xl">
+      <div>
+        <ArticleHeader level={2}>Block Quote</ArticleHeader>
+        <ArticleQuote>
+          This is a simple block quote without attribution, useful for emphasizing a key point or
+          statement within the article content.
+        </ArticleQuote>
+      </div>
+      <div>
+        <ArticleHeader level={2}>Attributed Quote</ArticleHeader>
+        <ArticleQuote attribution="Jane Smith, Design Leadership Forum">
+          A well-crafted quote with attribution adds credibility and context to the statement. This
+          example shows how to properly attribute a quote to its source.
+        </ArticleQuote>
+      </div>
+      <div>
+        <ArticleHeader level={2}>Quote with Source Link</ArticleHeader>
+        <ArticleQuote attribution="John Doe, UX Conference 2024">
+          This quote includes a link to its source, allowing readers to explore the full context of
+          the statement in its original form.
+        </ArticleQuote>
+      </div>
+    </div>
+  ),
+};

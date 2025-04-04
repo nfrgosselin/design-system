@@ -85,8 +85,6 @@
 - [x] FootnoteText.tsx
 - [x] FootnoteItem.tsx
 
-MAKE SURE TO UPDATE TESTS AND STORIES HERE
-
 ### Interactive Components
 
 **Base Components:**

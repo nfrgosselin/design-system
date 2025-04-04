@@ -1,6 +1,5 @@
-import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { UIHeader, UILabel, UICaption } from '@/components/typography/ui';
+import { UIHeader, Caption, UIText } from '@/components/typography';
 
 const meta = {
   title: 'Components/Typography/UI',
@@ -14,9 +13,9 @@ export default meta;
 export const Headers: StoryObj = {
   render: () => (
     <div className="space-y-4">
-      <UIHeader variant="primary">Primary UI Header</UIHeader>
-      <UIHeader variant="secondary">Secondary UI Header</UIHeader>
-      <UIHeader variant="supporting">Supporting UI Header</UIHeader>
+      <UIHeader level={1}>Primary UI Header</UIHeader>
+      <UIHeader level={2}>Secondary UI Header</UIHeader>
+      <UIHeader level={3}>Tertiary UI Header</UIHeader>
     </div>
   ),
 };
@@ -25,10 +24,14 @@ export const Labels: StoryObj = {
   render: () => (
     <div className="space-y-4">
       <div>
-        <UILabel>Uppercase Label (Default)</UILabel>
+        <UIText as="label" htmlFor="example">
+          Default Label
+        </UIText>
       </div>
       <div>
-        <UILabel isUppercase={false}>Regular Case Label</UILabel>
+        <UIText as="label" htmlFor="example2" variant="muted">
+          Muted Label
+        </UIText>
       </div>
     </div>
   ),
@@ -37,10 +40,10 @@ export const Labels: StoryObj = {
 export const Captions: StoryObj = {
   render: () => (
     <div className="space-y-4">
-      <UICaption>
-        A caption providing additional context or information about a UI element.
-      </UICaption>
-      <UICaption>Another caption example showing how multiple captions might appear.</UICaption>
+      <Caption>A caption providing additional context or information about a UI element.</Caption>
+      <Caption variant="muted">
+        Another caption example showing how multiple captions might appear.
+      </Caption>
     </div>
   ),
 };
