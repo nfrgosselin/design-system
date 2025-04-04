@@ -10,7 +10,6 @@ function TestComponent() {
     <div>
       <div data-testid="theme">{theme}</div>
       <div data-testid="isDark">{isDark.toString()}</div>
-      <button onClick={() => setTheme('dark')}>Set Dark</button>
       <button onClick={() => setTheme('light')}>Set Light</button>
     </div>
   );
@@ -30,19 +29,19 @@ describe('ThemeProvider', () => {
       </ThemeProvider>
     );
 
-    expect(screen.getByTestId('theme')).toHaveTextContent('system');
+    expect(screen.getByTestId('theme')).toHaveTextContent('light');
     expect(screen.getByTestId('isDark')).toHaveTextContent('false');
   });
 
   it('allows setting theme via props', () => {
     render(
-      <ThemeProvider theme="dark">
+      <ThemeProvider theme="light">
         <TestComponent />
       </ThemeProvider>
     );
 
-    expect(screen.getByTestId('theme')).toHaveTextContent('dark');
-    expect(screen.getByTestId('isDark')).toHaveTextContent('true');
+    expect(screen.getByTestId('theme')).toHaveTextContent('light');
+    expect(screen.getByTestId('isDark')).toHaveTextContent('false');
   });
 
   it('allows changing theme via hook', async () => {
@@ -52,10 +51,6 @@ describe('ThemeProvider', () => {
       </ThemeProvider>
     );
 
-    await userEvent.click(screen.getByText('Set Dark'));
-    expect(screen.getByTestId('theme')).toHaveTextContent('dark');
-    expect(screen.getByTestId('isDark')).toHaveTextContent('true');
-
     await userEvent.click(screen.getByText('Set Light'));
     expect(screen.getByTestId('theme')).toHaveTextContent('light');
     expect(screen.getByTestId('isDark')).toHaveTextContent('false');
@@ -63,13 +58,12 @@ describe('ThemeProvider', () => {
 
   it('applies theme attributes to document root', () => {
     render(
-      <ThemeProvider theme="dark">
+      <ThemeProvider theme="light">
         <TestComponent />
       </ThemeProvider>
     );
 
-    expect(document.documentElement.getAttribute('data-theme')).toBe('dark');
-    expect(document.documentElement.classList.contains('dark')).toBe(true);
+    expect(document.documentElement.getAttribute('data-theme')).toBe('light');
   });
 
   it('applies custom tokens to document root', () => {

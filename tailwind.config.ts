@@ -1,7 +1,6 @@
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
-  darkMode: ['class'],
   content: ['./src/**/*.{js,ts,jsx,tsx,mdx}', './stories/**/*.{ts,tsx}'],
   theme: {
     container: {
@@ -37,7 +36,12 @@ const config: Config = {
         compact: 'var(--spacing-compact)',
       },
       colors: {
-        // Base colors
+        // Base Neutrals
+        black: 'hsl(var(--black))',
+        white: 'hsl(var(--white))',
+        paper: 'hsl(var(--paper))',
+
+        // Theme Colors
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
 

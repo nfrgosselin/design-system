@@ -93,7 +93,7 @@
 - [x] Icon (configurable size and color)
 - [x] Link (with multiple variants including inline, standalone, button, external)
 - [x] NavLink (dedicated navigation link component)
-- [ ] Input (with text, email variants)
+- [x] Input (with text, email variants)
 
 **Semantic Wrappers (implemented as variants or specialized components):**
 

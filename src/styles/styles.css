@@ -19,9 +19,18 @@
 
 @layer base {
   :root {
-    /* Base colors */
+    /* Base Neutrals */
     --black: var(--ds-color-black);
     --white: var(--ds-color-white);
+    --paper: var(--ds-color-paper);
+    
+    /* Base Theme Colors */
+    --background: var(--white);
+    --foreground: var(--black);
+    --card: var(--white);
+    --card-foreground: var(--black);
+    --popover: var(--white);
+    --popover-foreground: var(--black);
     
     /* Weathered Scale */
     --pure-white: var(--ds-color-white);
@@ -84,14 +93,6 @@
     --overlay-heavy: var(--ds-color-overlay-heavy);
 
     /* shadcn/ui integration */
-    --background: var(--white);
-    --foreground: var(--black);
-    --card: var(--white);
-    --card-foreground: var(--black);
-    --popover: var(--white);
-    --popover-foreground: var(--black);
-    
-    /* Using brand role variables for shadcn/ui integration */
     --primary: var(--brand);
     --primary-hover: var(--brand-hover);
     --primary-active: var(--brand-active);
@@ -254,77 +255,6 @@
     --border-color-default: var(--ds-border-color-default);
     --border-color-hover: var(--ds-border-color-hover);
     --border-color-focus: var(--ds-border-color-focus);
-  }
- 
-  .dark {
-    /* Base theme colors - using stone scale for dark mode */
-    --background: var(--ds-color-stone-900);
-    --foreground: var(--ds-color-stone-100);
- 
-    --card: var(--ds-color-stone-900);
-    --card-foreground: var(--ds-color-stone-100);
- 
-    --popover: var(--ds-color-stone-900);
-    --popover-foreground: var(--ds-color-stone-100);
- 
-    /* These values are unique to dark mode theming */
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
- 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
- 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
- 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
- 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
- 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
- 
-    /* Product Identity Colors - Dark Mode */
-    /* Using brightened versions for dark mode */
-    --ocean: 178 54% 54%;
-    --sunset: 14 100% 70%;
-    --sun: 45 100% 72%;
-    --marine: 217 55% 63%;
-    
-    /* Supporting Accents - Dark Mode */
-    /* Using brightened versions for dark mode */
-    --seafoam: 174 61% 61%;
-    --coral: 14 100% 81%;
-    --navy: 213 41% 70%;
-    --amber: 39 100% 67%;
-    --lagoon: 191 49% 59%;
-    --peach: 24 100% 79%;
-    --slate: 213 32% 75%;
-    --gold: 39 100% 85%;
-    
-    /* Status Colors - Dark Mode */
-    /* Using brightened versions for dark mode */
-    --success: 173 58% 49%;
-    --success-subtle: 173 58% 49% / 0.15;
-    --warning: 39 100% 67%;
-    --warning-subtle: 39 100% 67% / 0.15;
-    --error: 12 75% 71%;
-    --error-subtle: 12 75% 71% / 0.15;
-    --info: 206 39% 64%;
-    --info-subtle: 206 39% 64% / 0.15;
-
-    /* Surface Colors - Dark Mode */
-    --surface: var(--ds-color-stone-900);
-    --surface-hover: var(--ds-color-stone-800);
-    --surface-active: var(--ds-color-stone-700);
-
-    /* Border Colors - Dark Mode */
-    --border: var(--ds-color-stone-100);
-    --border-subtle: hsl(var(--ds-color-stone-800) / 0.2);
-    --border-hover: var(--ds-color-stone-700);
   }
 }
  

@@ -14,6 +14,4 @@
 @import './base/elevation.css';
 
 /* Theme Tokens */
-@import './themes/light.css';
-@import './themes/white.css';
-@import './themes/dark.css'; 
+@import './themes/light.css'; 
