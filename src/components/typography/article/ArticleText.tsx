@@ -13,9 +13,9 @@ export function ArticleText({
   ...props
 }: ArticleTextProps) {
   const styles = {
-    lead: 'font-serif text-xl text-stone-700 leading-relaxed tracking-normal word-spacing-spacious mb-4',
+    lead: 'font-serif text-lg font-semibold text-stone-700 leading-relaxed tracking-normal word-spacing-expanded mb-relaxed',
     default:
-      'font-serif text-lg text-stone-900 leading-relaxed tracking-normal word-spacing-relaxed mb-4',
+      'font-serif text-lg text-stone-900 leading-relaxed tracking-normal word-spacing-relaxed mb-relaxed',
   };
 
   return (

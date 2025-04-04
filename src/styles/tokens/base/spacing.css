@@ -18,8 +18,8 @@
   /* Standard Spacing Relationships */
   --ds-spacing-section: var(--ds-space-16);    /* Major sections */
   --ds-spacing-content: var(--ds-space-8);     /* Content blocks */
-  --ds-spacing-element: var(--ds-space-4);     /* Related elements */
   --ds-spacing-relaxed: var(--ds-space-6);     /* Relaxed elements */
+  --ds-spacing-element: var(--ds-space-4);     /* Related elements */
   --ds-spacing-compact: var(--ds-space-2);     /* Tight elements */
 
   /* Border Radius */

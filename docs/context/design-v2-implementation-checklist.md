@@ -63,8 +63,9 @@
 - [x] Subtitle.tsx (complementary to Title)
 - [x] Header.tsx (h2-h4 for sections)
 - [x] Text.tsx (lead and default paragraph styles)
-- [ ] Quote.tsx (blockquotes)
-- [ ] FootnoteText.tsx
+- [x] ArticleList.tsx
+- [x] ArticleListItem.tsx
+- [x] Quote.tsx (blockquotes)
 
 **Semantic Wrappers - UI (src/components/typography/ui/):**
 
@@ -80,6 +81,9 @@
 - [ ] Strong.tsx
 - [ ] Code.tsx
 - [ ] ColoredText.tsx
+- [ ] FootnoteText.tsx
+- [ ] FootnoteContent.tsx
+- [ ] FootnoteItem.tsx
 
 MAKE SURE TO UPDATE TESTS AND STORIES HERE
 

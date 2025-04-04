@@ -14,7 +14,11 @@ export type TextElement =
   | 'h3'
   | 'h4'
   | 'h5'
-  | 'h6';
+  | 'h6'
+  | 'ol'
+  | 'ul'
+  | 'li'
+  | 'blockquote';
 
 /**
  * Design system approved word spacing values

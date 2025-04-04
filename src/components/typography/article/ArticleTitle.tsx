@@ -12,7 +12,7 @@ export function ArticleTitle({ className, children, ...props }: ArticleTitleProp
       as="h1"
       className={cn(
         'font-serif font-bold text-4xl md:text-4xl text-stone-900',
-        'leading-tight tracking-tighter word-spacing-spacious mb-element',
+        'leading-tight tracking-tight word-spacing-spacious mb-element',
         className
       )}
       {...props}
