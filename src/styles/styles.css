@@ -183,6 +183,9 @@
     --container-max: var(--ds-container-max);
     --container-content: var(--ds-container-content);
     --container-form: var(--ds-container-form);
+    --container-modal: var(--ds-container-modal);
+    --container-card: var(--ds-container-card);
+    --container-metric: var(--ds-container-metric);
 
     /* Spacing Scale */
     --space-1: var(--ds-space-1);
@@ -193,8 +196,10 @@
     --space-8: var(--ds-space-8);
     --space-12: var(--ds-space-12);
     --space-16: var(--ds-space-16);
+    --space-24: var(--ds-space-24);
 
     /* Standard Spacing Relationships */
+    --spacing-layout: var(--ds-spacing-layout);
     --spacing-section: var(--ds-spacing-section);
     --spacing-content: var(--ds-spacing-content);
     --spacing-element: var(--ds-spacing-element);

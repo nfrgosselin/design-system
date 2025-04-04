@@ -4,6 +4,9 @@
   --ds-container-max: 1280px;
   --ds-container-content: 768px;
   --ds-container-form: 640px;
+  --ds-container-modal: 560px;
+  --ds-container-card: 480px;
+  --ds-container-metric: 320px;
 
   /* Spacing Scale (based on 8px grid) */
   --ds-space-1: 0.25rem;  /* 4px */
@@ -14,13 +17,15 @@
   --ds-space-8: 2rem;     /* 32px */
   --ds-space-12: 3rem;    /* 48px */
   --ds-space-16: 4rem;    /* 64px */
+  --ds-space-24: 6rem;    /* 96px */
 
   /* Standard Spacing Relationships */
-  --ds-spacing-section: var(--ds-space-16);    /* Major sections */
-  --ds-spacing-content: var(--ds-space-8);     /* Content blocks */
-  --ds-spacing-relaxed: var(--ds-space-6);     /* Relaxed elements */
-  --ds-spacing-element: var(--ds-space-4);     /* Related elements */
-  --ds-spacing-compact: var(--ds-space-2);     /* Tight elements */
+  --ds-spacing-layout: var(--ds-space-24);    /* Major layout blocks */
+  --ds-spacing-section: var(--ds-space-16);   /* Major sections */
+  --ds-spacing-content: var(--ds-space-8);    /* Content blocks */
+  --ds-spacing-relaxed: var(--ds-space-6);    /* Relaxed elements */
+  --ds-spacing-element: var(--ds-space-4);    /* Related elements */
+  --ds-spacing-compact: var(--ds-space-2);    /* Tight elements */
 
   /* Border Radius */
   --ds-radius: 0.5rem;

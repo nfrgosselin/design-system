@@ -21,28 +21,21 @@ export const componentRegistry: ComponentRegistry = {
     name: 'Container',
     description: 'A centered container with responsive width constraints',
     category: 'layout',
-    path: '../layout/container',
+    path: '../layout/core/container',
   },
 
-  section: {
-    name: 'Section',
-    description: 'Page section with consistent spacing and optional backgrounds',
+  stack: {
+    name: 'Stack',
+    description: 'A flexible stack layout component for vertical and horizontal arrangements',
     category: 'layout',
-    path: '../layout/section',
+    path: '../layout/core/stack',
   },
 
   grid: {
     name: 'Grid',
     description: 'A responsive grid layout system with multiple column configurations',
     category: 'layout',
-    path: '../layout/grid',
-  },
-
-  content: {
-    name: 'Content',
-    description: 'A content wrapper with consistent spacing and styling for text content',
-    category: 'layout',
-    path: '../layout/content',
+    path: '../layout/core/grid',
   },
 
   // Navigation components

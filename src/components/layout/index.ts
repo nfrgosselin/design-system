@@ -1,6 +1,16 @@
-export { Container } from './container';
-export { Content } from './content';
-export { Grid } from './grid';
-export { Section } from './section';
+// Core components
+export {
+  Container,
+  ContentContainer,
+  FormContainer,
+  ModalContainer,
+  CardContainer,
+  MetricContainer,
+} from './core/container';
+export { Stack } from './core/stack';
+export { Grid, TwoColumnGrid, ThreeColumnGrid, FourColumnGrid, ResponsiveGrid } from './core/grid';
 
-export type { ContainerProps, ContentProps, GridProps, SectionProps } from './types';
+// Types
+export type { ContainerProps } from './core/container';
+export type { StackProps } from './core/stack';
+export type { GridProps } from './core/grid';

@@ -13,6 +13,12 @@ const config: Config = {
         xl: 'var(--breakpoint-xl)',
       },
     },
+    screens: {
+      sm: '640px', // Matches form container width
+      md: '768px', // Matches content container width
+      lg: '1024px', // Comfortable reading width before max
+      xl: '1280px', // Matches max container width
+    },
     extend: {
       gridTemplateColumns: {
         '1': 'repeat(1, minmax(0, 1fr))',
@@ -29,6 +35,8 @@ const config: Config = {
         8: 'var(--space-8)', // 32px
         12: 'var(--space-12)', // 48px
         16: 'var(--space-16)', // 64px
+        24: 'var(--space-24)', // 96px
+        layout: 'var(--spacing-layout)',
         section: 'var(--spacing-section)',
         content: 'var(--spacing-content)',
         element: 'var(--spacing-element)',
@@ -148,12 +156,6 @@ const config: Config = {
           heavy: 'hsl(var(--overlay-heavy))',
         },
       },
-      screens: {
-        sm: 'var(--breakpoint-sm)',
-        md: 'var(--breakpoint-md)',
-        lg: 'var(--breakpoint-lg)',
-        xl: 'var(--breakpoint-xl)',
-      },
       transitionDuration: {
         instant: 'var(--duration-instant)',
         'ultra-fast': 'var(--duration-ultra-fast)',
@@ -241,6 +243,12 @@ const config: Config = {
         expanded: 'var(--word-spacing-expanded)',
       },
       maxWidth: {
+        metric: 'var(--container-metric)', // 320px
+        card: 'var(--container-card)', // 480px
+        modal: 'var(--container-modal)', // 560px
+        form: 'var(--container-form)', // 640px
+        content: 'var(--container-content)', // 768px
+        max: 'var(--container-max)', // 1280px
         prose: '68ch',
       },
     },

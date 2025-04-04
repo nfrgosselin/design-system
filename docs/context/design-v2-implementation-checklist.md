@@ -108,19 +108,31 @@
 **Base Components:**
 
 - [ ] Divider (horizontal separator)
-- [ ] Image (with responsive behavior)
-- [ ] Container (configurable max-width and padding)
+- [x] Container (configurable max-width and padding)
 - [x] Stack (vertical layout)
-- [ ] Grid (responsive grid system)
+- [ ] Image (with responsive behavior)
+- [x] Grid (responsive grid system)
+  - [x] Two-column grid with mobile collapse
+  - [x] Three-column grid with mobile collapse
+  - [x] Four-column grid with mobile collapse
+  - [x] Auto-responsive grid (1→2→3 columns)
+  - [x] Configurable gap sizes (compact, element, relaxed, content)
+  - [x] Custom collapse breakpoints (sm, md, lg, xl)
 
 **Semantic Wrappers:**
 
-- [ ] ContentContainer (uses Container: maxWidth="768px")
-- [ ] WideContainer (uses Container: maxWidth="1280px")
-- [ ] NarrowContainer (uses Container: maxWidth="640px")
+- [x] ContentContainer (uses Container: maxWidth="768px")
 - [x] VerticalStack (uses Stack with vertical direction)
-- [ ] HorizontalStack (uses Stack with horizontal direction)
+- [x] HorizontalStack (uses Stack with horizontal direction)
 - [ ] ArticleImage (uses Image with article-specific styling)
+- [x] FormContainer (uses Container: maxWidth="640px")
+- [x] ModalContainer (uses Container: maxWidth="560px")
+- [x] CardContainer (uses Container: maxWidth="480px")
+- [x] MetricContainer (uses Container: maxWidth="320px")
+- [x] TwoColumnGrid (uses Grid: cols={2})
+- [x] ThreeColumnGrid (uses Grid: cols={3})
+- [x] FourColumnGrid (uses Grid: cols={4})
+- [x] ResponsiveGrid (uses Grid: cols="auto")
 
 ## Pattern Implementation Checklists
 
@@ -154,14 +166,14 @@
 
 **Required Atoms:**
 
-- [ ] Container (with variants)
+- [x] Container (with variants)
 - [x] Stack
 - [ ] Divider
 
 **Required Molecules:**
 
 - [ ] SidebarContainer (manages sidebar width and position)
-- [ ] MainContentContainer (manages content width)
+- [x] MainContentContainer (manages content width)
 - [ ] ContentSection (semantic section wrapper)
 
 **Implementation Tasks:**
@@ -261,7 +273,7 @@
 
 - [x] Text
 - [x] Link
-- [ ] Container
+- [x] Container
 - [ ] Divider
 - [x] Icon
 
@@ -285,7 +297,7 @@
 **Required Atoms:**
 
 - [x] Text variants
-- [ ] Container
+- [x] Container
 - [x] Stack
 - [x] Icon
 
@@ -394,7 +406,7 @@
 - [x] Icon
 - [ ] Divider
 - [x] Stack
-- [ ] Container
+- [x] Container
 
 **Required Molecules:**
 
@@ -420,7 +432,7 @@
 - [x] Text variants
 - [x] Icon
 - [x] Button
-- [ ] Container
+- [x] Container
 - [x] Stack
 
 **Required Molecules:**

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { cn } from '../../lib/utils';
+import { cn } from '../../../lib/utils';
 
 export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -19,19 +19,12 @@ export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
    * Only applies to 'ui' variant
    */
   space?:
-    | '1'
-    | '2'
-    | '3'
-    | '4'
-    | '6'
-    | '8'
-    | '12'
-    | '16'
-    | 'compact'
-    | 'element'
-    | 'relaxed'
-    | 'content'
-    | 'section';
+    | 'compact' // 8px
+    | 'element' // 16px
+    | 'relaxed' // 24px
+    | 'content' // 32px
+    | 'section' // 64px
+    | 'layout'; // 96px
 
   /**
    * Alignment of items along the cross axis
@@ -51,7 +44,7 @@ export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Maximum width of the stack using container tokens
    */
-  maxWidth?: 'none' | 'content' | 'form' | 'max';
+  maxWidth?: 'none' | 'metric' | 'card' | 'modal' | 'form' | 'content' | 'max';
 
   /**
    * Breakpoint at which row stacks become columns
@@ -122,15 +115,28 @@ export function Stack({
     }[justify],
 
     // Spacing using our token-based scale (only for UI variant)
-    gap: variant === 'ui' ? `gap-${space}` : undefined,
+    gap:
+      variant === 'ui'
+        ? {
+            compact: 'gap-2', // 8px
+            element: 'gap-4', // 16px
+            relaxed: 'gap-6', // 24px
+            content: 'gap-8', // 32px
+            section: 'gap-16', // 64px
+            layout: 'gap-24', // 96px
+          }[space]
+        : undefined,
 
-    // Max width using container tokens
+    // Max width using container tokens with Tailwind classes
     maxWidth:
       maxWidth !== 'none'
         ? {
-            content: 'max-w-[var(--container-content)]',
-            form: 'max-w-[var(--container-form)]',
-            max: 'max-w-[var(--container-max)]',
+            metric: 'max-w-metric', // 320px
+            card: 'max-w-card', // 480px
+            modal: 'max-w-modal', // 560px
+            form: 'max-w-form', // 640px
+            content: 'max-w-content', // 768px
+            max: 'max-w-max', // 1280px
           }[maxWidth]
         : undefined,
   };

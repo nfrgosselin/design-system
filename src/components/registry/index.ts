@@ -28,13 +28,11 @@ import { NamedIcon, Icons, type IconName, type NamedIconProps } from '../utils/n
 // Layout components
 import {
   Container,
-  Content,
+  Stack,
   Grid,
-  Section,
   type ContainerProps,
-  type ContentProps,
+  type StackProps,
   type GridProps,
-  type SectionProps,
 } from '../layout';
 // Typography components
 import {
@@ -110,9 +108,8 @@ export {
   Icons,
   // Layout components
   Container,
-  Content,
+  Stack,
   Grid,
-  Section,
   // Typography components
   ArticleTitle,
   ArticleSubtitle,
@@ -141,9 +138,8 @@ export {
   type IconName,
   type NamedIconProps,
   type ContainerProps,
-  type ContentProps,
+  type StackProps,
   type GridProps,
-  type SectionProps,
   // Typography Types
   type ArticleTitleProps,
   type ArticleSubtitleProps,
