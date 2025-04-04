@@ -1,22 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
-import type { TextProps } from '../core/types';
-
-export interface ArticleListProps extends TextProps {
-  variant?: 'unordered' | 'ordered';
-  markerColor?:
-    | 'primary'
-    | 'secondary'
-    | 'muted'
-    | 'seafoam'
-    | 'coral'
-    | 'navy'
-    | 'amber'
-    | 'lagoon'
-    | 'peach'
-    | 'slate'
-    | 'gold';
-}
+import type { ArticleListProps } from './types';
 
 /**
  * ArticleList component for article content lists.

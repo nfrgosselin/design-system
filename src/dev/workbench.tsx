@@ -7,10 +7,8 @@ import { ArticleList } from '../components/typography/article/ArticleList';
 import { ArticleListItem } from '../components/typography/article/ArticleListItem';
 import { ArticleQuote } from '../components/typography/article/ArticleQuote';
 import { Caption } from '../components/typography/ui/Caption';
-import { Description } from '../components/typography/ui/Description';
 import { MetaText } from '../components/typography/ui/MetaText';
 import { NavText } from '../components/typography/ui/NavText';
-import { SectionTitle } from '../components/typography/ui/SectionTitle';
 import { UIText } from '../components/typography/ui/UIText';
 import { Code } from '../components/typography/inline/Code';
 import { ColoredText } from '../components/typography/inline/ColoredText';
@@ -18,6 +16,8 @@ import { Emphasis } from '../components/typography/inline/Emphasis';
 import { FootnoteItem } from '../components/typography/inline/FootnoteItem';
 import { FootnoteText } from '../components/typography/inline/FootnoteText';
 import { Strong } from '../components/typography/inline/Strong';
+import { UIDescription } from '../components/typography/ui/UIDescription';
+import { UIHeader } from '../components/typography/ui/UIHeader';
 
 export function Workbench() {
   return (
@@ -102,18 +102,18 @@ export function Workbench() {
       <Stack variant="ui" space="section" className="max-w-4xl mx-auto">
         {/* UI Typography Examples */}
         <section>
-          <SectionTitle level={1}>UI Typography</SectionTitle>
-          <Description>
+          <UIHeader level={1}>UI Typography</UIHeader>
+          <UIDescription>
             Our UI typography system provides consistent text styles for interface elements,
             distinct from article content styles.
-          </Description>
+          </UIDescription>
 
           {/* Caption Examples */}
           <div className="mt-8">
-            <SectionTitle level={2}>Captions</SectionTitle>
-            <Description variant="muted">
+            <UIHeader level={2}>Captions</UIHeader>
+            <UIDescription variant="muted">
               Small descriptive text for supplementary information
-            </Description>
+            </UIDescription>
 
             <div className="mt-4 space-y-4">
               <div>
@@ -134,31 +134,31 @@ export function Workbench() {
 
           {/* Description Examples */}
           <div className="mt-8">
-            <SectionTitle level={2}>Descriptions</SectionTitle>
-            <Description variant="muted">
+            <UIHeader level={2}>Descriptions</UIHeader>
+            <UIDescription variant="muted">
               Longer form descriptive text for detailed explanations
-            </Description>
+            </UIDescription>
 
             <div className="mt-4 space-y-4">
-              <Description>
+              <UIDescription>
                 This is a default description that might explain a complex feature or provide
                 detailed instructions for completing a task. It can span multiple lines and
                 maintains comfortable reading length.
-              </Description>
+              </UIDescription>
 
-              <Description variant="muted">
+              <UIDescription variant="muted">
                 This is a muted description, useful for secondary information or additional context
                 that shouldn&apos;t draw attention away from the primary content.
-              </Description>
+              </UIDescription>
             </div>
           </div>
 
           {/* MetaText Examples */}
           <div className="mt-8">
-            <SectionTitle level={2}>Meta Text</SectionTitle>
-            <Description variant="muted">
+            <UIHeader level={2}>Meta Text</UIHeader>
+            <UIDescription variant="muted">
               Small text for metadata and supplementary information
-            </Description>
+            </UIDescription>
 
             <div className="mt-4 space-y-4">
               <div className="flex gap-3">
@@ -178,10 +178,10 @@ export function Workbench() {
 
           {/* NavText Examples */}
           <div className="mt-8">
-            <SectionTitle level={2}>Navigation Text</SectionTitle>
-            <Description variant="muted">
+            <UIHeader level={2}>Navigation Text</UIHeader>
+            <UIDescription variant="muted">
               Text styles for navigation elements and interactive items
-            </Description>
+            </UIDescription>
 
             <div className="mt-4">
               <div className="flex gap-6">
@@ -215,15 +215,15 @@ export function Workbench() {
 
           {/* UIText Examples */}
           <div className="mt-8">
-            <SectionTitle level={2}>UI Text</SectionTitle>
-            <Description variant="muted">
+            <UIHeader level={2}>UI Text</UIHeader>
+            <UIDescription variant="muted">
               Standard text styles for interface elements like buttons, labels, and general UI text
-            </Description>
+            </UIDescription>
 
             <div className="mt-4 space-y-6">
               {/* Size Examples */}
               <div>
-                <SectionTitle level={3}>Sizes</SectionTitle>
+                <UIHeader level={3}>Sizes</UIHeader>
                 <div className="flex flex-col gap-3">
                   <UIText size="xs">Extra Small Text (12px)</UIText>
                   <UIText size="sm">Small Text (14px)</UIText>
@@ -234,7 +234,7 @@ export function Workbench() {
 
               {/* Weight Examples */}
               <div>
-                <SectionTitle level={3}>Weights</SectionTitle>
+                <UIHeader level={3}>Weights</UIHeader>
                 <div className="flex flex-col gap-3">
                   <UIText weight="normal">Normal Weight Text</UIText>
                   <UIText weight="medium">Medium Weight Text</UIText>
@@ -244,7 +244,7 @@ export function Workbench() {
 
               {/* Variant Examples */}
               <div>
-                <SectionTitle level={3}>Variants</SectionTitle>
+                <UIHeader level={3}>Variants</UIHeader>
                 <div className="flex flex-col gap-3">
                   <UIText variant="default">Default UI Text</UIText>
                   <UIText variant="muted">Muted UI Text</UIText>
@@ -254,7 +254,7 @@ export function Workbench() {
 
               {/* Common Use Cases */}
               <div>
-                <SectionTitle level={3}>Common Use Cases</SectionTitle>
+                <UIHeader level={3}>Common Use Cases</UIHeader>
                 <div className="flex flex-col gap-4">
                   <div className="flex items-center gap-2 px-4 py-2 bg-stone-100 rounded-lg w-fit">
                     <UIText size="sm" weight="semibold">
@@ -286,32 +286,32 @@ export function Workbench() {
 
           {/* SectionTitle Examples */}
           <div className="mt-8">
-            <SectionTitle level={2}>Section Titles</SectionTitle>
-            <Description variant="muted">
+            <UIHeader level={2}>Section Titles</UIHeader>
+            <UIDescription variant="muted">
               Headers for UI sections with different levels of hierarchy
-            </Description>
+            </UIDescription>
 
             <div className="mt-4 space-y-4">
               <div>
-                <SectionTitle level={1}>Main Section Title</SectionTitle>
-                <Description>Level 1 - Used for main section headers</Description>
+                <UIHeader level={1}>Main Section Title</UIHeader>
+                <UIDescription>Level 1 - Used for main section headers</UIDescription>
               </div>
 
               <div>
-                <SectionTitle level={2}>Subsection Title</SectionTitle>
-                <Description>Level 2 - Used for subsections</Description>
+                <UIHeader level={2}>Subsection Title</UIHeader>
+                <UIDescription>Level 2 - Used for subsections</UIDescription>
               </div>
 
               <div>
-                <SectionTitle level={3}>Minor Section Title</SectionTitle>
-                <Description>Level 3 - Used for minor sections</Description>
+                <UIHeader level={3}>Minor Section Title</UIHeader>
+                <UIDescription>Level 3 - Used for minor sections</UIDescription>
               </div>
 
               <div>
-                <SectionTitle level={2} variant="muted">
+                <UIHeader level={2} variant="muted">
                   Muted Section Title
-                </SectionTitle>
-                <Description>Muted variant - For less prominent sections</Description>
+                </UIHeader>
+                <UIDescription>Muted variant - For less prominent sections</UIDescription>
               </div>
             </div>
           </div>
@@ -319,15 +319,15 @@ export function Workbench() {
 
         {/* Inline Typography Examples */}
         <section>
-          <SectionTitle level={2}>Inline Typography</SectionTitle>
-          <Description variant="muted">
+          <UIHeader level={2}>Inline Typography</UIHeader>
+          <UIDescription variant="muted">
             Inline text components for rich content formatting
-          </Description>
+          </UIDescription>
 
           <div className="mt-4 space-y-6">
             {/* Basic Inline Styles */}
             <div>
-              <SectionTitle level={3}>Basic Inline Styles</SectionTitle>
+              <UIHeader level={3}>Basic Inline Styles</UIHeader>
               <div className="space-y-2">
                 <div>
                   This text includes <Emphasis>emphasized content</Emphasis> and{' '}
@@ -342,7 +342,7 @@ export function Workbench() {
 
             {/* Colored Text */}
             <div>
-              <SectionTitle level={3}>Colored Text</SectionTitle>
+              <UIHeader level={3}>Colored Text</UIHeader>
               <div className="space-y-2">
                 <div className="flex gap-4">
                   <ColoredText color="primary">Primary</ColoredText>
@@ -373,7 +373,7 @@ export function Workbench() {
 
             {/* Footnotes */}
             <div>
-              <SectionTitle level={3}>Footnotes</SectionTitle>
+              <UIHeader level={3}>Footnotes</UIHeader>
               <div className="space-y-4">
                 <ArticleText>
                   Here&apos;s a sentence with a footnote
@@ -395,7 +395,7 @@ export function Workbench() {
 
             {/* Mixed Usage Example */}
             <div>
-              <SectionTitle level={3}>Mixed Usage Example</SectionTitle>
+              <UIHeader level={3}>Mixed Usage Example</UIHeader>
               <div className="space-y-4">
                 <ArticleText variant="lead">
                   The <Strong>Design System</Strong> provides{' '}
@@ -413,11 +413,11 @@ export function Workbench() {
                   inherit the correct font size.
                 </ArticleText>
 
-                <Description variant="muted">
+                <UIDescription variant="muted">
                   Even in a muted description, <Strong>bold text</Strong>,{' '}
                   <Emphasis>emphasized text</Emphasis>, and <Code>inline code</Code> maintain
                   consistent sizing.
-                </Description>
+                </UIDescription>
 
                 <div className="mt-8 pt-8 border-t border-stone-200">
                   <FootnoteItem number={3}>

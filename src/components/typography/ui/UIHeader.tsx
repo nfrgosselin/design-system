@@ -2,22 +2,22 @@ import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
 import type { TextProps } from '../core/types';
 
-export interface SectionTitleProps extends TextProps {
+export interface UIHeaderProps extends TextProps {
   variant?: 'default' | 'muted';
   level?: 1 | 2 | 3;
 }
 
 /**
- * SectionTitle component for UI section headers.
+ * UIHeader component for UI section headers.
  * Used for dividing and labeling UI sections, unlike ArticleHeader which is for content.
  */
-export function SectionTitle({
+export function UIHeader({
   variant = 'default',
   level = 2,
   className,
   children,
   ...props
-}: SectionTitleProps) {
+}: UIHeaderProps) {
   const styles = {
     base: {
       1: 'text-2xl font-semibold',

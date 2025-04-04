@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
-import type { ArticleHeaderProps } from '../types';
+import type { ArticleHeaderProps } from './types';
 
 /**
  * Header component for article section headings (h2/h3/h4).
@@ -12,7 +12,7 @@ export function ArticleHeader({ level = 2, className, children, ...props }: Arti
     2: 'font-serif font-semibold text-3xl text-stone-900 leading-snug tracking-tight word-spacing-spacious mb-element mt-12 first:mt-0',
     3: 'font-serif font-medium text-2xl text-stone-700 leading-snug tracking-normal word-spacing-spacious mb-element mt-12 first:mt-0',
     4: 'font-serif font-medium text-xl text-stone-500 leading-normal tracking-normal word-spacing-spacious mb-element mt-12 first:mt-0',
-  };
+  } as const;
 
   return (
     <Text as={`h${level}`} className={cn(styles[level as 2 | 3 | 4], className)} {...props}>

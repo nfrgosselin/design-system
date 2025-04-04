@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
-import type { ArticleTitleProps } from '../types';
+import type { ArticleTitleProps } from './types';
 
 /**
  * Title component for article main headings (h1).

@@ -1,10 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
-import type { TextProps } from '../core/types';
-
-export interface ArticleQuoteProps extends TextProps {
-  attribution?: string;
-}
+import type { ArticleQuoteProps } from './types';
 
 /**
  * ArticleQuote component for blockquotes in article content.

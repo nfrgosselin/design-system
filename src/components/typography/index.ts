@@ -1,27 +1,56 @@
-// Article Typography
-export { ArticleText, ArticleTitle, ArticleHeader, ArticleSubtitle } from './article';
+// Core exports
+export type { TextProps } from './core/types';
+export { Text } from './core/Text';
 
-// Inline Typography
-export { InlineCode, InlineEmphasis, InlineStrong } from './inline';
-export { InlineLink } from '../navigation/link';
-
-// UI Typography
-export { UIHeader, UILabel, UICaption } from './ui';
-
-// Type Exports
+// Article typography exports
 export type {
-  // Article Types
-  ArticleTextProps,
   ArticleHeaderProps,
-  ArticleTitleProps,
+  ArticleListItemProps,
+  ArticleListProps,
+  ArticleQuoteProps,
   ArticleSubtitleProps,
-  // Inline Types
-  InlineCodeProps,
-  InlineLinkProps,
-  InlineEmphasisProps,
-  InlineStrongProps,
-  // UI Types
+  ArticleTextProps,
+  ArticleTitleProps,
+} from './article/types';
+
+export { ArticleHeader } from './article/ArticleHeader';
+export { ArticleList } from './article/ArticleList';
+export { ArticleListItem } from './article/ArticleListItem';
+export { ArticleQuote } from './article/ArticleQuote';
+export { ArticleSubtitle } from './article/ArticleSubtitle';
+export { ArticleText } from './article/ArticleText';
+export { ArticleTitle } from './article/ArticleTitle';
+
+// Inline typography exports
+export type {
+  CodeProps,
+  ColoredTextProps,
+  EmphasisProps,
+  FootnoteItemProps,
+  FootnoteTextProps,
+  StrongProps,
+} from './inline/types';
+
+export { Code } from './inline/Code';
+export { ColoredText } from './inline/ColoredText';
+export { Emphasis } from './inline/Emphasis';
+export { FootnoteItem } from './inline/FootnoteItem';
+export { FootnoteText } from './inline/FootnoteText';
+export { Strong } from './inline/Strong';
+
+// UI typography exports
+export type {
+  CaptionProps,
+  UIDescriptionProps,
+  MetaTextProps,
+  NavTextProps,
   UIHeaderProps,
-  UILabelProps,
-  UICaptionProps,
-} from './types';
+  UITextProps,
+} from './ui/types';
+
+export { Caption } from './ui/Caption';
+export { UIDescription } from './ui/UIDescription';
+export { MetaText } from './ui/MetaText';
+export { NavText } from './ui/NavText';
+export { UIHeader } from './ui/UIHeader';
+export { UIText } from './ui/UIText';

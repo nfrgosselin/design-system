@@ -37,15 +37,23 @@ export {
   ArticleSubtitle,
   ArticleHeader,
   ArticleText,
+  ArticleList,
+  ArticleListItem,
+  ArticleQuote,
   // Inline Components
-  InlineCode,
-  InlineLink,
-  InlineEmphasis,
-  InlineStrong,
+  Code,
+  ColoredText,
+  Emphasis,
+  Strong,
+  FootnoteText,
+  FootnoteItem,
   // UI Components
   UIHeader,
-  UILabel,
-  UICaption,
+  UIDescription,
+  Caption,
+  MetaText,
+  NavText,
+  UIText,
 } from './components/typography';
 
 // Display Components
@@ -75,9 +83,9 @@ export { buttonVariants } from './components/registry';
  *   Container,
  *   Grid,
  *   ArticleTitle,
- *   InlineCode,
+ *   Code,
  *   UIHeader,
- *   UILabel
+ *   UIText
  * } from '@nathangosselin/design-system';
  *
  * function App() {
@@ -85,12 +93,12 @@ export { buttonVariants } from './components/registry';
  *     <Container>
  *       <Grid>
  *         <ArticleTitle>Welcome</ArticleTitle>
- *         <UIHeader variant="primary">Section Title</UIHeader>
- *         <UILabel>Form Field</UILabel>
+ *         <UIHeader level={2}>Section Title</UIHeader>
+ *         <UIText as="label">Form Field</UIText>
  *         <Button variant="primary">Click Me</Button>
  *         <Link href="/about">About</Link>
  *         <Icon name="arrow-right" />
- *         <InlineCode>npm install</InlineCode>
+ *         <Code>npm install</Code>
  *       </Grid>
  *     </Container>
  *   );

@@ -1,3 +1,13 @@
+export type {
+  ArticleTextProps,
+  ArticleHeaderProps,
+  ArticleTitleProps,
+  ArticleSubtitleProps,
+  ArticleQuoteProps,
+  ArticleListProps,
+  ArticleListItemProps,
+} from './types';
+
 export { ArticleText } from './ArticleText';
 export { ArticleTitle } from './ArticleTitle';
 export { ArticleHeader } from './ArticleHeader';

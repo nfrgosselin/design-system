@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
-import type { ArticleSubtitleProps } from '../types';
+import type { ArticleSubtitleProps } from './types';
 
 /**
  * Subtitle component for article subheadings.
