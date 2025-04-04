@@ -90,17 +90,18 @@
 **Base Components:**
 
 - [x] Button
-- [ ] Icon (configurable size and color)
-- [ ] Link (with default, nav, external variants)
+- [x] Icon (configurable size and color)
+- [x] Link (with multiple variants including inline, standalone, button, external)
+- [x] NavLink (dedicated navigation link component)
 - [ ] Input (with text, email variants)
 
-**Semantic Wrappers:**
+**Semantic Wrappers (implemented as variants or specialized components):**
 
-- [ ] ExternalLink (uses Link with external icon)
-- [ ] PrimaryButton (uses Button with primary styling)
-- [ ] SecondaryButton (uses Button with secondary styling)
-- [ ] TextButton (uses Button with minimal styling)
-- [ ] NavLink (uses Link with navigation styling)
+- [x] InlineLink (uses Link with inline variant)
+- [x] ButtonLink (uses Link with button variant)
+- [x] UtilityLink (uses Link with utility variant)
+- [x] MetadataLink (uses Link with metadata variant)
+- [x] BreadcrumbLink (uses Link with breadcrumb variant)
 
 ### Structure Components
 
@@ -109,7 +110,7 @@
 - [ ] Divider (horizontal separator)
 - [ ] Image (with responsive behavior)
 - [ ] Container (configurable max-width and padding)
-- [ ] Stack (vertical and horizontal layout)
+- [x] Stack (vertical layout)
 - [ ] Grid (responsive grid system)
 
 **Semantic Wrappers:**
@@ -117,7 +118,7 @@
 - [ ] ContentContainer (uses Container: maxWidth="768px")
 - [ ] WideContainer (uses Container: maxWidth="1280px")
 - [ ] NarrowContainer (uses Container: maxWidth="640px")
-- [ ] VerticalStack (uses Stack with vertical direction)
+- [x] VerticalStack (uses Stack with vertical direction)
 - [ ] HorizontalStack (uses Stack with horizontal direction)
 - [ ] ArticleImage (uses Image with article-specific styling)
 
@@ -127,11 +128,12 @@
 
 **Required Atoms:**
 
-- [ ] NavText
-- [ ] Link
-- [ ] Icon
+- [x] NavText
+- [x] Link
+- [x] NavLink
+- [x] Icon
 - [ ] Container
-- [ ] Stack (horizontal for desktop, vertical for mobile)
+- [x] Stack (horizontal for desktop, vertical for mobile)
 
 **Required Molecules:**
 
@@ -153,7 +155,7 @@
 **Required Atoms:**
 
 - [ ] Container (with variants)
-- [ ] Stack
+- [x] Stack
 - [ ] Divider
 
 **Required Molecules:**
@@ -174,25 +176,25 @@
 
 **Required Atoms:**
 
-- [ ] Heading
-- [ ] Text variants (BodyText, Caption, etc.)
+- [x] Heading
+- [x] Text variants (BodyText, Caption, etc.)
 - [ ] Image
 - [ ] Divider
-- [ ] Link
-- [ ] Quote
+- [x] Link
+- [x] Quote
 
 **Required Molecules:**
 
 - [ ] ArticleHeader (title + metadata)
 - [ ] ArticleMeta (date + read time)
 - [ ] ArticleParagraph (styled paragraph)
-- [ ] BlockQuote (styled quote)
+- [x] BlockQuote (styled quote)
 - [ ] ArticleImage (image with optional caption)
 - [ ] ArticleSection (section with heading)
 
 **Implementation Tasks:**
 
-- [ ] Create article typography system
+- [x] Create article typography system
 - [ ] Implement proper semantic markup
 - [ ] Add proper spacing between elements
 - [ ] Create responsive image handling
@@ -203,11 +205,11 @@
 **Required Atoms:**
 
 - [ ] Container
-- [ ] Stack
+- [x] Stack
 - [ ] Grid
 - [ ] Image
-- [ ] Text variants
-- [ ] Link
+- [x] Text variants
+- [x] Link
 
 **Required Molecules:**
 
@@ -232,9 +234,9 @@
 **Required Atoms:**
 
 - [ ] Input
-- [ ] Button
-- [ ] Text
-- [ ] Icon
+- [x] Button
+- [x] Text
+- [x] Icon
 
 **Required Molecules:**
 
@@ -257,15 +259,15 @@
 
 **Required Atoms:**
 
-- [ ] Text
-- [ ] Link
+- [x] Text
+- [x] Link
 - [ ] Container
 - [ ] Divider
-- [ ] Icon
+- [x] Icon
 
 **Required Molecules:**
 
-- [ ] FooterLink
+- [x] FooterLink (can use UtilityLink)
 - [ ] FooterSection
 - [ ] FooterCopyright
 - [ ] SocialLinkGroup
@@ -282,10 +284,10 @@
 
 **Required Atoms:**
 
-- [ ] Text variants
+- [x] Text variants
 - [ ] Container
-- [ ] Stack
-- [ ] Icon
+- [x] Stack
+- [x] Icon
 
 **Required Molecules:**
 
@@ -309,10 +311,10 @@
 **Required Atoms:**
 
 - [ ] Input
-- [ ] Button
-- [ ] Link
-- [ ] Text
-- [ ] Icon
+- [x] Button
+- [x] Link
+- [x] Text
+- [x] Icon
 
 **Required Molecules:**
 
@@ -336,10 +338,10 @@
 
 **Required Atoms:**
 
-- [ ] SectionTitle
-- [ ] Button
-- [ ] Link
-- [ ] Icon
+- [x] SectionTitle
+- [x] Button
+- [x] Link
+- [x] Icon
 - [ ] Divider
 
 **Required Molecules:**
@@ -362,10 +364,10 @@
 **Required Atoms:**
 
 - [ ] Input
-- [ ] Button
-- [ ] Icon
-- [ ] Text variants
-- [ ] Stack
+- [x] Button
+- [x] Icon
+- [x] Text variants
+- [x] Stack
 
 **Required Molecules:**
 
@@ -388,10 +390,10 @@
 
 **Required Atoms:**
 
-- [ ] Text variants
-- [ ] Icon
+- [x] Text variants
+- [x] Icon
 - [ ] Divider
-- [ ] Stack
+- [x] Stack
 - [ ] Container
 
 **Required Molecules:**
@@ -415,11 +417,11 @@
 
 **Required Atoms:**
 
-- [ ] Text variants
-- [ ] Icon
-- [ ] Button
+- [x] Text variants
+- [x] Icon
+- [x] Button
 - [ ] Container
-- [ ] Stack
+- [x] Stack
 
 **Required Molecules:**
 
@@ -441,21 +443,21 @@
 
 **Required Atoms:**
 
-- [ ] Icon (base component)
+- [x] Icon (base component)
 
 **Required Molecules:**
 
 - [ ] IconWithText
 - [ ] IconButton
 - [ ] StatusIcon
-- [ ] NavigationIcon
+- [x] NavigationIcon (via NavLink)
 - [ ] ActionIcon
 
 **Implementation Tasks:**
 
-- [ ] Create icon size system
-- [ ] Implement color application
-- [ ] Add accessibility attributes
+- [x] Create icon size system
+- [x] Implement color application
+- [x] Add accessibility attributes
 - [ ] Create icon + text combinations
 - [ ] Implement icon alignment system
 
@@ -463,11 +465,11 @@
 
 **Required Atoms:**
 
-- [ ] Button
-- [ ] Link
-- [ ] Text
-- [ ] Icon
-- [ ] Stack
+- [x] Button
+- [x] Link
+- [x] Text
+- [x] Icon
+- [x] Stack
 
 **Required Molecules:**
 
@@ -487,8 +489,11 @@
 
 ## Implementation Approach
 
-1. Start with foundational tokens and styles
-2. Build atomic components in priority order
-3. Assemble molecules as needed for each pattern
-4. Create organisms by combining molecules
-5. Test patterns in context of page templates
+Our implementation approach has evolved to:
+
+1. ✅ Start with foundational tokens and styles
+2. ✅ Build atomic components with variants to handle multiple use cases
+3. ✅ Use a mix of variant-based wrappers and specialized components for semantic differentiation
+4. 🔄 Assemble more complex components by composing base components
+5. ⏱️ Implement pattern-specific components and layouts
+6. ⏱️ Test patterns in context of page templates
