@@ -45,6 +45,7 @@ export const Captions: StoryObj = {
   ),
 };
 
+/* Temporarily disabled during v2 migration
 export const CompleteExample: StoryObj = {
   render: () => (
     <div className="space-y-8">
@@ -60,7 +61,7 @@ export const CompleteExample: StoryObj = {
           className="block w-full rounded-md border border-stone-200 px-3 py-2"
           placeholder="your@email.com"
         />
-        <UICaption>We&apos;ll never share your email with anyone else.</UICaption>
+        <UICaption>We'll never share your email with anyone else.</UICaption>
       </div>
 
       <div className="space-y-2">
@@ -79,3 +80,4 @@ export const CompleteExample: StoryObj = {
     </div>
   ),
 };
+*/

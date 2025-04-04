@@ -37,4 +37,12 @@
   --ds-tracking-wide: 0.01em;       /* For small UI text */
   --ds-tracking-wider: 0.05em;      /* For small caps and buttons */
   --ds-tracking-widest: 0.1em;      /* For uppercase labels/eyebrows */
+
+  /* Word Spacing */
+  --ds-word-spacing-tight: -0.05em;     /* For dense headings where you want words closer */
+  --ds-word-spacing-reduced: -0.025em;  /* Slightly tighter than normal */
+  --ds-word-spacing-normal: 0em;        /* Default word spacing */
+  --ds-word-spacing-relaxed: 0.025em;   /* Slightly more breathing room */
+  --ds-word-spacing-spacious: 0.05em;   /* More space between words for emphasis */
+  --ds-word-spacing-expanded: 0.1em;    /* Maximum spacing for special cases */
 } 

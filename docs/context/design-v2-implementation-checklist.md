@@ -53,25 +53,35 @@
 
 ### Typography Components
 
-**Base Components:**
+**Base Components (src/components/typography/core/):**
 
 - [ ] Text (foundational typography component)
-- [ ] Heading (specialized wrapper for Text)
 
-**Semantic Wrappers:**
+**Semantic Wrappers - Article (src/components/typography/article/):**
 
-- [ ] PageTitle (uses Heading: level=1, serif, 4xl, bold)
-- [ ] SectionTitle (uses Heading: level=2, sans, xl, medium)
-- [ ] ArticleTitle (uses Heading: level=2, serif, 2xl, bold)
-- [ ] ArticleDescription (uses Text: serif, lg, regular, stone-600)
-- [ ] BodyText (uses Text: serif, base, regular, stone-900)
-- [ ] Caption (uses Text: sans, sm, regular, stone-500)
-- [ ] NavText (uses Text: sans, sm, medium, stone-900)
-- [ ] ReadTime (uses Text: sans, xs, regular, stone-500)
-- [ ] Emphasis (uses Text: serif, inherit, inherit, italic)
-- [ ] Quote (uses Text: serif, lg, regular, stone-700, italic)
-- [ ] FootnoteText (uses Text: serif, sm, regular, stone-600)
-- [ ] ColoredText (uses Text: inherit with color override)
+- [x] Title.tsx (h1 for articles)
+- [x] Subtitle.tsx (complementary to Title)
+- [x] Header.tsx (h2-h4 for sections)
+- [x] Text.tsx (lead and default paragraph styles)
+- [ ] Quote.tsx (blockquotes)
+- [ ] FootnoteText.tsx
+
+**Semantic Wrappers - UI (src/components/typography/ui/):**
+
+- [ ] Caption.tsx (small descriptive text)
+- [ ] Description.tsx (longer descriptive text)
+- [ ] MetaText.tsx (dates, read times, etc.)
+- [ ] NavText.tsx (navigation items)
+- [ ] SectionTitle.tsx (UI section headers)
+
+**Semantic Wrappers - Inline (src/components/typography/inline/):**
+
+- [ ] Emphasis.tsx
+- [ ] Strong.tsx
+- [ ] Code.tsx
+- [ ] ColoredText.tsx
+
+MAKE SURE TO UPDATE TESTS AND STORIES HERE
 
 ### Interactive Components
 

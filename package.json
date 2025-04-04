@@ -50,7 +50,8 @@
     "release": "npm run build && npm run test && standard-version",
     "release:dry-run": "npm run build && npm run test && echo 'Dry run complete - version bump simulation successful'",
     "lint-staged": "lint-staged",
-    "add-component": "ts-node scripts/add-component.ts"
+    "add-component": "ts-node scripts/add-component.ts",
+    "workbench": "vite --port 3000"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",

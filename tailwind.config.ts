@@ -253,6 +253,14 @@ const config: Config = {
         wider: 'var(--tracking-wider)',
         widest: 'var(--tracking-widest)',
       },
+      wordSpacing: {
+        tight: 'var(--word-spacing-tight)',
+        reduced: 'var(--word-spacing-reduced)',
+        normal: 'var(--word-spacing-normal)',
+        relaxed: 'var(--word-spacing-relaxed)',
+        spacious: 'var(--word-spacing-spacious)',
+        expanded: 'var(--word-spacing-expanded)',
+      },
       maxWidth: {
         prose: '68ch',
       },

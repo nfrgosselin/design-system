@@ -27,6 +27,7 @@ export const Links: StoryObj = {
   ),
 };
 
+/* Temporarily disabled during v2 migration
 export const TextEmphasis: StoryObj = {
   render: () => (
     <div className="space-y-4">
@@ -62,3 +63,4 @@ export const CompleteExample: StoryObj = {
     </div>
   ),
 };
+*/

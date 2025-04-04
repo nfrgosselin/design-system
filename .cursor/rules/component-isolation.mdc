@@ -1,0 +1,70 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Component Isolation Rule
+
+## Description
+
+This rule automates Phase 1 of the component isolation workflow for the design system v2 migration. It helps identify component dependencies, temporarily disable tests, and disable stories for the component being migrated.
+
+## Trigger
+
+When the user tells you to do this for a specific component 
+
+## Steps
+
+1. **Find Component Dependencies**
+
+   ```bash
+   # Find all imports of the component
+   grep -r "import.*${componentName}" src/
+
+   # Find all test/story files
+   find src/ -name "${componentName}.test.tsx" -o -name "${componentName}.stories.tsx"
+   ```
+
+2. **Disable Component Tests**
+
+   - Locate `${componentName}.test.tsx`
+   - Change `describe('${componentName}'` to `describe.skip('${componentName}'`
+   - Add `// @ts-ignore` if TypeScript errors occur
+
+3. **Disable Component Stories**
+
+   - Locate `${componentName}.stories.tsx`
+   - Comment out the entire story configuration:
+
+   ```typescript
+   /* Temporarily disabled during v2 migration
+   export default {
+     title: 'Components/${componentName}',
+     component: ${componentName},
+   } as Meta
+   ...
+   */
+   ```
+
+4. **Add to Workbench**
+   - Open `src/pages/workbench.tsx`
+   - Add component import
+   - Add component examples to the active workspace section
+
+## Variables
+
+- `${componentName}`: Name of the component being migrated
+
+## Success Criteria
+
+- All component dependencies are identified
+- Tests are temporarily skipped
+- Stories are temporarily disabled
+- Component is ready for active development in workbench
+
+## Notes
+
+- This is part of the design system v2 migration workflow
+- Changes should be committed with "wip:" prefix
+- Document any breaking changes that will affect dependent components
+

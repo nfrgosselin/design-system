@@ -1,0 +1,6 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+When working on React components and files, ONLY apply styling using the pre-defined Tailwind utility classes. These classes are configured based on our design tokens (e.g., use p-4 for standard padding, bg-primary for primary backgrounds, text-lg for large text). Avoid using inline styles with var(--css-variables) or creating custom CSS classes for styles already covered by Tailwind utilities. Refer to the design system documentation for available utility classes.

@@ -1,10 +1,14 @@
-export { ArticleTitle, ArticleSubtitle, ArticleHeader, ArticleText } from './article';
+// Article Typography
+export { ArticleText, ArticleTitle, ArticleHeader, ArticleSubtitle } from './article';
 
+// Inline Typography
 export { InlineCode, InlineEmphasis, InlineStrong } from './inline';
 export { InlineLink } from '../navigation/link';
 
+// UI Typography
 export { UIHeader, UILabel, UICaption } from './ui';
 
+// Type Exports
 export type {
   // Article Types
   ArticleTextProps,

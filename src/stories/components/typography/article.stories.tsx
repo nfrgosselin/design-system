@@ -58,6 +58,7 @@ export const TitleVariations: StoryObj = {
   ),
 };
 
+/* Temporarily disabled during v2 migration
 export const TextVariations: StoryObj = {
   render: () => (
     <div className="space-y-12 p-6 bg-white max-w-3xl">
@@ -85,3 +86,4 @@ export const TextVariations: StoryObj = {
     </div>
   ),
 };
+*/

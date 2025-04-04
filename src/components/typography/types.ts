@@ -1,18 +1,24 @@
 import * as React from 'react';
+import type { TextProps, TextElement } from './core/types';
 
 // Article Typography Types
-export interface ArticleTextProps extends React.HTMLAttributes<HTMLParagraphElement> {
-  children: React.ReactNode;
+export interface ArticleTextProps extends TextProps {
   variant?: 'lead' | 'default';
+  as?: TextElement;
+  htmlFor?: string;
 }
 
-export interface ArticleHeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface ArticleHeaderProps extends TextProps {
+  level: 2 | 3 | 4;
+}
+
+export interface ArticleTitleProps extends TextProps {
   children: React.ReactNode;
-  level: 1 | 2 | 3;
 }
 
-export type ArticleTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
-export type ArticleSubtitleProps = React.HTMLAttributes<HTMLParagraphElement>;
+export interface ArticleSubtitleProps extends TextProps {
+  children: React.ReactNode;
+}
 
 // Inline Typography Types
 export interface InlineCodeProps extends React.HTMLAttributes<HTMLElement> {
