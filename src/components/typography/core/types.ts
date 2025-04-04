@@ -18,7 +18,9 @@ export type TextElement =
   | 'ol'
   | 'ul'
   | 'li'
-  | 'blockquote';
+  | 'blockquote'
+  | 'sup'
+  | 'sub';
 
 /**
  * Design system approved word spacing values

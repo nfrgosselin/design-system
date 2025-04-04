@@ -9,9 +9,9 @@ import type { ArticleHeaderProps } from '../types';
  */
 export function ArticleHeader({ level = 2, className, children, ...props }: ArticleHeaderProps) {
   const styles = {
-    2: 'font-serif font-semibold text-3xl text-stone-900 leading-snug tracking-tight word-spacing-spacious mb-element',
-    3: 'font-serif font-medium text-2xl text-stone-700 leading-snug tracking-normal word-spacing-spacious mb-element',
-    4: 'font-serif font-medium text-xl text-stone-500 leading-normal tracking-normal word-spacing-spacious mb-element',
+    2: 'font-serif font-semibold text-3xl text-stone-900 leading-snug tracking-tight word-spacing-spacious mb-element mt-12 first:mt-0',
+    3: 'font-serif font-medium text-2xl text-stone-700 leading-snug tracking-normal word-spacing-spacious mb-element mt-12 first:mt-0',
+    4: 'font-serif font-medium text-xl text-stone-500 leading-normal tracking-normal word-spacing-spacious mb-element mt-12 first:mt-0',
   };
 
   return (

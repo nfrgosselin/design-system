@@ -3,14 +3,20 @@ import { cn } from '../../lib/utils';
 
 export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
+   * Variant determines the spacing behavior
+   * - ui: Uses gap for consistent spacing (default)
+   * - article: Removes gap, relies on component margins
+   */
+  variant?: 'ui' | 'article';
+
+  /**
    * Direction of the stack - vertical or horizontal
    */
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
   /**
    * Space between items using our spacing scale
-   * Numeric values map to spacing scale (1-16)
-   * Semantic values provide contextual spacing
+   * Only applies to 'ui' variant
    */
   space?:
     | '1'
@@ -60,6 +66,7 @@ export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export function Stack({
   children,
+  variant = 'ui',
   direction = 'column',
   space = 'element',
   align = 'stretch',
@@ -114,8 +121,8 @@ export function Stack({
       evenly: 'justify-evenly',
     }[justify],
 
-    // Spacing using our token-based scale
-    gap: `gap-${space}`,
+    // Spacing using our token-based scale (only for UI variant)
+    gap: variant === 'ui' ? `gap-${space}` : undefined,
 
     // Max width using container tokens
     maxWidth:

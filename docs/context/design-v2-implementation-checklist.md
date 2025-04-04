@@ -55,7 +55,7 @@
 
 **Base Components (src/components/typography/core/):**
 
-- [ ] Text (foundational typography component)
+- [x] Text (foundational typography component)
 
 **Semantic Wrappers - Article (src/components/typography/article/):**
 
@@ -69,21 +69,21 @@
 
 **Semantic Wrappers - UI (src/components/typography/ui/):**
 
-- [ ] Caption.tsx (small descriptive text)
-- [ ] Description.tsx (longer descriptive text)
-- [ ] MetaText.tsx (dates, read times, etc.)
-- [ ] NavText.tsx (navigation items)
-- [ ] SectionTitle.tsx (UI section headers)
+- [x] Caption.tsx (small descriptive text)
+- [x] Description.tsx (longer descriptive text)
+- [x] MetaText.tsx (dates, read times, etc.)
+- [x] NavText.tsx (navigation items)
+- [x] SectionTitle.tsx (UI section headers)
+- [x] UIText.tsx (standard UI text)
 
 **Semantic Wrappers - Inline (src/components/typography/inline/):**
 
-- [ ] Emphasis.tsx
-- [ ] Strong.tsx
-- [ ] Code.tsx
-- [ ] ColoredText.tsx
-- [ ] FootnoteText.tsx
-- [ ] FootnoteContent.tsx
-- [ ] FootnoteItem.tsx
+- [x] Emphasis.tsx
+- [x] Strong.tsx
+- [x] Code.tsx
+- [x] ColoredText.tsx
+- [x] FootnoteText.tsx
+- [x] FootnoteItem.tsx
 
 MAKE SURE TO UPDATE TESTS AND STORIES HERE
 
