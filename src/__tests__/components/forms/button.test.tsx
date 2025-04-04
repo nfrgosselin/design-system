@@ -17,10 +17,10 @@ describe('Button Component', () => {
 
     it('renders with different variants', () => {
       const variants: NonNullable<ButtonProps['variant']>[] = [
-        'primary-reverse',
-        'primary-inverse',
-        'primary-accent',
-        'primary-accent-reverse',
+        'solid',
+        'outline',
+        'brand',
+        'brand-outline',
         'accent',
         'outline-accent',
         'outline-subtle',
@@ -144,7 +144,7 @@ describe('Button Component', () => {
     });
 
     it('applies proper hover styles', () => {
-      render(<Button variant="primary-reverse">Hover Test</Button>);
+      render(<Button variant="solid">Hover Test</Button>);
       const button = screen.getByRole('button');
       expect(button).toHaveClass('hover:bg-white', 'hover:text-black');
     });

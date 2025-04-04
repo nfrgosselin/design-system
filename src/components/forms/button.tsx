@@ -8,53 +8,58 @@ const buttonVariants = cva(
     // Base styles
     'inline-flex items-center justify-center',
     'relative',
-    'rounded-md',
-    'text-sm font-medium leading-none',
-    'transition-all duration-50',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2',
+    'rounded-lg',
+    'text-xs font-sans font-medium tracking-normal leading-none',
+    'transition-color duration-ultra-fast ease-in-out',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ds-primary ring-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
   ],
   {
     variants: {
       variant: {
-        'primary-reverse': [
-          'bg-black text-white border-[1.5px] border-black',
+        solid: [
+          'bg-black text-white border-2 border-black',
           'hover:bg-white hover:text-black',
           'active:bg-white active:text-black',
         ].join(' '),
-        'primary-inverse': [
-          'bg-white text-black border-[1.5px] border-black',
+        outline: [
+          'bg-white text-black border-2 border-black',
           'hover:bg-black hover:text-white',
           'active:bg-black active:text-white',
         ].join(' '),
-        'primary-accent': [
-          'bg-white text-black border-[1.5px] border-black',
-          'hover:bg-ds-primary-hover hover:text-white hover:border-black',
+        'brand-outline': [
+          'bg-white text-black border-2 border-black',
+          'hover:bg-ds-primary hover:text-white hover:border-black',
           'active:bg-ds-primary-active active:text-white active:border-ds-primary-active',
         ].join(' '),
-        'primary-accent-reverse': [
-          'bg-ds-primary text-white border-[1.5px] border-black',
+        brand: [
+          'bg-ds-primary text-white border-2 border-black',
+          'hover:bg-white hover:text-black',
+          'active:bg-white active:text-black',
+        ].join(' '),
+        'brand-solid': [
+          'bg-ds-primary text-white border-2 border-black',
           'hover:bg-white hover:text-black',
           'active:bg-white active:text-black',
         ].join(' '),
         accent: [
-          'bg-ds-primary text-white',
-          'hover:bg-ds-primary/90',
+          'bg-ds-primary text-white border-2 border-black',
+          'hover:bg-ds-primary-hover',
           'active:bg-ds-primary-active',
         ].join(' '),
         'outline-accent': [
-          'border border-stone-200 text-ds-primary',
-          'hover:border-ds-primary hover:text-ds-primary',
-          'active:border-ds-primary-active active:text-ds-primary-active',
+          'border border-gray-200 text-primary',
+          'hover:border-primary hover:text-primary-dark',
+          'active:border-primary-dark active:text-primary-dark',
         ].join(' '),
         'outline-subtle': [
-          'border border-stone-200 text-black',
+          'border border-gray-200 text-black',
           'hover:border-black',
           'active:border-black',
         ].join(' '),
         ghost: [
-          'text-stone-600',
-          'hover:text-black hover:bg-stone-100',
+          'border border-stone-200 text-stone-600',
+          'hover:text-black hover:bg-stone-100 hover:border-stone-200',
           'active:bg-stone-200',
         ].join(' '),
       },
@@ -76,7 +81,7 @@ const buttonVariants = cva(
       },
     },
     defaultVariants: {
-      variant: 'primary-reverse',
+      variant: 'solid',
       size: 'md',
       isLoading: false,
     },
@@ -112,9 +117,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const isDisabled = disabled || isLoading;
 
     const iconSize = {
-      sm: 16,
-      md: 20,
-      lg: 24,
+      sm: 12,
+      md: 16,
+      lg: 20,
     }[size || 'md'];
 
     return (

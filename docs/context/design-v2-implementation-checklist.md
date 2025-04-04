@@ -89,7 +89,7 @@
 
 **Base Components:**
 
-- [ ] Button (with primary, secondary, text variants)
+- [x] Button
 - [ ] Link (with default, nav, external variants)
 - [ ] Input (with text, email variants)
 - [ ] Icon (configurable size and color)
