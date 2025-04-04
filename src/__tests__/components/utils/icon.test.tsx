@@ -12,16 +12,17 @@ describe('Icon Component', () => {
     it('renders correctly with default props', () => {
       render(<Icon icon={Mail} />);
       const icon = screen.getByTestId('icon');
-      expect(icon).toBeInTheDocument();
-      expect(icon.parentElement).toHaveClass('text-stone-900'); // default color
+      const wrapper = icon.parentElement;
+      expect(wrapper).toBeInTheDocument();
+      expect(wrapper).toHaveClass('inline-flex', 'items-center', 'justify-center');
+      expect(wrapper).not.toHaveClass('text-foreground');
     });
 
     it('renders with different sizes', () => {
       const sizes = {
         sm: 'w-4 h-4',
-        md: 'w-6 h-6',
-        lg: 'w-8 h-8',
-        xl: 'w-12 h-12',
+        md: 'w-5 h-5',
+        lg: 'w-6 h-6',
       } as const;
 
       Object.entries(sizes).forEach(([size, expectedClass]) => {
@@ -35,20 +36,16 @@ describe('Icon Component', () => {
     });
 
     it('renders with different colors', () => {
-      const colorMap = {
-        default: 'text-stone-900',
-        muted: 'text-stone-500',
-        primary: 'text-ds-primary',
-        success: 'text-success',
-        warning: 'text-warning',
-        error: 'text-error',
-        info: 'text-info',
-      } as const;
+      const colorClasses = [
+        'text-foreground',
+        'text-brand',
+        'text-success',
+        'text-warning',
+        'text-error',
+      ];
 
-      Object.entries(colorMap).forEach(([color, expectedClass]) => {
-        const { rerender } = render(
-          <Icon icon={Mail} color={color as NonNullable<IconProps['color']>} />
-        );
+      colorClasses.forEach(expectedClass => {
+        const { rerender } = render(<Icon icon={Mail} className={expectedClass} />);
         const wrapper = screen.getByTestId('icon').parentElement;
         expect(wrapper).toHaveClass(expectedClass);
         rerender(<></>);
@@ -107,18 +104,14 @@ describe('Icon Component', () => {
     it('applies size tokens correctly', () => {
       render(<Icon icon={Mail} size="lg" />);
       const icon = screen.getByTestId('icon');
-      // lg size should use spacing-8 (32px)
-      expect(icon).toHaveClass('w-8', 'h-8');
+      // lg size should use h-6/w-6
+      expect(icon).toHaveClass('w-6', 'h-6');
     });
 
     it('applies color tokens correctly', () => {
-      render(<Icon icon={Mail} color="primary" />);
-      // Get the icon element
-      const iconSvg = screen.getByTestId('icon');
-      // Get its parent which should have the color class
-      const wrapper = iconSvg.parentElement;
-      // Should use the primary color token
-      expect(wrapper).toHaveClass('text-ds-primary');
+      render(<Icon icon={Mail} className="text-brand" />);
+      const wrapper = screen.getByTestId('icon').parentElement;
+      expect(wrapper).toHaveClass('text-brand');
     });
 
     it('maintains consistent spacing in flex container', () => {

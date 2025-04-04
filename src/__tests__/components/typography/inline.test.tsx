@@ -51,7 +51,7 @@ describe('Inline Typography Components', () => {
     it('renders with accent variant styles', () => {
       render(<Strong variant="accent">Test Strong</Strong>);
       const strong = screen.getByText('Test Strong');
-      expect(strong).toHaveClass('text-ds-primary', 'font-semibold');
+      expect(strong).toHaveClass('text-brand', 'font-semibold');
     });
 
     it('accepts and applies custom className', () => {
@@ -102,7 +102,7 @@ describe('Inline Typography Components', () => {
     it('renders with primary color', () => {
       render(<ColoredText color="primary">Primary Text</ColoredText>);
       const text = screen.getByText('Primary Text');
-      expect(text).toHaveClass('text-ds-primary');
+      expect(text).toHaveClass('text-brand');
     });
 
     it('renders with success color', () => {
@@ -136,13 +136,7 @@ describe('Inline Typography Components', () => {
         </ColoredText>
       );
       const text = screen.getByText('Primary Text');
-      expect(text).toHaveClass(
-        'text-ds-primary',
-        'bg-ds-primary/10',
-        'px-1.5',
-        'py-0.5',
-        'rounded'
-      );
+      expect(text).toHaveClass('text-brand', 'bg-brand/10', 'px-1.5', 'py-0.5', 'rounded');
     });
 
     it('accepts and applies custom className', () => {
@@ -160,7 +154,7 @@ describe('Inline Typography Components', () => {
     it('renders with correct default styles', () => {
       render(<FootnoteText number={1}>Footnote Text</FootnoteText>);
       const text = screen.getByText('Footnote Text');
-      expect(text).toHaveClass('text-[0.65em]', 'font-medium', 'text-ds-primary', 'ml-0.5');
+      expect(text).toHaveClass('text-[0.65em]', 'font-medium', 'text-brand', 'ml-0.5');
       expect(text.tagName).toBe('SUP');
     });
 
@@ -197,7 +191,7 @@ describe('Inline Typography Components', () => {
     it('renders number with correct styles', () => {
       render(<FootnoteItem number={1}>Footnote Content</FootnoteItem>);
       const number = screen.getByText('1');
-      expect(number).toHaveClass('text-[0.75em]', 'font-medium', 'text-ds-primary');
+      expect(number).toHaveClass('text-[0.75em]', 'font-medium', 'text-brand');
       expect(number.tagName).toBe('SUP');
     });
 

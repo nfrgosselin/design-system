@@ -36,13 +36,6 @@ export const Large: Story = {
   },
 };
 
-export const ExtraLarge: Story = {
-  args: {
-    icon: Mail,
-    size: 'xl',
-  },
-};
-
 // Colors
 export const Colors: Story = {
   decorators: [
@@ -50,15 +43,15 @@ export const Colors: Story = {
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-4">
           <Icon icon={Mail} color="default" />
-          <span className="text-sm">Default</span>
+          <span className="text-sm">Default (text-foreground)</span>
         </div>
         <div className="flex items-center gap-4">
           <Icon icon={Mail} color="muted" />
-          <span className="text-sm">Muted</span>
+          <span className="text-sm">Muted (text-muted-foreground)</span>
         </div>
         <div className="flex items-center gap-4">
-          <Icon icon={Mail} color="primary" />
-          <span className="text-sm">Primary</span>
+          <Icon icon={Mail} color="brand" />
+          <span className="text-sm">Brand</span>
         </div>
         <div className="flex items-center gap-4">
           <Icon icon={CheckCircle2} color="success" />
@@ -89,7 +82,6 @@ export const AllSizes: Story = {
         <Icon icon={Mail} size="sm" />
         <Icon icon={Mail} size="md" />
         <Icon icon={Mail} size="lg" />
-        <Icon icon={Mail} size="xl" />
       </div>
     ),
   ],

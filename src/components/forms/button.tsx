@@ -11,7 +11,7 @@ const buttonVariants = cva(
     'rounded-lg',
     'text-xs font-sans font-medium tracking-normal leading-none',
     'transition-color duration-ultra-fast ease-in-out',
-    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ds-primary ring-offset-2',
+    'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ring-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
   ],
   {
@@ -29,28 +29,28 @@ const buttonVariants = cva(
         ].join(' '),
         'brand-outline': [
           'bg-white text-black border-2 border-black',
-          'hover:bg-ds-primary hover:text-white hover:border-black',
-          'active:bg-ds-primary-active active:text-white active:border-ds-primary-active',
+          'hover:bg-brand hover:text-white hover:border-black',
+          'active:bg-brand-active active:text-white active:border-brand-active',
         ].join(' '),
         brand: [
-          'bg-ds-primary text-white border-2 border-black',
+          'bg-brand text-white border-2 border-black',
           'hover:bg-white hover:text-black',
           'active:bg-white active:text-black',
         ].join(' '),
         'brand-solid': [
-          'bg-ds-primary text-white border-2 border-black',
+          'bg-brand text-white border-2 border-black',
           'hover:bg-white hover:text-black',
           'active:bg-white active:text-black',
         ].join(' '),
         accent: [
-          'bg-ds-primary text-white border-2 border-black',
-          'hover:bg-ds-primary-hover',
-          'active:bg-ds-primary-active',
+          'bg-brand text-white border-2 border-black',
+          'hover:bg-brand-hover',
+          'active:bg-brand-active',
         ].join(' '),
         'outline-accent': [
-          'border border-gray-200 text-primary',
-          'hover:border-primary hover:text-primary-dark',
-          'active:border-primary-dark active:text-primary-dark',
+          'border border-gray-200 text-brand',
+          'hover:border-brand hover:text-brand-hover',
+          'active:border-brand-active active:text-brand-active',
         ].join(' '),
         'outline-subtle': [
           'border border-gray-200 text-black',

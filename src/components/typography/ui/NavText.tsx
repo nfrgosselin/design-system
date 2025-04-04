@@ -28,9 +28,9 @@ export function NavText({
       base: 'text-base',
     },
     variant: {
-      default: 'text-stone-700 font-medium hover:text-primary',
-      active: 'text-ds-primary font-medium',
-      muted: 'text-stone-500 font-medium hover:text-primary',
+      default: 'text-stone-700 font-medium hover:text-brand',
+      active: 'text-brand font-medium',
+      muted: 'text-stone-500 font-medium hover:text-brand',
     },
     transform: {
       uppercase: 'uppercase tracking-wider',
@@ -45,7 +45,7 @@ export function NavText({
         'font-sans transition-colors duration-150 relative',
         underline && 'pb-0.5',
         underline &&
-          'after:absolute after:bottom-0 after:left-0 after:h-px after:bg-primary after:transition-all after:duration-200 after:ease-out hover:after:w-full',
+          'after:absolute after:bottom-0 after:left-0 after:h-px after:bg-brand after:transition-all after:duration-200 after:ease-out hover:after:w-full',
         underline && 'after:w-0',
         styles.size[size],
         styles.variant[variant],

@@ -1,5 +1,4 @@
 import type { Config } from 'tailwindcss';
-import { themeTokens } from './src/styles/tokens/theme';
 
 const config: Config = {
   darkMode: ['class'],
@@ -43,11 +42,7 @@ const config: Config = {
         foreground: 'hsl(var(--foreground))',
 
         // Design System Colors
-        'ds-primary': {
-          DEFAULT: 'hsl(var(--ds-primary))',
-          hover: 'hsl(var(--ds-primary-hover))',
-          active: 'hsl(var(--ds-primary-active))',
-        },
+        brand: 'hsl(var(--brand))',
 
         // Product Identity Colors
         ocean: {
@@ -55,11 +50,7 @@ const config: Config = {
           hover: 'hsl(var(--ocean-hover))',
           active: 'hsl(var(--ocean-active))',
         },
-        sunset: {
-          DEFAULT: 'hsl(var(--sunset))',
-          hover: 'hsl(var(--sunset-hover))',
-          active: 'hsl(var(--sunset-active))',
-        },
+        sunset: 'hsl(var(--sunset))',
         sun: {
           DEFAULT: 'hsl(var(--sun))',
           hover: 'hsl(var(--sun-hover))',
@@ -82,22 +73,10 @@ const config: Config = {
         gold: { DEFAULT: 'hsl(var(--gold))' },
 
         // Status Colors
-        success: {
-          DEFAULT: 'hsl(var(--success))',
-          subtle: 'hsl(var(--success-subtle))',
-        },
-        warning: {
-          DEFAULT: 'hsl(var(--warning))',
-          subtle: 'hsl(var(--warning-subtle))',
-        },
-        error: {
-          DEFAULT: 'hsl(var(--error))',
-          subtle: 'hsl(var(--error-subtle))',
-        },
-        info: {
-          DEFAULT: 'hsl(var(--info))',
-          subtle: 'hsl(var(--info-subtle))',
-        },
+        success: 'hsl(var(--success))',
+        warning: 'hsl(var(--warning))',
+        error: 'hsl(var(--error))',
+        info: 'hsl(var(--info))',
         // Stone Scale
         stone: {
           50: 'hsl(var(--stone-50))',
@@ -147,11 +126,7 @@ const config: Config = {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },
-        border: {
-          DEFAULT: 'hsl(var(--border))',
-          subtle: 'hsl(var(--border-subtle))',
-          hover: 'hsl(var(--border-hover))',
-        },
+        border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         // Chart colors

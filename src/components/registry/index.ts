@@ -17,14 +17,13 @@ import { Button, buttonVariants, type ButtonProps } from '../forms/button';
 import {
   Link,
   InlineLink,
-  NavLink,
   UtilityLink,
   ButtonLink,
   MetadataLink,
   BreadcrumbLink,
   type LinkProps,
 } from '../navigation/link';
-import { Icon, type IconProps, type IconColor, type IconSize } from '../utils/icon';
+import { Icon, type IconProps, type IconSize } from '../utils/icon';
 import { NamedIcon, Icons, type IconName, type NamedIconProps } from '../utils/namedIcon';
 // Layout components
 import {
@@ -101,7 +100,6 @@ export {
   // Navigation components
   Link,
   InlineLink,
-  NavLink,
   UtilityLink,
   ButtonLink,
   MetadataLink,
@@ -139,7 +137,6 @@ export {
   type ButtonProps,
   type LinkProps,
   type IconProps,
-  type IconColor,
   type IconSize,
   type IconName,
   type NamedIconProps,

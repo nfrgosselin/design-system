@@ -51,7 +51,7 @@ export function UIText({
     variant: {
       default: 'text-stone-900',
       muted: 'text-stone-500',
-      accent: 'text-ds-primary',
+      accent: 'text-brand',
     },
     weight: {
       normal: 'font-normal',

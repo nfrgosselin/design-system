@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react';
 import {
   Link,
   InlineLink,
-  NavLink,
   UtilityLink,
   ButtonLink,
   MetadataLink,
@@ -37,62 +36,27 @@ export const External: Story = {
   },
 };
 
-// Prose Links (for content)
-export const ProseLinks: Story = {
+// Inline Links (for content)
+export const InlineLinks: Story = {
   args: {
     href: '#',
     children: 'Example Link',
   },
   render: () => (
     <div className="prose">
-      <p>
-        This is a paragraph with an <InlineLink href="#">inline link</InlineLink> in the middle of
-        the text. These links are styled to be subtle but noticeable within body content.
+      <p className="font-serif">
+        This is a serif paragraph with an <InlineLink href="#">inline link</InlineLink> in the
+        middle of the text. These links inherit the font while maintaining proper text rhythm.
       </p>
-      <p>
-        Here&apos;s another paragraph with a{' '}
-        <InlineLink href="https://example.com">visited external link</InlineLink> to show the
-        visited state.
+      <p className="font-sans">
+        Here&apos;s a sans-serif paragraph with a{' '}
+        <InlineLink href="https://google.com">visited external link</InlineLink> to show the visited
+        state in sunset color.
       </p>
-    </div>
-  ),
-};
-
-// Navigation Links
-export const NavigationLinks: Story = {
-  args: {
-    href: '#',
-    children: 'Example Link',
-  },
-  render: () => (
-    <div className="space-y-8">
-      <div className="flex gap-4">
-        <NavLink href="#">Home</NavLink>
-        <NavLink href="#">Products</NavLink>
-        <NavLink
-          href="#"
-          isActive
-          className="debug"
-          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-            e.preventDefault();
-            console.log('Active link classes:', e.currentTarget.className);
-          }}
-        >
-          Services
-        </NavLink>
-        <NavLink href="#">Contact</NavLink>
-      </div>
-      <div className="flex gap-4">
-        <NavLink href="#" variant="nav-side">
-          Settings
-        </NavLink>
-        <NavLink href="#" variant="nav-side">
-          Profile
-        </NavLink>
-        <NavLink href="#" variant="nav-side-active">
-          Security
-        </NavLink>
-      </div>
+      <p className="font-mono">
+        This is a monospace paragraph with an <InlineLink href="#">inline link</InlineLink> that
+        inherits the monospace font.
+      </p>
     </div>
   ),
 };
@@ -130,10 +94,10 @@ export const StandaloneLinks: Story = {
           Learn more
         </Link>
         <Link href="#" variant="standalone-icon-right">
-          Documentation <ChevronRight />
+          Documentation <ChevronRight className="h-4 w-4" />
         </Link>
         <Link href="#" variant="standalone-icon-left">
-          <Mail /> Contact us
+          <Mail className="h-4 w-4" /> Contact us
         </Link>
       </div>
     </div>
@@ -207,18 +171,6 @@ export const States: Story = {
           <ButtonLink href="#" disabled>
             Disabled Button
           </ButtonLink>
-        </div>
-      </div>
-
-      <div className="space-y-2">
-        <h3 className="text-sm font-medium">Active State</h3>
-        <div className="flex gap-4">
-          <NavLink href="#" isActive>
-            Active Nav Link
-          </NavLink>
-          <NavLink href="#" variant="nav-side" isActive>
-            Active Side Nav
-          </NavLink>
         </div>
       </div>
     </div>

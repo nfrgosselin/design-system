@@ -178,7 +178,7 @@ describe('Article Typography Components', () => {
         'pl-6',
         'my-8',
         'border-l-4',
-        'border-ds-primary'
+        'border-brand'
       );
       expect(quote).toHaveTextContent('Test Quote');
     });

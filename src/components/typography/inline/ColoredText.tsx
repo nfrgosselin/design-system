@@ -32,8 +32,8 @@ export function ColoredText({
 }: ColoredTextProps) {
   const styles = {
     primary: {
-      default: 'text-ds-primary',
-      subtle: 'text-ds-primary bg-ds-primary/10 px-1.5 py-0.5 rounded',
+      default: 'text-brand',
+      subtle: 'text-brand bg-brand/10 px-1.5 py-0.5 rounded',
     },
     success: {
       default: 'text-green-600',

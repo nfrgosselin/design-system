@@ -22,7 +22,7 @@ export function FootnoteText({ number, className, children, ...props }: Footnote
   return (
     <Text
       as="sup"
-      className={cn('text-[0.65em] font-medium text-ds-primary ml-0.5', className)}
+      className={cn('text-[0.65em] font-medium text-brand ml-0.5', className)}
       {...props}
     >
       {children ?? number}

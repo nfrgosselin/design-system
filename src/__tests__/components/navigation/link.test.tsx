@@ -3,7 +3,6 @@ import '@testing-library/jest-dom';
 import {
   Link,
   InlineLink,
-  NavLink,
   UtilityLink,
   ButtonLink,
   MetadataLink,
@@ -22,17 +21,12 @@ describe('Link Component', () => {
       const link = screen.getByRole('link');
       expect(link).toHaveAttribute('href', '/test');
       expect(link).toHaveTextContent('Test Link');
-      expect(link).toHaveClass('font-serif', 'text-ds-primary'); // prose variant
+      expect(link).toHaveClass('text-brand'); // inline variant (default)
     });
 
     it('renders with different variants', () => {
       const variants: NonNullable<LinkProps['variant']>[] = [
-        'prose',
-        'nav',
-        'nav-active',
-        'nav-side',
-        'nav-side-active',
-        'utility',
+        'inline',
         'standalone',
         'standalone-icon-right',
         'standalone-icon-left',
@@ -41,6 +35,7 @@ describe('Link Component', () => {
         'button-accent',
         'metadata',
         'breadcrumb',
+        'utility',
       ];
 
       variants.forEach(variant => {
@@ -146,13 +141,13 @@ describe('Link Component', () => {
       expect(link.querySelector('svg')).toHaveClass('animate-spin');
     });
 
-    it('handles active state for nav links', () => {
+    it('applies brand color to standalone links', () => {
       render(
-        <Link href="/test" variant="nav" isActive>
-          Active Nav Link
+        <Link href="/test" variant="standalone">
+          Active Link
         </Link>
       );
-      expect(screen.getByRole('link')).toHaveClass('text-ds-primary');
+      expect(screen.getByRole('link')).toHaveClass('text-brand');
     });
   });
 
@@ -176,26 +171,10 @@ describe('Link Component', () => {
 
   // Specialized Link Components
   describe('Specialized Link Components', () => {
-    it('renders InlineLink with prose variant', () => {
+    it('renders InlineLink with inline variant', () => {
       render(<InlineLink href="/test">Inline Link</InlineLink>);
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('font-serif', 'text-ds-primary');
-    });
-
-    it('renders NavLink with nav variant', () => {
-      render(<NavLink href="/test">Nav Link</NavLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('font-sans', 'text-sm');
-    });
-
-    it('renders NavLink with side variant', () => {
-      render(
-        <NavLink href="/test" variant="nav-side">
-          Side Nav Link
-        </NavLink>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('font-sans', 'text-stone-600');
+      expect(link).toHaveClass('text-brand');
     });
 
     it('renders UtilityLink with utility variant', () => {
@@ -231,30 +210,36 @@ describe('Link Component', () => {
       expect(link).toHaveClass(
         'focus-visible:outline-none',
         'focus-visible:ring-2',
-        'focus-visible:ring-ds-primary'
+        'focus-visible:ring-brand'
       );
     });
 
-    it('applies hover styles for nav variant', () => {
+    it('applies hover styles for standalone variant', () => {
       render(
-        <Link href="/test" variant="nav">
-          Nav Link
+        <Link href="/test" variant="standalone">
+          Standalone Link
         </Link>
       );
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('hover:text-stone-900');
+      expect(link).toHaveClass('hover:text-brand');
     });
 
     it('applies consistent font families', () => {
-      const { rerender } = render(<Link href="/test">Serif Link</Link>);
-      expect(screen.getByRole('link')).toHaveClass('font-serif'); // prose variant
+      const { rerender } = render(<Link href="/test">Default Link</Link>);
+      // inline variant should inherit font
 
       rerender(
-        <Link href="/test" variant="nav">
+        <Link href="/test" variant="standalone">
           Sans Link
         </Link>
       );
       expect(screen.getByRole('link')).toHaveClass('font-sans');
+    });
+
+    it('applies visited styles for inline links', () => {
+      render(<Link href="/test">Visited Link</Link>);
+      const link = screen.getByRole('link');
+      expect(link).toHaveClass('visited:text-sunset');
     });
   });
 });

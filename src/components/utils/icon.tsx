@@ -2,50 +2,41 @@ import { LucideIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const sizeClasses = {
-  sm: 'w-4 h-4' /* 16px - spacing-4 */,
-  md: 'w-6 h-6' /* 24px - spacing-6 */,
-  lg: 'w-8 h-8' /* 32px - spacing-8 */,
-  xl: 'w-12 h-12' /* 48px - spacing-12 */,
-} as const;
-
-const colorClasses = {
-  default: 'text-stone-900',
-  muted: 'text-stone-500',
-  primary: 'text-ds-primary',
-  success: 'text-success',
-  warning: 'text-warning',
-  error: 'text-error',
-  info: 'text-info',
+  xs: 'w-3 h-3' /* 12px */,
+  sm: 'w-4 h-4' /* 16px */,
+  md: 'w-5 h-5' /* 20px */,
+  lg: 'w-6 h-6' /* 24px */,
+  xl: 'w-8 h-8' /* 32px */,
+  '2xl': 'w-10 h-10' /* 40px */,
 } as const;
 
 export type IconSize = keyof typeof sizeClasses;
-export type IconColor = keyof typeof colorClasses;
 
 export interface IconProps extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'children'> {
   /** The Lucide icon component to render */
   icon: LucideIcon;
   /** The size of the icon */
   size?: IconSize;
-  /** The color variant of the icon */
-  color?: IconColor;
   /** Optional label for accessibility */
   'aria-label'?: string;
 }
 
 /**
- * Icon component that renders Lucide icons with consistent sizing and colors.
+ * Icon component that renders Lucide icons with consistent sizing.
+ * Uses Tailwind's text color utilities for coloring.
  *
  * @example
  * ```tsx
  * import { Mail } from 'lucide-react';
  *
- * <Icon icon={Mail} size="md" color="primary" />
+ * <Icon icon={Mail} size="md" className="text-foreground" />
+ * <Icon icon={Check} size="sm" className="text-success" />
+ * <Icon icon={Star} size="lg" className="text-brand" />
  * ```
  */
 export function Icon({
   icon: Icon,
   size = 'md',
-  color = 'default',
   className,
   'aria-label': ariaLabel,
   ...props
@@ -54,7 +45,7 @@ export function Icon({
     <span
       role={ariaLabel ? 'img' : undefined}
       aria-label={ariaLabel}
-      className={cn('inline-flex items-center justify-center', colorClasses[color], className)}
+      className={cn('inline-flex items-center justify-center', className)}
       {...props}
     >
       <Icon className={sizeClasses[size]} aria-hidden="true" data-testid="icon" />

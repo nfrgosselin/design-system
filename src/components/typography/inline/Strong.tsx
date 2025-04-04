@@ -14,7 +14,7 @@ export function Strong({ variant = 'default', className, children, ...props }: S
   const styles = {
     default: 'text-stone-900 font-semibold',
     muted: 'text-stone-600 font-semibold',
-    accent: 'text-ds-primary font-semibold',
+    accent: 'text-brand font-semibold',
   };
 
   return (

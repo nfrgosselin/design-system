@@ -14,7 +14,7 @@ export function MetaText({ variant = 'default', className, children, ...props }:
   const styles = {
     default: 'text-sm text-stone-700 tracking-wider uppercase',
     muted: 'text-sm text-stone-500 tracking-wider uppercase',
-    accent: 'text-sm text-ds-primary tracking-wider uppercase',
+    accent: 'text-sm text-brand tracking-wider uppercase',
   };
 
   return (

@@ -54,9 +54,9 @@
     --marine-active: var(--ds-color-marine-active);
     
     /* Design System Primary Role - Using Ocean as default */
-    --ds-primary: var(--ocean);
-    --ds-primary-hover: var(--ocean-hover);
-    --ds-primary-active: var(--ocean-active);
+    --brand: var(--ocean);
+    --brand-hover: var(--ocean-hover);
+    --brand-active: var(--ocean-active);
     
     /* Supporting Accents */
     --seafoam: var(--ds-color-seafoam);
@@ -91,10 +91,10 @@
     --popover: var(--white);
     --popover-foreground: var(--black);
     
-    /* Using ds-primary role variables for shadcn/ui integration */
-    --primary: var(--ds-primary);
-    --primary-hover: var(--ds-primary-hover);
-    --primary-active: var(--ds-primary-active);
+    /* Using brand role variables for shadcn/ui integration */
+    --primary: var(--brand);
+    --primary-hover: var(--brand-hover);
+    --primary-active: var(--brand-active);
     --primary-foreground: var(--white);
     
     --secondary: var(--stone-200);

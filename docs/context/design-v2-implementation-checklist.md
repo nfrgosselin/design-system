@@ -90,9 +90,9 @@
 **Base Components:**
 
 - [x] Button
+- [ ] Icon (configurable size and color)
 - [ ] Link (with default, nav, external variants)
 - [ ] Input (with text, email variants)
-- [ ] Icon (configurable size and color)
 
 **Semantic Wrappers:**
 

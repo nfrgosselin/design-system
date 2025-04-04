@@ -1,49 +1,40 @@
+import * as React from 'react';
 import { cn } from '@/lib/utils';
 import { VariantProps, cva } from 'class-variance-authority';
 import { ExternalLink, Loader2 } from 'lucide-react';
 
 const linkVariants = cva(
-  'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-ds-primary disabled:cursor-not-allowed disabled:opacity-50',
+  'transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-brand disabled:cursor-not-allowed disabled:opacity-50',
   {
     variants: {
       variant: {
-        // Base/prose variant (for inline text links)
-        prose:
-          'font-serif text-ds-primary hover:text-ds-primary/80 active:text-ds-primary/70 underline underline-offset-4',
-
-        // Navigation variants
-        nav: 'font-sans text-sm text-stone-600 hover:text-stone-900',
-
-        // Navigation links - Inter
-        'nav-active': 'font-sans font-medium text-ds-primary',
-
-        // Side navigation links - smaller underline offset
-        'nav-side': 'font-sans font-medium text-stone-600 hover:text-ds-primary',
-        'nav-side-active': 'font-sans font-medium text-ds-primary',
-
-        // Footer/utility links
-        utility: 'font-sans text-xs text-stone-500 hover:text-stone-700',
+        // Inline text links (inherits font from parent)
+        inline:
+          'text-brand hover:text-brand/80 active:text-brand/70 visited:text-sunset underline underline-offset-4',
 
         // Standalone links (not in paragraph)
-        standalone: 'font-sans text-sm font-medium text-ds-primary hover:text-ds-primary',
+        standalone: 'font-sans text-sm font-medium text-brand hover:text-brand',
         'standalone-icon-right':
-          'font-sans text-sm font-medium text-ds-primary hover:text-ds-primary inline-flex items-center gap-2',
+          'font-sans text-sm font-medium text-brand hover:text-brand inline-flex items-center gap-1.5',
         'standalone-icon-left':
-          'font-sans text-sm font-medium text-ds-primary hover:text-ds-primary inline-flex items-center gap-2 flex-row-reverse',
+          'font-sans text-sm font-medium text-brand hover:text-brand inline-flex items-center gap-1.5 flex-row-reverse',
 
         // Button-like links
         button:
-          'inline-flex items-center justify-center h-10 px-6 font-sans text-sm font-medium bg-black text-white border-[1.5px] border-black rounded-md hover:bg-white hover:text-black',
+          'inline-flex items-center justify-center h-9 px-6 font-sans text-sm font-medium bg-black text-white border-2 border-black rounded-md hover:bg-white hover:text-black',
         'button-outline':
-          'inline-flex items-center justify-center h-10 px-6 font-sans text-sm font-medium border border-stone-200 text-stone-900 rounded-md hover:border-stone-900',
+          'inline-flex items-center justify-center h-9 px-6 font-sans text-sm font-medium border border-stone-200 text-stone-900 rounded-md hover:border-stone-900',
         'button-accent':
-          'inline-flex items-center justify-center h-10 px-6 font-sans text-sm font-medium bg-white text-black border-[1.5px] border-black rounded-md hover:bg-ds-primary hover:text-white hover:border-ds-primary',
+          'inline-flex items-center justify-center h-9 px-6 font-sans text-sm font-medium bg-white text-black border-2 border-black rounded-md hover:bg-brand hover:text-white hover:border-brand',
 
         // Small/metadata links
         metadata: 'font-sans text-xs text-stone-500 hover:text-stone-700 hover:underline',
 
         // Breadcrumb links
         breadcrumb: 'font-sans text-sm text-stone-600 hover:text-stone-900 hover:underline',
+
+        // Footer/utility links
+        utility: 'font-sans text-xs text-stone-500 hover:text-stone-700',
       },
       size: {
         sm: 'text-sm',
@@ -54,58 +45,64 @@ const linkVariants = cva(
         true: 'opacity-50 pointer-events-none cursor-not-allowed',
       },
       loading: {
-        true: 'cursor-wait',
+        true: 'cursor-wait inline-flex items-center gap-1.5',
       },
     },
     defaultVariants: {
-      variant: 'prose',
+      variant: 'inline',
     },
   }
 );
 
-export interface LinkProps
+interface LinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement>,
     VariantProps<typeof linkVariants> {
   href: string;
   isExternal?: boolean;
   showExternalIcon?: boolean;
-  isActive?: boolean;
   isLoading?: boolean;
   children: React.ReactNode;
+  'aria-label'?: string;
 }
 
-export function Link({
+function Link({
   href,
   variant,
   size,
   isExternal,
   showExternalIcon = true,
-  isActive,
   isLoading,
   disabled,
   className,
   children,
+  'aria-label': ariaLabelProp,
   ...props
 }: LinkProps) {
   const isExternalUrl = isExternal || (href && href.startsWith('http'));
+
+  let childText = '';
+  if (typeof children === 'string') {
+    childText = children;
+  } else if (React.isValidElement(children) && typeof children.props.children === 'string') {
+    childText = children.props.children;
+  }
+
+  const externalAriaLabel = `${childText} (opens in new tab)`;
+
   const externalProps = isExternalUrl
     ? {
         target: '_blank',
         rel: 'noopener noreferrer',
-        'aria-label': `${typeof children === 'string' ? children : ''} (opens in new tab)`,
+        'aria-label': ariaLabelProp ?? externalAriaLabel,
       }
     : {};
-
-  // For navigation links, use the active variant if isActive is true
-  const effectiveVariant =
-    isActive && variant?.startsWith('nav') ? (`${variant}-active` as typeof variant) : variant;
 
   return (
     <a
       href={disabled ? undefined : href}
       className={cn(
         linkVariants({
-          variant: effectiveVariant,
+          variant,
           size,
           disabled,
           loading: isLoading,
@@ -118,7 +115,7 @@ export function Link({
     >
       {isLoading ? (
         <>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          <Loader2 className="h-5 w-5 animate-spin" />
           {children}
         </>
       ) : (
@@ -127,43 +124,33 @@ export function Link({
           {isExternalUrl &&
             showExternalIcon &&
             variant !== 'button' &&
-            variant !== 'button-outline' && <ExternalLink className="ml-1 inline-block h-3 w-3" />}
+            variant !== 'button-outline' && <ExternalLink className="ml-1 inline-block h-4 w-4" />}
         </>
       )}
     </a>
   );
 }
 
-// Specialized link components for specific use cases
-export function InlineLink(props: Omit<LinkProps, 'variant'>) {
-  return <Link {...props} variant="prose" size={undefined} />;
+// Specialized link components
+function InlineLink(props: Omit<LinkProps, 'variant'>) {
+  return <Link {...props} variant="inline" size={undefined} />;
 }
 
-export function NavLink(
-  props: Omit<LinkProps, 'variant'> & {
-    variant?: Extract<
-      VariantProps<typeof linkVariants>['variant'],
-      'nav' | 'nav-side' | 'nav-active' | 'nav-side-active'
-    >;
-  }
-) {
-  // Simplify to just use the base variant and let Link handle active state
-  const baseVariant = props.variant?.includes('side') ? 'nav-side' : 'nav';
-  return <Link {...props} variant={baseVariant} size="sm" />;
-}
-
-export function UtilityLink(props: Omit<LinkProps, 'variant'>) {
+function UtilityLink(props: Omit<LinkProps, 'variant'>) {
   return <Link {...props} variant="utility" />;
 }
 
-export function ButtonLink(props: Omit<LinkProps, 'variant'>) {
+function ButtonLink(props: Omit<LinkProps, 'variant'>) {
   return <Link {...props} variant="button" />;
 }
 
-export function MetadataLink(props: Omit<LinkProps, 'variant'>) {
+function MetadataLink(props: Omit<LinkProps, 'variant'>) {
   return <Link {...props} variant="metadata" />;
 }
 
-export function BreadcrumbLink(props: Omit<LinkProps, 'variant'>) {
+function BreadcrumbLink(props: Omit<LinkProps, 'variant'>) {
   return <Link {...props} variant="breadcrumb" />;
 }
+
+export { Link, linkVariants, InlineLink, UtilityLink, ButtonLink, MetadataLink, BreadcrumbLink };
+export type { LinkProps };

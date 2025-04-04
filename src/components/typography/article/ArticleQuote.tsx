@@ -13,7 +13,7 @@ export function ArticleQuote({ className, attribution, children, ...props }: Art
       className={cn(
         'font-serif text-lg text-stone-700',
         'italic leading-relaxed tracking-normal',
-        'pl-6 my-8 border-l-4 border-ds-primary',
+        'pl-6 my-8 border-l-4 border-brand',
         className
       )}
       {...props}

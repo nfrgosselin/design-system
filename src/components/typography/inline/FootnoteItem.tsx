@@ -20,7 +20,7 @@ export function FootnoteItem({ number, className, children, ...props }: Footnote
       className={cn('text-base text-stone-600 flex gap-2 items-baseline', className)}
       {...props}
     >
-      <Text as="sup" className="text-[0.75em] font-medium text-ds-primary">
+      <Text as="sup" className="text-[0.75em] font-medium text-brand">
         {number}
       </Text>
       <div className="flex-1">{children}</div>

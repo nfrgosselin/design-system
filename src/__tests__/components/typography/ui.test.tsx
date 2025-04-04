@@ -108,7 +108,7 @@ describe('UI Typography Components', () => {
     it('renders with accent variant', () => {
       render(<MetaText variant="accent">Accent Meta</MetaText>);
       const meta = screen.getByText('Accent Meta');
-      expect(meta).toHaveClass('text-ds-primary');
+      expect(meta).toHaveClass('text-brand');
     });
 
     it('accepts and applies custom className', () => {
@@ -127,7 +127,7 @@ describe('UI Typography Components', () => {
         'text-base',
         'text-stone-700',
         'font-medium',
-        'hover:text-primary',
+        'hover:text-brand',
         'uppercase',
         'tracking-wider'
       );
@@ -136,7 +136,7 @@ describe('UI Typography Components', () => {
     it('renders with active variant', () => {
       render(<NavText variant="active">Active Nav</NavText>);
       const nav = screen.getByText('Active Nav');
-      expect(nav).toHaveClass('text-ds-primary');
+      expect(nav).toHaveClass('text-brand');
     });
 
     it('renders with muted variant', () => {
@@ -187,7 +187,7 @@ describe('UI Typography Components', () => {
     it('renders with accent variant', () => {
       render(<UIText variant="accent">Accent Text</UIText>);
       const text = screen.getByText('Accent Text');
-      expect(text).toHaveClass('text-ds-primary');
+      expect(text).toHaveClass('text-brand');
     });
 
     it('renders with different sizes', () => {
