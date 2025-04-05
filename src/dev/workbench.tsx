@@ -1,6 +1,7 @@
 import { Stack } from '../components/layout/core/stack';
 import { UIHeader } from '../components/typography/ui/UIHeader';
 import { Container } from '../components/layout/core/container';
+import { Divider } from '../components/layout/core/divider';
 import {
   TwoColumnGrid,
   ThreeColumnGrid,
@@ -21,6 +22,172 @@ export function Workbench() {
   return (
     <div className="min-h-screen bg-background p-8">
       <Stack variant="ui" space="section" className="max-w-4xl mx-auto">
+        {/* Divider Variants */}
+        <section>
+          <UIHeader level={1}>Divider Variants</UIHeader>
+          <Stack space="content" className="mt-8">
+            {/* Horizontal Dividers */}
+            <div>
+              <UIHeader level={2} className="mb-4">
+                Horizontal Dividers
+              </UIHeader>
+              <div className="bg-white p-8 rounded-lg border border-stone-200">
+                <Stack space="content">
+                  <div>
+                    <UIHeader level={3} variant="muted" className="mb-2">
+                      Heavy (stone-900)
+                    </UIHeader>
+                    <DemoBox>
+                      <div className="text-stone-600 mb-4">Maximum contrast separation</div>
+                      <Divider variant="heavy" />
+                      <div className="text-stone-600 mt-4">Content below</div>
+                    </DemoBox>
+                  </div>
+
+                  <div>
+                    <UIHeader level={3} variant="muted" className="mb-2">
+                      Medium (stone-600)
+                    </UIHeader>
+                    <DemoBox>
+                      <div className="text-stone-600 mb-4">Strong visual separation</div>
+                      <Divider variant="medium" />
+                      <div className="text-stone-600 mt-4">Content below</div>
+                    </DemoBox>
+                  </div>
+
+                  <div>
+                    <UIHeader level={3} variant="muted" className="mb-2">
+                      Light (stone-300)
+                    </UIHeader>
+                    <DemoBox>
+                      <div className="text-stone-600 mb-4">Moderate visual separation</div>
+                      <Divider variant="light" />
+                      <div className="text-stone-600 mt-4">Content below</div>
+                    </DemoBox>
+                  </div>
+
+                  <div>
+                    <UIHeader level={3} variant="muted" className="mb-2">
+                      Subtle (stone-200)
+                    </UIHeader>
+                    <DemoBox>
+                      <div className="text-stone-600 mb-4">Minimal visual separation</div>
+                      <Divider variant="subtle" />
+                      <div className="text-stone-600 mt-4">Content below</div>
+                    </DemoBox>
+                  </div>
+
+                  <div>
+                    <UIHeader level={3} variant="muted" className="mb-2">
+                      Faint (stone-100)
+                    </UIHeader>
+                    <DemoBox>
+                      <div className="text-stone-600 mb-4">Very subtle visual separation</div>
+                      <Divider variant="faint" />
+                      <div className="text-stone-600 mt-4">Content below</div>
+                    </DemoBox>
+                  </div>
+
+                  <div>
+                    <UIHeader level={3} variant="muted" className="mb-2">
+                      Spacing Variants
+                    </UIHeader>
+                    <Stack space="content">
+                      <DemoBox>
+                        <div className="text-stone-600">Compact spacing</div>
+                        <Divider spacing="compact" />
+                        <div className="text-stone-600">Below divider</div>
+                      </DemoBox>
+                      <DemoBox>
+                        <div className="text-stone-600">Element spacing (default)</div>
+                        <Divider spacing="element" />
+                        <div className="text-stone-600">Below divider</div>
+                      </DemoBox>
+                      <DemoBox>
+                        <div className="text-stone-600">Relaxed spacing</div>
+                        <Divider spacing="relaxed" />
+                        <div className="text-stone-600">Below divider</div>
+                      </DemoBox>
+                      <DemoBox>
+                        <div className="text-stone-600">Content spacing</div>
+                        <Divider spacing="content" />
+                        <div className="text-stone-600">Below divider</div>
+                      </DemoBox>
+                    </Stack>
+                  </div>
+                </Stack>
+              </div>
+            </div>
+
+            {/* Vertical Dividers */}
+            <div>
+              <UIHeader level={2} className="mb-4">
+                Vertical Dividers
+              </UIHeader>
+              <div className="bg-white p-8 rounded-lg border border-stone-200">
+                <Stack space="content">
+                  <div className="h-24 flex items-center">
+                    <div className="text-stone-600">Left</div>
+                    <Divider orientation="vertical" variant="heavy" className="mx-8" />
+                    <div className="text-stone-600">Right</div>
+                  </div>
+
+                  <div className="h-24 flex items-center">
+                    <div className="text-stone-600">Left</div>
+                    <Divider orientation="vertical" variant="medium" className="mx-8" />
+                    <div className="text-stone-600">Right</div>
+                  </div>
+
+                  <div className="h-24 flex items-center">
+                    <div className="text-stone-600">Left</div>
+                    <Divider orientation="vertical" variant="light" className="mx-8" />
+                    <div className="text-stone-600">Right</div>
+                  </div>
+
+                  <div className="h-24 flex items-center">
+                    <div className="text-stone-600">Left</div>
+                    <Divider orientation="vertical" variant="subtle" className="mx-8" />
+                    <div className="text-stone-600">Right</div>
+                  </div>
+
+                  <div className="h-24 flex items-center">
+                    <div className="text-stone-600">Left</div>
+                    <Divider orientation="vertical" variant="faint" className="mx-8" />
+                    <div className="text-stone-600">Right</div>
+                  </div>
+                </Stack>
+              </div>
+            </div>
+
+            {/* Usage Notes */}
+            <div className="mt-8 p-4 bg-stone-100 rounded-lg">
+              <p className="text-sm text-stone-600">Divider usage notes:</p>
+              <ul className="mt-2 text-sm text-stone-600 list-disc list-inside space-y-1">
+                <li>
+                  Use <code>heavy</code> (stone-900) for maximum contrast and primary content breaks
+                </li>
+                <li>
+                  Use <code>medium</code> (stone-600) for strong visual separation between distinct
+                  sections
+                </li>
+                <li>
+                  Use <code>light</code> (stone-300) for moderate separation within related content
+                </li>
+                <li>
+                  Use <code>subtle</code> (stone-200) for minimal visual separation in dense layouts
+                </li>
+                <li>
+                  Use <code>faint</code> (stone-100) for very subtle grouping hints
+                </li>
+                <li>Adjust spacing based on content density and hierarchy</li>
+                <li>
+                  Set <code>decorative=true</code> for non-semantic dividers
+                </li>
+              </ul>
+            </div>
+          </Stack>
+        </section>
+
         {/* Container Widths */}
         <section>
           <UIHeader level={1}>Container Widths</UIHeader>

@@ -107,10 +107,8 @@
 
 **Base Components:**
 
-- [ ] Divider (horizontal separator)
 - [x] Container (configurable max-width and padding)
 - [x] Stack (vertical layout)
-- [ ] Image (with responsive behavior)
 - [x] Grid (responsive grid system)
   - [x] Two-column grid with mobile collapse
   - [x] Three-column grid with mobile collapse
@@ -118,6 +116,13 @@
   - [x] Auto-responsive grid (1→2→3 columns)
   - [x] Configurable gap sizes (compact, element, relaxed, content)
   - [x] Custom collapse breakpoints (sm, md, lg, xl)
+- [ ] Image (with responsive behavior)
+- [x] Divider (horizontal separator)
+  - [x] Stone scale variants (heavy, medium, light, subtle, faint)
+  - [x] Horizontal and vertical orientations
+  - [x] Configurable spacing (compact, element, relaxed, content)
+  - [x] Accessibility support (semantic/decorative modes)
+  - [x] Comprehensive test coverage
 
 **Semantic Wrappers:**
 
@@ -144,7 +149,7 @@
 - [x] Link
 - [x] NavLink
 - [x] Icon
-- [ ] Container
+- [x] Container
 - [x] Stack (horizontal for desktop, vertical for mobile)
 
 **Required Molecules:**
