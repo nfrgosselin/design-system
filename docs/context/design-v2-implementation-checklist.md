@@ -129,7 +129,6 @@
 - [x] ContentContainer (uses Container: maxWidth="768px")
 - [x] VerticalStack (uses Stack with vertical direction)
 - [x] HorizontalStack (uses Stack with horizontal direction)
-- [ ] ArticleImage (uses Image with article-specific styling)
 - [x] FormContainer (uses Container: maxWidth="640px")
 - [x] ModalContainer (uses Container: maxWidth="560px")
 - [x] CardContainer (uses Container: maxWidth="480px")
