@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/nfrgosselin/design-system/compare/v1.4.0...v2.0.0) (2025-04-05)
+
+### Features
+
+- added and wired spacing and typography tokens ([a5ddcd8](https://github.com/nfrgosselin/design-system/commit/a5ddcd899c833f0a31696caa6ec26445bc30a21f))
+- added animation, breakpoint, and shadow tokens. finished foundational token setup ([67be98e](https://github.com/nfrgosselin/design-system/commit/67be98ee8deedd328778cfe0c9e06835bee87c89))
+- added divider v2 component ([dfd4ad2](https://github.com/nfrgosselin/design-system/commit/dfd4ad2230ff448a2f79249a2909f03a19fc59fc))
+- added image v2 component ([6deea2d](https://github.com/nfrgosselin/design-system/commit/6deea2d50de2ddd5133d4f582bf6358f155e739c))
+- added input component and tests for v2 ([ba33dc6](https://github.com/nfrgosselin/design-system/commit/ba33dc616b6ef4b6faa27976a411e6bb16a8267a))
+- added stack component and testing workbench environment ([fe6b26c](https://github.com/nfrgosselin/design-system/commit/fe6b26c23da127700d73e10af62d166a14029b1e))
+- added stack component, fixed spacing flow through to styles.css and tailwind.config.js ([db83881](https://github.com/nfrgosselin/design-system/commit/db838815251078af1c0b62e8250fefb2f05bf306))
+- finished adding inline ui semantic wrappers ([271eab1](https://github.com/nfrgosselin/design-system/commit/271eab10d57c86c8cba60e9e30f32ed9821156a0))
+- finished article text semantic wrappers ([3d6ef18](https://github.com/nfrgosselin/design-system/commit/3d6ef18804f985c1383f553e71b4671b9616dedf))
+- implemented grid, container, and stack v2 ([876306e](https://github.com/nfrgosselin/design-system/commit/876306e7ba989b3c290f82704fce4a57fdef002f))
+- partial implementation of typography components ([e2c1ea1](https://github.com/nfrgosselin/design-system/commit/e2c1ea15208595d738b2869221bc8f571f785005))
+- removed dark mode, made white default background, ensured paper token flows through ([d98ea8c](https://github.com/nfrgosselin/design-system/commit/d98ea8c28a177adc97845ad5b2c8222e7605b635))
+- streamlined styles and tokens, removing redundancy ([fed6e4b](https://github.com/nfrgosselin/design-system/commit/fed6e4b0590e25aeda4a21c3a2fe2a2c9d30305c))
+- updated all typography stories and tests for v2 ([b85f5f0](https://github.com/nfrgosselin/design-system/commit/b85f5f083950228be67570917423bd0e07b5f621))
+- updated buttons to v2 ([9c1a326](https://github.com/nfrgosselin/design-system/commit/9c1a326620656fa2ac81512a9ed83c148b17cef3))
+- updated icon and link to v2 ([a70698e](https://github.com/nfrgosselin/design-system/commit/a70698ea73d7a2ec719fc2df956526c752398301))
+- updated tests for all typography components ([224c95f](https://github.com/nfrgosselin/design-system/commit/224c95f1758d3f33dbd232270a9ad7697e096de8))
+
+### Maintenance
+
+- adding v2 planning docs ([3a7b3a3](https://github.com/nfrgosselin/design-system/commit/3a7b3a33974e8ce5d91858f042d8ea5050538b12))
+- prepare for v2 release ([7dc45f8](https://github.com/nfrgosselin/design-system/commit/7dc45f8e8beb145cd18dfe586617e2869b078754))
+- removed data-display components from v1 ([f36c723](https://github.com/nfrgosselin/design-system/commit/f36c723873dd22a48627606fb77e6b9e3ece0e1b))
+- reorganized stack tests and skiptests ([a0e040d](https://github.com/nfrgosselin/design-system/commit/a0e040d835c644b9b5ed3886a2c5608ca0265b9c))
+- updated v2 tests for container, grid, and stack ([5f4d306](https://github.com/nfrgosselin/design-system/commit/5f4d3064c4ef5bc6aa1a358f372a69cfbfa7bba5))
+
 ## [1.4.0](https://github.com/nfrgosselin/design-system/compare/v1.3.4...v1.4.0) (2025-03-27)
 
 ### Features
