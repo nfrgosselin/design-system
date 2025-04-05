@@ -1,4 +1,3 @@
-import * as React from 'react';
 import type { TextProps } from '../core/types';
 
 export interface CaptionProps extends TextProps {
