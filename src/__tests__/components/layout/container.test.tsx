@@ -1,74 +1,145 @@
+import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Container } from '../../../components/layout/core/container';
+import {
+  Container,
+  ContainerProps,
+  ContentContainer,
+  FormContainer,
+  ModalContainer,
+  CardContainer,
+  MetricContainer,
+} from '../../../components/layout/core/container';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 expect.extend(toHaveNoViolations);
 
-describe.skip('Container Component', () => {
-  describe('Rendering', () => {
-    it('renders with default size', () => {
+describe('Container', () => {
+  describe('Basic Rendering', () => {
+    test('renders with default props', () => {
       render(<Container>Content</Container>);
       const container = screen.getByText('Content');
-      expect(container).toHaveClass(
-        'mx-auto',
-        'w-full',
-        'px-4',
-        'md:px-6',
-        'lg:px-8',
-        'max-w-[var(--container-max)]'
-      );
+      expect(container).toHaveClass('mx-auto', 'w-full', 'px-4', 'md:px-6', 'lg:px-8', 'max-w-max');
     });
 
-    it('renders with content size', () => {
-      render(<Container size="content">Content</Container>);
-      const container = screen.getByText('Content');
-      expect(container).toHaveClass('max-w-[var(--container-content)]');
-    });
-
-    it('renders with form size', () => {
-      render(<Container size="form">Content</Container>);
-      const container = screen.getByText('Content');
-      expect(container).toHaveClass('max-w-[var(--container-form)]');
-    });
-
-    it('accepts and applies custom className', () => {
+    test('renders with custom className while preserving defaults', () => {
       render(<Container className="custom-class">Content</Container>);
       const container = screen.getByText('Content');
-      expect(container).toHaveClass('custom-class');
+      expect(container).toHaveClass('mx-auto', 'w-full', 'custom-class');
     });
   });
 
-  describe('Polymorphic Behavior', () => {
-    it('renders as a div by default', () => {
+  describe('Size Variants', () => {
+    test.each([
+      ['max', 'max-w-max'],
+      ['content', 'max-w-content'],
+      ['form', 'max-w-form'],
+      ['modal', 'max-w-modal'],
+      ['card', 'max-w-card'],
+      ['metric', 'max-w-metric'],
+    ])('applies correct max width class for %s size', (size, expectedClass) => {
+      render(<Container size={size as ContainerProps['size']}>Content</Container>);
+      const container = screen.getByText('Content');
+      expect(container).toHaveClass(expectedClass);
+    });
+  });
+
+  describe('Custom Element Rendering', () => {
+    test('renders as div by default', () => {
       render(<Container>Content</Container>);
-      const container = screen.getByText('Content');
-      expect(container.tagName).toBe('DIV');
+      expect(screen.getByText('Content').tagName.toLowerCase()).toBe('div');
     });
 
-    it('renders as a main element when specified', () => {
-      render(<Container as="main">Content</Container>);
+    test.each([
+      ['main', 'main'],
+      ['article', 'article'],
+      ['section', 'section'],
+      ['aside', 'aside'],
+    ])('renders as %s when specified', (element, expectedTag) => {
+      render(<Container as={element as ContainerProps['as']}>Content</Container>);
+      expect(screen.getByText('Content').tagName.toLowerCase()).toBe(expectedTag);
+    });
+  });
+
+  describe('Semantic Wrapper Components', () => {
+    test('ContentContainer renders with correct props', () => {
+      render(<ContentContainer>Content</ContentContainer>);
       const container = screen.getByText('Content');
-      expect(container.tagName).toBe('MAIN');
+      expect(container).toHaveClass('max-w-content');
     });
 
-    it('renders as an article element when specified', () => {
-      render(<Container as="article">Content</Container>);
+    test('FormContainer renders with correct props', () => {
+      render(<FormContainer>Content</FormContainer>);
       const container = screen.getByText('Content');
-      expect(container.tagName).toBe('ARTICLE');
+      expect(container).toHaveClass('max-w-form');
+    });
+
+    test('ModalContainer renders with correct props', () => {
+      render(<ModalContainer>Content</ModalContainer>);
+      const container = screen.getByText('Content');
+      expect(container).toHaveClass('max-w-modal');
+    });
+
+    test('CardContainer renders with correct props', () => {
+      render(<CardContainer>Content</CardContainer>);
+      const container = screen.getByText('Content');
+      expect(container).toHaveClass('max-w-card');
+    });
+
+    test('MetricContainer renders with correct props', () => {
+      render(<MetricContainer>Content</MetricContainer>);
+      const container = screen.getByText('Content');
+      expect(container).toHaveClass('max-w-metric');
+    });
+
+    test('semantic wrappers accept and forward additional props', () => {
+      render(
+        <ContentContainer className="custom-class" data-testid="container">
+          Content
+        </ContentContainer>
+      );
+      const container = screen.getByTestId('container');
+      expect(container).toHaveClass('custom-class');
+    });
+
+    test('semantic wrappers forward ref correctly', () => {
+      const ref = React.createRef<HTMLDivElement>();
+      render(<ContentContainer ref={ref}>Content</ContentContainer>);
+      expect(ref.current).toBeInstanceOf(HTMLDivElement);
     });
   });
 
   describe('Accessibility', () => {
-    it('has no accessibility violations', async () => {
-      const { container } = render(<Container>Accessible Content</Container>);
+    test('has no accessibility violations', async () => {
+      const { container } = render(
+        <Container>
+          <p>Accessible Content</p>
+        </Container>
+      );
       const results = await axe(container);
       expect(results).toHaveNoViolations();
     });
 
-    it('preserves role attributes', () => {
-      render(<Container role="main">Content</Container>);
-      expect(screen.getByRole('main')).toBeInTheDocument();
+    test('preserves role attributes', () => {
+      render(
+        <Container role="region" aria-label="Test Region">
+          Content
+        </Container>
+      );
+      expect(screen.getByRole('region')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toHaveAttribute('aria-label', 'Test Region');
+    });
+
+    test('semantic wrappers maintain accessibility attributes', async () => {
+      const { container } = render(
+        <ContentContainer role="region" aria-label="Content Region">
+          <p>Content</p>
+        </ContentContainer>
+      );
+      expect(screen.getByRole('region')).toBeInTheDocument();
+      expect(screen.getByRole('region')).toHaveAttribute('aria-label', 'Content Region');
+      const results = await axe(container);
+      expect(results).toHaveNoViolations();
     });
   });
 });

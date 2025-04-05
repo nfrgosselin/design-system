@@ -16,7 +16,7 @@ type ContainerBaseProps<T extends React.ElementType = 'div'> = {
   /**
    * HTML element to render as
    */
-  as?: T;
+  as?: T | 'main' | 'article' | 'section' | 'aside';
 
   className?: string;
 };
@@ -24,32 +24,29 @@ type ContainerBaseProps<T extends React.ElementType = 'div'> = {
 export type ContainerProps<T extends React.ElementType = 'div'> = ContainerBaseProps<T> &
   Omit<React.ComponentPropsWithRef<T>, keyof ContainerBaseProps<T>>;
 
-export function Container<T extends React.ElementType = 'div'>({
-  className,
-  size = 'max',
-  as,
-  ...props
-}: ContainerProps<T>) {
-  const Component = as || 'div';
-
-  return (
-    <Component
-      className={cn(
-        'mx-auto w-full px-4 md:px-6 lg:px-8',
-        {
-          'max-w-max': size === 'max',
-          'max-w-content': size === 'content',
-          'max-w-form': size === 'form',
-          'max-w-modal': size === 'modal',
-          'max-w-card': size === 'card',
-          'max-w-metric': size === 'metric',
-        },
-        className
-      )}
-      {...props}
-    />
-  );
-}
+export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
+  ({ className, size = 'max', as: Component = 'div', ...props }, ref) => {
+    return (
+      <Component
+        ref={ref}
+        className={cn(
+          'mx-auto w-full px-4 md:px-6 lg:px-8',
+          {
+            'max-w-max': size === 'max',
+            'max-w-content': size === 'content',
+            'max-w-form': size === 'form',
+            'max-w-modal': size === 'modal',
+            'max-w-card': size === 'card',
+            'max-w-metric': size === 'metric',
+          },
+          className
+        )}
+        {...props}
+      />
+    );
+  }
+);
+Container.displayName = 'Container';
 
 // Semantic wrapper components
 export const ContentContainer = React.forwardRef<
