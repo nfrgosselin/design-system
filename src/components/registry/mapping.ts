@@ -131,49 +131,4 @@ export const componentRegistry: ComponentRegistry = {
     category: 'utils',
     path: '../utils/namedIcons',
   },
-
-  // Data display components
-  articleCard: {
-    name: 'ArticleCard',
-    description: 'Card component for displaying article content with various layouts',
-    category: 'data-display',
-    path: '../data-display/card',
-  },
-
-  projectCard: {
-    name: 'ProjectCard',
-    description:
-      'A card component for displaying project information with image, details, and metrics',
-    category: 'data-display',
-    path: '../data-display/card',
-  },
-
-  featureCard: {
-    name: 'FeatureCard',
-    description: 'An interactive card for displaying features with expandable content and actions',
-    category: 'data-display',
-    path: '../data-display/card',
-  },
-
-  blogPostPreview: {
-    name: 'BlogPostPreview',
-    description:
-      'A compact component for displaying blog post titles with publish dates in a list format',
-    category: 'data-display',
-    path: '../data-display/blog-post-preview',
-  },
-
-  blogPostList: {
-    name: 'BlogPostList',
-    description: 'A component for displaying a list of blog posts with optional "See all" button',
-    category: 'data-display',
-    path: '../data-display/blog-post-list',
-  },
-
-  loadMorePosts: {
-    name: 'LoadMorePosts',
-    description: 'Component for loading and displaying blog posts with pagination',
-    category: 'data-display',
-    path: '../data-display/load-more-posts',
-  },
 };

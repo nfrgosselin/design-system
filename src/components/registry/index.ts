@@ -75,21 +75,6 @@ import {
   type NavTextProps,
   type UITextProps,
 } from '../typography';
-// Data display components
-import {
-  ArticleCard,
-  ProjectCard,
-  FeatureCard,
-  articleCardVariants,
-  projectCardVariants,
-  featureCardVariants,
-  type ArticleCardProps,
-  type ProjectCardProps,
-  type FeatureCardProps,
-} from '../data-display/card';
-import { BlogPostPreview, type BlogPostPreviewProps } from '../data-display/blog-post-preview';
-import { BlogPostList, type BlogPostListProps } from '../data-display/blog-post-list';
-import { LoadMorePosts, type LoadMorePostsProps } from '../data-display/load-more-posts';
 
 // Export components directly
 export {
@@ -160,23 +145,6 @@ export {
   type MetaTextProps,
   type NavTextProps,
   type UITextProps,
-  // Data display components
-  ArticleCard,
-  ProjectCard,
-  FeatureCard,
-  BlogPostPreview,
-  BlogPostList,
-  LoadMorePosts,
-  articleCardVariants,
-  projectCardVariants,
-  featureCardVariants,
-  // Data display component types
-  type ArticleCardProps,
-  type ProjectCardProps,
-  type FeatureCardProps,
-  type BlogPostPreviewProps,
-  type BlogPostListProps,
-  type LoadMorePostsProps,
 };
 
 /**
