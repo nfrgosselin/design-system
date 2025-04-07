@@ -16,6 +16,11 @@ This directory contains comprehensive guides for common workflows when working w
 
 - [Consuming Guide](./consuming.md) - How to import and use the design system in other projects
 
+### Design Patterns
+
+- [Icon Usage](../patterns/icon-usage.md) - Comprehensive guide for using icons in various contexts
+- More pattern guides coming soon...
+
 ## Additional Resources
 
 - [VERSIONING.md](../../VERSIONING.md) - Guidelines for semantic versioning

@@ -154,19 +154,24 @@
 
 **Required Molecules:**
 
-- [ ] IconWithText
-- [ ] IconButton
-- [ ] StatusIcon
 - [x] NavigationIcon (via NavLink)
-- [ ] ActionIcon
+
+**Note:**
+
+- Icon + text combinations are handled through existing components:
+  - Button component's icon props
+  - Link component's icon variants
+  - Direct composition with Tailwind utilities
+- Icon alignment is handled through:
+  - Component-level alignment defaults
+  - Tailwind utility classes (items-center, flex, etc.)
+  - Standardized spacing tokens
 
 **Implementation Tasks:**
 
 - [x] Create icon size system
 - [x] Implement color application
 - [x] Add accessibility attributes
-- [ ] Create icon + text combinations
-- [ ] Implement icon alignment system
 
 ### 3. Navigation System
 
