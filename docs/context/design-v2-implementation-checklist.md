@@ -116,7 +116,7 @@
   - [x] Auto-responsive grid (1→2→3 columns)
   - [x] Configurable gap sizes (compact, element, relaxed, content)
   - [x] Custom collapse breakpoints (sm, md, lg, xl)
-- [ ] Image (with responsive behavior)
+- [x] Image (with responsive behavior)
 - [x] Divider (horizontal separator)
   - [x] Stone scale variants (heavy, medium, light, subtle, faint)
   - [x] Horizontal and vertical orientations
@@ -144,7 +144,7 @@
 
 **Required Molecules:**
 
-- [ ] ?
+- [x] ?
 
 ### 2. Icon System
 

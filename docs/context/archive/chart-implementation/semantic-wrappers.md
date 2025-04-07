@@ -253,3 +253,229 @@ export _ from './BarChart';
 export _ from './PieChart';
 export _ from './AreaChart';
 export _ from './ScatterChart';
+
+# Semantic Chart Wrappers
+
+## Overview
+
+Semantic wrappers represent the highest layer of our chart architecture, providing domain-specific components that abstract away the technical details of chart implementation.
+
+## Purpose
+
+- Provide business-domain interfaces
+- Encapsulate common chart configurations
+- Handle data transformation
+- Implement domain-specific responsive strategies
+- Enforce consistency across similar visualizations
+
+## Common Wrapper Types
+
+### TimeSeriesChart
+
+```typescript
+interface TimeSeriesChartProps {
+  // Data
+  data: TimeSeriesData;
+  dateRange: DateRange;
+
+  // Display
+  aggregation?: 'hour' | 'day' | 'week' | 'month';
+  showTrendline?: boolean;
+
+  // Formatting
+  valueFormat?: (value: number) => string;
+  dateFormat?: string;
+
+  // Responsive
+  size?: keyof typeof chartSizes;
+  aspectRatio?: keyof typeof aspectRatios;
+}
+
+function TimeSeriesChart({
+  data,
+  dateRange,
+  aggregation = 'day',
+  showTrendline = false,
+  size = 'lg',
+  aspectRatio = 'wide',
+  ...props
+}: TimeSeriesChartProps) {
+  const processedData = useTimeSeriesProcessing(data, {
+    dateRange,
+    aggregation,
+  });
+
+  return (
+    <Chart
+      size={size}
+      aspectRatio={aspectRatio}
+      title={props.title}
+      description={props.description}
+    >
+      <VictoryLine data={processedData} />
+      {showTrendline && <VictoryLine data={calculateTrendline(processedData)} />}
+    </Chart>
+  );
+}
+```
+
+### MetricsChart
+
+```typescript
+interface MetricsChartProps {
+  // Data
+  metric: MetricData;
+  comparison?: 'previous' | 'target';
+
+  // Display
+  format?: 'percentage' | 'currency' | 'number';
+  showChange?: boolean;
+
+  // Responsive (defaults to smaller sizes)
+  size?: keyof typeof chartSizes;
+  aspectRatio?: keyof typeof aspectRatios;
+}
+
+function MetricsChart({
+  metric,
+  comparison = 'previous',
+  size = 'sm',
+  aspectRatio = 'standard',
+  ...props
+}: MetricsChartProps) {
+  return (
+    <Chart
+      size={size}
+      aspectRatio={aspectRatio}
+      title={props.title}
+      description={props.description}
+    >
+      {/* Chart implementation */}
+    </Chart>
+  );
+}
+```
+
+## Responsive Strategies
+
+Semantic wrappers can implement different responsive strategies based on their use case:
+
+### 1. Breakpoint-Based
+
+```typescript
+function DashboardChart({ data }) {
+  return (
+    <>
+      <div className="sm:hidden">
+        <Chart size="sm" aspectRatio="standard" data={data} />
+      </div>
+      <div className="hidden sm:block lg:hidden">
+        <Chart size="md" aspectRatio="wide" data={data} />
+      </div>
+      <div className="hidden lg:block">
+        <Chart size="lg" aspectRatio="wide" data={data} />
+      </div>
+    </>
+  );
+}
+```
+
+### 2. Container-Query Based
+
+```typescript
+function MetricsPanel({ data }) {
+  return (
+    <div className="@container">
+      <Chart
+        size={useContainerQuery({
+          '@sm': 'sm',
+          '@md': 'md',
+          '@lg': 'lg',
+        })}
+        aspectRatio="standard"
+        data={data}
+      />
+    </div>
+  );
+}
+```
+
+### 3. Grid-Based
+
+```typescript
+function AnalyticsDashboard({ metrics }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {metrics.map(metric => (
+        <MetricsChart
+          key={metric.id}
+          metric={metric}
+          size="full"
+          aspectRatio="standard"
+        />
+      ))}
+    </div>
+  );
+}
+```
+
+## Best Practices
+
+1. **Default Configuration**
+
+   - Provide sensible defaults for all props
+   - Choose appropriate size/aspect ratio defaults for the use case
+   - Document why defaults were chosen
+
+2. **Data Processing**
+
+   - Handle data transformation within the wrapper
+   - Provide clear error states for invalid data
+   - Consider loading states for async data
+
+3. **Responsive Behavior**
+
+   - Choose responsive strategy based on use case
+   - Document responsive behavior
+   - Test across different container sizes
+
+4. **Type Safety**
+
+   - Use TypeScript for prop definitions
+   - Provide proper types for data structures
+   - Use const assertions for configurations
+
+5. **Documentation**
+   - Document domain-specific props clearly
+   - Provide usage examples
+   - Explain responsive behavior
+
+## Testing
+
+```typescript
+describe('TimeSeriesChart', () => {
+  it('processes data correctly', () => {
+    // Test data transformation
+  });
+
+  it('handles different date ranges', () => {
+    // Test date handling
+  });
+
+  it('responds to container size changes', () => {
+    // Test responsive behavior
+  });
+
+  it('shows appropriate loading states', () => {
+    // Test loading behavior
+  });
+});
+```
+
+## Benefits
+
+- **Domain Focus**: Props and behavior match business domain
+- **Consistency**: Enforced through encapsulation
+- **Maintainability**: Changes can be made at domain level
+- **Reusability**: Common patterns are packaged
+- **Type Safety**: Domain-specific types

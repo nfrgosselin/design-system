@@ -12,12 +12,33 @@ window.IntersectionObserver = MockIntersectionObserver as unknown as typeof Inte
 
 // Mock ResizeObserver
 class MockResizeObserver {
-  observe = jest.fn();
+  callback: ResizeObserverCallback;
+
+  constructor(callback: ResizeObserverCallback) {
+    this.callback = callback;
+  }
+
+  observe = jest.fn((target: Element) => {
+    // Simulate a resize observation
+    const contentRect = new DOMRectReadOnly(0, 0, 800, 600);
+    this.callback(
+      [
+        {
+          target,
+          contentRect,
+          borderBoxSize: [],
+          contentBoxSize: [],
+          devicePixelContentBoxSize: [],
+        } as ResizeObserverEntry,
+      ],
+      this as unknown as ResizeObserver
+    );
+  });
   unobserve = jest.fn();
   disconnect = jest.fn();
 }
 
-window.ResizeObserver = MockResizeObserver as unknown as typeof ResizeObserver;
+global.ResizeObserver = MockResizeObserver as unknown as typeof ResizeObserver;
 
 // Suppress console errors during tests
 const originalError = console.error;

@@ -60,9 +60,9 @@
   --ds-color-overlay-heavy: hsl(var(--ds-color-black) / 0.6);
 
   /* Chart Colors */
-  --ds-color-chart-1: 12 76% 61%;
-  --ds-color-chart-2: 173 58% 39%;
-  --ds-color-chart-3: 197 37% 24%;
-  --ds-color-chart-4: 43 74% 66%;
-  --ds-color-chart-5: 27 87% 67%;
+  --ds-color-chart-1: 174 61% 51%; /* seafoam */
+  --ds-color-chart-2: 14 100% 71%; /* coral */
+  --ds-color-chart-3: 213 41% 30%; /* navy */
+  --ds-color-chart-4: 39 100% 75%; /* gold */
+  --ds-color-chart-5: 24 100% 69%; /* peach */
 } 

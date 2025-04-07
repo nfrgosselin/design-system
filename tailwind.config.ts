@@ -251,6 +251,11 @@ const config: Config = {
         max: 'var(--container-max)', // 1280px
         prose: '68ch',
       },
+      aspectRatio: {
+        'chart-wide': 'var(--chart-aspect-wide)',
+        'chart-standard': 'var(--chart-aspect-standard)',
+        'chart-square': 'var(--chart-aspect-square)',
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

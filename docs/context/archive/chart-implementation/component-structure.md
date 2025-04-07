@@ -103,6 +103,175 @@ className?: string;
 children: React.ReactNode;
 }
 
+# Chart Component Structure
+
+## Overview
+
+The chart system follows a three-layer architecture that separates concerns and provides a clear upgrade path from low-level implementation to high-level semantic usage.
+
+```
+Semantic Wrappers (High Level)
+         ↓
+    Chart (Mid Level)
+         ↓
+  InternalChart (Low Level)
+```
+
+## Layer 1: InternalChart
+
+The foundation layer that handles direct interaction with the Victory library.
+
+### Responsibilities
+
+- Raw chart rendering
+- Victory component configuration
+- Axis management
+- Grid and styling application
+- Event handling
+
+### Props Interface
+
+```typescript
+interface InternalChartProps {
+  // Dimensions
+  width: number;
+  height: number;
+
+  // Victory Configuration
+  theme: VictoryTheme;
+  padding: ChartPadding;
+  containerComponent: React.ReactElement;
+
+  // Axes
+  xAxisLabel?: string;
+  yAxisLabel?: string;
+  xAxisStyle: VictoryAxisStyle;
+  yAxisStyle: VictoryAxisStyle;
+  gridStyle: VictoryGridStyle;
+
+  // Content
+  children: React.ReactNode;
+}
+```
+
+### Key Characteristics
+
+- No opinions about sizing or responsiveness
+- Takes explicit dimensions
+- Purely functional (given same props, renders same chart)
+- No direct coupling to design system tokens
+- No layout management
+
+## Layer 2: Chart
+
+The main component that users interact with directly. Handles design system integration and responsive behavior.
+
+### Responsibilities
+
+- Responsive container management
+- Size preset handling
+- Aspect ratio enforcement
+- Layout structure (title, description)
+- Design system token integration
+- Accessibility features
+
+### Props Interface
+
+```typescript
+interface ChartProps {
+  // Sizing & Layout
+  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
+  aspectRatio?: 'wide' | 'standard' | 'square';
+
+  // Content
+  title?: string;
+  description?: string;
+  children: React.ReactNode;
+
+  // Configuration
+  showGrid?: boolean;
+  showTooltip?: boolean;
+  showLegend?: boolean;
+
+  // Customization
+  className?: string;
+  style?: React.CSSProperties;
+}
+```
+
+### Key Characteristics
+
+- Design system aware
+- Handles responsive behavior
+- Provides semantic size presets
+- Manages layout and spacing
+- Enforces consistent styling
+
+## Layer 3: Semantic Wrappers
+
+Domain-specific components that provide pre-configured charts for specific use cases.
+
+### Examples
+
+```typescript
+// Time Series Chart
+interface TimeSeriesChartProps {
+  data: TimeSeriesData;
+  dateRange: DateRange;
+  aggregation?: 'hour' | 'day' | 'week' | 'month';
+  showTrendline?: boolean;
+}
+
+// Metrics Chart
+interface MetricsChartProps {
+  metric: MetricData;
+  comparison?: 'previous' | 'target';
+  format?: 'percentage' | 'currency' | 'number';
+}
+```
+
+### Key Characteristics
+
+- Business logic integration
+- Domain-specific defaults
+- Pre-configured for specific use cases
+- Higher-level props abstraction
+
+## Usage Flow
+
+1. **For Basic Charts**
+
+   ```typescript
+   <Chart size="lg" aspectRatio="wide">
+     <VictoryLine data={data} />
+   </Chart>
+   ```
+
+2. **For Specific Use Cases**
+   ```typescript
+   <TimeSeriesChart
+     data={salesData}
+     dateRange={{ start, end }}
+     aggregation="week"
+   />
+   ```
+
+## Implementation Notes
+
+- Each layer should only communicate with its immediate neighbors
+- Props should become more domain-specific as you move up the layers
+- Configuration becomes more opinionated at higher layers
+- Lower layers should remain flexible and unopinionated
+- Testing becomes more integration-focused at higher layers
+
+## Benefits
+
+- **Separation of Concerns**: Each layer has a clear responsibility
+- **Flexibility**: Can use any layer depending on needs
+- **Maintainability**: Changes at one layer don't affect others
+- **Reusability**: Lower layers can support multiple higher-level implementations
+- **Type Safety**: Each layer has its own well-defined interface
+
 /\*\*
 
 - Base Chart component that provides consistent styling and behavior

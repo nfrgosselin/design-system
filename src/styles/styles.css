@@ -260,6 +260,11 @@
     --border-color-default: var(--ds-border-color-default);
     --border-color-hover: var(--ds-border-color-hover);
     --border-color-focus: var(--ds-border-color-focus);
+
+    /* Chart Aspect Ratios */
+    --chart-aspect-wide: var(--ds-chart-aspect-wide);
+    --chart-aspect-standard: var(--ds-chart-aspect-standard);
+    --chart-aspect-square: var(--ds-chart-aspect-square);
   }
 }
  

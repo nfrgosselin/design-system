@@ -29,4 +29,9 @@
 
   /* Border Radius */
   --ds-radius: 0.5rem;
+
+  /* Chart Aspect Ratios */
+  --ds-chart-aspect-wide: 16/9;      /* Wide format (16:9) */
+  --ds-chart-aspect-standard: 4/3;    /* Standard format (4:3) */
+  --ds-chart-aspect-square: 1/1;      /* Square format (1:1) */
 } 
