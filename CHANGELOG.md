@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.1.1](https://github.com/nfrgosselin/design-system/compare/v2.1.0...v2.1.1) (2025-04-07)
+
+### Maintenance
+
+- prioritized, documented, and finished icon tasks ([0e77cdc](https://github.com/nfrgosselin/design-system/commit/0e77cdc8f2c4b65b567c4905c29efbff79f34ec1))
+
 ## [2.1.0](https://github.com/nfrgosselin/design-system/compare/v2.0.0...v2.1.0) (2025-04-07)
 
 ### Features
