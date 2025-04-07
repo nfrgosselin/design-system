@@ -21,13 +21,8 @@ export {
   type CustomTokens,
 } from './components/ThemeProvider';
 
-/**
- * Component Exports
- * Components are grouped by their functional category for easier discovery
- */
-
+// Export components by category
 // Layout Components
-export { Button, Link, type ButtonProps } from './components/registry';
 export {
   Container,
   ContentContainer,
@@ -42,6 +37,17 @@ export {
   FourColumnGrid,
   ResponsiveGrid,
 } from './components/layout';
+
+// Data Display Components
+// Chart component removed
+
+/**
+ * Component Exports
+ * Components are grouped by their functional category for easier discovery
+ */
+
+// Layout Components
+export { Button, Link, type ButtonProps } from './components/registry';
 
 // Typography Components
 export {

@@ -140,7 +140,35 @@
 
 ## Pattern Implementation Checklists
 
-### 1. Navigation System
+### 1. Chart System
+
+**Required Molecules:**
+
+- [ ] ?
+
+### 2. Icon System
+
+**Required Atoms:**
+
+- [x] Icon (base component)
+
+**Required Molecules:**
+
+- [ ] IconWithText
+- [ ] IconButton
+- [ ] StatusIcon
+- [x] NavigationIcon (via NavLink)
+- [ ] ActionIcon
+
+**Implementation Tasks:**
+
+- [x] Create icon size system
+- [x] Implement color application
+- [x] Add accessibility attributes
+- [ ] Create icon + text combinations
+- [ ] Implement icon alignment system
+
+### 3. Navigation System
 
 **Required Atoms:**
 
@@ -166,7 +194,7 @@
 - [ ] Add keyboard navigation support
 - [ ] Include accessibility attributes
 
-### 2. Content Layout Templates
+### 4. Content Layout Templates
 
 **Required Atoms:**
 
@@ -188,7 +216,7 @@
 - [ ] Add proper semantic HTML structure
 - [ ] Create responsive padding/margin adjustments
 
-### 3. Article/Content Display
+### 5. Article/Content Display
 
 **Required Atoms:**
 
@@ -216,7 +244,7 @@
 - [ ] Create responsive image handling
 - [ ] Implement link styling within content
 
-### 4. Card-Based Collection Layout
+### 6. Card-Based Collection Layout
 
 **Required Atoms:**
 
@@ -245,7 +273,7 @@
 - [ ] Add loading states
 - [ ] Implement proper spacing between cards
 
-### 5. Form Components Collection
+### 7. Form Components Collection
 
 **Required Atoms:**
 
@@ -270,8 +298,9 @@
 - [ ] Add accessible error states
 - [ ] Create helper text components
 - [ ] Implement form submission states
+- [ ] Make sure to include newsletter signup component
 
-### 6. Footer Component
+### 8. Footer Component
 
 **Required Atoms:**
 
@@ -296,7 +325,59 @@
 - [ ] Create spacing system within footer
 - [ ] Implement proper alignment
 
-### 7. Dashboard Summary Cards
+### 9. Empty States
+
+**Required Atoms:**
+
+- [x] Text variants
+- [x] Icon
+- [x] Button
+- [x] Container
+- [x] Stack
+
+**Required Molecules:**
+
+- [ ] EmptyState (base component)
+- [ ] NoDataEmptyState
+- [ ] NoResultsEmptyState
+- [ ] FirstTimeEmptyState
+- [ ] ErrorEmptyState
+
+**Implementation Tasks:**
+
+- [ ] Create empty state layouts
+- [ ] Implement illustrations/icons
+- [ ] Add call-to-action buttons
+- [ ] Create proper spacing
+- [ ] Implement responsive behavior
+
+### 10. Pagination Components
+
+**Required Atoms:**
+
+- [x] Button
+- [x] Link
+- [x] Text
+- [x] Icon
+- [x] Stack
+
+**Required Molecules:**
+
+- [ ] PaginationContainer
+- [ ] PaginationButton
+- [ ] PageNumberButton
+- [ ] LoadMoreButton
+- [ ] PaginationSummary (showing X of Y)
+
+**Implementation Tasks:**
+
+- [ ] Create pagination layout
+- [ ] Implement numbered pagination
+- [ ] Add previous/next controls
+- [ ] Create loading states
+- [ ] Implement responsive behavior
+
+### 11. Dashboard Summary Cards
 
 **Required Atoms:**
 
@@ -322,7 +403,7 @@
 - [ ] Create loading states
 - [ ] Implement responsive behavior
 
-### 8. Authentication Flows
+### 12. Authentication Flows
 
 **Required Atoms:**
 
@@ -350,7 +431,7 @@
 - [ ] Create success states
 - [ ] Implement loading states
 
-### 9. Section Headers with Actions
+### 13. Section Headers with Actions
 
 **Required Atoms:**
 
@@ -375,7 +456,7 @@
 - [ ] Create proper spacing system
 - [ ] Implement action button styling
 
-### 10. Search Implementation
+### 14. Search Implementation
 
 **Required Atoms:**
 
@@ -402,7 +483,7 @@
 - [ ] Create loading states
 - [ ] Implement keyboard navigation
 
-### 11. Timeline/Activity Feed
+### 15. Timeline/Activity Feed
 
 **Required Atoms:**
 
@@ -428,80 +509,6 @@
 - [ ] Add activity type styling
 - [ ] Create expandable details
 - [ ] Implement proper spacing
-
-### 12. Empty States
-
-**Required Atoms:**
-
-- [x] Text variants
-- [x] Icon
-- [x] Button
-- [x] Container
-- [x] Stack
-
-**Required Molecules:**
-
-- [ ] EmptyState (base component)
-- [ ] NoDataEmptyState
-- [ ] NoResultsEmptyState
-- [ ] FirstTimeEmptyState
-- [ ] ErrorEmptyState
-
-**Implementation Tasks:**
-
-- [ ] Create empty state layouts
-- [ ] Implement illustrations/icons
-- [ ] Add call-to-action buttons
-- [ ] Create proper spacing
-- [ ] Implement responsive behavior
-
-### 13. Icon System
-
-**Required Atoms:**
-
-- [x] Icon (base component)
-
-**Required Molecules:**
-
-- [ ] IconWithText
-- [ ] IconButton
-- [ ] StatusIcon
-- [x] NavigationIcon (via NavLink)
-- [ ] ActionIcon
-
-**Implementation Tasks:**
-
-- [x] Create icon size system
-- [x] Implement color application
-- [x] Add accessibility attributes
-- [ ] Create icon + text combinations
-- [ ] Implement icon alignment system
-
-### 14. Pagination Components
-
-**Required Atoms:**
-
-- [x] Button
-- [x] Link
-- [x] Text
-- [x] Icon
-- [x] Stack
-
-**Required Molecules:**
-
-- [ ] PaginationContainer
-- [ ] PaginationButton
-- [ ] PageNumberButton
-- [ ] LoadMoreButton
-- [ ] PaginationSummary (showing X of Y)
-
-**Implementation Tasks:**
-
-- [ ] Create pagination layout
-- [ ] Implement numbered pagination
-- [ ] Add previous/next controls
-- [ ] Create loading states
-- [ ] Implement responsive behavior
 
 ## Implementation Approach
 

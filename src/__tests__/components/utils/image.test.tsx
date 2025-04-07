@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Image, ImageProps } from '../../../components/layout/core/image';
+import { Image, ImageProps } from '../../../components/utils/image';
 
 describe('Image', () => {
   const defaultProps = {

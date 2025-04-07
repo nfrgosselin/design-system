@@ -69,7 +69,8 @@
     "clsx": "^2.1.1",
     "lucide-react": "^0.481.0",
     "tailwind-merge": "^2.6.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "victory": "37.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.24.0",
