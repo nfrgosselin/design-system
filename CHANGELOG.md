@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/nfrgosselin/design-system/compare/v2.0.0...v2.1.0) (2025-04-07)
+
+### Features
+
+- base chart component and bar chart component ([4a0adac](https://github.com/nfrgosselin/design-system/commit/4a0adacc0a4ca6d224e8d7f86a86023494be1d51))
+
+### Maintenance
+
+- fixed image component and test organization ([c832877](https://github.com/nfrgosselin/design-system/commit/c832877e9b0aa61743646116cfc3266a5cc49b04))
+
 ## [2.0.0](https://github.com/nfrgosselin/design-system/compare/v1.4.0...v2.0.0) (2025-04-05)
 
 ### Features
