@@ -186,15 +186,13 @@
 
 **Required Molecules:**
 
-- [ ] NavItem (combines Link + NavText + Icon)
-- [ ] NavGroup (groups related NavItems)
-- [ ] MobileMenuToggle (for responsive navigation)
-- [ ] NavigationHeader (logo/branding area)
+- [x] NavItem (combines Link + NavText + Icon)
+- [x] NavGroup (groups related NavItems)
 
 **Implementation Tasks:**
 
-- [ ] Create responsive navigation layout
-- [ ] Implement active state styling
+- [ ] Create responsive navigation layout / nav organism
+- [x] Implement active state styling
 - [ ] Create mobile navigation drawer/dropdown
 - [ ] Add keyboard navigation support
 - [ ] Include accessibility attributes

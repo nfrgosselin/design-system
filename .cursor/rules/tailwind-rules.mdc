@@ -1,0 +1,7 @@
+---
+description: 
+globs: **/*.ts,**/*.tsx
+alwaysApply: false
+---
+
+You may only use our configured Tailwind utility classes (using the design system tokens) when styling components. If a setting doesn't exist in our configured Tailwind utility classes, then suggest an option to the user and ask for approval before implementing. 

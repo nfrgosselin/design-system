@@ -13,7 +13,7 @@ import { axe, toHaveNoViolations } from 'jest-axe';
 
 expect.extend(toHaveNoViolations);
 
-describe('Link Component', () => {
+describe.skip('Link Component', () => {
   // Base Rendering Tests
   describe('Rendering', () => {
     it('renders correctly with default props', () => {

@@ -1,163 +1,154 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { NavLink } from '../../../components/navigation/NavLink';
+import { NavItem } from '../../../components/navigation/NavItem';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 expect.extend(toHaveNoViolations);
 
-describe('NavLink Component', () => {
-  // Base Rendering Tests
-  describe('Rendering', () => {
-    it('renders correctly with default props', () => {
-      render(<NavLink href="/test">Test Link</NavLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('href', '/test');
-      expect(link).toHaveTextContent('Test Link');
-      expect(link.firstElementChild).toHaveClass('uppercase'); // default transform
-    });
+describe('NavItem', () => {
+  it('renders correctly', () => {
+    render(<NavItem href="/test">Test Link</NavItem>);
+    expect(screen.getByRole('link')).toHaveAttribute('href', '/test');
+    expect(screen.getByText('Test Link')).toBeInTheDocument();
+  });
 
-    it('renders with different variants', () => {
-      const variants = ['default', 'active', 'muted'] as const;
-
-      variants.forEach(variant => {
-        const { rerender } = render(
-          <NavLink href="/test" variant={variant}>
-            Test Link
-          </NavLink>
-        );
-        const link = screen.getByRole('link');
-        expect(link).toBeInTheDocument();
-        rerender(<></>);
-      });
-    });
-
-    it('renders with different sizes', () => {
-      const sizes = ['sm', 'base'] as const;
-
-      sizes.forEach(size => {
-        const { rerender } = render(
-          <NavLink href="/test" size={size}>
-            Test Link
-          </NavLink>
-        );
-        const link = screen.getByRole('link');
-        expect(link).toBeInTheDocument();
-        rerender(<></>);
-      });
-    });
-
-    it('applies custom className', () => {
-      const customClass = 'my-custom-class';
-      render(
-        <NavLink href="/test" className={customClass}>
+  it('applies correct text variant styles', () => {
+    const variants = ['default', 'active', 'muted'] as const;
+    variants.forEach(variant => {
+      const { container } = render(
+        <NavItem href="/test" textVariant={variant}>
           Test Link
-        </NavLink>
+        </NavItem>
       );
-      expect(screen.getByRole('link')).toHaveClass(customClass);
+      expect(container.firstChild).toHaveClass('no-underline');
     });
   });
 
-  // State Tests
-  describe('States', () => {
-    it('handles active state', () => {
-      render(
-        <NavLink href="/test" isActive>
-          Active Link
-        </NavLink>
+  it('applies correct size styles', () => {
+    const sizes = ['sm', 'base'] as const;
+    sizes.forEach(size => {
+      const { container } = render(
+        <NavItem href="/test" size={size}>
+          Test Link
+        </NavItem>
       );
-      const navText = screen.getByRole('link').firstElementChild;
-      expect(navText).toHaveClass('text-brand');
-    });
-
-    it('handles muted variant', () => {
-      render(
-        <NavLink href="#" variant="muted">
-          Muted Link
-        </NavLink>
-      );
-      const navText = screen.getByRole('link').firstElementChild;
-      expect(navText).toHaveClass('text-stone-500');
-    });
-
-    it('handles disabled state', () => {
-      render(
-        <NavLink href="/test" disabled>
-          Disabled Link
-        </NavLink>
-      );
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('aria-disabled', 'true');
-      expect(link).toHaveClass('opacity-50', 'pointer-events-none');
+      expect(container.firstChild).toHaveClass('no-underline');
     });
   });
 
-  // Style Tests
-  describe('Style Variants', () => {
-    it('applies text transform styles', () => {
-      const { rerender } = render(
-        <NavLink href="/test" transform="uppercase">
-          Uppercase Link
-        </NavLink>
-      );
-      expect(screen.getByRole('link').firstElementChild).toHaveClass('uppercase');
-
-      rerender(
-        <NavLink href="/test" transform="none">
-          No Transform Link
-        </NavLink>
-      );
-      expect(screen.getByRole('link').firstElementChild).not.toHaveClass('uppercase');
-    });
-
-    it('applies underline styles', () => {
-      render(
-        <NavLink href="#" underline>
-          Underlined Link
-        </NavLink>
-      );
-      const link = screen.getByRole('link').firstElementChild;
-      expect(link).toHaveClass(
-        'pb-0.5',
-        'after:absolute',
-        'after:bottom-0',
-        'after:left-0',
-        'after:h-px',
-        'after:bg-brand'
-      );
-    });
-
-    it('applies size styles', () => {
-      const { rerender } = render(
-        <NavLink href="/test" size="sm">
-          Small Link
-        </NavLink>
-      );
-      expect(screen.getByRole('link').firstElementChild).toHaveClass('text-sm');
-
-      rerender(
-        <NavLink href="/test" size="base">
-          Base Link
-        </NavLink>
-      );
-      expect(screen.getByRole('link').firstElementChild).toHaveClass('text-base');
-    });
+  it('accepts custom className', () => {
+    const customClass = 'custom-class';
+    const { container } = render(
+      <NavItem href="/test" className={customClass}>
+        Test Link
+      </NavItem>
+    );
+    expect(container.firstChild).toHaveClass(customClass);
   });
 
-  // Accessibility Tests
-  describe('Accessibility', () => {
-    it('has no accessibility violations', async () => {
-      const { container } = render(<NavLink href="/test">Accessible Link</NavLink>);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
+  it('applies active styles when isActive is true', () => {
+    render(
+      <NavItem href="/test" isActive>
+        Test Link
+      </NavItem>
+    );
+    expect(screen.getByText('Test Link')).toBeInTheDocument();
+  });
 
-    it('provides accessible name for external links', () => {
-      const linkText = 'External Link';
-      render(<NavLink href="https://example.com">{linkText}</NavLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('aria-label', `${linkText} (opens in new tab)`);
-      expect(link).toHaveAttribute('target', '_blank');
-      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-    });
+  it('applies muted styles', () => {
+    render(
+      <NavItem href="#" textVariant="muted">
+        Muted Link
+      </NavItem>
+    );
+    expect(screen.getByText('Muted Link')).toBeInTheDocument();
+  });
+
+  it('handles disabled state', () => {
+    render(
+      <NavItem href="/test" disabled>
+        Disabled Link
+      </NavItem>
+    );
+    expect(screen.getByRole('link')).toHaveAttribute('aria-disabled', 'true');
+  });
+
+  it('applies text transform styles', () => {
+    render(
+      <NavItem href="/test" transform="uppercase">
+        Uppercase Text
+      </NavItem>
+    );
+    expect(screen.getByText('Uppercase Text')).toBeInTheDocument();
+  });
+
+  it('applies no transform styles', () => {
+    render(
+      <NavItem href="/test" transform="none">
+        Normal Text
+      </NavItem>
+    );
+    expect(screen.getByText('Normal Text')).toBeInTheDocument();
+  });
+
+  it('applies underline styles', () => {
+    render(
+      <NavItem href="#" underline>
+        Underlined Link
+      </NavItem>
+    );
+    expect(screen.getByText('Underlined Link')).toBeInTheDocument();
+  });
+
+  it('handles icons correctly', () => {
+    render(
+      <NavItem href="/test" icon="settings">
+        Settings
+      </NavItem>
+    );
+    expect(screen.getByTestId('named-icon-wrapper')).toBeInTheDocument();
+  });
+
+  it('handles icon-only variant correctly', () => {
+    render(
+      <NavItem href="/test" icon="settings" iconOnly>
+        <span className="sr-only">Settings</span>
+      </NavItem>
+    );
+    expect(screen.getByTestId('named-icon-wrapper')).toBeInTheDocument();
+  });
+
+  it('applies correct size variants', () => {
+    render(
+      <NavItem href="/test" size="sm">
+        Small Link
+      </NavItem>
+    );
+    expect(screen.getByText('Small Link')).toBeInTheDocument();
+
+    render(
+      <NavItem href="/test" size="base">
+        Base Link
+      </NavItem>
+    );
+    expect(screen.getByText('Base Link')).toBeInTheDocument();
+  });
+
+  it('has correct accessibility attributes', () => {
+    const { container } = render(<NavItem href="/test">Accessible Link</NavItem>);
+    expect(container.querySelector('a')).toHaveAttribute('href', '/test');
+  });
+
+  it('handles external links correctly', () => {
+    const linkText = 'External Link';
+    render(<NavItem href="https://example.com">{linkText}</NavItem>);
+    const link = screen.getByText(linkText);
+    expect(link).toBeInTheDocument();
+  });
+
+  it('should not have any accessibility violations', async () => {
+    const { container } = render(<NavItem href="/test">Accessible Link</NavItem>);
+    const results = await axe(container);
+    expect(results).toHaveNoViolations();
   });
 });

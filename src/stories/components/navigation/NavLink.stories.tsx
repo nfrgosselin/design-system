@@ -1,145 +1,129 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { NavLink } from '@/components/navigation/NavLink';
+import { NavItem } from '@/components/navigation/NavItem';
 
 const meta = {
-  title: 'Components/Navigation/NavLink',
-  component: NavLink,
+  title: 'Navigation/NavItem',
+  component: NavItem,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof NavLink>;
+} satisfies Meta<typeof NavItem>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// Base NavLink Stories
-export const Default: Story = {
+export const Active: Story = {
   args: {
     href: '#',
-    children: 'Default NavLink',
+    isActive: true,
+    children: 'Active Nav',
   },
 };
 
-// Variants
-export const Variants: Story = {
-  args: {
-    href: '#',
-    children: 'Navigation Link',
-  },
+export const Default: Story = {
   render: () => (
-    <div className="flex flex-col gap-8">
-      {/* Default Navigation */}
-      <div className="space-y-2">
-        <h3 className="text-sm font-medium text-muted-foreground">Default Navigation</h3>
-        <div className="flex gap-8">
-          <NavLink href="#" isActive>
-            Active Nav
-          </NavLink>
-          <NavLink href="#">Default Nav</NavLink>
-          <NavLink href="#" variant="muted">
-            Muted Nav
-          </NavLink>
-        </div>
-      </div>
+    <div className="space-x-4">
+      <NavItem href="#">Default Nav</NavItem>
+      <NavItem href="#" textVariant="muted">
+        Muted Nav
+      </NavItem>
+    </div>
+  ),
+};
 
-      {/* Size Variants */}
-      <div className="space-y-2">
-        <h3 className="text-sm font-medium text-muted-foreground">Size Variants</h3>
-        <div className="flex gap-8">
-          <NavLink href="#" size="sm">
-            Small Nav
-          </NavLink>
-          <NavLink href="#" size="base">
-            Base Nav
-          </NavLink>
-        </div>
-      </div>
+export const Sizes: Story = {
+  render: () => (
+    <div className="space-x-4">
+      <NavItem href="#" size="sm">
+        Small Nav
+      </NavItem>
+      <NavItem href="#" size="base">
+        Base Nav
+      </NavItem>
+    </div>
+  ),
+};
 
-      {/* Transform & Underline */}
-      <div className="space-y-2">
-        <h3 className="text-sm font-medium text-muted-foreground">Transform & Underline</h3>
-        <div className="flex gap-8">
-          <NavLink href="#" transform="uppercase">
-            Uppercase Nav
-          </NavLink>
-          <NavLink href="#" transform="none">
-            No Transform
-          </NavLink>
-          <NavLink href="#" underline>
-            Underlined Nav
-          </NavLink>
-        </div>
+export const TextTransforms: Story = {
+  render: () => (
+    <div className="space-x-4">
+      <NavItem href="#" transform="uppercase">
+        Uppercase Nav
+      </NavItem>
+      <NavItem href="#" transform="none">
+        Normal Nav
+      </NavItem>
+      <NavItem href="#" underline>
+        Underlined Nav
+      </NavItem>
+    </div>
+  ),
+};
+
+export const WithIcons: Story = {
+  render: () => (
+    <div className="space-x-4">
+      <NavItem href="#" icon="settings">
+        With Start Icon
+      </NavItem>
+      <NavItem href="#" icon="arrowRight" iconPosition="end">
+        With End Icon
+      </NavItem>
+      <NavItem href="#" icon="settings" iconOnly>
+        <span className="sr-only">Settings</span>
+      </NavItem>
+    </div>
+  ),
+};
+
+export const TopNavigation: Story = {
+  render: () => (
+    <div className="flex items-center gap-4 p-4 bg-white rounded-lg">
+      <NavItem href="#" isActive>
+        Home
+      </NavItem>
+      <NavItem href="#">Products</NavItem>
+      <NavItem href="#">Services</NavItem>
+      <NavItem href="#">About</NavItem>
+      <NavItem href="#" textVariant="muted">
+        Contact
+      </NavItem>
+    </div>
+  ),
+};
+
+export const SideNavigation: Story = {
+  render: () => (
+    <div className="w-64 p-4 bg-white rounded-lg">
+      <div className="space-y-1">
+        <NavItem href="#" variant="side" isActive icon="page">
+          Dashboard
+        </NavItem>
+        <NavItem href="#" variant="side" icon="user">
+          Profile
+        </NavItem>
+        <NavItem href="#" variant="side" icon="settings">
+          Settings
+        </NavItem>
+        <NavItem href="#" variant="side" icon="help">
+          Help
+        </NavItem>
       </div>
     </div>
   ),
 };
 
-// Example Navigation Bar
-export const NavigationBar: Story = {
-  args: {
-    href: '#',
-    children: 'Navigation Link',
-  },
-  render: () => (
-    <nav className="flex gap-8 border-b border-border px-8 py-4">
-      <NavLink href="#" isActive>
-        Home
-      </NavLink>
-      <NavLink href="#">Products</NavLink>
-      <NavLink href="#">Services</NavLink>
-      <NavLink href="#">About</NavLink>
-      <NavLink href="#" variant="muted">
-        Contact
-      </NavLink>
-    </nav>
-  ),
-};
-
-// Example Side Navigation
-export const SideNavigation: Story = {
-  args: {
-    href: '#',
-    children: 'Navigation Link',
-  },
-  render: () => (
-    <nav className="w-48 space-y-2 rounded-lg border border-border p-4">
-      <NavLink href="#" isActive size="sm">
-        Dashboard
-      </NavLink>
-      <NavLink href="#" size="sm">
-        Settings
-      </NavLink>
-      <NavLink href="#" size="sm">
-        Profile
-      </NavLink>
-      <NavLink href="#" size="sm" variant="muted">
-        Help
-      </NavLink>
-    </nav>
-  ),
-};
-
-// States
 export const States: Story = {
-  args: {
-    href: '#',
-    children: 'Navigation Link',
-  },
   render: () => (
-    <div className="space-y-6">
-      <div className="space-y-2">
-        <h3 className="text-sm font-medium text-muted-foreground">States</h3>
-        <div className="flex gap-4">
-          <NavLink href="#" disabled>
-            Disabled Link
-          </NavLink>
-          <NavLink href="#" isLoading>
-            Loading Link
-          </NavLink>
-          <NavLink href="https://example.com">External Link</NavLink>
-        </div>
-      </div>
+    <div className="space-x-4">
+      <NavItem href="#" disabled>
+        Disabled Nav
+      </NavItem>
+      <NavItem href="#" isLoading>
+        Loading Nav
+      </NavItem>
+      <NavItem href="https://example.com">External Link</NavItem>
     </div>
   ),
 };
