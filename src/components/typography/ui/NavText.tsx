@@ -7,6 +7,7 @@ export interface NavTextProps extends TextProps {
   size?: 'sm' | 'base';
   transform?: 'uppercase' | 'none';
   underline?: boolean;
+  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
 }
 
 /**
@@ -18,6 +19,7 @@ export function NavText({
   size = 'base',
   transform = 'uppercase',
   underline = false,
+  weight = 'medium',
   className,
   children,
   ...props
@@ -28,13 +30,20 @@ export function NavText({
       base: 'text-base',
     },
     variant: {
-      default: 'text-stone-500 font-medium hover:text-marine-hover',
-      active: 'text-marine font-medium',
-      muted: 'text-stone-500 font-medium hover:text-marine-hover',
+      default: 'text-stone-500 hover:text-marine-hover',
+      active: 'text-marine',
+      muted: 'text-stone-500 hover:text-marine-hover',
     },
     transform: {
       uppercase: 'uppercase tracking-wider',
       none: '',
+    },
+    weight: {
+      light: 'font-light',
+      normal: 'font-normal',
+      medium: 'font-medium',
+      semibold: 'font-semibold',
+      bold: 'font-bold',
     },
   };
 
@@ -50,6 +59,7 @@ export function NavText({
         styles.size[size],
         styles.variant[variant],
         styles.transform[transform],
+        styles.weight[weight],
         className
       )}
       {...props}

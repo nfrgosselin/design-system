@@ -47,6 +47,11 @@ export interface NavItemProps extends Omit<LinkProps, 'variant' | 'size'> {
   underline?: boolean;
 
   /**
+   * Font weight for the nav text
+   */
+  weight?: 'light' | 'normal' | 'medium' | 'semibold' | 'bold';
+
+  /**
    * Horizontal alignment of the nav item
    */
   align?: 'left' | 'center' | 'right';
@@ -67,6 +72,7 @@ export function NavItem({
   size = 'base',
   transform = 'none',
   underline = false,
+  weight = 'medium',
   align = 'left',
   ...props
 }: NavItemProps) {
@@ -113,6 +119,7 @@ export function NavItem({
           size={size}
           transform={transform}
           underline={underline}
+          weight={weight}
         >
           {children}
         </NavText>
