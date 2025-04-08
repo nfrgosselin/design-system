@@ -1,61 +1,112 @@
 import { UIHeader } from '../components/typography/ui/UIHeader';
 import { Container } from '../components/layout/core/container';
-import { Input } from '../components/forms/Input';
+import {
+  Link,
+  InlineLink,
+  UtilityLink,
+  MetadataLink,
+  BreadcrumbLink,
+} from '../components/navigation/link';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 
 export function Workbench() {
   return (
     <div className="min-h-screen bg-white">
       <Container size="max" className="py-8">
-        <UIHeader level={2}>Input Component</UIHeader>
+        <UIHeader level={2}>Link Component</UIHeader>
         <p className="mt-4 text-stone-600">
-          Our design system includes various input styles to accommodate different use cases and
+          Our design system includes various link styles to accommodate different use cases and
           visual hierarchies.
         </p>
 
         <div className="mt-8">
-          <UIHeader level={3}>Input Variants</UIHeader>
-          <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Input variant="default" placeholder="Default variant" />
-            <Input variant="muted" placeholder="Muted variant" />
+          <UIHeader level={3}>Inline Links</UIHeader>
+          <div className="mt-4">
+            <p className="text-stone-600">
+              This is a paragraph with an <InlineLink href="#">inline link</InlineLink> that
+              inherits the font from its parent. Inline links are typically used within paragraphs
+              of text.
+            </p>
           </div>
         </div>
 
         <div className="mt-8">
-          <UIHeader level={3}>Input Sizes</UIHeader>
+          <UIHeader level={3}>Standalone Links</UIHeader>
           <div className="mt-4 flex flex-col gap-4">
-            <Input size="xs" placeholder="Extra small input" />
-            <Input size="base" placeholder="Base size input" />
-            <Input size="lg" placeholder="Large input" />
-            <Input size="xl" placeholder="Extra large input" />
+            <Link href="#" variant="standalone">
+              Standalone link
+            </Link>
+            <Link href="#" variant="standalone-icon-right">
+              Standalone with icon right
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+            <Link href="#" variant="standalone-icon-left">
+              Standalone with icon left
+              <ArrowLeft className="h-4 w-4" />
+            </Link>
           </div>
         </div>
 
         <div className="mt-8">
-          <UIHeader level={3}>Input Types</UIHeader>
+          <UIHeader level={3}>Button-like Links</UIHeader>
           <div className="mt-4 flex flex-col gap-4">
-            <Input type="text" placeholder="Text input" />
-            <Input type="password" placeholder="Password input" />
-            <Input type="search" placeholder="Search input" />
-            <Input type="email" placeholder="Email input" />
-            <Input type="number" placeholder="Number input" />
+            <Link href="#" variant="button">
+              Button link
+            </Link>
+            <Link href="#" variant="button-outline">
+              Button outline link
+            </Link>
+            <Link href="#" variant="button-accent">
+              Button accent link
+            </Link>
           </div>
         </div>
 
         <div className="mt-8">
-          <UIHeader level={3}>Input States</UIHeader>
+          <UIHeader level={3}>Metadata Links</UIHeader>
           <div className="mt-4 flex flex-col gap-4">
-            <Input placeholder="Normal input" />
-            <Input placeholder="Disabled input" disabled />
-            <Input placeholder="Loading input" isLoading />
-            <Input placeholder="Error state" error />
+            <MetadataLink href="#">Metadata link</MetadataLink>
           </div>
         </div>
 
         <div className="mt-8">
-          <UIHeader level={3}>Font Variants</UIHeader>
+          <UIHeader level={3}>Breadcrumb Links</UIHeader>
           <div className="mt-4 flex flex-col gap-4">
-            <Input font="sans" placeholder="Sans-serif font" />
-            <Input font="serif" placeholder="Serif font" />
+            <BreadcrumbLink href="#">Breadcrumb link</BreadcrumbLink>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <UIHeader level={3}>Utility Links</UIHeader>
+          <div className="mt-4 flex flex-col gap-4">
+            <UtilityLink href="#">Utility link</UtilityLink>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <UIHeader level={3}>Link States</UIHeader>
+          <div className="mt-4 flex flex-col gap-4">
+            <Link href="#" variant="button">
+              Normal link
+            </Link>
+            <Link href="#" variant="button" disabled>
+              Disabled link
+            </Link>
+            <Link href="#" variant="button" isLoading>
+              Loading link
+            </Link>
+          </div>
+        </div>
+
+        <div className="mt-8">
+          <UIHeader level={3}>External Links</UIHeader>
+          <div className="mt-4 flex flex-col gap-4">
+            <Link href="https://example.com" isExternal>
+              External link
+            </Link>
+            <Link href="https://example.com" isExternal showExternalIcon={false}>
+              External link without icon
+            </Link>
           </div>
         </div>
       </Container>

@@ -13,19 +13,20 @@ const linkVariants = cva(
           'text-brand hover:text-brand/80 active:text-brand/70 visited:text-sunset underline underline-offset-4',
 
         // Standalone links (not in paragraph)
-        standalone: 'font-sans text-sm font-medium text-brand hover:text-brand',
+        standalone:
+          'font-sans text-sm font-medium text-brand hover:text-brand-hover hover:underline hover:underline-offset-4',
         'standalone-icon-right':
-          'font-sans text-sm font-medium text-brand hover:text-brand inline-flex items-center gap-1.5',
+          'font-sans text-sm font-medium text-brand hover:text-brand-hover hover:underline hover:underline-offset-4 inline-flex items-center gap-1.5',
         'standalone-icon-left':
-          'font-sans text-sm font-medium text-brand hover:text-brand inline-flex items-center gap-1.5 flex-row-reverse',
+          'font-sans text-sm font-medium text-brand hover:text-brand-hover hover:underline hover:underline-offset-4 inline-flex items-center gap-1.5 flex-row-reverse',
 
         // Button-like links
         button:
-          'inline-flex items-center justify-center h-9 px-6 font-sans text-sm font-medium bg-black text-white border-2 border-black rounded-md hover:bg-white hover:text-black',
+          'inline-flex items-center justify-center h-10 px-6 min-h-[2.5rem] font-sans text-xs font-semibold tracking-normal leading-none rounded-lg bg-brand text-white border border-transparent hover:bg-brand-hover active:bg-brand-active transition-color duration-ultra-fast ease-in-out disabled:pointer-events-none disabled:opacity-50',
         'button-outline':
-          'inline-flex items-center justify-center h-9 px-6 font-sans text-sm font-medium border border-stone-200 text-stone-900 rounded-md hover:border-stone-900',
+          'inline-flex items-center justify-center h-10 px-6 min-h-[2.5rem] font-sans text-xs font-medium tracking-normal leading-none rounded-lg bg-white text-stone-700 border-2 border-stone-500 hover:bg-white hover:text-black hover:border-black active:bg-white active:text-black active:border-black transition-color duration-ultra-fast ease-in-out disabled:pointer-events-none disabled:opacity-50',
         'button-accent':
-          'inline-flex items-center justify-center h-9 px-6 font-sans text-sm font-medium bg-white text-black border-2 border-black rounded-md hover:bg-brand hover:text-white hover:border-brand',
+          'inline-flex items-center justify-center h-10 px-6 min-h-[2.5rem] font-sans text-xs font-semibold tracking-normal leading-none rounded-lg bg-black text-white border border-transparent hover:bg-black/90 active:bg-black/80 transition-color duration-ultra-fast ease-in-out disabled:pointer-events-none disabled:opacity-50',
 
         // Small/metadata links
         metadata: 'font-sans text-xs text-stone-500 hover:text-stone-700 hover:underline',

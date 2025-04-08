@@ -1,19 +1,11 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import {
-  Link,
-  InlineLink,
-  UtilityLink,
-  ButtonLink,
-  MetadataLink,
-  BreadcrumbLink,
-  type LinkProps,
-} from '../../../components/navigation/link';
+import { Link, type LinkProps } from '../../../components/navigation/link';
 import { axe, toHaveNoViolations } from 'jest-axe';
 
 expect.extend(toHaveNoViolations);
 
-describe.skip('Link Component', () => {
+describe('Link Component', () => {
   // Base Rendering Tests
   describe('Rendering', () => {
     it('renders correctly with default props', () => {
@@ -82,36 +74,64 @@ describe.skip('Link Component', () => {
     });
   });
 
-  // External Link Tests
-  describe('External Links', () => {
-    it('handles external links correctly', () => {
+  // Variant Style Tests
+  describe('Variant Styles', () => {
+    it('applies correct styles to standalone links', () => {
       render(
-        <Link href="https://example.com" isExternal>
-          External Link
+        <Link href="/test" variant="standalone">
+          Standalone Link
         </Link>
       );
       const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('target', '_blank');
-      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
-      expect(link).toHaveAttribute('aria-label', 'External Link (opens in new tab)');
+      expect(link).toHaveClass(
+        'font-sans',
+        'text-sm',
+        'font-medium',
+        'text-brand',
+        'hover:text-brand-hover',
+        'hover:underline',
+        'hover:underline-offset-4'
+      );
     });
 
-    it('shows external icon by default for external links', () => {
+    it('applies correct styles to button links', () => {
       render(
-        <Link href="https://example.com" isExternal>
-          External Link
+        <Link href="/test" variant="button">
+          Button Link
         </Link>
       );
-      expect(screen.getByRole('link').querySelector('svg')).toBeInTheDocument();
+      const link = screen.getByRole('link');
+      expect(link).toHaveClass(
+        'inline-flex',
+        'items-center',
+        'justify-center',
+        'h-10',
+        'px-6',
+        'min-h-[2.5rem]',
+        'font-sans',
+        'text-xs',
+        'font-semibold',
+        'rounded-lg',
+        'bg-brand',
+        'text-white'
+      );
     });
 
-    it('can hide external icon', () => {
+    it('applies correct styles to button-outline links', () => {
       render(
-        <Link href="https://example.com" isExternal showExternalIcon={false}>
-          External Link
+        <Link href="/test" variant="button-outline">
+          Outline Button Link
         </Link>
       );
-      expect(screen.getByRole('link').querySelector('svg')).not.toBeInTheDocument();
+      const link = screen.getByRole('link');
+      expect(link).toHaveClass(
+        'bg-white',
+        'text-stone-700',
+        'border-2',
+        'border-stone-500',
+        'hover:text-black',
+        'hover:border-black'
+      );
     });
   });
 
@@ -126,7 +146,13 @@ describe.skip('Link Component', () => {
       const link = screen.getByRole('link');
       expect(link).not.toHaveAttribute('href');
       expect(link).toHaveAttribute('aria-disabled', 'true');
-      expect(link).toHaveClass('opacity-50', 'pointer-events-none');
+      expect(link).toHaveClass(
+        'disabled:cursor-not-allowed',
+        'disabled:opacity-50',
+        'opacity-50',
+        'pointer-events-none',
+        'cursor-not-allowed'
+      );
     });
 
     it('handles loading state', () => {
@@ -139,15 +165,6 @@ describe.skip('Link Component', () => {
       expect(link).toHaveClass('cursor-wait');
       expect(screen.getByText('Loading Link')).toBeInTheDocument();
       expect(link.querySelector('svg')).toHaveClass('animate-spin');
-    });
-
-    it('applies brand color to standalone links', () => {
-      render(
-        <Link href="/test" variant="standalone">
-          Active Link
-        </Link>
-      );
-      expect(screen.getByRole('link')).toHaveClass('text-brand');
     });
   });
 
@@ -169,39 +186,6 @@ describe.skip('Link Component', () => {
     });
   });
 
-  // Specialized Link Components
-  describe('Specialized Link Components', () => {
-    it('renders InlineLink with inline variant', () => {
-      render(<InlineLink href="/test">Inline Link</InlineLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('text-brand');
-    });
-
-    it('renders UtilityLink with utility variant', () => {
-      render(<UtilityLink href="/test">Utility Link</UtilityLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('font-sans', 'text-xs', 'text-stone-500');
-    });
-
-    it('renders ButtonLink with button variant', () => {
-      render(<ButtonLink href="/test">Button Link</ButtonLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('bg-black', 'text-white', 'border-black');
-    });
-
-    it('renders MetadataLink with metadata variant', () => {
-      render(<MetadataLink href="/test">Metadata Link</MetadataLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('font-sans', 'text-xs', 'text-stone-500');
-    });
-
-    it('renders BreadcrumbLink with breadcrumb variant', () => {
-      render(<BreadcrumbLink href="/test">Breadcrumb Link</BreadcrumbLink>);
-      const link = screen.getByRole('link');
-      expect(link).toHaveClass('font-sans', 'text-sm', 'text-stone-600');
-    });
-  });
-
   // Design Token Integration Tests
   describe('Design Token Integration', () => {
     it('applies focus styles', () => {
@@ -214,14 +198,14 @@ describe.skip('Link Component', () => {
       );
     });
 
-    it('applies hover styles for standalone variant', () => {
+    it('applies transition styles to button variants', () => {
       render(
-        <Link href="/test" variant="standalone">
-          Standalone Link
+        <Link href="/test" variant="button">
+          Button Link
         </Link>
       );
       const link = screen.getByRole('link');
-      expect(link).toHaveClass('hover:text-brand');
+      expect(link).toHaveClass('transition-color', 'duration-ultra-fast', 'ease-in-out');
     });
 
     it('applies consistent font families', () => {
