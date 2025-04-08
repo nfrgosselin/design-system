@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { NavItem } from '../NavItem';
+import { NavItem } from '../../../components/navigation/NavItem';
 
 describe('NavItem', () => {
   it('renders basic nav item with text', () => {
@@ -46,8 +46,27 @@ describe('NavItem', () => {
         Home
       </NavItem>
     );
-    const text = screen.getByText('Home');
-    expect(text.parentElement).toHaveClass('text-brand');
+    const link = screen.getByRole('link');
+    expect(link).toHaveAttribute('data-active', 'true');
+    const icon = link.querySelector('.shrink-0');
+    if (icon) {
+      expect(icon).toHaveClass('text-marine');
+    }
+  });
+
+  it('applies default styles when not active', () => {
+    render(
+      <NavItem href="/home" icon="page">
+        Home
+      </NavItem>
+    );
+    const link = screen.getByRole('link');
+    expect(link).not.toHaveAttribute('data-active');
+    const icon = link.querySelector('.shrink-0');
+    if (icon) {
+      expect(icon).toHaveClass('text-stone-500');
+      expect(icon).toHaveClass('group-hover:text-marine-hover');
+    }
   });
 
   it('applies different sizes correctly', () => {
@@ -94,22 +113,15 @@ describe('NavItem', () => {
     expect(screen.getByRole('link')).toHaveClass('ml-auto');
   });
 
-  it('renders side variant with correct styles', () => {
+  it('applies underline effect when specified', () => {
     render(
-      <NavItem href="/home" variant="side">
+      <NavItem href="/home" underline>
         Home
       </NavItem>
     );
-    expect(screen.getByRole('link')).toHaveClass('w-full', 'rounded-md');
-  });
-
-  it('renders top variant with underline effect', () => {
-    render(
-      <NavItem href="/home" variant="top">
-        Home
-      </NavItem>
-    );
-    const link = screen.getByRole('link');
-    expect(link).toHaveClass('after:absolute', 'after:bottom-0');
+    const text = screen.getByText('Home');
+    expect(text).toHaveClass('pb-0.5');
+    expect(text).toHaveClass('after:w-0');
+    expect(text).toHaveClass('after:bg-marine');
   });
 });

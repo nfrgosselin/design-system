@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { Divider, DividerProps } from '../divider';
+import { Divider, DividerProps } from '../../../../components/layout/core/divider';
 
 describe('Divider', () => {
   describe('variants', () => {

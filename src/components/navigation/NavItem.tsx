@@ -7,11 +7,6 @@ import type { LinkProps } from './link';
 
 export interface NavItemProps extends Omit<LinkProps, 'variant' | 'size'> {
   /**
-   * The navigation variant that determines the styling and layout
-   */
-  variant?: 'top' | 'side';
-
-  /**
    * Optional icon to display with the nav item
    */
   icon?: IconName;
@@ -62,7 +57,6 @@ export interface NavItemProps extends Omit<LinkProps, 'variant' | 'size'> {
  * Provides a complete navigation item solution with icon support and text styling.
  */
 export function NavItem({
-  variant = 'top',
   icon,
   iconOnly = false,
   iconPosition = 'start',
@@ -71,41 +65,22 @@ export function NavItem({
   isActive,
   textVariant = 'default',
   size = 'base',
-  transform = 'uppercase',
+  transform = 'none',
   underline = false,
   align = 'left',
   ...props
 }: NavItemProps) {
   const styles = {
     base: 'inline-flex items-center transition-colors duration-150 group',
-    variants: {
-      top: cn(
-        'py-2 relative w-fit',
-        !isActive && [
-          'after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-brand',
-          'after:transition-all after:duration-200 after:ease-out',
-          'hover:after:w-full after:w-0',
-        ]
-      ),
-      side: cn(
-        'w-full rounded-md px-4 py-2',
-        isActive
-          ? 'bg-background-subtle text-foreground'
-          : 'text-muted hover:bg-background-subtle hover:text-foreground'
-      ),
-    },
+    nav: 'py-2 px-4',
     iconOnly: 'justify-center p-2',
-    iconGap: icon ? 'gap-3' : '',
+    iconGap: icon ? 'gap-2' : '',
     icon: {
       default: cn(
         'shrink-0 transition-colors duration-150',
-        isActive
-          ? 'text-brand'
-          : textVariant === 'muted'
-            ? 'text-muted group-hover:text-brand'
-            : 'text-foreground group-hover:text-brand'
+        'text-stone-500 group-hover:text-marine-hover',
+        isActive && 'text-marine'
       ),
-      end: 'ml-auto',
     },
     align: {
       left: '',
@@ -116,9 +91,11 @@ export function NavItem({
 
   return (
     <Link
+      variant="nav"
+      data-active={isActive ? 'true' : undefined}
       className={cn(
         styles.base,
-        !iconOnly && styles.variants[variant],
+        !iconOnly && styles.nav,
         iconOnly && styles.iconOnly,
         styles.iconGap,
         styles.align[align],
@@ -141,7 +118,7 @@ export function NavItem({
         </NavText>
       )}
       {icon && iconPosition === 'end' && (
-        <NamedIcon name={icon} size="sm" className={cn(styles.icon.default, styles.icon.end)} />
+        <NamedIcon name={icon} size="sm" className={styles.icon.default} />
       )}
     </Link>
   );

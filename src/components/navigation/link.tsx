@@ -12,6 +12,9 @@ const linkVariants = cva(
         inline:
           'text-brand hover:text-brand/80 active:text-brand/70 visited:text-sunset underline underline-offset-4',
 
+        // Navigation links
+        nav: 'text-stone-500 hover:text-marine-hover data-[active=true]:text-marine',
+
         // Standalone links (not in paragraph)
         standalone:
           'font-sans text-sm font-medium text-brand hover:text-brand-hover hover:underline hover:underline-offset-4',

@@ -125,9 +125,9 @@ describe('UI Typography Components', () => {
       expect(nav).toHaveClass(
         'font-sans',
         'text-base',
-        'text-stone-700',
+        'text-stone-500',
         'font-medium',
-        'hover:text-brand',
+        'hover:text-marine-hover',
         'uppercase',
         'tracking-wider'
       );
@@ -136,7 +136,7 @@ describe('UI Typography Components', () => {
     it('renders with active variant', () => {
       render(<NavText variant="active">Active Nav</NavText>);
       const nav = screen.getByText('Active Nav');
-      expect(nav).toHaveClass('text-brand');
+      expect(nav).toHaveClass('text-marine');
     });
 
     it('renders with muted variant', () => {
