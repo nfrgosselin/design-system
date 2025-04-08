@@ -106,9 +106,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           onChange={initialType === 'search' ? handleSearchChange : onChange}
           className={cn(
             // Base styles
-            'w-full rounded-md border-2 bg-background transition-colors duration-base',
+            'w-full rounded-md border border-stone-500 bg-background transition-colors duration-base',
             'placeholder:text-muted-foreground',
-            'focus:outline-none focus-visible:ring-2 focus-visible:ring-brand',
+            'focus:outline-none focus-visible:border-brand focus-visible:ring-1 focus-visible:ring-brand focus-visible:bg-stone-50',
 
             // Font family
             font === 'sans' ? 'font-sans' : 'font-serif',
@@ -120,11 +120,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             size === 'xl' && 'h-12 px-4 text-lg',
 
             // Visual variants
-            variant === 'default' && [
-              'border-stone-900',
-              'hover:border-stone-500',
-              'focus-visible:border-ring',
-            ],
+            variant === 'default' && ['hover:border-stone-900', 'focus-visible:border-ring'],
             variant === 'muted' && [
               'border-stone-200 bg-muted',
               'hover:border-stone-300',

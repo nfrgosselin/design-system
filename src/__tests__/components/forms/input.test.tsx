@@ -34,7 +34,7 @@ describe('Input Component', () => {
         const input = getInput();
 
         if (variant === 'default') {
-          expect(input).toHaveClass('border-stone-900');
+          expect(input).toHaveClass('border-stone-500');
         } else {
           expect(input).toHaveClass('border-stone-200', 'bg-muted');
         }
@@ -190,15 +190,17 @@ describe('Input Component', () => {
       const input = getInput();
       expect(input).toHaveClass(
         'focus:outline-none',
-        'focus-visible:ring-2',
-        'focus-visible:ring-brand'
+        'focus-visible:border-ring',
+        'focus-visible:ring-1',
+        'focus-visible:ring-brand',
+        'focus-visible:bg-stone-50'
       );
     });
 
-    it('applies proper hover styles', () => {
+    it('applies proper base border styles', () => {
       render(<Input variant="default" />);
       const input = getInput();
-      expect(input).toHaveClass('hover:border-stone-500');
+      expect(input).toHaveClass('border', 'border-stone-500');
     });
   });
 });
