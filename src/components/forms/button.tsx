@@ -13,55 +13,27 @@ const buttonVariants = cva(
     'transition-color duration-ultra-fast ease-in-out',
     'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ring-offset-2',
     'disabled:pointer-events-none disabled:opacity-50',
+    'border border-transparent',
   ],
   {
     variants: {
       variant: {
-        solid: [
-          'bg-black text-white border-2 border-black',
-          'hover:bg-white hover:text-black',
-          'active:bg-white active:text-black',
-        ].join(' '),
+        solid: 'text-white font-semibold hover:border-black',
         outline: [
-          'bg-white text-black border-2 border-black',
-          'hover:bg-black hover:text-white',
-          'active:bg-black active:text-white',
+          'bg-white text-stone-700 border-2 border-stone-500',
+          'hover:bg-white hover:text-black hover:border-black',
+          'active:bg-white active:text-black active:border-black',
         ].join(' '),
-        'brand-outline': [
-          'bg-white text-black border-2 border-black',
-          'hover:bg-brand hover:text-white hover:border-black',
-          'active:bg-brand-active active:text-white active:border-brand-active',
-        ].join(' '),
-        brand: [
-          'bg-brand text-white border-2 border-black',
-          'hover:bg-white hover:text-black',
-          'active:bg-white active:text-black',
-        ].join(' '),
-        'brand-solid': [
-          'bg-brand text-white border-2 border-black',
-          'hover:bg-white hover:text-black',
-          'active:bg-white active:text-black',
-        ].join(' '),
-        accent: [
-          'bg-brand text-white border-2 border-black',
-          'hover:bg-brand-hover',
-          'active:bg-brand-active',
-        ].join(' '),
-        'outline-accent': [
-          'border border-gray-200 text-brand',
-          'hover:border-brand hover:text-brand-hover',
-          'active:border-brand-active active:text-brand-active',
-        ].join(' '),
-        'outline-subtle': [
-          'border border-gray-200 text-black',
-          'hover:border-black',
-          'active:border-black',
-        ].join(' '),
-        ghost: [
-          'border border-stone-200 text-stone-600',
-          'hover:text-black hover:bg-stone-100 hover:border-stone-200',
-          'active:bg-stone-200',
-        ].join(' '),
+        solidReverse:
+          'text-white font-semibold hover:bg-white hover:text-black hover:border-black active:bg-white active:text-black active:border-black',
+      },
+      color: {
+        brand: '',
+        lagoon: '',
+        peach: '',
+        slate: '',
+        gold: '',
+        black: '',
       },
       size: {
         sm: 'h-8 px-4 text-xs min-h-[2rem]',
@@ -80,17 +52,58 @@ const buttonVariants = cva(
         true: 'cursor-wait',
       },
     },
+    compoundVariants: [
+      {
+        variant: 'solid',
+        color: 'brand',
+        className: 'bg-brand hover:bg-brand-hover active:bg-brand-active',
+      },
+      {
+        variant: 'solid',
+        color: 'lagoon',
+        className: 'bg-lagoon hover:bg-lagoon-hover active:bg-lagoon-active',
+      },
+      {
+        variant: 'solid',
+        color: 'peach',
+        className: 'bg-peach hover:bg-peach-hover active:bg-peach-active',
+      },
+      {
+        variant: 'solid',
+        color: 'slate',
+        className: 'bg-slate hover:bg-slate-hover active:bg-slate-active',
+      },
+      {
+        variant: 'solid',
+        color: 'gold',
+        className: 'bg-gold hover:bg-gold-hover active:bg-gold-active',
+      },
+      {
+        variant: 'solid',
+        color: 'black',
+        className: 'bg-black hover:bg-black/90 active:bg-black/80',
+      },
+      { variant: 'solidReverse', color: 'brand', className: 'bg-brand' },
+      { variant: 'solidReverse', color: 'lagoon', className: 'bg-lagoon' },
+      { variant: 'solidReverse', color: 'peach', className: 'bg-peach' },
+      { variant: 'solidReverse', color: 'slate', className: 'bg-slate' },
+      { variant: 'solidReverse', color: 'gold', className: 'bg-gold' },
+      { variant: 'solidReverse', color: 'black', className: 'bg-black' },
+    ],
     defaultVariants: {
       variant: 'solid',
       size: 'md',
+      color: 'brand',
       isLoading: false,
     },
   }
 );
 
+type ButtonVariants = VariantProps<typeof buttonVariants>;
+
 interface ButtonProps
-  extends ButtonHTMLAttributes<HTMLButtonElement>,
-    Omit<VariantProps<typeof buttonVariants>, 'iconOnly'> {
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'color'>,
+    Omit<ButtonVariants, 'iconOnly'> {
   isLoading?: boolean;
   icon?: LucideIcon;
   iconPosition?: 'left' | 'right';
@@ -103,6 +116,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       variant,
       size,
+      color,
       fullWidth,
       isLoading,
       icon: Icon,
@@ -127,6 +141,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(
           buttonVariants({
             variant,
+            color,
             size: isIconOnly ? undefined : size,
             iconOnly: isIconOnly ? size : undefined,
             fullWidth,

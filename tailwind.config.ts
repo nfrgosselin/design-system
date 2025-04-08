@@ -55,6 +55,8 @@ const config: Config = {
 
         // Design System Colors
         brand: 'hsl(var(--brand))',
+        'brand-hover': 'hsl(var(--brand-hover))',
+        'brand-active': 'hsl(var(--brand-active))',
 
         // Product Identity Colors
         ocean: {
@@ -62,7 +64,11 @@ const config: Config = {
           hover: 'hsl(var(--ocean-hover))',
           active: 'hsl(var(--ocean-active))',
         },
-        sunset: 'hsl(var(--sunset))',
+        sunset: {
+          DEFAULT: 'hsl(var(--sunset))',
+          hover: 'hsl(var(--sunset-hover))',
+          active: 'hsl(var(--sunset-active))',
+        },
         sun: {
           DEFAULT: 'hsl(var(--sun))',
           hover: 'hsl(var(--sun-hover))',
@@ -75,14 +81,46 @@ const config: Config = {
         },
 
         // Supporting Accents
-        seafoam: { DEFAULT: 'hsl(var(--seafoam))' },
-        coral: { DEFAULT: 'hsl(var(--coral))' },
-        navy: { DEFAULT: 'hsl(var(--navy))' },
-        amber: { DEFAULT: 'hsl(var(--amber))' },
-        lagoon: { DEFAULT: 'hsl(var(--lagoon))' },
-        peach: { DEFAULT: 'hsl(var(--peach))' },
-        slate: { DEFAULT: 'hsl(var(--slate))' },
-        gold: { DEFAULT: 'hsl(var(--gold))' },
+        seafoam: {
+          DEFAULT: 'hsl(var(--seafoam))',
+          hover: 'hsl(var(--seafoam-hover))',
+          active: 'hsl(var(--seafoam-active))',
+        },
+        coral: {
+          DEFAULT: 'hsl(var(--coral))',
+          hover: 'hsl(var(--coral-hover))',
+          active: 'hsl(var(--coral-active))',
+        },
+        navy: {
+          DEFAULT: 'hsl(var(--navy))',
+          hover: 'hsl(var(--navy-hover))',
+          active: 'hsl(var(--navy-active))',
+        },
+        amber: {
+          DEFAULT: 'hsl(var(--amber))',
+          hover: 'hsl(var(--amber-hover))',
+          active: 'hsl(var(--amber-active))',
+        },
+        lagoon: {
+          DEFAULT: 'hsl(var(--lagoon))',
+          hover: 'hsl(var(--lagoon-hover))',
+          active: 'hsl(var(--lagoon-active))',
+        },
+        peach: {
+          DEFAULT: 'hsl(var(--peach))',
+          hover: 'hsl(var(--peach-hover))',
+          active: 'hsl(var(--peach-active))',
+        },
+        slate: {
+          DEFAULT: 'hsl(var(--slate))',
+          hover: 'hsl(var(--slate-hover))',
+          active: 'hsl(var(--slate-active))',
+        },
+        gold: {
+          DEFAULT: 'hsl(var(--gold))',
+          hover: 'hsl(var(--gold-hover))',
+          active: 'hsl(var(--gold-active))',
+        },
 
         // Status Colors
         success: 'hsl(var(--success))',

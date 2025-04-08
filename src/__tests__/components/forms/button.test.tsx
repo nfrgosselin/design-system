@@ -16,19 +16,32 @@ describe('Button Component', () => {
     });
 
     it('renders with different variants', () => {
-      const variants: NonNullable<ButtonProps['variant']>[] = [
-        'solid',
-        'outline',
-        'brand',
-        'brand-outline',
-        'accent',
-        'outline-accent',
-        'outline-subtle',
-        'ghost',
-      ];
+      const variants: NonNullable<ButtonProps['variant']>[] = ['solid', 'outline', 'solidReverse'];
 
       variants.forEach(variant => {
         const { rerender } = render(<Button variant={variant}>Button</Button>);
+        const button = screen.getByRole('button');
+        expect(button).toBeInTheDocument();
+        rerender(<></>);
+      });
+    });
+
+    it('renders with different colors', () => {
+      const colors: NonNullable<ButtonProps['color']>[] = [
+        'brand',
+        'lagoon',
+        'peach',
+        'slate',
+        'gold',
+        'black',
+      ];
+
+      colors.forEach(color => {
+        const { rerender } = render(
+          <Button variant="solid" color={color}>
+            Button
+          </Button>
+        );
         const button = screen.getByRole('button');
         expect(button).toBeInTheDocument();
         rerender(<></>);
@@ -68,6 +81,27 @@ describe('Button Component', () => {
     it('renders as full width', () => {
       render(<Button fullWidth>Full Width</Button>);
       expect(screen.getByRole('button')).toHaveClass('w-full');
+    });
+
+    it('renders solid variant with custom color', () => {
+      render(
+        <Button variant="solid" color="lagoon">
+          Colored Button
+        </Button>
+      );
+      const button = screen.getByRole('button');
+      expect(button).toHaveClass('bg-lagoon');
+    });
+
+    it('renders solidReverse variant with custom color', () => {
+      render(
+        <Button variant="solidReverse" color="lagoon">
+          Reverse Colored Button
+        </Button>
+      );
+      const button = screen.getByRole('button');
+      expect(button).toHaveClass('bg-lagoon');
+      expect(button).toHaveClass('hover:bg-white');
     });
   });
 
@@ -143,10 +177,16 @@ describe('Button Component', () => {
       expect(button).toHaveClass('focus-visible:outline-none', 'focus-visible:ring-2');
     });
 
-    it('applies proper hover styles', () => {
-      render(<Button variant="solid">Hover Test</Button>);
+    it('has transparent border by default', () => {
+      render(<Button>Border Test</Button>);
       const button = screen.getByRole('button');
-      expect(button).toHaveClass('hover:bg-white', 'hover:text-black');
+      expect(button).toHaveClass('border', 'border-transparent');
+    });
+
+    it('changes border color on hover', () => {
+      render(<Button>Hover Test</Button>);
+      const button = screen.getByRole('button');
+      expect(button).toHaveClass('hover:border-black');
     });
   });
 });

@@ -68,14 +68,37 @@
     --brand-active: var(--ocean-active);
     
     /* Supporting Accents */
-    --seafoam: var(--ds-color-seafoam);
-    --coral: var(--ds-color-coral);
-    --navy: var(--ds-color-navy);
-    --amber: var(--ds-color-amber);
-    --lagoon: var(--ds-color-lagoon);
-    --peach: var(--ds-color-peach);
-    --slate: var(--ds-color-slate);
-    --gold: var(--ds-color-gold);
+    --seafoam: var(--ds-color-seafoam-base);
+    --seafoam-hover: var(--ds-color-seafoam-hover);
+    --seafoam-active: var(--ds-color-seafoam-active);
+
+    --coral: var(--ds-color-coral-base);
+    --coral-hover: var(--ds-color-coral-hover);
+    --coral-active: var(--ds-color-coral-active);
+
+    --navy: var(--ds-color-navy-base);
+    --navy-hover: var(--ds-color-navy-hover);
+    --navy-active: var(--ds-color-navy-active);
+
+    --amber: var(--ds-color-amber-base);
+    --amber-hover: var(--ds-color-amber-hover);
+    --amber-active: var(--ds-color-amber-active);
+
+    --lagoon: var(--ds-color-lagoon-base);
+    --lagoon-hover: var(--ds-color-lagoon-hover);
+    --lagoon-active: var(--ds-color-lagoon-active);
+
+    --peach: var(--ds-color-peach-base);
+    --peach-hover: var(--ds-color-peach-hover);
+    --peach-active: var(--ds-color-peach-active);
+
+    --slate: var(--ds-color-slate-base);
+    --slate-hover: var(--ds-color-slate-hover);
+    --slate-active: var(--ds-color-slate-active);
+
+    --gold: var(--ds-color-gold-base);
+    --gold-hover: var(--ds-color-gold-hover);
+    --gold-active: var(--ds-color-gold-active);
     
     /* Status Colors */
     --success: var(--ds-color-success);
