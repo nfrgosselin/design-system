@@ -52,8 +52,9 @@ export interface NewsletterSignupProps {
    * Layout variant
    * - inline: Input and button side by side (default)
    * - stacked: Input and button stacked vertically
+   * - streamlined: Compact stacked layout without heading, max-width 200px
    */
-  variant?: 'inline' | 'stacked';
+  variant?: 'inline' | 'stacked' | 'streamlined';
 }
 
 export function NewsletterSignup({
@@ -74,19 +75,25 @@ export function NewsletterSignup({
     onSubmit?.(email);
   };
 
+  const isStreamlined = variant === 'streamlined';
+  const isStacked = variant === 'stacked' || isStreamlined;
+
   return (
-    <div className={className}>
-      <p className="text-stone-600 font-sans text-sm">{headingText}</p>
+    <div
+      className={cn(
+        isStreamlined && 'max-w-[200px]',
+        variant === 'stacked' && 'max-w-[250px]',
+        className
+      )}
+    >
+      {!isStreamlined && <p className="text-stone-600 font-sans text-sm">{headingText}</p>}
       <form
         onSubmit={handleSubmit}
         role="form"
         aria-label="Newsletter signup form"
-        className={cn(
-          variant === 'inline' ? 'mt-2' : 'mt-1.5',
-          variant === 'inline' ? 'flex gap-3' : 'flex flex-col gap-2'
-        )}
+        className={cn(isStacked ? 'flex flex-col gap-2' : 'flex gap-3', !isStreamlined && 'mt-2')}
       >
-        <div className={cn('relative', variant === 'stacked' ? 'w-full' : 'flex-1')}>
+        <div className={cn('relative', isStacked ? 'w-full' : 'flex-1')}>
           <Input
             type="email"
             placeholder={placeholder}
@@ -107,7 +114,7 @@ export function NewsletterSignup({
           color="brand"
           isLoading={status === 'loading'}
           data-loading={status === 'loading' ? 'true' : undefined}
-          className={variant === 'stacked' ? 'w-full' : undefined}
+          className={isStacked ? 'w-full' : undefined}
         >
           {status === 'success' ? 'Submitted!' : 'Subscribe'}
         </Button>

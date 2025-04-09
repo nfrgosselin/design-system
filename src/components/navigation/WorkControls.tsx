@@ -26,9 +26,20 @@ export interface WorkControlsProps {
    * Optional className to override styles
    */
   className?: string;
+
+  /**
+   * Optional click handler for navigation items
+   */
+  onClick?: (item: { label: string; href: string; isActive?: boolean }) => void;
 }
 
-export function WorkControls({ title, navItems, collapsed = false, className }: WorkControlsProps) {
+export function WorkControls({
+  title,
+  navItems,
+  collapsed = false,
+  className,
+  onClick,
+}: WorkControlsProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const activeItem = navItems.find(item => item.isActive) || navItems[0];
 
@@ -36,6 +47,17 @@ export function WorkControls({ title, navItems, collapsed = false, className }: 
     if (collapsed) {
       setIsExpanded(!isExpanded);
     }
+  };
+
+  const handleItemClick = (
+    e: React.MouseEvent,
+    item: { label: string; href: string; isActive?: boolean }
+  ) => {
+    if (collapsed) {
+      e.preventDefault();
+      setIsExpanded(false);
+    }
+    onClick?.(item);
   };
 
   return (
@@ -63,6 +85,7 @@ export function WorkControls({ title, navItems, collapsed = false, className }: 
             weight="medium"
             href={activeItem.href}
             isActive={true}
+            onClick={e => handleItemClick(e, activeItem)}
           >
             {activeItem.label}
           </NavItem>
@@ -77,12 +100,7 @@ export function WorkControls({ title, navItems, collapsed = false, className }: 
                   weight="medium"
                   href={item.href}
                   isActive={item.isActive}
-                  onClick={e => {
-                    if (collapsed) {
-                      e.preventDefault();
-                      setIsExpanded(false);
-                    }
-                  }}
+                  onClick={e => handleItemClick(e, item)}
                 >
                   {item.label}
                 </NavItem>

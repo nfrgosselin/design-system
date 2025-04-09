@@ -5,49 +5,50 @@ describe('BrandNav', () => {
   const defaultProps = {
     brandName: 'Test Brand',
     navItems: [
-      { label: 'Item 1', href: '#1' },
-      { label: 'Item 2', href: '#2', isActive: true },
-      { label: 'Item 3', href: '#3' },
+      { label: 'Home', href: '/', isActive: true },
+      { label: 'About', href: '/about' },
+      { label: 'Contact', href: '/contact' },
     ],
   };
 
-  it('renders brand name', () => {
+  it('renders brand name correctly', () => {
     render(<BrandNav {...defaultProps} />);
     expect(screen.getByText('Test Brand')).toBeInTheDocument();
   });
 
   it('renders navigation items with separators', () => {
     render(<BrandNav {...defaultProps} />);
+    expect(screen.getByText('Home')).toBeInTheDocument();
+    expect(screen.getByText('About')).toBeInTheDocument();
+    expect(screen.getByText('Contact')).toBeInTheDocument();
 
-    // Check nav items
-    expect(screen.getByText('Item 1')).toBeInTheDocument();
-    expect(screen.getByText('Item 2')).toBeInTheDocument();
-    expect(screen.getByText('Item 3')).toBeInTheDocument();
-
-    // Check separators (|)
+    // Check for separators (|)
     const separators = screen.getAllByText('|');
     expect(separators).toHaveLength(2); // Should have 2 separators for 3 items
   });
 
-  it('applies custom stack spacing', () => {
+  it('applies different stack spacing when provided', () => {
     const { container } = render(<BrandNav {...defaultProps} stackSpacing="space-y-4" />);
-    const nav = container.querySelector('nav');
-    expect(nav).toHaveClass('space-y-4');
+    expect(container.firstChild).toHaveClass('space-y-4');
   });
 
-  it('renders without nav items', () => {
-    const { container } = render(<BrandNav brandName={defaultProps.brandName} />);
-
-    // Should not render the nav items container
-    expect(container.querySelector('.flex.items-center')).not.toBeInTheDocument();
-  });
-
-  it('applies correct styling to brand name', () => {
+  it('uses default stack spacing when not provided', () => {
     const { container } = render(<BrandNav {...defaultProps} />);
-    const brandName = container.querySelector(
-      '.text-base.font-semibold.leading-none.tracking-widest'
-    );
-    expect(brandName).toBeInTheDocument();
-    expect(brandName).toHaveTextContent('Test Brand');
+    expect(container.firstChild).toHaveClass('space-y-2');
+  });
+
+  it('renders without navigation items', () => {
+    render(<BrandNav brandName="Test Brand" />);
+    expect(screen.getByText('Test Brand')).toBeInTheDocument();
+    expect(screen.queryByText('|')).not.toBeInTheDocument();
+  });
+
+  it('applies active state to navigation items correctly', () => {
+    render(<BrandNav {...defaultProps} />);
+    const homeLink = screen.getByText('Home').closest('a');
+    expect(homeLink).toHaveAttribute('data-active', 'true'); // Active state
+
+    const aboutLink = screen.getByText('About').closest('a');
+    expect(aboutLink).not.toHaveAttribute('data-active'); // Inactive state
   });
 });

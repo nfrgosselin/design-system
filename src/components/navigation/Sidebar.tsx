@@ -13,16 +13,17 @@ interface SidebarProps {
   footer?: ReactNode;
 
   /**
-   * Optional className to apply to the sidenav container
+   * Optional className to apply to the sidebar container
    */
   className?: string;
 }
 
 export function Sidebar({ children, footer, className = '' }: SidebarProps) {
   return (
-    <nav
+    <aside
       className={cn(
         'sticky top-[80px] h-[calc(100vh-80px)] bg-white z-40 overscroll-none',
+        'py-6 pr-8',
         className
       )}
     >
@@ -31,8 +32,8 @@ export function Sidebar({ children, footer, className = '' }: SidebarProps) {
         <div className="flex-1">{children}</div>
 
         {/* Footer Area */}
-        {footer && <div className="mt-auto bg-white">{footer}</div>}
+        {footer && <div className="mt-auto pt-6 bg-white">{footer}</div>}
       </div>
-    </nav>
+    </aside>
   );
 }
