@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import { NavItem, NavItemProps } from './NavItem';
+import { cn } from '../../lib/utils';
 
 export interface BrandNavProps {
   /**
@@ -27,7 +28,7 @@ export interface BrandNavProps {
 
 export function BrandNav({ brandName, navItems = [], stackSpacing = 'space-y-2' }: BrandNavProps) {
   return (
-    <nav className={`flex flex-col ${stackSpacing}`}>
+    <nav className={cn('flex flex-col', stackSpacing)}>
       {/* Brand Name */}
       <span className="text-base font-semibold leading-none tracking-widest">{brandName}</span>
 

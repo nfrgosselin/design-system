@@ -19,53 +19,65 @@
 
   /* Product Identity Colors */
   --ds-color-ocean-base: 178 54% 44%;
-  --ds-color-ocean-hover: 178 54% 54%;  /* Lighter for hover */
-  --ds-color-ocean-active: 178 54% 64%; /* Even lighter for active */
+  --ds-color-ocean-hover: 178 54% 54%;
+  --ds-color-ocean-active: 178 54% 64%;
+  --ds-color-ocean-muted: 178 54% 44% / 0.1;
 
   --ds-color-sunset-base: 14 100% 60%;
-  --ds-color-sunset-hover: 14 100% 70%;  /* Lighter for hover */
-  --ds-color-sunset-active: 14 100% 80%; /* Even lighter for active */
+  --ds-color-sunset-hover: 14 100% 70%;
+  --ds-color-sunset-active: 14 100% 80%;
+  --ds-color-sunset-muted: 14 100% 60% / 0.1;
 
   --ds-color-sun-base: 45 100% 62%;
-  --ds-color-sun-hover: 45 100% 72%;  /* Lighter for hover */
-  --ds-color-sun-active: 45 100% 82%; /* Even lighter for active */
+  --ds-color-sun-hover: 45 100% 72%;
+  --ds-color-sun-active: 45 100% 82%;
+  --ds-color-sun-muted: 45 100% 62% / 0.1;
 
   --ds-color-marine-base: 217 55% 23%;
-  --ds-color-marine-hover: 217 55% 33%;  /* Lighter for hover */
-  --ds-color-marine-active: 217 55% 43%; /* Even lighter for active */
+  --ds-color-marine-hover: 217 55% 33%;
+  --ds-color-marine-active: 217 55% 43%;
+  --ds-color-marine-muted: 217 55% 23% / 0.1;
 
   /* Supporting Accents */
   --ds-color-seafoam-base: 174 61% 51%;
-  --ds-color-seafoam-hover: 174 61% 61%;  /* Lighter for hover */
-  --ds-color-seafoam-active: 174 61% 71%; /* Even lighter for active */
+  --ds-color-seafoam-hover: 174 61% 61%;
+  --ds-color-seafoam-active: 174 61% 71%;
+  --ds-color-seafoam-muted: 174 61% 51% / 0.1;
 
   --ds-color-coral-base: 14 100% 71%;
-  --ds-color-coral-hover: 14 100% 81%;  /* Lighter for hover */
-  --ds-color-coral-active: 14 100% 91%; /* Even lighter for active */
+  --ds-color-coral-hover: 14 100% 81%;
+  --ds-color-coral-active: 14 100% 91%;
+  --ds-color-coral-muted: 14 100% 71% / 0.1;
 
   --ds-color-navy-base: 213 41% 30%;
-  --ds-color-navy-hover: 213 41% 40%;  /* Lighter for hover */
-  --ds-color-navy-active: 213 41% 50%; /* Even lighter for active */
+  --ds-color-navy-hover: 213 41% 40%;
+  --ds-color-navy-active: 213 41% 50%;
+  --ds-color-navy-muted: 213 41% 30% / 0.1;
 
   --ds-color-amber-base: 39 100% 57%;
-  --ds-color-amber-hover: 39 100% 67%;  /* Lighter for hover */
-  --ds-color-amber-active: 39 100% 77%; /* Even lighter for active */
+  --ds-color-amber-hover: 39 100% 67%;
+  --ds-color-amber-active: 39 100% 77%;
+  --ds-color-amber-muted: 39 100% 57% / 0.1;
 
   --ds-color-lagoon-base: 191 49% 49%;
-  --ds-color-lagoon-hover: 191 49% 59%;  /* Lighter for hover */
-  --ds-color-lagoon-active: 191 49% 69%; /* Even lighter for active */
+  --ds-color-lagoon-hover: 191 49% 59%;
+  --ds-color-lagoon-active: 191 49% 69%;
+  --ds-color-lagoon-muted: 191 49% 49% / 0.1;
 
   --ds-color-peach-base: 24 100% 69%;
-  --ds-color-peach-hover: 24 100% 79%;  /* Lighter for hover */
-  --ds-color-peach-active: 24 100% 89%; /* Even lighter for active */
+  --ds-color-peach-hover: 24 100% 79%;
+  --ds-color-peach-active: 24 100% 89%;
+  --ds-color-peach-muted: 24 100% 69% / 0.1;
 
   --ds-color-slate-base: 213 32% 35%;
-  --ds-color-slate-hover: 213 32% 45%;  /* Lighter for hover */
-  --ds-color-slate-active: 213 32% 55%; /* Even lighter for active */
+  --ds-color-slate-hover: 213 32% 45%;
+  --ds-color-slate-active: 213 32% 55%;
+  --ds-color-slate-muted: 213 32% 35% / 0.1;
 
   --ds-color-gold-base: 39 100% 75%;
-  --ds-color-gold-hover: 39 100% 85%;  /* Lighter for hover */
-  --ds-color-gold-active: 39 100% 95%; /* Even lighter for active */
+  --ds-color-gold-hover: 39 100% 85%;
+  --ds-color-gold-active: 39 100% 95%;
+  --ds-color-gold-muted: 39 100% 75% / 0.1;
 
   /* Status Colors */
   --ds-color-success: 173 58% 39%;
@@ -83,9 +95,9 @@
   --ds-color-overlay-heavy: hsl(var(--ds-color-black) / 0.6);
 
   /* Chart Colors */
-  --ds-color-chart-1: 174 61% 51%; /* seafoam */
-  --ds-color-chart-2: 14 100% 71%; /* coral */
-  --ds-color-chart-3: 213 41% 30%; /* navy */
-  --ds-color-chart-4: 39 100% 75%; /* gold */
-  --ds-color-chart-5: 24 100% 69%; /* peach */
+  --ds-color-chart-1: 174 61% 51%;
+  --ds-color-chart-2: 14 100% 71%;
+  --ds-color-chart-3: 213 41% 30%;
+  --ds-color-chart-4: 39 100% 75%;
+  --ds-color-chart-5: 24 100% 69%;
 } 

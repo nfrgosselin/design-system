@@ -49,18 +49,22 @@
     --ocean: var(--ds-color-ocean-base);
     --ocean-hover: var(--ds-color-ocean-hover);
     --ocean-active: var(--ds-color-ocean-active);
+    --ocean-muted: var(--ds-color-ocean-muted);
     
     --sunset: var(--ds-color-sunset-base);
     --sunset-hover: var(--ds-color-sunset-hover);
     --sunset-active: var(--ds-color-sunset-active);
+    --sunset-muted: var(--ds-color-sunset-muted);
     
     --sun: var(--ds-color-sun-base);
     --sun-hover: var(--ds-color-sun-hover);
     --sun-active: var(--ds-color-sun-active);
+    --sun-muted: var(--ds-color-sun-muted);
     
     --marine: var(--ds-color-marine-base);
     --marine-hover: var(--ds-color-marine-hover);
     --marine-active: var(--ds-color-marine-active);
+    --marine-muted: var(--ds-color-marine-muted);
     
     /* Design System Primary Role - Using Ocean as default */
     --brand: var(--ocean);
@@ -71,34 +75,42 @@
     --seafoam: var(--ds-color-seafoam-base);
     --seafoam-hover: var(--ds-color-seafoam-hover);
     --seafoam-active: var(--ds-color-seafoam-active);
+    --seafoam-muted: var(--ds-color-seafoam-muted);
 
     --coral: var(--ds-color-coral-base);
     --coral-hover: var(--ds-color-coral-hover);
     --coral-active: var(--ds-color-coral-active);
+    --coral-muted: var(--ds-color-coral-muted);
 
     --navy: var(--ds-color-navy-base);
     --navy-hover: var(--ds-color-navy-hover);
     --navy-active: var(--ds-color-navy-active);
+    --navy-muted: var(--ds-color-navy-muted);
 
     --amber: var(--ds-color-amber-base);
     --amber-hover: var(--ds-color-amber-hover);
     --amber-active: var(--ds-color-amber-active);
+    --amber-muted: var(--ds-color-amber-muted);
 
     --lagoon: var(--ds-color-lagoon-base);
     --lagoon-hover: var(--ds-color-lagoon-hover);
     --lagoon-active: var(--ds-color-lagoon-active);
+    --lagoon-muted: var(--ds-color-lagoon-muted);
 
     --peach: var(--ds-color-peach-base);
     --peach-hover: var(--ds-color-peach-hover);
     --peach-active: var(--ds-color-peach-active);
+    --peach-muted: var(--ds-color-peach-muted);
 
     --slate: var(--ds-color-slate-base);
     --slate-hover: var(--ds-color-slate-hover);
     --slate-active: var(--ds-color-slate-active);
+    --slate-muted: var(--ds-color-slate-muted);
 
     --gold: var(--ds-color-gold-base);
     --gold-hover: var(--ds-color-gold-hover);
     --gold-active: var(--ds-color-gold-active);
+    --gold-muted: var(--ds-color-gold-muted);
     
     /* Status Colors */
     --success: var(--ds-color-success);

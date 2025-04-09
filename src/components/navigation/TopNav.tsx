@@ -1,31 +1,25 @@
 import { ReactNode } from 'react';
 import { BrandNav, BrandNavProps } from './BrandNav';
+import { cn } from '../../lib/utils';
 
 interface TopNavProps {
   brand: BrandNavProps;
-  secondContent?: ReactNode;
-  thirdContent?: ReactNode;
-  fourthContent?: ReactNode;
+  content?: ReactNode;
   className?: string;
 }
 
-export function TopNav({
-  brand,
-  secondContent,
-  thirdContent,
-  fourthContent,
-  className = '',
-}: TopNavProps) {
+export function TopNav({ brand, content, className = '' }: TopNavProps) {
   return (
-    <nav
-      className={`sticky top-0 grid grid-cols-4 w-full h-[80px] bg-white z-50 overscroll-none pb-4 ${className}`}
-    >
-      <div className="flex items-end h-full px-6">
-        <BrandNav {...brand} />
+    <nav className={cn('w-full h-[80px] bg-white py-5 px-6', className)}>
+      <div className="h-full flex items-baseline justify-between md:grid md:grid-cols-4 md:gap-x-6 md:items-end">
+        {/* Brand Nav - removed mobile margin */}
+        <div className="md:col-span-1">
+          <BrandNav {...brand} />
+        </div>
+
+        {/* Content Area - simplified wrapper, removed mobile margin */}
+        {content && <div className="md:col-span-3">{content}</div>}
       </div>
-      <div className="flex items-end h-full px-6">{secondContent}</div>
-      <div className="flex items-end h-full px-6">{thirdContent}</div>
-      <div className="flex items-end h-full px-6">{fourthContent}</div>
     </nav>
   );
 }

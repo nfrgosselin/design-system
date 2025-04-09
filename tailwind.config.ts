@@ -63,21 +63,25 @@ const config: Config = {
           DEFAULT: 'hsl(var(--ocean))',
           hover: 'hsl(var(--ocean-hover))',
           active: 'hsl(var(--ocean-active))',
+          muted: 'hsla(var(--ocean-muted))',
         },
         sunset: {
           DEFAULT: 'hsl(var(--sunset))',
           hover: 'hsl(var(--sunset-hover))',
           active: 'hsl(var(--sunset-active))',
+          muted: 'hsla(var(--sunset-muted))',
         },
         sun: {
           DEFAULT: 'hsl(var(--sun))',
           hover: 'hsl(var(--sun-hover))',
           active: 'hsl(var(--sun-active))',
+          muted: 'hsla(var(--sun-muted))',
         },
         marine: {
           DEFAULT: 'hsl(var(--marine))',
           hover: 'hsl(var(--marine-hover))',
           active: 'hsl(var(--marine-active))',
+          muted: 'hsla(var(--marine-muted))',
         },
 
         // Supporting Accents
@@ -85,48 +89,60 @@ const config: Config = {
           DEFAULT: 'hsl(var(--seafoam))',
           hover: 'hsl(var(--seafoam-hover))',
           active: 'hsl(var(--seafoam-active))',
+          muted: 'hsla(var(--seafoam-muted))',
         },
         coral: {
           DEFAULT: 'hsl(var(--coral))',
           hover: 'hsl(var(--coral-hover))',
           active: 'hsl(var(--coral-active))',
+          muted: 'hsla(var(--coral-muted))',
         },
         navy: {
           DEFAULT: 'hsl(var(--navy))',
           hover: 'hsl(var(--navy-hover))',
           active: 'hsl(var(--navy-active))',
+          muted: 'hsla(var(--navy-muted))',
         },
         amber: {
           DEFAULT: 'hsl(var(--amber))',
           hover: 'hsl(var(--amber-hover))',
           active: 'hsl(var(--amber-active))',
+          muted: 'hsla(var(--amber-muted))',
         },
         lagoon: {
           DEFAULT: 'hsl(var(--lagoon))',
           hover: 'hsl(var(--lagoon-hover))',
           active: 'hsl(var(--lagoon-active))',
+          muted: 'hsla(var(--lagoon-muted))',
         },
         peach: {
           DEFAULT: 'hsl(var(--peach))',
           hover: 'hsl(var(--peach-hover))',
           active: 'hsl(var(--peach-active))',
+          muted: 'hsla(var(--peach-muted))',
         },
         slate: {
           DEFAULT: 'hsl(var(--slate))',
           hover: 'hsl(var(--slate-hover))',
           active: 'hsl(var(--slate-active))',
+          muted: 'hsla(var(--slate-muted))',
         },
         gold: {
           DEFAULT: 'hsl(var(--gold))',
           hover: 'hsl(var(--gold-hover))',
           active: 'hsl(var(--gold-active))',
+          muted: 'hsla(var(--gold-muted))',
         },
 
         // Status Colors
         success: 'hsl(var(--success))',
+        'success-subtle': 'hsla(var(--success-subtle))',
         warning: 'hsl(var(--warning))',
+        'warning-subtle': 'hsla(var(--warning-subtle))',
         error: 'hsl(var(--error))',
+        'error-subtle': 'hsla(var(--error-subtle))',
         info: 'hsl(var(--info))',
+        'info-subtle': 'hsla(var(--info-subtle))',
         // Stone Scale
         stone: {
           50: 'hsl(var(--stone-50))',
