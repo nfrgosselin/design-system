@@ -1,5 +1,7 @@
 import { CompanionSideNav } from '../components/navigation/CompanionSideNav';
 import { TopNav } from '../components/navigation/TopNav';
+import { NewsletterSignup } from '../components/forms/NewsletterSignup';
+import { useState } from 'react';
 
 export function Workbench() {
   const navItems = [
@@ -12,6 +14,26 @@ export function Workbench() {
     brandName: 'Nate Gosselin',
     navItems,
     stackSpacing: 'space-y-1' as const,
+  };
+
+  // Demo form state
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [error, setError] = useState<string>();
+
+  const handleSubmit = async (email: string) => {
+    setStatus('loading');
+    setError(undefined);
+
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    if (!email.includes('@')) {
+      setStatus('error');
+      setError('Please enter a valid email address');
+      return;
+    }
+
+    setStatus('success');
   };
 
   return (
@@ -27,103 +49,37 @@ export function Workbench() {
         <CompanionSideNav
           footer={
             <div className="space-y-4">
-              {/* Example: Email signup form */}
-              <div className="rounded-lg bg-stone-100 p-4">
-                <h4 className="text-sm font-medium mb-2">Stay Updated</h4>
-                <div className="flex gap-2">
-                  <input
-                    type="email"
-                    placeholder="Enter your email"
-                    className="flex-1 px-3 py-1.5 text-sm rounded border border-stone-200 placeholder:text-stone-400"
-                  />
-                  <button className="px-3 py-1.5 text-sm bg-stone-900 text-white rounded hover:bg-stone-800">
-                    Subscribe
-                  </button>
-                </div>
-              </div>
-
-              {/* Example: Social links */}
-              <div className="flex items-center gap-4 text-stone-600">
-                <a href="#" className="hover:text-stone-900">
-                  Twitter
-                </a>
-                <a href="#" className="hover:text-stone-900">
-                  GitHub
-                </a>
-                <a href="#" className="hover:text-stone-900">
-                  LinkedIn
-                </a>
-              </div>
+              <NewsletterSignup
+                status={status}
+                error={error}
+                onSubmit={handleSubmit}
+                headingText="Sign up for my newsletter."
+                placeholder="Enter your email"
+              />
             </div>
           }
         >
           <div className="space-y-6">
             <div className="rounded-lg bg-stone-100 p-4">
-              <h3 className="font-medium">Featured Project</h3>
+              <h3 className="font-medium">Newsletter Component Demo</h3>
               <p className="mt-2 text-sm text-stone-600">
-                A brief description of your featured project could go here.
+                This demonstrates our NewsletterSignup component in two places - in the sidebar and
+                in the main content area below. The component is purely presentational, allowing
+                applications to implement their own form handling logic.
               </p>
-              <img src="/placeholder-image.jpg" alt="Project preview" className="mt-3 rounded-md" />
-            </div>
-
-            <div className="space-y-4">
-              <h3 className="font-medium">Recent Projects</h3>
-              <ul className="space-y-2 text-sm text-stone-600">
-                <li>
-                  <a href="#" className="hover:text-stone-900">
-                    Project One
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-stone-900">
-                    Project Two
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="hover:text-stone-900">
-                    Project Three
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </CompanionSideNav>
 
         <main className="absolute top-0 right-0 bottom-0 left-[25vw] min-w-0 overflow-y-auto overscroll-none">
           <div className="px-8 py-6">
-            <h1 className="text-2xl font-semibold leading-none">Main Content Area</h1>
+            <h1 className="text-2xl font-semibold leading-none">Newsletter Signup Demo</h1>
             <p className="mt-2 text-stone-600">
-              This is where your main content would go. The sidenav stays fixed on the left side.
+              This demonstrates our NewsletterSignup component with custom form handling logic.
             </p>
 
-            {/* Filler Content */}
-            <div>
-              {Array.from({ length: 10 }).map((_, index) => (
-                <div key={index} className="rounded-lg bg-stone-100 p-6">
-                  <h2 className="text-lg font-medium">Section {index + 1}</h2>
-                  <p className="mt-2 text-stone-600">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <div className="mt-4 grid grid-cols-2 gap-4">
-                    <div className="rounded bg-white p-4 shadow-sm">
-                      <h3 className="font-medium">Subsection A</h3>
-                      <p className="mt-2 text-sm text-stone-600">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                        eu fugiat nulla pariatur.
-                      </p>
-                    </div>
-                    <div className="rounded bg-white p-4 shadow-sm">
-                      <h3 className="font-medium">Subsection B</h3>
-                      <p className="mt-2 text-sm text-stone-600">
-                        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                        deserunt mollit anim id est laborum.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+            <div className="mt-8 max-w-xl">
+              <NewsletterSignup status={status} error={error} onSubmit={handleSubmit} />
             </div>
           </div>
         </main>

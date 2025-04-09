@@ -18,7 +18,7 @@ export function TopNav({
 }: TopNavProps) {
   return (
     <nav
-      className={`sticky top-0 grid grid-cols-4 w-full h-[80px] bg-white z-50 overscroll-none ${className}`}
+      className={`sticky top-0 grid grid-cols-4 w-full h-[80px] bg-white z-50 overscroll-none pb-4 ${className}`}
     >
       <div className="flex items-end h-full px-6">
         <BrandNav {...brand} />
