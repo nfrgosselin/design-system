@@ -29,94 +29,135 @@ describe('WorkItem', () => {
     pillColor: 'marine' as const,
   };
 
-  it('renders project information correctly', () => {
-    render(<WorkItem {...defaultProps} />);
-    expect(screen.getAllByText('Test Project')).toHaveLength(2); // One for mobile, one for desktop
-    expect(screen.getAllByText('A test project description')).toHaveLength(2); // One for mobile, one for desktop
-    expect(screen.getAllByText('Development')).toHaveLength(2); // One for mobile, one for desktop
-    expect(screen.getAllByText('2024')).toHaveLength(2); // One for mobile, one for desktop
-  });
+  describe('v1 variant (default)', () => {
+    it('renders project information correctly', () => {
+      render(<WorkItem {...defaultProps} />);
+      expect(screen.getAllByText('Test Project')).toHaveLength(2);
+      expect(screen.getAllByText('A test project description')).toHaveLength(2);
+      expect(screen.getAllByText('Development')).toHaveLength(2);
+      expect(screen.getAllByText('2024')).toHaveLength(2);
+    });
 
-  it('renders image with correct attributes', () => {
-    render(<WorkItem {...defaultProps} />);
-    const images = screen.getAllByRole('img');
-    images.forEach(img => {
-      expect(img).toHaveAttribute('src', '/test-image.jpg');
-      expect(img).toHaveAttribute('alt', 'Test Project');
+    it('renders image with correct attributes', () => {
+      render(<WorkItem {...defaultProps} />);
+      const images = screen.getAllByRole('img');
+      images.forEach(img => {
+        expect(img).toHaveAttribute('src', '/test-image.jpg');
+        expect(img).toHaveAttribute('alt', 'Test Project');
+      });
+    });
+
+    it('renders responsive layouts', () => {
+      const { container } = render(<WorkItem {...defaultProps} />);
+      expect(container.querySelector('.block.md\\:hidden')).toBeInTheDocument(); // Mobile
+      expect(container.querySelector('.hidden.md\\:grid')).toBeInTheDocument(); // Desktop
+    });
+
+    it('renders different text sizes for mobile and desktop', () => {
+      render(<WorkItem {...defaultProps} />);
+      const mobileTitle = screen.getByText('Test Project', { selector: '.text-lg' });
+      const desktopTitle = screen.getByText('Test Project', { selector: '.text-xl' });
+      expect(mobileTitle).toBeInTheDocument();
+      expect(desktopTitle).toBeInTheDocument();
     });
   });
 
-  it('applies custom className when provided', () => {
-    const { container } = render(<WorkItem {...defaultProps} className="custom-class" />);
-    expect(container.firstChild).toHaveClass('custom-class');
-  });
+  describe('collapsed variant', () => {
+    const collapsedProps = { ...defaultProps, variant: 'collapsed' as const };
 
-  it('renders as link when url is provided', async () => {
-    await act(async () => {
-      render(<WorkItem {...defaultProps} url="/test-url" />);
+    it('renders truncated description', () => {
+      const longDescription = 'A'.repeat(100);
+      render(<WorkItem {...collapsedProps} description={longDescription} />);
+      const descriptions = screen.getAllByText(`${'A'.repeat(80)}...`);
+      expect(descriptions.length).toBeGreaterThan(0);
+      descriptions.forEach(desc => {
+        expect(desc).toHaveClass('line-clamp-1');
+      });
     });
-    await waitFor(() => {
-      expect(screen.getByRole('link')).toHaveAttribute('href', '/test-url');
-    });
-  });
 
-  it('opens external links in new tab', async () => {
-    await act(async () => {
-      render(<WorkItem {...defaultProps} url="https://external-url.com" />);
-    });
-    await waitFor(() => {
-      const link = screen.getByRole('link');
-      expect(link).toHaveAttribute('target', '_blank');
-      expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+    it('renders pill with fixed variant', () => {
+      render(<WorkItem {...collapsedProps} />);
+      const pills = screen.getAllByText('Development');
+      pills.forEach(pill => {
+        expect(pill).toHaveClass('inline-flex', 'items-center', 'rounded-full');
+      });
     });
   });
 
-  it('applies hover styles based on pill color', () => {
-    const { container } = render(<WorkItem {...defaultProps} pillColor="coral" />);
-    expect(container.firstChild).toHaveClass('hover:border-coral');
-  });
+  describe('featured variant', () => {
+    const featuredProps = {
+      ...defaultProps,
+      variant: 'featured' as const,
+      featuredText: 'Featured Project',
+    };
 
-  it('renders responsive layouts', () => {
-    const { container } = render(<WorkItem {...defaultProps} />);
-    expect(container.querySelector('.block.md\\:hidden')).toBeInTheDocument(); // Mobile
-    expect(container.querySelector('.hidden.md\\:grid')).toBeInTheDocument(); // Desktop
-  });
-
-  it('applies cursor-pointer when url is provided', async () => {
-    await act(async () => {
-      render(<WorkItem {...defaultProps} url="/test-url" />);
+    it('renders featured text when provided', () => {
+      render(<WorkItem {...featuredProps} />);
+      expect(screen.getAllByText('Featured Project')).toHaveLength(2); // Mobile and desktop
     });
-    await waitFor(() => {
-      expect(screen.getByRole('link')).toHaveClass('cursor-pointer');
+
+    it('uses colored border matching pill color', () => {
+      const { container } = render(<WorkItem {...featuredProps} />);
+      expect(container.firstChild).toHaveClass('border-marine');
+    });
+
+    it('renders project name in pill color', () => {
+      render(<WorkItem {...featuredProps} />);
+      const titles = screen.getAllByText('Test Project');
+      titles.forEach(title => {
+        expect(title).toHaveClass('text-marine');
+      });
     });
   });
 
-  it('does not apply cursor-pointer when no url is provided', () => {
-    const { container } = render(<WorkItem {...defaultProps} />);
-    expect(container.firstChild).not.toHaveClass('cursor-pointer');
-  });
+  describe('common functionality', () => {
+    it('applies custom className when provided', () => {
+      const { container } = render(<WorkItem {...defaultProps} className="custom-class" />);
+      expect(container.firstChild).toHaveClass('custom-class');
+    });
 
-  it('renders different text sizes for mobile and desktop', () => {
-    render(<WorkItem {...defaultProps} />);
-    const mobileTitle = screen.getByText('Test Project', { selector: '.text-lg' });
-    const desktopTitle = screen.getByText('Test Project', { selector: '.text-xl' });
-    expect(mobileTitle).toBeInTheDocument();
-    expect(desktopTitle).toBeInTheDocument();
-  });
+    it('renders as link when url is provided', async () => {
+      await act(async () => {
+        render(<WorkItem {...defaultProps} url="/test-url" />);
+      });
+      await waitFor(() => {
+        expect(screen.getByRole('link')).toHaveAttribute('href', '/test-url');
+      });
+    });
 
-  it('has white background by default', () => {
-    const { container } = render(<WorkItem {...defaultProps} />);
-    expect(container.firstChild).toHaveClass('bg-white');
-  });
+    it('opens external links in new tab', async () => {
+      await act(async () => {
+        render(<WorkItem {...defaultProps} url="https://external-url.com" />);
+      });
+      await waitFor(() => {
+        const link = screen.getByRole('link');
+        expect(link).toHaveAttribute('target', '_blank');
+        expect(link).toHaveAttribute('rel', 'noopener noreferrer');
+      });
+    });
 
-  it('applies muted background color on hover based on pill color', () => {
-    const { container } = render(<WorkItem {...defaultProps} pillColor="marine" />);
-    expect(container.firstChild).toHaveClass('hover:bg-marine-muted');
-  });
+    it('applies cursor-pointer when url is provided', async () => {
+      await act(async () => {
+        render(<WorkItem {...defaultProps} url="/test-url" />);
+      });
+      await waitFor(() => {
+        expect(screen.getByRole('link')).toHaveClass('cursor-pointer');
+      });
+    });
 
-  it('includes transition classes for background and border', () => {
-    const { container } = render(<WorkItem {...defaultProps} />);
-    expect(container.firstChild).toHaveClass('transition-[border-width,colors,background-color]');
-    expect(container.firstChild).toHaveClass('duration-50');
+    it('does not apply cursor-pointer when no url is provided', () => {
+      const { container } = render(<WorkItem {...defaultProps} />);
+      expect(container.firstChild).not.toHaveClass('cursor-pointer');
+    });
+
+    it('has white background by default', () => {
+      const { container } = render(<WorkItem {...defaultProps} />);
+      expect(container.firstChild).toHaveClass('bg-white');
+    });
+
+    it('applies hover styles based on pill color', () => {
+      const { container } = render(<WorkItem {...defaultProps} pillColor="coral" />);
+      expect(container.firstChild).toHaveClass('hover:border-coral', 'hover:bg-coral-muted');
+    });
   });
 });

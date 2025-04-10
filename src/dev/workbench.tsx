@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { WorkTable } from '../components/ui/WorkTable';
 import { TopNavSideBarLayout } from '../components/layout/pages/TopNavSideBarLayout';
 import { WorkTopNavContent } from '../components/navigation/content/WorkTopNavContent';
-import { WorkItemProps } from '../components/ui/WorkItem';
+import { WorkTableItem } from '../components/ui/WorkTable';
 
-const workItems: Omit<WorkItemProps, 'className'>[] = [
+const workItems: WorkTableItem[] = [
   {
     projectName: 'MAVERICK PROTOCOL',
     description:
@@ -16,6 +16,8 @@ const workItems: Omit<WorkItemProps, 'className'>[] = [
     primaryService: 'Projects',
     pillColor: 'coral' as const,
     year: '2024',
+    featured: true,
+    featuredText: 'Featured',
   },
   {
     projectName: 'DESIGN SYSTEM',
@@ -26,6 +28,8 @@ const workItems: Omit<WorkItemProps, 'className'>[] = [
     primaryService: 'Writing',
     pillColor: 'navy' as const,
     year: '2024',
+    featured: true,
+    featuredText: 'Latest',
   },
   {
     projectName: 'CURSOR AI',
@@ -35,7 +39,7 @@ const workItems: Omit<WorkItemProps, 'className'>[] = [
       'https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=2940&ixlib=rb-4.0.3',
     primaryService: 'Jobs',
     pillColor: 'seafoam' as const,
-    year: '2023',
+    year: '2021-2023',
   },
   {
     projectName: 'QUANTUM LABS',

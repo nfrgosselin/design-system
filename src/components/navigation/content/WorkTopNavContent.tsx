@@ -30,19 +30,23 @@ export function WorkTopNavContent({
   return (
     <>
       {/* Mobile Layout - Use items-baseline */}
-      <div className="flex items-baseline space-x-6 md:hidden">
-        <WorkControls
-          title={sortControls.title}
-          navItems={sortControls.navItems}
-          collapsed={true}
-          onClick={item => sortControls.onChange?.(item.label)}
-        />
-        <WorkControls
-          title={filterControls.title}
-          navItems={filterControls.navItems}
-          collapsed={true}
-          onClick={item => filterControls.onChange?.(item.label)}
-        />
+      <div className="flex items-baseline justify-between md:hidden">
+        <div className="flex items-baseline space-x-6">
+          <div className="flex items-baseline space-x-6">
+            <WorkControls
+              title={sortControls.title}
+              navItems={sortControls.navItems}
+              collapsed={true}
+              onClick={item => sortControls.onChange?.(item.label)}
+            />
+            <WorkControls
+              title={filterControls.title}
+              navItems={filterControls.navItems}
+              collapsed={true}
+              onClick={item => filterControls.onChange?.(item.label)}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Desktop Layout */}
@@ -61,7 +65,7 @@ export function WorkTopNavContent({
             onClick={item => filterControls.onChange?.(item.label)}
           />
         </div>
-        <div className="flex items-end justify-end">
+        <div className="flex items-end justify-end pr-1">
           <NewsletterSignup
             variant="topnav"
             onSubmit={handleNewsletterSubmit}

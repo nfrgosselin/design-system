@@ -87,7 +87,10 @@ export function NewsletterSignup({
 
   if (isTopNav) {
     return (
-      <div className={cn('group relative', className)}>
+      <div
+        className={cn('group relative', className)}
+        data-expanded={isExpanded ? 'true' : 'false'}
+      >
         <div className={cn('flex flex-col items-end', isExpanded && 'invisible')}>
           <span className="text-sm font-sans leading-none tracking-wide uppercase text-stone-500">
             Newsletter

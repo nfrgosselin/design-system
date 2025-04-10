@@ -28,9 +28,10 @@ export interface WorkItemProps {
   primaryService: string;
 
   /**
-   * Project year
+   * Project year or year range
+   * Can be a single year (e.g. "2024") or a range (e.g. "2021-2023")
    */
-  year: string | number;
+  year: string;
 
   /**
    * URL to link to when the work item is clicked
@@ -42,7 +43,12 @@ export interface WorkItemProps {
    * Design variant of the work item
    * @default 'v1'
    */
-  variant?: 'v1' | 'collapsed';
+  variant?: 'v1' | 'collapsed' | 'featured';
+
+  /**
+   * Text to display next to the pill in featured variant
+   */
+  featuredText?: string;
 
   /**
    * Color variant for the service pill
@@ -80,6 +86,7 @@ export function WorkItem({
   year,
   url,
   variant = 'v1',
+  featuredText,
   pillColor = 'marine',
   className,
 }: WorkItemProps) {
@@ -203,60 +210,196 @@ export function WorkItem({
     </>
   );
 
-  const CollapsedContent = () => (
-    <div
-      className={cn(
-        'grid grid-cols-3 gap-element relative',
-        'transition-[height] duration-500 ease-in-out'
-      )}
-    >
-      {/* Left column - Pill and Title */}
-      <div className="flex items-start gap-4 pt-1">
-        <Pill color={pillColor} size="md" variant="fixed">
-          {primaryService}
-        </Pill>
-        <h3
-          className={cn(
-            'font-sans font-medium text-lg tracking-wide',
-            'transition-colors duration-50',
-            textColorStyles
-          )}
-        >
+  const CollapsedContent = () => {
+    const truncatedDescription =
+      description.length > 80 ? `${description.slice(0, 80)}...` : description;
+
+    return (
+      <>
+        {/* Mobile layout */}
+        <div className="flex flex-col gap-2 md:hidden">
+          <div className="flex items-start justify-between">
+            <div className="flex items-start gap-4">
+              <Pill color={pillColor} size="sm" variant="fixed" className="mt-1">
+                {primaryService}
+              </Pill>
+              <h3
+                className={cn(
+                  'font-sans font-medium text-lg tracking-wide text-stone-700',
+                  `group-hover:text-${pillColor}`,
+                  'transition-colors duration-200'
+                )}
+              >
+                {projectName}
+              </h3>
+            </div>
+            <span className="text-stone-500 text-base font-medium font-sans shrink-0 pr-1 mt-0.5">
+              {year}
+            </span>
+          </div>
+          <p className="text-stone-500 text-sm font-sans line-clamp-1">{truncatedDescription}</p>
+        </div>
+
+        {/* Desktop layout - preserving existing styles */}
+        <div className="hidden md:grid md:grid-cols-3 md:gap-element">
+          <div className="flex items-start gap-4">
+            <Pill color={pillColor} size="md" variant="fixed">
+              {primaryService}
+            </Pill>
+            <h3
+              className={cn(
+                'font-sans font-medium text-lg tracking-wide text-stone-700',
+                `group-hover:text-${pillColor}`,
+                'transition-colors duration-200'
+              )}
+            >
+              {projectName}
+            </h3>
+          </div>
+
+          <div className="col-span-2 flex justify-between items-start">
+            <p className="text-stone-500 text-sm font-sans line-clamp-1 pt-1 pr-8">
+              {truncatedDescription}
+            </p>
+            <span className="text-stone-500 text-base font-medium font-sans shrink-0 pr-1">
+              {year}
+            </span>
+          </div>
+        </div>
+      </>
+    );
+  };
+
+  const FeaturedContent = () => (
+    <div className="flex flex-col md:grid md:grid-cols-3 md:gap-element">
+      {/* Mobile layout */}
+      <div className="md:hidden">
+        {/* Top two-column grid */}
+        <div className="grid grid-cols-2 gap-4 mb-4">
+          <div className="flex flex-col gap-3">
+            <h3 className={cn('font-sans font-medium text-xl tracking-wide', `text-${pillColor}`)}>
+              {projectName}
+            </h3>
+            <p className="text-stone-500 text-base line-clamp-3">{description}</p>
+          </div>
+          <div className="relative w-full">
+            <Image
+              src={imageUrl}
+              alt={projectName}
+              aspect="wide"
+              radius="md"
+              fit="cover"
+              showLoadingBackground
+            />
+          </div>
+        </div>
+        {/* Bottom metadata row */}
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Pill color={pillColor} size="sm" variant="fixed">
+              {primaryService}
+            </Pill>
+            {featuredText && (
+              <span className="uppercase text-xs font-medium tracking-wider text-stone-900 pt-0.5">
+                {featuredText}
+              </span>
+            )}
+          </div>
+          <span className="text-stone-500 text-base font-medium font-sans pr-1">{year}</span>
+        </div>
+      </div>
+
+      {/* Desktop layout - preserving all existing styles */}
+      <div className="hidden md:flex md:flex-col gap-3">
+        <h3 className={cn('font-sans font-medium text-xl tracking-wide ml-1', `text-${pillColor}`)}>
           {projectName}
         </h3>
-      </div>
-
-      {/* Middle column - Description */}
-      <div className="flex flex-col justify-start pt-1">
-        <p
-          className={cn(
-            'text-stone-500 text-base font-sans',
-            'transition-[height,opacity] duration-500 ease-in-out',
-            'line-clamp-1 group-hover:line-clamp-3',
-            'whitespace-normal overflow-hidden',
-            'pt-1.5'
+        <div className="flex items-center gap-4">
+          <Pill color={pillColor} size="md" variant="fixed">
+            {primaryService}
+          </Pill>
+          {featuredText && (
+            <span className="uppercase text-xs font-medium tracking-wider text-stone-900 pt-0.5">
+              {featuredText}
+            </span>
           )}
-        >
-          {description}
-        </p>
+        </div>
       </div>
 
-      {/* Right column - Date */}
-      <div className="flex justify-end">
-        <span className="text-stone-500 text-base font-medium font-sans pt-2.5">{year}</span>
+      <div className="hidden md:block pt-0.5">
+        <p className="text-stone-500 text-base line-clamp-3">{description}</p>
+      </div>
+
+      <div className="hidden md:flex md:flex-row md:justify-between md:items-start">
+        <div className="relative w-full max-w-[240px] overflow-hidden rounded-md bg-stone-100">
+          <Image
+            src={imageUrl}
+            alt={projectName}
+            aspect="wide"
+            radius="md"
+            fit="cover"
+            showLoadingBackground
+          />
+        </div>
+        <span className="text-stone-500 text-base font-medium font-sans pr-1">{year}</span>
       </div>
     </div>
   );
 
-  const content = variant === 'v1' ? <V1Content /> : <CollapsedContent />;
+  const content = {
+    v1: <V1Content />,
+    collapsed: <CollapsedContent />,
+    featured: <FeaturedContent />,
+  }[variant];
 
   const containerClasses = cn(
-    'border-t border-stone-200 group overflow-hidden bg-white',
-    'py-6',
-    'hover:border-t-2 hover:pt-[23px]',
-    'transition-[height] duration-500 ease-in-out transition-[border-width,colors,background-color] duration-50',
+    'border-t-2 group overflow-hidden bg-white py-4',
+    variant === 'featured'
+      ? cn(
+          {
+            'border-marine': pillColor === 'marine',
+            'border-ocean': pillColor === 'ocean',
+            'border-sunset': pillColor === 'sunset',
+            'border-sun': pillColor === 'sun',
+            'border-seafoam': pillColor === 'seafoam',
+            'border-coral': pillColor === 'coral',
+            'border-navy': pillColor === 'navy',
+            'border-amber': pillColor === 'amber',
+            'border-lagoon': pillColor === 'lagoon',
+            'border-peach': pillColor === 'peach',
+            'border-slate': pillColor === 'slate',
+            'border-gold': pillColor === 'gold',
+            'border-success': pillColor === 'success',
+            'border-warning': pillColor === 'warning',
+            'border-error': pillColor === 'error',
+            'border-info': pillColor === 'info',
+          },
+          `hover:bg-${pillColor}-muted`
+        )
+      : cn(
+          'border-[#E7E5E4_transparent]', // 1px stone-200, 1px transparent
+          {
+            'hover:border-marine': pillColor === 'marine',
+            'hover:border-ocean': pillColor === 'ocean',
+            'hover:border-sunset': pillColor === 'sunset',
+            'hover:border-sun': pillColor === 'sun',
+            'hover:border-seafoam': pillColor === 'seafoam',
+            'hover:border-coral': pillColor === 'coral',
+            'hover:border-navy': pillColor === 'navy',
+            'hover:border-amber': pillColor === 'amber',
+            'hover:border-lagoon': pillColor === 'lagoon',
+            'hover:border-peach': pillColor === 'peach',
+            'hover:border-slate': pillColor === 'slate',
+            'hover:border-gold': pillColor === 'gold',
+            'hover:border-success': pillColor === 'success',
+            'hover:border-warning': pillColor === 'warning',
+            'hover:border-error': pillColor === 'error',
+            'hover:border-info': pillColor === 'info',
+          },
+          'transition-[border-color,background-color] duration-200',
+          hoverStyles
+        ),
     url && 'cursor-pointer',
-    hoverStyles,
     className
   );
 

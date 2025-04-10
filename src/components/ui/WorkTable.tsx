@@ -4,11 +4,16 @@ import { WorkItem, WorkItemProps } from './WorkItem';
 export type SortField = 'projectName' | 'year' | 'primaryService';
 export type SortDirection = 'asc' | 'desc';
 
+export interface WorkTableItem extends Omit<WorkItemProps, 'className' | 'variant'> {
+  featured?: boolean;
+  featuredText?: string;
+}
+
 export interface WorkTableProps {
   /**
    * Array of work items to display
    */
-  items: Omit<WorkItemProps, 'className'>[];
+  items: WorkTableItem[];
 
   /**
    * Field to sort by
@@ -77,7 +82,11 @@ export function WorkTable({
   return (
     <div className={className}>
       {sortedItems.map((item, index) => (
-        <WorkItem key={`${item.projectName}-${index}`} {...item} variant="collapsed" />
+        <WorkItem
+          key={`${item.projectName}-${index}`}
+          {...item}
+          variant={item.featured ? 'featured' : 'collapsed'}
+        />
       ))}
     </div>
   );
