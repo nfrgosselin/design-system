@@ -82,10 +82,10 @@ describe('WorkTable', () => {
     expect(screen.getAllByText('Beta Project')).toHaveLength(2);
   });
 
-  it('removes border from first item', () => {
+  it('first item has a border like all other items', () => {
     const { container } = render(<WorkTable items={defaultItems} />);
     const firstItem = container.firstChild?.firstChild;
-    expect(firstItem).toHaveClass('border-t-0');
+    expect(firstItem).toHaveClass('border-t');
   });
 
   it('renders empty table when no items provided', () => {
