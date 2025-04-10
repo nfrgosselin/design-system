@@ -133,6 +133,18 @@ const config: Config = {
           active: 'hsl(var(--gold-active))',
           muted: 'hsla(var(--gold-muted))',
         },
+        orchid: {
+          DEFAULT: 'hsl(var(--orchid))',
+          hover: 'hsl(var(--orchid-hover))',
+          active: 'hsl(var(--orchid-active))',
+          muted: 'hsla(var(--orchid-muted))',
+        },
+        surf: {
+          DEFAULT: 'hsl(var(--surf))',
+          hover: 'hsl(var(--surf-hover))',
+          active: 'hsl(var(--surf-active))',
+          muted: 'hsla(var(--surf-muted))',
+        },
 
         // Status Colors
         success: 'hsl(var(--success))',

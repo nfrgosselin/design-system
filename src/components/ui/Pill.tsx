@@ -23,6 +23,8 @@ export interface PillProps {
     | 'peach'
     | 'slate'
     | 'gold'
+    | 'orchid'
+    | 'surf'
     | 'success'
     | 'warning'
     | 'error'
@@ -79,6 +81,8 @@ export function Pill({
       peach: 'bg-peach-muted text-peach',
       slate: 'bg-slate-muted text-slate',
       gold: 'bg-gold-muted text-gold',
+      orchid: 'bg-orchid-muted text-orchid',
+      surf: 'bg-surf-muted text-surf',
 
       // Status Colors
       success: 'bg-success-subtle text-success',

@@ -79,6 +79,16 @@
   --ds-color-gold-active: 39 100% 95%;
   --ds-color-gold-muted: 39 100% 75% / 0.1;
 
+  --ds-color-orchid-base: 270 30% 50%;
+  --ds-color-orchid-hover: 270 30% 45%;
+  --ds-color-orchid-active: 270 30% 40%;
+  --ds-color-orchid-muted: 270 30% 50% / 0.1;
+
+  --ds-color-surf-base: 215 55% 50%;
+  --ds-color-surf-hover: 215 55% 45%;
+  --ds-color-surf-active: 215 55% 40%;
+  --ds-color-surf-muted: 215 55% 50% / 0.1;
+  
   /* Status Colors */
   --ds-color-success: 173 58% 39%;
   --ds-color-success-subtle: 173 58% 39% / 0.15;

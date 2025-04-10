@@ -67,6 +67,8 @@ export interface WorkItemProps {
     | 'peach'
     | 'slate'
     | 'gold'
+    | 'orchid'
+    | 'surf'
     | 'success'
     | 'warning'
     | 'error'
@@ -104,6 +106,8 @@ export function WorkItem({
     peach: 'hover:border-peach hover:bg-peach-muted',
     slate: 'hover:border-slate hover:bg-slate-muted',
     gold: 'hover:border-gold hover:bg-gold-muted',
+    orchid: 'hover:border-orchid hover:bg-orchid-muted',
+    surf: 'hover:border-surf hover:bg-surf-muted',
     success: 'hover:border-success hover:bg-success-subtle',
     warning: 'hover:border-warning hover:bg-warning-subtle',
     error: 'hover:border-error hover:bg-error-subtle',
@@ -124,6 +128,8 @@ export function WorkItem({
     peach: 'group-hover:text-peach',
     slate: 'group-hover:text-slate',
     gold: 'group-hover:text-gold',
+    orchid: 'group-hover:text-orchid',
+    surf: 'group-hover:text-surf',
     success: 'group-hover:text-success',
     warning: 'group-hover:text-warning',
     error: 'group-hover:text-error',
@@ -369,6 +375,8 @@ export function WorkItem({
             'border-peach': pillColor === 'peach',
             'border-slate': pillColor === 'slate',
             'border-gold': pillColor === 'gold',
+            'border-orchid': pillColor === 'orchid',
+            'border-surf': pillColor === 'surf',
             'border-success': pillColor === 'success',
             'border-warning': pillColor === 'warning',
             'border-error': pillColor === 'error',
@@ -391,6 +399,8 @@ export function WorkItem({
             'hover:border-peach': pillColor === 'peach',
             'hover:border-slate': pillColor === 'slate',
             'hover:border-gold': pillColor === 'gold',
+            'hover:border-orchid': pillColor === 'orchid',
+            'hover:border-surf': pillColor === 'surf',
             'hover:border-success': pillColor === 'success',
             'hover:border-warning': pillColor === 'warning',
             'hover:border-error': pillColor === 'error',

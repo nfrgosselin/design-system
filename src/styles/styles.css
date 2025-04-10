@@ -112,6 +112,17 @@
     --gold-active: var(--ds-color-gold-active);
     --gold-muted: var(--ds-color-gold-muted);
     
+    /* New Accent Colors */
+    --orchid: var(--ds-color-orchid-base);
+    --orchid-hover: var(--ds-color-orchid-hover);
+    --orchid-active: var(--ds-color-orchid-active);
+    --orchid-muted: var(--ds-color-orchid-muted);
+
+    --surf: var(--ds-color-surf-base);
+    --surf-hover: var(--ds-color-surf-hover);
+    --surf-active: var(--ds-color-surf-active);
+    --surf-muted: var(--ds-color-surf-muted);
+    
     /* Status Colors */
     --success: var(--ds-color-success);
     --success-subtle: var(--ds-color-success-subtle);
