@@ -5,6 +5,38 @@ import type { ArticleListProps } from './types';
 /**
  * ArticleList component for article content lists.
  * Provides styled ordered and unordered lists that match article typography.
+ *
+ * @example
+ * ```tsx
+ * <ArticleList>
+ *   <ArticleListItem>First item</ArticleListItem>
+ *   <ArticleListItem>Second item</ArticleListItem>
+ * </ArticleList>
+ *
+ * <ArticleList variant="ordered" markerColor="primary">
+ *   <ArticleListItem>Step one</ArticleListItem>
+ *   <ArticleListItem>Step two</ArticleListItem>
+ * </ArticleList>
+ * ```
+ *
+ * Variants:
+ * - unordered: Bullet points (•)
+ * - ordered: Numbered list (1, 2, 3)
+ *
+ * Marker Colors:
+ * - primary: Brand primary color
+ * - secondary: Brand secondary color
+ * - muted: Muted text color
+ * - seafoam, coral, navy: Brand accent colors
+ * - amber, lagoon, peach: Additional accent colors
+ * - slate, gold: Neutral accent colors
+ *
+ * Styling:
+ * - Serif font for consistency
+ * - Large text size (18px)
+ * - Proper list indentation
+ * - Customizable marker colors
+ * - Bottom margin for spacing
  */
 export function ArticleList({
   variant = 'unordered',
@@ -43,3 +75,5 @@ export function ArticleList({
     </Text>
   );
 }
+
+ArticleList.displayName = 'ArticleList';

@@ -2,19 +2,23 @@ import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
 import type { TextProps } from '../core/types';
 
+/**
+ * Props for the ColoredText component
+ */
 export interface ColoredTextProps extends TextProps {
   /**
    * Color variant for the text
-   * - primary: Brand primary color
-   * - success: Success/positive state
-   * - warning: Warning/caution state
-   * - error: Error/negative state
-   * - info: Informational state
+   * - primary: Brand primary color (brand)
+   * - success: Success/positive state (green)
+   * - warning: Warning/caution state (amber)
+   * - error: Error/negative state (red)
+   * - info: Informational state (blue)
    */
   color: 'primary' | 'success' | 'warning' | 'error' | 'info';
 
   /**
    * Whether to use a subtle background color
+   * When true, adds a light background and rounded corners
    */
   subtle?: boolean;
 }
@@ -22,6 +26,23 @@ export interface ColoredTextProps extends TextProps {
 /**
  * ColoredText component for text with semantic colors.
  * Used to convey meaning through color in inline text.
+ *
+ * @example
+ * ```tsx
+ * <ColoredText color="success">Task completed</ColoredText>
+ * <ColoredText color="error" subtle>Error occurred</ColoredText>
+ * ```
+ *
+ * Color Variants:
+ * - primary: Brand color for emphasis
+ * - success: Green for positive states
+ * - warning: Amber for caution states
+ * - error: Red for negative states
+ * - info: Blue for informational states
+ *
+ * Each color has two modes:
+ * - Default: Just the text color
+ * - Subtle: Includes a light background and rounded corners
  */
 export function ColoredText({
   color,
@@ -63,3 +84,5 @@ export function ColoredText({
     </Text>
   );
 }
+
+ColoredText.displayName = 'ColoredText';

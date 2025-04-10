@@ -6,6 +6,41 @@ import dynamic from 'next/dynamic';
 // Dynamically import Next.js Link with fallback
 const NextLink = dynamic(() => import('next/link'), { ssr: true });
 
+/**
+ * WorkItem component for displaying project portfolio items.
+ * Provides multiple layout variants and responsive design for showcasing work.
+ *
+ * @example
+ * ```tsx
+ * <WorkItem
+ *   projectName="Project Name"
+ *   description="Project description here"
+ *   imageUrl="/path/to/image.jpg"
+ *   primaryService="Web Development"
+ *   year="2024"
+ *   url="/projects/project-name"
+ * />
+ *
+ * <WorkItem
+ *   variant="featured"
+ *   projectName="Featured Project"
+ *   description="Featured project description"
+ *   imageUrl="/path/to/featured.jpg"
+ *   primaryService="Design"
+ *   year="2023-2024"
+ *   featuredText="New"
+ * />
+ * ```
+ *
+ * Features:
+ * - Three layout variants (v1, collapsed, featured)
+ * - Responsive design for mobile and desktop
+ * - Image display with aspect ratio control
+ * - Service category pill with color options
+ * - Hover state animations
+ * - Support for internal and external links
+ * - Featured item highlighting
+ */
 export interface WorkItemProps {
   /**
    * Project name
@@ -438,3 +473,5 @@ export function WorkItem({
     </NextLink>
   );
 }
+
+WorkItem.displayName = 'WorkItem';

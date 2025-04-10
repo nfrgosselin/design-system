@@ -1,6 +1,43 @@
 import * as React from 'react';
 import { cn } from '@/lib/utils';
 
+/**
+ * Image component for displaying images with consistent styling and behavior.
+ * Provides control over aspect ratio, fit, positioning, and borders.
+ *
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <Image src="/path/to/image.jpg" alt="Description" />
+ *
+ * // With aspect ratio and fit control
+ * <Image
+ *   src="/path/to/image.jpg"
+ *   alt="Description"
+ *   aspect="wide"
+ *   fit="cover"
+ *   position="center"
+ * />
+ *
+ * // With border and radius
+ * <Image
+ *   src="/path/to/image.jpg"
+ *   alt="Description"
+ *   radius="lg"
+ *   borderWidth={2}
+ *   borderColor="brand"
+ * />
+ * ```
+ *
+ * Features:
+ * - Multiple aspect ratio presets
+ * - Flexible image fitting options
+ * - Position control for cover/contain modes
+ * - Border radius using design system scale
+ * - Border width and color options
+ * - Loading state background
+ * - Maintains image accessibility
+ */
 export interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /**
    * Aspect ratio of the image container
@@ -146,3 +183,5 @@ export function Image({
     />
   );
 }
+
+Image.displayName = 'Image';

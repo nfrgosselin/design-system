@@ -6,6 +6,25 @@ import type { ArticleHeaderProps } from './types';
  * Header component for article section headings (h2/h3/h4).
  * Uses serif font with appropriate size scaling and tracking.
  * Maintains a clear visual hierarchy through size, weight, and color.
+ *
+ * @example
+ * ```tsx
+ * <ArticleHeader level={2}>Major Section</ArticleHeader>
+ * <ArticleHeader level={3}>Subsection</ArticleHeader>
+ * <ArticleHeader level={4}>Minor Section</ArticleHeader>
+ * ```
+ *
+ * Levels:
+ * - h2: Major sections (24px, semibold, stone-900)
+ * - h3: Subsections (20px, medium, stone-700)
+ * - h4: Minor sections (18px, medium, stone-500)
+ *
+ * Styling:
+ * - Serif font for consistency with article content
+ * - Appropriate size scaling for hierarchy
+ * - Color gradation for visual depth
+ * - Proper spacing with margins
+ * - First header has no top margin
  */
 export function ArticleHeader({ level = 2, className, children, ...props }: ArticleHeaderProps) {
   const styles = {
@@ -20,3 +39,5 @@ export function ArticleHeader({ level = 2, className, children, ...props }: Arti
     </Text>
   );
 }
+
+ArticleHeader.displayName = 'ArticleHeader';

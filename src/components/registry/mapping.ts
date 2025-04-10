@@ -69,6 +69,41 @@ export const componentRegistry: ComponentRegistry = {
     path: '../navigation/link',
   },
 
+  InlineLink: {
+    name: 'InlineLink',
+    description: 'A link variant for inline text links with appropriate styling',
+    category: 'navigation',
+    path: '../navigation/link',
+  },
+
+  UtilityLink: {
+    name: 'UtilityLink',
+    description: 'A link variant for utility navigation with muted styling',
+    category: 'navigation',
+    path: '../navigation/link',
+  },
+
+  ButtonLink: {
+    name: 'ButtonLink',
+    description: 'A link variant that appears as a button with appropriate styling',
+    category: 'navigation',
+    path: '../navigation/link',
+  },
+
+  MetadataLink: {
+    name: 'MetadataLink',
+    description: 'A link variant for metadata and small text with appropriate styling',
+    category: 'navigation',
+    path: '../navigation/link',
+  },
+
+  BreadcrumbLink: {
+    name: 'BreadcrumbLink',
+    description: 'A link variant specifically styled for breadcrumb navigation',
+    category: 'navigation',
+    path: '../navigation/link',
+  },
+
   NavItem: {
     name: 'NavItem',
     description: 'A flexible navigation item component with icon support and text styling',
@@ -112,75 +147,152 @@ export const componentRegistry: ComponentRegistry = {
     path: '../navigation/content/WorkTopNavContent',
   },
 
+  BlogTopNavContent: {
+    name: 'BlogTopNavContent',
+    description: 'Content component for the blog-specific top navigation bar',
+    category: 'navigation',
+    path: '../navigation/content/BlogTopNavContent',
+  },
+
+  AboutTopNavContent: {
+    name: 'AboutTopNavContent',
+    description: 'Content component for the about page top navigation bar',
+    category: 'navigation',
+    path: '../navigation/content/AboutTopNavContent',
+  },
+
   // Typography components
   ArticleTitle: {
     name: 'ArticleTitle',
     description: 'Renders an article title with appropriate styling',
     category: 'typography',
-    path: '../typography/article',
+    path: '../typography/article/ArticleTitle',
   },
 
   ArticleSubtitle: {
     name: 'ArticleSubtitle',
     description: 'Renders an article subtitle with appropriate styling',
     category: 'typography',
-    path: '../typography/article',
+    path: '../typography/article/ArticleSubtitle',
   },
 
   ArticleHeader: {
     name: 'ArticleHeader',
     description: 'Renders article section headers (h2, h3) with appropriate styling',
     category: 'typography',
-    path: '../typography/article',
+    path: '../typography/article/ArticleHeader',
   },
 
   ArticleText: {
     name: 'ArticleText',
     description: 'Renders article paragraph text with variants for lead and standard text',
     category: 'typography',
-    path: '../typography/article',
+    path: '../typography/article/ArticleText',
+  },
+
+  ArticleList: {
+    name: 'ArticleList',
+    description: 'Renders ordered and unordered lists with article styling',
+    category: 'typography',
+    path: '../typography/article/ArticleList',
+  },
+
+  ArticleListItem: {
+    name: 'ArticleListItem',
+    description: 'Renders individual list items within ArticleList',
+    category: 'typography',
+    path: '../typography/article/ArticleListItem',
+  },
+
+  ArticleQuote: {
+    name: 'ArticleQuote',
+    description: 'Renders blockquotes with article styling',
+    category: 'typography',
+    path: '../typography/article/ArticleQuote',
+  },
+
+  Code: {
+    name: 'Code',
+    description: 'Renders inline code snippets',
+    category: 'typography',
+    path: '../typography/inline/Code',
+  },
+
+  ColoredText: {
+    name: 'ColoredText',
+    description: 'Renders text with semantic colors',
+    category: 'typography',
+    path: '../typography/inline/ColoredText',
+  },
+
+  Emphasis: {
+    name: 'Emphasis',
+    description: 'Renders emphasized (italic) text',
+    category: 'typography',
+    path: '../typography/inline/Emphasis',
+  },
+
+  Strong: {
+    name: 'Strong',
+    description: 'Renders strong (bold) text',
+    category: 'typography',
+    path: '../typography/inline/Strong',
+  },
+
+  FootnoteText: {
+    name: 'FootnoteText',
+    description: 'Renders footnote references in text',
+    category: 'typography',
+    path: '../typography/inline/FootnoteText',
+  },
+
+  FootnoteItem: {
+    name: 'FootnoteItem',
+    description: 'Renders individual footnote items',
+    category: 'typography',
+    path: '../typography/inline/FootnoteItem',
   },
 
   UIHeader: {
     name: 'UIHeader',
-    description: 'Renders UI headers with different size and style variants',
+    description: 'Renders UI section headers',
     category: 'typography',
-    path: '../typography/ui',
+    path: '../typography/ui/UIHeader',
   },
 
-  UILabel: {
-    name: 'UILabel',
-    description: 'Renders form and UI labels with consistent styling',
+  UIDescription: {
+    name: 'UIDescription',
+    description: 'Renders longer descriptive text in UI contexts',
     category: 'typography',
-    path: '../typography/ui',
+    path: '../typography/ui/UIDescription',
   },
 
-  UICaption: {
-    name: 'UICaption',
-    description: 'Renders smaller caption text for UI elements',
+  Caption: {
+    name: 'Caption',
+    description: 'Renders small descriptive text',
     category: 'typography',
-    path: '../typography/ui',
+    path: '../typography/ui/Caption',
   },
 
-  InlineEmphasis: {
-    name: 'InlineEmphasis',
-    description: 'Renders emphasized inline text with appropriate styling',
+  MetaText: {
+    name: 'MetaText',
+    description: 'Renders metadata and supplementary text',
     category: 'typography',
-    path: '../typography/inline',
+    path: '../typography/ui/MetaText',
   },
 
-  InlineStrong: {
-    name: 'InlineStrong',
-    description: 'Renders strong (bold) inline text with appropriate styling',
+  NavText: {
+    name: 'NavText',
+    description: 'Renders navigation item text',
     category: 'typography',
-    path: '../typography/inline',
+    path: '../typography/ui/NavText',
   },
 
-  InlineCode: {
-    name: 'InlineCode',
-    description: 'Renders inline code snippets with monospace font and background',
+  UIText: {
+    name: 'UIText',
+    description: 'Renders general interface text',
     category: 'typography',
-    path: '../typography/inline',
+    path: '../typography/ui/UIText',
   },
 
   // Utility components
@@ -195,7 +307,7 @@ export const componentRegistry: ComponentRegistry = {
     name: 'NamedIcon',
     description: 'Renders a predefined icon from a collection of commonly used icons',
     category: 'utils',
-    path: '../utils/namedIcons',
+    path: '../utils/namedIcon',
   },
 
   Image: {
@@ -207,25 +319,25 @@ export const componentRegistry: ComponentRegistry = {
   },
 
   // UI components
-  Pill: {
-    name: 'Pill',
-    description:
-      'A flexible pill component for displaying tags, labels, and status indicators with color variants',
-    category: 'ui',
-    path: '../ui/Pill',
-  },
-
   WorkItem: {
     name: 'WorkItem',
     description:
-      'A component for displaying project/work items with multiple layout variants and color options',
+      'A component for displaying work items with metadata, actions, and interactive states',
     category: 'ui',
     path: '../ui/WorkItem',
   },
 
+  Pill: {
+    name: 'Pill',
+    description: 'A compact label component for displaying status, tags, or categories',
+    category: 'ui',
+    path: '../ui/Pill',
+  },
+
   WorkTable: {
     name: 'WorkTable',
-    description: 'A table component for displaying, sorting, and filtering work items',
+    description:
+      'A specialized table component for displaying and managing work items with sorting capabilities',
     category: 'ui',
     path: '../ui/WorkTable',
   },

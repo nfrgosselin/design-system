@@ -6,6 +6,7 @@ export {
   ButtonLink,
   MetadataLink,
   BreadcrumbLink,
+  linkVariants,
   type LinkProps,
 } from './link';
 
@@ -16,7 +17,15 @@ export { Sidebar, type SidebarProps } from './Sidebar';
 export { WorkControls, type WorkControlsProps } from './WorkControls';
 
 // Content components
-export { WorkTopNavContent, type WorkTopNavContentProps } from './content/WorkTopNavContent';
+export { WorkTopNavContent } from './content/WorkTopNavContent';
+export { BlogTopNavContent } from './content/BlogTopNavContent';
+export { AboutTopNavContent } from './content/AboutTopNavContent';
 
 // Types
-export * from './types';
+export type {
+  TopNavVariant,
+  TopNavContentProps,
+  WorkTopNavContentProps,
+  BlogTopNavContentProps,
+  AboutTopNavContentProps,
+} from './types';

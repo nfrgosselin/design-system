@@ -5,91 +5,23 @@
  * @packageDocumentation
  */
 
-// Re-export utility functions with proper types
+// Export all components and types through the registry
+export * from './components/registry';
+
+// Export utility functions
 export * from './utils/cn';
 
-// Export registry utilities
-export {
-  componentRegistry,
-  resolveComponent,
-  getComponentsByCategory,
-} from './components/registry';
+// Export theme-related exports
+export * from './components/ThemeProvider';
 
-// Export ThemeProvider and related hooks and types
-export {
-  ThemeProvider,
-  useTheme,
-  type ThemeProviderProps,
-  type ThemeOption,
-  type ThemeContextValue,
-  type CustomTokens,
-} from './components/ThemeProvider';
+// Export base types
+export * from './types';
 
-// Export components by category
-// Layout Components
-export {
-  Container,
-  ContentContainer,
-  FormContainer,
-  ModalContainer,
-  CardContainer,
-  MetricContainer,
-  Stack,
-  Grid,
-  TwoColumnGrid,
-  ThreeColumnGrid,
-  FourColumnGrid,
-  ResponsiveGrid,
-} from './components/layout';
+// Export version information
+export const VERSION = '0.1.0';
 
-// Data Display Components
-// Chart component removed
-
-/**
- * Component Exports
- * Components are grouped by their functional category for easier discovery
- */
-
-// Form Components
-export {
-  Input,
-  NewsletterSignup,
-  type InputProps,
-  type NewsletterSignupProps,
-  buttonVariants,
-} from './components/registry';
-
-// Layout Components
-export { Button, Link, type ButtonProps } from './components/registry';
-
-// Typography Components
-export {
-  // Article Components
-  ArticleTitle,
-  ArticleSubtitle,
-  ArticleHeader,
-  ArticleText,
-  ArticleList,
-  ArticleListItem,
-  ArticleQuote,
-  // Inline Components
-  Code,
-  ColoredText,
-  Emphasis,
-  Strong,
-  FootnoteText,
-  FootnoteItem,
-  // UI Components
-  UIHeader,
-  UIDescription,
-  Caption,
-  MetaText,
-  NavText,
-  UIText,
-} from './components/typography';
-
-// Display Components
-export { Icon } from './components/utils/icon';
+// Explicitly mark the package as side-effect free for better tree-shaking
+export const __sideEffects = false;
 
 /**
  * CSS Imports
@@ -152,41 +84,3 @@ export { Icon } from './components/utils/icon';
  * const DynamicButton = resolveComponent('button');
  * ```
  */
-
-// Type exports for better IDE support
-export type { ComponentMetadata, ComponentRegistry } from './components/registry/registry.types';
-
-// Export version information
-export const VERSION = '0.1.0';
-
-// Explicitly mark the package as side-effect free for better tree-shaking
-// This is also configured in package.json
-export const __sideEffects = false;
-
-// Export all types
-export type {
-  // Base Types
-  BaseProps,
-  // Theme Types
-  ThemeTokens,
-  ThemeExtension,
-  ColorToken,
-  SpacingToken,
-  RadiusToken,
-  // Component Types
-  Size,
-  Intent,
-  Variant,
-  // Registry Types
-  ComponentSource,
-  ComponentInfo,
-  ShadcnComponentInfo,
-  ExtendedComponentInfo,
-  CustomComponentInfo,
-  // Utility Types
-  DeepPartial,
-  // Hook Types
-  UseThemeProps,
-  // Version Type
-  Version,
-} from './types';

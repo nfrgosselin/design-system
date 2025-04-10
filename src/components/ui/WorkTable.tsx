@@ -9,6 +9,28 @@ export interface WorkTableItem extends Omit<WorkItemProps, 'className' | 'varian
   featuredText?: string;
 }
 
+/**
+ * WorkTable component for displaying a filterable and sortable list of work items.
+ * Provides sorting and filtering capabilities for project portfolios.
+ *
+ * @example
+ * ```tsx
+ * <WorkTable
+ *   items={projects}
+ *   sortBy="year"
+ *   sortDirection="desc"
+ *   filterValue="web development"
+ * />
+ * ```
+ *
+ * Features:
+ * - Sortable by project name, year, or service
+ * - Text-based filtering across multiple fields
+ * - Tag-based filtering for services
+ * - Support for featured items
+ * - Responsive layout
+ * - Dynamic item rendering
+ */
 export interface WorkTableProps {
   /**
    * Array of work items to display
@@ -91,3 +113,5 @@ export function WorkTable({
     </div>
   );
 }
+
+WorkTable.displayName = 'WorkTable';

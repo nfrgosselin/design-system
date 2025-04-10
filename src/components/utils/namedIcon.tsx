@@ -75,15 +75,37 @@ export const Icons = {
 // Type helper for icon names
 export type IconName = keyof typeof Icons;
 
-// Props for the NamedIcon component
+/**
+ * NamedIcon component for rendering pre-configured icons from the Icons collection.
+ * Provides a simpler interface compared to the base Icon component by using named icons.
+ *
+ * @example
+ * ```tsx
+ * // Basic usage
+ * <NamedIcon name="logo" />
+ *
+ * // With size and color
+ * <NamedIcon name="check" size="lg" className="text-success" />
+ *
+ * // Common icons
+ * <NamedIcon name="chevronRight" size="sm" />
+ * <NamedIcon name="settings" />
+ * <NamedIcon name="gitHub" className="text-stone-900" />
+ * ```
+ *
+ * Features:
+ * - Pre-configured icon collection
+ * - Consistent sizing options
+ * - Color inheritance through text color
+ * - Support for custom SVG icons
+ * - Proper accessibility attributes
+ * - Flexible styling through className
+ */
 export interface NamedIconProps extends React.HTMLAttributes<HTMLSpanElement> {
   name: IconName;
   size?: IconSize;
 }
 
-/**
- * Component for rendering a named icon from the Icons collection
- */
 export function NamedIcon({ name, size = 'md', className, ...props }: NamedIconProps) {
   const Icon = Icons[name];
 
@@ -97,6 +119,8 @@ export function NamedIcon({ name, size = 'md', className, ...props }: NamedIconP
     </span>
   );
 }
+
+NamedIcon.displayName = 'NamedIcon';
 
 // Re-export the Icon component from icon.tsx
 export { Icon } from './icon';

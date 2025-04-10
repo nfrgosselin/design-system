@@ -2,12 +2,15 @@ import { cn } from '@/lib/utils';
 import { Text } from '../core/Text';
 import type { TextProps } from '../core/types';
 
+/**
+ * Props for the UIText component
+ */
 export interface UITextProps extends TextProps {
   /**
    * Visual style variant
-   * - default: Standard UI text
-   * - muted: Less prominent text
-   * - accent: Emphasized text using primary color
+   * - default: Standard UI text (stone-900)
+   * - muted: Less prominent text (stone-500)
+   * - accent: Emphasized text using primary color (brand)
    */
   variant?: 'default' | 'muted' | 'accent';
 
@@ -22,9 +25,9 @@ export interface UITextProps extends TextProps {
 
   /**
    * Font weight
-   * - normal: 400
-   * - medium: 500
-   * - semibold: 600
+   * - normal: Regular weight (400)
+   * - medium: Medium weight (500)
+   * - semibold: Semi-bold weight (600)
    */
   weight?: 'normal' | 'medium' | 'semibold';
 }
@@ -32,6 +35,35 @@ export interface UITextProps extends TextProps {
 /**
  * UIText component for general interface text.
  * Used for button labels, form labels, and other UI elements.
+ *
+ * @example
+ * ```tsx
+ * <UIText>Default text</UIText>
+ * <UIText variant="muted" size="sm">Small muted text</UIText>
+ * <UIText variant="accent" weight="semibold">Emphasized text</UIText>
+ * ```
+ *
+ * Variants:
+ * - default: Standard text (stone-900)
+ * - muted: Less prominent text (stone-500)
+ * - accent: Emphasized text using brand color
+ *
+ * Sizes:
+ * - xs: 12px
+ * - sm: 14px
+ * - base: 16px (default)
+ * - lg: 18px
+ *
+ * Weights:
+ * - normal: Regular (400)
+ * - medium: Medium (500)
+ * - semibold: Semi-bold (600)
+ *
+ * Features:
+ * - Sans-serif font for UI clarity
+ * - Flexible size options
+ * - Multiple weight options
+ * - Semantic color variants
  */
 export function UIText({
   variant = 'default',
@@ -76,3 +108,5 @@ export function UIText({
     </Text>
   );
 }
+
+UIText.displayName = 'UIText';

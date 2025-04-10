@@ -5,6 +5,19 @@ import type { ArticleTitleProps } from './types';
 /**
  * Title component for article main headings (h1).
  * Uses serif font with larger size and tighter tracking for impact.
+ *
+ * @example
+ * ```tsx
+ * <ArticleTitle>My Article Title</ArticleTitle>
+ * ```
+ *
+ * Styling:
+ * - Uses serif font family
+ * - Bold weight
+ * - Large text size (4xl)
+ * - Tight tracking for headlines
+ * - Dark stone color for contrast
+ * - Bottom margin for spacing
  */
 export function ArticleTitle({ className, children, ...props }: ArticleTitleProps) {
   return (
@@ -21,3 +34,5 @@ export function ArticleTitle({ className, children, ...props }: ArticleTitleProp
     </Text>
   );
 }
+
+ArticleTitle.displayName = 'ArticleTitle';

@@ -1,5 +1,25 @@
 import { cn } from '@/lib/utils';
 
+/**
+ * Pill component for displaying tags, labels, and status indicators.
+ * Provides a compact, rounded container with various color and size options.
+ *
+ * @example
+ * ```tsx
+ * <Pill>Default</Pill>
+ * <Pill color="success" size="sm">Success</Pill>
+ * <Pill color="warning" size="lg">Warning</Pill>
+ * <Pill variant="fixed">Projects</Pill>
+ * ```
+ *
+ * Features:
+ * - Multiple color options using design system tokens
+ * - Three size variants (sm, md, lg)
+ * - Fixed width option for consistent sizing
+ * - Rounded full corners for pill shape
+ * - Muted background with accent text
+ * - Flexible content support
+ */
 export interface PillProps {
   /**
    * The text content of the pill
@@ -106,3 +126,5 @@ export function Pill({
     </span>
   );
 }
+
+Pill.displayName = 'Pill';

@@ -1,23 +1,34 @@
 import { ReactNode } from 'react';
 
+/**
+ * A page layout component that provides a sticky top navigation bar and a responsive sidebar.
+ * The sidebar is hidden on mobile devices and visible on medium screens and up.
+ */
 export interface TopNavSideBarLayoutProps {
   /**
    * Content to render in the top navigation bar
+   * This will be rendered in a sticky container at the top of the page
    */
   topNavContent: ReactNode;
 
   /**
    * Content to render in the sidebar
    * Hidden on mobile, visible on md screens and up
+   * Takes up 1/4 of the grid on desktop
    */
   sidebarContent: ReactNode;
 
   /**
    * Main content of the page
+   * Takes up full width on mobile and 3/4 of the grid on desktop
    */
   children: ReactNode;
 }
 
+/**
+ * A layout component that implements a common page structure with a sticky top navigation
+ * and a responsive sidebar that collapses on mobile devices.
+ */
 export function TopNavSideBarLayout({
   topNavContent,
   sidebarContent,
@@ -39,3 +50,5 @@ export function TopNavSideBarLayout({
     </div>
   );
 }
+
+TopNavSideBarLayout.displayName = 'TopNavSideBarLayout';

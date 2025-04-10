@@ -5,6 +5,23 @@ import type { ArticleTextProps } from './types';
 /**
  * ArticleText component for article body content.
  * Uses serif font and optimized line heights for readability.
+ *
+ * @example
+ * ```tsx
+ * <ArticleText>Regular paragraph text</ArticleText>
+ * <ArticleText variant="lead">Opening paragraph with emphasis</ArticleText>
+ * ```
+ *
+ * Variants:
+ * - default: Standard paragraph text (18px, stone-900)
+ * - lead: Emphasized opening paragraph (18px, semibold, stone-700)
+ *
+ * Styling:
+ * - Serif font for readability
+ * - Optimized line height (relaxed)
+ * - Proper word spacing
+ * - Bottom margin for paragraph spacing
+ * - Tracking optimized for reading
  */
 export function ArticleText({
   variant = 'default',
@@ -24,3 +41,5 @@ export function ArticleText({
     </Text>
   );
 }
+
+ArticleText.displayName = 'ArticleText';
