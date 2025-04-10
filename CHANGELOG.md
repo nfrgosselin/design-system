@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.3.0](https://github.com/nfrgosselin/design-system/compare/v2.2.0...v2.3.0) (2025-04-10)
+
+### Features
+
+- added orchid and surf to color palette ([26f24a0](https://github.com/nfrgosselin/design-system/commit/26f24a05e165f42e69f8432e2547e76cea7a4048))
+
 ## [2.2.0](https://github.com/nfrgosselin/design-system/compare/v2.1.1...v2.2.0) (2025-04-10)
 
 ### Features
