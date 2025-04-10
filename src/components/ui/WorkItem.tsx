@@ -230,7 +230,7 @@ export function WorkItem({
       <div className="flex flex-col justify-start pt-1">
         <p
           className={cn(
-            'text-stone-500 text-base',
+            'text-stone-500 text-base font-sans',
             'transition-[height,opacity] duration-500 ease-in-out',
             'line-clamp-1 group-hover:line-clamp-3',
             'whitespace-normal overflow-hidden',
@@ -243,7 +243,7 @@ export function WorkItem({
 
       {/* Right column - Date */}
       <div className="flex justify-end">
-        <span className="text-stone-500 text-base pt-1">{year}</span>
+        <span className="text-stone-500 text-base font-medium font-sans pt-2.5">{year}</span>
       </div>
     </div>
   );

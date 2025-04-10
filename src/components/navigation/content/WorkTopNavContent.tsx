@@ -1,6 +1,7 @@
 import { WorkControls } from '../WorkControls';
 import { cn } from '../../../lib/utils';
 import { ThreeColumnGrid } from '../../layout/core/grid';
+import { NewsletterSignup } from '../../forms/NewsletterSignup';
 
 export interface WorkTopNavContentProps {
   sortControls: {
@@ -21,6 +22,11 @@ export function WorkTopNavContent({
   filterControls,
   className,
 }: WorkTopNavContentProps) {
+  const handleNewsletterSubmit = async (email: string) => {
+    // Handle newsletter signup
+    console.log('Newsletter signup:', email);
+  };
+
   return (
     <>
       {/* Mobile Layout - Use items-baseline */}
@@ -55,7 +61,13 @@ export function WorkTopNavContent({
             onClick={item => filterControls.onChange?.(item.label)}
           />
         </div>
-        <div className="flex items-end h-full w-full">{/* Reserved for future content */}</div>
+        <div className="flex items-end justify-end">
+          <NewsletterSignup
+            variant="topnav"
+            onSubmit={handleNewsletterSubmit}
+            placeholder="Enter your email"
+          />
+        </div>
       </ThreeColumnGrid>
     </>
   );

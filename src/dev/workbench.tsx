@@ -1,6 +1,5 @@
 import { Sidebar } from '../components/navigation/Sidebar';
 import { TopNav } from '../components/navigation/TopNav';
-import { NewsletterSignup } from '../components/forms/NewsletterSignup';
 import { useState } from 'react';
 import { WorkTable } from '../components/ui/WorkTable';
 import { TopNavSideBarLayout } from '../components/layout/pages/TopNavSideBarLayout';
@@ -140,22 +139,6 @@ export function Workbench() {
     stackSpacing: 'space-y-1' as const,
   };
 
-  // Demo form state
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
-  const [error, setError] = useState<string>();
-
-  const handleSubmit = async (email: string) => {
-    setStatus('loading');
-    setError(undefined);
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    if (!email.includes('@')) {
-      setStatus('error');
-      setError('Please enter a valid email address');
-      return;
-    }
-    setStatus('success');
-  };
-
   const handleSortChange = (label: string) => {
     if (label === 'Newest') {
       setSortBy('year');
@@ -195,20 +178,7 @@ export function Workbench() {
   );
 
   const sidebarContent = (
-    <Sidebar
-      footer={
-        <div className="space-y-4">
-          <NewsletterSignup
-            status={status}
-            error={error}
-            onSubmit={handleSubmit}
-            placeholder="Enter your email"
-            variant="stacked"
-            headingText="Sign up for my newsletter"
-          />
-        </div>
-      }
-    >
+    <Sidebar footer={<div className="space-y-4" />}>
       <div className="py-4">
         <p className="text-xl tracking-wider text-stone-600 leading-relaxed">
           Brooklyn-based product builder and strategist.
