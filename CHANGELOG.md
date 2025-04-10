@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.2.0](https://github.com/nfrgosselin/design-system/compare/v2.1.1...v2.2.0) (2025-04-10)
+
+### Features
+
+- added collapsed variant for workitem ([3e2737a](https://github.com/nfrgosselin/design-system/commit/3e2737ac3e02c31cf6c435b083313b50840aa30a))
+- added newsletter signup component ([5b56052](https://github.com/nfrgosselin/design-system/commit/5b56052f2573c13c75ce7097e0671acabda1c963))
+- added topnav newsletter signup variant ([d4980de](https://github.com/nfrgosselin/design-system/commit/d4980dea82e4d49e2332f86ab00a5c9387127135))
+- brandnav and sidenav components ([e399ded](https://github.com/nfrgosselin/design-system/commit/e399ded1a9c374929e7f668cc48c340817b80ef9))
+- finished responsive layouts for main portfolio page ([479ccb1](https://github.com/nfrgosselin/design-system/commit/479ccb1459c3dd90ac5414a96893c2c967f264ab))
+- mostly done first draft of components for main personal page ([86ecfe0](https://github.com/nfrgosselin/design-system/commit/86ecfe0cc17a3a805588cbeb313beee430cfaae1))
+- updated button component ([9ba2afb](https://github.com/nfrgosselin/design-system/commit/9ba2afba4e1265643e68e100030151668586996b))
+- updated input component ([2b01ea0](https://github.com/nfrgosselin/design-system/commit/2b01ea04ca9c3b3e6e099d20916d838d0012cdc3))
+- updated navitem component ([448156c](https://github.com/nfrgosselin/design-system/commit/448156cd75fddc689b4700dc1f09aa7e739e97a7))
+- updated top nav, sidenav, and brand nav ([7669b2c](https://github.com/nfrgosselin/design-system/commit/7669b2cc5017558ceffb7e2f76231187cd3c4fb7))
+- updating link component ([945fa61](https://github.com/nfrgosselin/design-system/commit/945fa616891b94c0a075094a579d1149654a5237))
+- working through main page components and responsive design ([f14aecb](https://github.com/nfrgosselin/design-system/commit/f14aecba5c3f42e669b91e258e8a8d880ce37afe))
+
+### Maintenance
+
+- cleaning tests before design style refactors ([89430a8](https://github.com/nfrgosselin/design-system/commit/89430a8b46ece59d4898adf432bb290ba05d340d))
+- fixing top border on worktable ([b32f4ac](https://github.com/nfrgosselin/design-system/commit/b32f4aca235ea2613cab995723172f8d449d3aac))
+
 ### [2.1.1](https://github.com/nfrgosselin/design-system/compare/v2.1.0...v2.1.1) (2025-04-07)
 
 ### Maintenance
