@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.4.0](https://github.com/nfrgosselin/design-system/compare/v2.3.3...v2.4.0) (2025-04-10)
+
+### Maintenance
+
+- corrected exports and updated documentation ([8b95122](https://github.com/nfrgosselin/design-system/commit/8b95122ba3756227064fce09d07567bdc6d2af4e))
+
 ### [2.3.3](https://github.com/nfrgosselin/design-system/compare/v2.3.2...v2.3.3) (2025-04-10)
 
 ### Maintenance
