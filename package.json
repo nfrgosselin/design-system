@@ -12,7 +12,11 @@
       "require": "./dist/index.js"
     },
     "./styles.css": "./dist/styles.css",
-    "./tokens.css": "./dist/styles/tokens/index.css",
+    "./tokens": {
+      "types": "./dist/styles/tokens/theme.d.ts",
+      "import": "./dist/styles/tokens/theme.mjs",
+      "require": "./dist/styles/tokens/theme.js"
+    },
     "./fonts": {
       "types": "./dist/styles/tokens/fonts.d.ts",
       "import": "./dist/styles/tokens/fonts.mjs",

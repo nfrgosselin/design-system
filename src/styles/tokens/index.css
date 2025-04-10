@@ -2,7 +2,8 @@
  * Design System Tokens
  * 
  * This is the main entry point for all design tokens.
- * Import this file to get access to all design tokens.
+ * Import this file to get access to all base design tokens.
+ * Theme tokens should be imported separately through the ThemeProvider.
  */
 
 /* Base Tokens */
@@ -11,7 +12,4 @@
 @import './base/typography.css';
 @import './base/animation.css';
 @import './base/breakpoints.css';
-@import './base/elevation.css';
-
-/* Theme Tokens */
-@import './themes/light.css'; 
+@import './base/elevation.css'; 

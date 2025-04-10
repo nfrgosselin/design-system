@@ -46,6 +46,15 @@ export {
  * Components are grouped by their functional category for easier discovery
  */
 
+// Form Components
+export {
+  Input,
+  NewsletterSignup,
+  type InputProps,
+  type NewsletterSignupProps,
+  buttonVariants,
+} from './components/registry';
+
 // Layout Components
 export { Button, Link, type ButtonProps } from './components/registry';
 
@@ -77,9 +86,6 @@ export {
 
 // Display Components
 export { Icon } from './components/utils/icon';
-
-// Form Components
-export { buttonVariants } from './components/registry';
 
 /**
  * CSS Imports

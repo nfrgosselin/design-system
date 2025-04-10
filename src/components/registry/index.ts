@@ -14,6 +14,8 @@ export {
 
 // Direct component exports
 import { Button, buttonVariants, type ButtonProps } from '../forms/button';
+import { Input, type InputProps } from '../forms/Input';
+import { NewsletterSignup, type NewsletterSignupProps } from '../forms/NewsletterSignup';
 import {
   Link,
   InlineLink,
@@ -23,16 +25,44 @@ import {
   BreadcrumbLink,
   type LinkProps,
 } from '../navigation/link';
+import {
+  NavItem,
+  BrandNav,
+  TopNav,
+  Sidebar,
+  WorkControls,
+  WorkTopNavContent,
+  type NavItemProps,
+  type BrandNavProps,
+  type TopNavProps,
+  type SidebarProps,
+  type WorkControlsProps,
+  type WorkTopNavContentProps,
+} from '../navigation';
 import { Icon, type IconProps, type IconSize } from '../utils/icon';
 import { NamedIcon, Icons, type IconName, type NamedIconProps } from '../utils/namedIcon';
+import { Image, type ImageProps } from '../utils/image';
+import {
+  WorkItem,
+  Pill,
+  WorkTable,
+  type WorkItemProps,
+  type PillProps,
+  type WorkTableProps,
+  type WorkTableItem,
+  type SortField,
+  type SortDirection,
+} from '../ui';
 // Layout components
 import {
   Container,
   Stack,
   Grid,
+  TopNavSideBarLayout,
   type ContainerProps,
   type StackProps,
   type GridProps,
+  type TopNavSideBarLayoutProps,
 } from '../layout';
 // Typography components
 import {
@@ -80,6 +110,8 @@ import {
 export {
   Button,
   buttonVariants,
+  Input,
+  NewsletterSignup,
   // Navigation components
   Link,
   InlineLink,
@@ -87,14 +119,26 @@ export {
   ButtonLink,
   MetadataLink,
   BreadcrumbLink,
+  NavItem,
+  BrandNav,
+  TopNav,
+  Sidebar,
+  WorkControls,
+  WorkTopNavContent,
+  // UI components
+  WorkItem,
+  Pill,
+  WorkTable,
   // Utility components
   Icon,
   NamedIcon,
   Icons,
+  Image,
   // Layout components
   Container,
   Stack,
   Grid,
+  TopNavSideBarLayout,
   // Typography components
   ArticleTitle,
   ArticleSubtitle,
@@ -117,14 +161,24 @@ export {
   UIText,
   // Types
   type ButtonProps,
+  type InputProps,
+  type NewsletterSignupProps,
   type LinkProps,
+  type NavItemProps,
+  type BrandNavProps,
+  type TopNavProps,
+  type SidebarProps,
+  type WorkControlsProps,
+  type WorkTopNavContentProps,
   type IconProps,
   type IconSize,
   type IconName,
   type NamedIconProps,
+  type ImageProps,
   type ContainerProps,
   type StackProps,
   type GridProps,
+  type TopNavSideBarLayoutProps,
   // Typography Types
   type ArticleTitleProps,
   type ArticleSubtitleProps,
@@ -145,6 +199,13 @@ export {
   type MetaTextProps,
   type NavTextProps,
   type UITextProps,
+  // UI Types
+  type WorkItemProps,
+  type PillProps,
+  type WorkTableProps,
+  type WorkTableItem,
+  type SortField,
+  type SortDirection,
 };
 
 /**

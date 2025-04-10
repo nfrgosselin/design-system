@@ -1,8 +1,20 @@
 import { ReactNode } from 'react';
 
-interface TopNavSideBarLayoutProps {
+export interface TopNavSideBarLayoutProps {
+  /**
+   * Content to render in the top navigation bar
+   */
   topNavContent: ReactNode;
+
+  /**
+   * Content to render in the sidebar
+   * Hidden on mobile, visible on md screens and up
+   */
   sidebarContent: ReactNode;
+
+  /**
+   * Main content of the page
+   */
   children: ReactNode;
 }
 

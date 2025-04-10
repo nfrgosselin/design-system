@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { cn } from '../../lib/utils';
 
-interface SidebarProps {
+export interface SidebarProps {
   /**
    * Main content to display in the content area
    */

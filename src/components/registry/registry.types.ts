@@ -10,7 +10,8 @@ export type ComponentCategory =
   | 'feedback'
   | 'data-display'
   | 'utils'
-  | 'typography';
+  | 'typography'
+  | 'ui';
 
 // Component metadata without shadcn references
 export interface ComponentMetadata {

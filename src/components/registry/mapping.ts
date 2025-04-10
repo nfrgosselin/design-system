@@ -16,6 +16,21 @@ export const componentRegistry: ComponentRegistry = {
     path: '../forms/button',
   },
 
+  input: {
+    name: 'Input',
+    description:
+      'Form input component with support for various types (text, password, search), sizes, and states',
+    category: 'forms',
+    path: '../forms/Input',
+  },
+
+  newsletterSignup: {
+    name: 'NewsletterSignup',
+    description: 'Newsletter signup form with multiple layout variants and built-in state handling',
+    category: 'forms',
+    path: '../forms/NewsletterSignup',
+  },
+
   // Layout components
   container: {
     name: 'Container',
@@ -38,12 +53,63 @@ export const componentRegistry: ComponentRegistry = {
     path: '../layout/core/grid',
   },
 
+  topNavSideBarLayout: {
+    name: 'TopNavSideBarLayout',
+    description:
+      'A page layout with sticky top navigation and responsive sidebar that collapses on mobile',
+    category: 'layout',
+    path: '../layout/pages/TopNavSideBarLayout',
+  },
+
   // Navigation components
   link: {
     name: 'Link',
     description: 'A component for navigation between pages or to external resources',
     category: 'navigation',
     path: '../navigation/link',
+  },
+
+  navItem: {
+    name: 'NavItem',
+    description: 'A flexible navigation item component with icon support and text styling',
+    category: 'navigation',
+    path: '../navigation/NavItem',
+  },
+
+  brandNav: {
+    name: 'BrandNav',
+    description: 'A brand navigation component that combines brand name with optional nav items',
+    category: 'navigation',
+    path: '../navigation/BrandNav',
+  },
+
+  topNav: {
+    name: 'TopNav',
+    description:
+      'A top navigation bar component that combines brand navigation with custom content',
+    category: 'navigation',
+    path: '../navigation/TopNav',
+  },
+
+  sidebar: {
+    name: 'Sidebar',
+    description: 'A sticky sidebar component with support for main content and footer areas',
+    category: 'navigation',
+    path: '../navigation/Sidebar',
+  },
+
+  workControls: {
+    name: 'WorkControls',
+    description: 'A specialized navigation component for work-related controls and actions',
+    category: 'navigation',
+    path: '../navigation/WorkControls',
+  },
+
+  workTopNavContent: {
+    name: 'WorkTopNavContent',
+    description: 'Content component for the top navigation bar in work-related pages',
+    category: 'navigation',
+    path: '../navigation/content/WorkTopNavContent',
   },
 
   // Typography components
@@ -130,5 +196,37 @@ export const componentRegistry: ComponentRegistry = {
     description: 'Renders a predefined icon from a collection of commonly used icons',
     category: 'utils',
     path: '../utils/namedIcons',
+  },
+
+  image: {
+    name: 'Image',
+    description:
+      'A flexible image component with configurable aspect ratio, fit, borders, and loading states',
+    category: 'utils',
+    path: '../utils/image',
+  },
+
+  // UI components
+  pill: {
+    name: 'Pill',
+    description:
+      'A flexible pill component for displaying tags, labels, and status indicators with color variants',
+    category: 'ui',
+    path: '../ui/Pill',
+  },
+
+  workItem: {
+    name: 'WorkItem',
+    description:
+      'A component for displaying project/work items with multiple layout variants and color options',
+    category: 'ui',
+    path: '../ui/WorkItem',
+  },
+
+  workTable: {
+    name: 'WorkTable',
+    description: 'A table component for displaying, sorting, and filtering work items',
+    category: 'ui',
+    path: '../ui/WorkTable',
   },
 };

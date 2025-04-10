@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 import { BrandNav, BrandNavProps } from './BrandNav';
 import { cn } from '../../lib/utils';
 
-interface TopNavProps {
+export interface TopNavProps {
   brand: BrandNavProps;
   content?: ReactNode;
   className?: string;
