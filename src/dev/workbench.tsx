@@ -183,7 +183,7 @@ export function Workbench() {
 
   const sidebarContent = (
     <Sidebar footer={<div className="space-y-4" />}>
-      <div className="py-4">
+      <div className="py-2">
         <p className="text-xl tracking-wider text-stone-600 leading-relaxed">
           Brooklyn-based product builder and strategist.
         </p>
