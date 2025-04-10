@@ -40,8 +40,8 @@ describe('WorkTable', () => {
 
   it('renders all work items', () => {
     render(<WorkTable items={defaultItems} />);
-    expect(screen.getAllByText('Alpha Project')).toHaveLength(2);
-    expect(screen.getAllByText('Beta Project')).toHaveLength(2);
+    expect(screen.getAllByText('Alpha Project')).toHaveLength(1);
+    expect(screen.getAllByText('Beta Project')).toHaveLength(1);
   });
 
   it('applies custom className when provided', () => {
@@ -53,14 +53,14 @@ describe('WorkTable', () => {
     render(<WorkTable items={defaultItems} sortBy="projectName" sortDirection="asc" />);
     const items = screen.getAllByRole('heading', { level: 3 });
     expect(items[0]).toHaveTextContent('Alpha Project');
-    expect(items[2]).toHaveTextContent('Beta Project');
+    expect(items[1]).toHaveTextContent('Beta Project');
   });
 
   it('sorts items by project name descending', () => {
     render(<WorkTable items={defaultItems} sortBy="projectName" sortDirection="desc" />);
     const items = screen.getAllByRole('heading', { level: 3 });
     expect(items[0]).toHaveTextContent('Beta Project');
-    expect(items[2]).toHaveTextContent('Alpha Project');
+    expect(items[1]).toHaveTextContent('Alpha Project');
   });
 
   it('sorts items by year', () => {
@@ -72,14 +72,14 @@ describe('WorkTable', () => {
 
   it('filters items by search text', () => {
     render(<WorkTable items={defaultItems} filterValue="alpha" />);
-    expect(screen.getAllByText('Alpha Project')).toHaveLength(2);
+    expect(screen.getAllByText('Alpha Project')).toHaveLength(1);
     expect(screen.queryByText('Beta Project')).not.toBeInTheDocument();
   });
 
   it('filters items by primary service', () => {
     render(<WorkTable items={defaultItems} filterValue="Design" />);
     expect(screen.queryByText('Alpha Project')).not.toBeInTheDocument();
-    expect(screen.getAllByText('Beta Project')).toHaveLength(2);
+    expect(screen.getAllByText('Beta Project')).toHaveLength(1);
   });
 
   it('first item has a border like all other items', () => {
@@ -95,6 +95,6 @@ describe('WorkTable', () => {
 
   it('handles case-insensitive filtering', () => {
     render(<WorkTable items={defaultItems} filterValue="alpha" />);
-    expect(screen.getAllByText('Alpha Project')).toHaveLength(2);
+    expect(screen.getAllByText('Alpha Project')).toHaveLength(1);
   });
 });

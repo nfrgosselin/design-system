@@ -39,6 +39,12 @@ export interface WorkItemProps {
   url?: string;
 
   /**
+   * Design variant of the work item
+   * @default 'v1'
+   */
+  variant?: 'v1' | 'collapsed';
+
+  /**
    * Color variant for the service pill
    * @default 'marine'
    */
@@ -73,27 +79,28 @@ export function WorkItem({
   primaryService,
   year,
   url,
+  variant = 'v1',
   pillColor = 'marine',
   className,
 }: WorkItemProps) {
   // Dynamic hover styles based on pill color
   const hoverStyles = {
-    marine: 'hover:border-marine',
-    ocean: 'hover:border-ocean',
-    sunset: 'hover:border-sunset',
-    sun: 'hover:border-sun',
-    seafoam: 'hover:border-seafoam',
-    coral: 'hover:border-coral',
-    navy: 'hover:border-navy',
-    amber: 'hover:border-amber',
-    lagoon: 'hover:border-lagoon',
-    peach: 'hover:border-peach',
-    slate: 'hover:border-slate',
-    gold: 'hover:border-gold',
-    success: 'hover:border-success',
-    warning: 'hover:border-warning',
-    error: 'hover:border-error',
-    info: 'hover:border-info',
+    marine: 'hover:border-marine hover:bg-marine-muted',
+    ocean: 'hover:border-ocean hover:bg-ocean-muted',
+    sunset: 'hover:border-sunset hover:bg-sunset-muted',
+    sun: 'hover:border-sun hover:bg-sun-muted',
+    seafoam: 'hover:border-seafoam hover:bg-seafoam-muted',
+    coral: 'hover:border-coral hover:bg-coral-muted',
+    navy: 'hover:border-navy hover:bg-navy-muted',
+    amber: 'hover:border-amber hover:bg-amber-muted',
+    lagoon: 'hover:border-lagoon hover:bg-lagoon-muted',
+    peach: 'hover:border-peach hover:bg-peach-muted',
+    slate: 'hover:border-slate hover:bg-slate-muted',
+    gold: 'hover:border-gold hover:bg-gold-muted',
+    success: 'hover:border-success hover:bg-success-subtle',
+    warning: 'hover:border-warning hover:bg-warning-subtle',
+    error: 'hover:border-error hover:bg-error-subtle',
+    info: 'hover:border-info hover:bg-info-subtle',
   }[pillColor];
 
   // Dynamic text color styles based on pill color
@@ -118,7 +125,7 @@ export function WorkItem({
 
   const isExternalUrl = url?.startsWith('http') || url?.startsWith('//');
 
-  const content = (
+  const V1Content = () => (
     <>
       {/* Mobile Layout */}
       <div className="block md:hidden space-y-4">
@@ -196,9 +203,58 @@ export function WorkItem({
     </>
   );
 
+  const CollapsedContent = () => (
+    <div
+      className={cn(
+        'grid grid-cols-3 gap-element relative',
+        'transition-[height] duration-500 ease-in-out'
+      )}
+    >
+      {/* Left column - Pill and Title */}
+      <div className="flex items-start gap-4 pt-1">
+        <Pill color={pillColor} size="md" variant="fixed">
+          {primaryService}
+        </Pill>
+        <h3
+          className={cn(
+            'font-sans font-medium text-lg tracking-wide',
+            'transition-colors duration-50',
+            textColorStyles
+          )}
+        >
+          {projectName}
+        </h3>
+      </div>
+
+      {/* Middle column - Description */}
+      <div className="flex flex-col justify-start pt-1">
+        <p
+          className={cn(
+            'text-stone-500 text-base',
+            'transition-[height,opacity] duration-500 ease-in-out',
+            'line-clamp-1 group-hover:line-clamp-3',
+            'whitespace-normal overflow-hidden',
+            'pt-1.5'
+          )}
+        >
+          {description}
+        </p>
+      </div>
+
+      {/* Right column - Date */}
+      <div className="flex justify-end">
+        <span className="text-stone-500 text-base pt-1">{year}</span>
+      </div>
+    </div>
+  );
+
+  const content = variant === 'v1' ? <V1Content /> : <CollapsedContent />;
+
   const containerClasses = cn(
-    'border-t border-stone-200 py-6 transition-colors duration-ultra-fast group',
-    'hover:border-t-2 hover:pt-[23px] hover:pb-6',
+    'border-t border-stone-200 group overflow-hidden bg-white',
+    'py-6',
+    'hover:border-t-2 hover:pt-[23px]',
+    'transition-[height] duration-500 ease-in-out transition-[border-width,colors,background-color] duration-50',
     url && 'cursor-pointer',
     hoverStyles,
     className

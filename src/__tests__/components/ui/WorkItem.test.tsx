@@ -103,4 +103,20 @@ describe('WorkItem', () => {
     expect(mobileTitle).toBeInTheDocument();
     expect(desktopTitle).toBeInTheDocument();
   });
+
+  it('has white background by default', () => {
+    const { container } = render(<WorkItem {...defaultProps} />);
+    expect(container.firstChild).toHaveClass('bg-white');
+  });
+
+  it('applies muted background color on hover based on pill color', () => {
+    const { container } = render(<WorkItem {...defaultProps} pillColor="marine" />);
+    expect(container.firstChild).toHaveClass('hover:bg-marine-muted');
+  });
+
+  it('includes transition classes for background and border', () => {
+    const { container } = render(<WorkItem {...defaultProps} />);
+    expect(container.firstChild).toHaveClass('transition-[border-width,colors,background-color]');
+    expect(container.firstChild).toHaveClass('duration-50');
+  });
 });

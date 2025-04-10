@@ -77,7 +77,7 @@ export function WorkTable({
   return (
     <div className={className}>
       {sortedItems.map((item, index) => (
-        <WorkItem key={`${item.projectName}-${index}`} {...item} />
+        <WorkItem key={`${item.projectName}-${index}`} {...item} variant="collapsed" />
       ))}
     </div>
   );

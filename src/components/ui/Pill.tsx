@@ -34,18 +34,34 @@ export interface PillProps {
   size?: 'sm' | 'md' | 'lg';
 
   /**
+   * The variant of the pill
+   * @default 'default'
+   */
+  variant?: 'default' | 'fixed';
+
+  /**
    * Optional additional className
    */
   className?: string;
 }
 
-export function Pill({ children, color = 'marine', size = 'md', className }: PillProps) {
+export function Pill({
+  children,
+  color = 'marine',
+  size = 'md',
+  variant = 'default',
+  className,
+}: PillProps) {
   const styles = {
     base: 'inline-flex items-center justify-center rounded-full font-sans font-medium',
     size: {
       sm: 'px-2 py-0.5 text-xs',
       md: 'px-3 py-1 text-sm',
       lg: 'px-4 py-2 text-base',
+    },
+    variant: {
+      default: '',
+      fixed: 'w-[80px] justify-center', // Fixed width that fits "Projects"
     },
     color: {
       // Product Identity Colors
@@ -73,7 +89,15 @@ export function Pill({ children, color = 'marine', size = 'md', className }: Pil
   };
 
   return (
-    <span className={cn(styles.base, styles.size[size], styles.color[color], className)}>
+    <span
+      className={cn(
+        styles.base,
+        styles.size[size],
+        styles.variant[variant],
+        styles.color[color],
+        className
+      )}
+    >
       {children}
     </span>
   );
