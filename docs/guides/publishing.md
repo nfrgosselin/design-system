@@ -45,11 +45,14 @@ This guide explains how to publish updates to the NPM package.
    ```bash
    ls -la dist/
    # Should include:
-   # - styles.css (main stylesheet)
-   # - styles/tokens/index.css (design tokens)
-   # - index.mjs (ESM module)
-   # - index.js (CommonJS module)
+   # - index.js (CommonJS bundle)
+   # - index.mjs (ESM bundle)
    # - index.d.ts (TypeScript declarations)
+   # - styles.css (Main stylesheet with all styles)
+   # - styles/tokens/ (Token-related files)
+   #   ├── index.css (Token styles)
+   #   ├── theme.js/mjs/d.ts (Theme exports)
+   #   └── fonts.js/mjs/d.ts (Font exports)
    ```
 
 6. Test the build locally:
@@ -61,20 +64,18 @@ This guide explains how to publish updates to the NPM package.
 7. In your test project, verify the imports:
 
    ```tsx
-   // CSS imports
+   // CSS imports (includes all styles)
    import '@nathangosselin/design-system/styles.css';
 
    // Component imports
    import { ThemeProvider, Button } from '@nathangosselin/design-system';
 
-   // Verify ThemeProvider works
-   function App() {
-     return (
-       <ThemeProvider>
-         <Button>Test</Button>
-       </ThemeProvider>
-     );
-   }
+   // Optional: Theme and font utilities
+   import { themeTokens } from '@nathangosselin/design-system/tokens';
+   import { getGoogleFontsUrl } from '@nathangosselin/design-system/fonts';
+
+   // Optional: Tailwind configuration
+   import designSystemPreset from '@nathangosselin/design-system/tailwind.config';
    ```
 
 8. **Important**: Commit all changes before proceeding with the release.

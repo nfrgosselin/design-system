@@ -60,28 +60,23 @@ This guide explains how to migrate a component from another project into the des
    },
    ```
 
-2. **Export the component in the registry**:
+2. **Export the component from the main package entry point**:
 
-   - Open `src/components/registry/index.ts`
-   - Import your component in the appropriate section:
-
-   ```typescript
-   // Add with similar components
-   import { YourComponent, type YourComponentProps } from '../forms/your-component';
-   ```
-
-   - Export your component in the exports section:
+   - Open `src/index.ts`
+   - Add your component's type export:
 
    ```typescript
-   export {
-     // ... existing exports
-     YourComponent,
-     // ... existing exports
-     // Types
+   export type {
      // ... existing type exports
-     type YourComponentProps,
+     YourComponentProps,
      // ... existing type exports
    };
+   ```
+
+   - Add your component export:
+
+   ```typescript
+   export { YourComponent } from './components/forms/your-component';
    ```
 
 ### 4. Implement the Component
@@ -271,19 +266,12 @@ customButton: {
 ```
 
 ```typescript
-// In src/components/registry/index.ts
-// Import the component
-import { CustomButton, customButtonVariants, type CustomButtonProps } from '../forms/custom-button';
-
-// Export the component
-export {
-  // ... existing exports
-  CustomButton,
-  customButtonVariants,
-  // ... existing exports
-  // Types
+// In src/index.ts
+export type {
   // ... existing type exports
-  type CustomButtonProps,
+  CustomButtonProps,
   // ... existing type exports
 };
+
+export { YourComponent } from './components/forms/your-component';
 ```

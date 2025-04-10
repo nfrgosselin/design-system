@@ -18,11 +18,12 @@ This directory contains comprehensive guides for common workflows when working w
 
 ### Design Patterns
 
-- [Icon Usage](../patterns/icon-usage.md) - Comprehensive guide for using icons in various contexts
+- [Icon Usage](./patterns/icon-usage.md) - Comprehensive guide for using icons in various contexts
 - More pattern guides coming soon...
 
 ## Additional Resources
 
+- [Styling Guide](./styles.md) - How to set up CSS, fonts, and theming
 - [VERSIONING.md](../../VERSIONING.md) - Guidelines for semantic versioning
 - [MAINTENANCE.md](../../MAINTENANCE.md) - Checklist for maintaining the design system
 - [CONTRIBUTING.md](../../CONTRIBUTING.md) - Guidelines for contributing to the project

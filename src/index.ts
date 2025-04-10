@@ -9,7 +9,11 @@
 export * from './utils/cn';
 
 // Export registry utilities
-export { componentRegistry, resolveComponent } from './components/registry';
+export {
+  componentRegistry,
+  resolveComponent,
+  getComponentsByCategory,
+} from './components/registry';
 
 // Export ThemeProvider and related hooks and types
 export {
@@ -90,10 +94,17 @@ export { Icon } from './components/utils/icon';
 /**
  * CSS Imports
  *
- * To use the design system styles, import the CSS file in your application:
+ * The design system includes all necessary styles in a single CSS file.
+ * Import it in your application's entry point:
  * ```tsx
  * import '@nathangosselin/design-system/styles.css';
  * ```
+ *
+ * This import includes:
+ * - Base styles and CSS reset
+ * - Design tokens and CSS variables
+ * - Tailwind utility classes
+ * - Component-specific styles
  */
 
 /**

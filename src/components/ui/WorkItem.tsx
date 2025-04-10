@@ -333,7 +333,7 @@ export function WorkItem({
       </div>
 
       <div className="hidden md:block pt-0.5">
-        <p className="text-stone-500 text-base line-clamp-3">{description}</p>
+        <p className="text-stone-500 font-sans text-base line-clamp-3">{description}</p>
       </div>
 
       <div className="hidden md:flex md:flex-row md:justify-between md:items-start">

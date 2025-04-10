@@ -24,7 +24,7 @@ yarn add @nathangosselin/design-system
 ## Usage
 
 ```tsx
-import { Button, Container, Section } from '@nathangosselin/design-system';
+import { Button, Container, Grid, UIHeader } from '@nathangosselin/design-system';
 import '@nathangosselin/design-system/styles.css';
 
 // Add ThemeProvider to your app root
@@ -34,10 +34,10 @@ function App() {
   return (
     <ThemeProvider>
       <Container>
-        <Section>
-          <h2>Hello World</h2>
-          <Button>Click me</Button>
-        </Section>
+        <Grid>
+          <UIHeader level={2}>Welcome</UIHeader>
+          <Button variant="primary">Click me</Button>
+        </Grid>
       </Container>
     </ThemeProvider>
   );
@@ -46,17 +46,21 @@ function App() {
 
 ## CSS Usage
 
-This package includes CSS for styling components and CSS custom properties (tokens) for customization. To ensure styles are applied correctly, you **must** import both CSS files in your application, with the tokens imported **before** the main styles:
+The design system includes all necessary styles in a single CSS file. Import it in your application's entry point:
 
 ```javascript
 // Example in a JavaScript/TypeScript entry file (e.g., main.jsx, _app.js)
-import '@nathangosselin/design-system/tokens.css'; // Import tokens first
-import '@nathangosselin/design-system/styles.css'; // Import component styles second
+import '@nathangosselin/design-system/styles.css';
 
 // Your application code...
 ```
 
-This order is crucial because `styles.css` relies on the CSS custom properties defined in `tokens.css`.
+This import includes:
+
+- Base styles and CSS reset
+- Design tokens and CSS variables
+- Tailwind utility classes
+- Component-specific styles
 
 ## Component Registry System
 
@@ -71,11 +75,37 @@ This design system uses a component registry approach to manage components. This
 
 Components are organized into the following categories:
 
-1. **Forms**: Components for user input (`Button`)
-2. **Layout**: Components for page structure (`Container`, `Section`, `Grid`, `Content`)
-3. **Navigation**: Components for navigation (`Link`)
-4. **Typography**: Components for text styling (`ArticleTitle`, `ArticleSubtitle`, etc.)
-5. **Utils**: Utility components (`Icon`, `NamedIcon`)
+1. **Layout**: Components for page structure
+
+   - `Container`: Main container with max-width constraints
+   - `ContentContainer`: Container optimized for content areas
+   - `FormContainer`: Container optimized for forms
+   - `ModalContainer`: Container for modal dialogs
+   - `CardContainer`: Container for card-like elements
+   - `MetricContainer`: Container for metric displays
+   - `Stack`: Vertical stack layout
+   - `Grid`: Flexible grid system
+   - `TwoColumnGrid`, `ThreeColumnGrid`, `FourColumnGrid`: Pre-configured grid layouts
+   - `ResponsiveGrid`: Responsive grid with breakpoint control
+
+2. **Forms**: Components for user input
+
+   - `Button`: Interactive button component
+   - `Input`: Text input field
+   - `NewsletterSignup`: Newsletter subscription form
+
+3. **Typography**: Components for text styling
+
+   - Article Components: `ArticleTitle`, `ArticleSubtitle`, `ArticleHeader`, `ArticleText`, `ArticleList`, `ArticleListItem`, `ArticleQuote`
+   - Inline Components: `Code`, `ColoredText`, `Emphasis`, `Strong`, `FootnoteText`, `FootnoteItem`
+   - UI Components: `UIHeader`, `UIDescription`, `Caption`, `MetaText`, `NavText`, `UIText`
+
+4. **Navigation**: Components for navigation
+
+   - `Link`: Navigation link component
+
+5. **Display**: Utility components
+   - `Icon`: Icon component with built-in icon set
 
 ### Using Component Metadata
 
@@ -108,7 +138,8 @@ const Button = resolveComponent('button');
 
 // Get all components in a specific category
 const layoutComponents = getComponentsByCategory('layout');
-// Returns metadata for Container, Section, Grid, and Content
+// Returns metadata for Container, ContentContainer, FormContainer, ModalContainer,
+// CardContainer, MetricContainer, Stack, Grid, and other layout components
 
 function App() {
   return <Button>Click me</Button>;
@@ -117,17 +148,17 @@ function App() {
 
 ## Documentation
 
-For full documentation, visit our [Storybook](https://github.com/nathangosselin/design-system#running-storybook-locally).
+For full documentation, visit our [Storybook](https://github.com/nfrgosselin/design-system#running-storybook-locally).
 
 ### Workflow Guides
 
 We provide comprehensive guides for common workflows:
 
-- [Component Migration Guide](./docs/guides/component-migration.md) - How to migrate components from another project
-- [Publishing Guide](./docs/guides/publishing.md) - How to publish updates to the NPM package
-- [Consuming Guide](./docs/guides/consuming.md) - How to import and use the design system
+- [Component Migration Guide](https://github.com/nfrgosselin/design-system/blob/main/docs/guides/component-migration.md) - How to migrate components from another project
+- [Publishing Guide](https://github.com/nfrgosselin/design-system/blob/main/docs/guides/publishing.md) - How to publish updates to the NPM package
+- [Consuming Guide](https://github.com/nfrgosselin/design-system/blob/main/docs/guides/consuming.md) - How to import and use the design system
 
-For a complete list of guides, see the [Guides Index](./docs/guides/index.md).
+For a complete list of guides, see the [Guides Index](https://github.com/nfrgosselin/design-system/blob/main/docs/guides/index.md).
 
 ## Development
 

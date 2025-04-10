@@ -12,51 +12,26 @@ npm install @nathangosselin/design-system
 yarn add @nathangosselin/design-system
 ```
 
-2. Import the design system CSS files in your root layout or entry point:
+2. Import the design system CSS file in your root layout or entry point:
 
 ```tsx
 // In _app.tsx, RootLayout.tsx, or similar
-import '@nathangosselin/design-system/tokens.css'; // Import tokens first
-import '@nathangosselin/design-system/styles.css'; // Import component styles second
+import '@nathangosselin/design-system/styles.css';
 ```
 
-**Important**: The import order matters because `styles.css` relies on the CSS custom properties (design tokens) defined in `tokens.css`. Always import `tokens.css` before `styles.css` to ensure proper styling.
+This import includes all necessary styles:
 
-3. Configure your primary color by adding ONE of these color configurations to your globals.css:
+- Design tokens and CSS variables
+- Base styles and CSS reset
+- Tailwind utility classes
+- Component-specific styles
 
-```css
-/* Option 1: Ocean (Professional tools) */
-:root {
-  --ds-primary: 178 54% 44%;
-  --ds-primary-hover: 178 54% 40%;
-  --ds-primary-active: 178 54% 36%;
-  --ds-ring: 178 54% 44%;
-}
+3. Set up your theme:
 
-/* Option 2: Sunset (Creative tools) */
-:root {
-  --ds-primary: 14 100% 60%;
-  --ds-primary-hover: 14 100% 55%;
-  --ds-primary-active: 14 100% 50%;
-  --ds-ring: 14 100% 60%;
-}
+   - Configure your primary color theme
+   - Set up the required fonts
 
-/* Option 3: Sun (Publishing tools) */
-:root {
-  --ds-primary: 45 100% 62%;
-  --ds-primary-hover: 45 100% 58%;
-  --ds-primary-active: 45 100% 54%;
-  --ds-ring: 45 100% 62%;
-}
-
-/* Option 4: Marine (Technical tools) */
-:root {
-  --ds-primary: 217 55% 23%;
-  --ds-primary-hover: 217 55% 19%;
-  --ds-primary-active: 217 55% 15%;
-  --ds-ring: 217 55% 23%;
-}
-```
+   See the [Styling Guide](./styles.md) for detailed instructions on theme configuration and font setup.
 
 4. Add the ThemeProvider to handle light/dark mode:
 
@@ -70,97 +45,6 @@ function RootLayout({ children }) {
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
-  );
-}
-```
-
-5. Set up fonts:
-
-The design system uses three Google Fonts:
-
-- Inter (sans-serif) - For UI elements and navigation
-- Newsreader (serif) - For article and long-form content
-- JetBrains Mono (monospace) - For code blocks
-
-For Next.js applications:
-
-```tsx
-import { Inter, JetBrains_Mono, Newsreader } from 'next/font/google';
-import { fonts } from '@nathangosselin/design-system/fonts';
-
-const inter = Inter({
-  subsets: ['latin'],
-  weight: fonts.sans.weights,
-  display: fonts.sans.display,
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: fonts.mono.weights,
-  display: fonts.mono.display,
-});
-
-const newsreader = Newsreader({
-  subsets: ['latin'],
-  weight: fonts.serif.weights,
-  style: fonts.serif.styles,
-  display: fonts.serif.display,
-});
-
-function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} ${jetbrainsMono.className} ${newsreader.className}`}>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  );
-}
-```
-
-For non-Next.js applications:
-
-```tsx
-import { getGoogleFontsUrl } from '@nathangosselin/design-system/fonts';
-
-function App() {
-  return (
-    <html>
-      <head>
-        <link href={getGoogleFontsUrl()} rel="stylesheet" />
-      </head>
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
-    </html>
-  );
-}
-```
-
-## Theme Mode Configuration
-
-The ThemeProvider handles light/dark/white mode settings. Available options:
-
-```tsx
-<ThemeProvider
-  theme="light" // 'light' | 'dark' | 'white' | 'system' (default)
->
-  {children}
-</ThemeProvider>
-```
-
-You can use the `useTheme` hook to programmatically change themes:
-
-```tsx
-import { useTheme } from '@nathangosselin/design-system';
-
-function ThemeSwitcher() {
-  const { theme, isDark, setTheme } = useTheme();
-
-  return (
-    <button onClick={() => setTheme(isDark ? 'light' : 'dark')}>
-      Toggle theme (currently {theme})
-    </button>
   );
 }
 ```
@@ -196,68 +80,36 @@ Components are organized into these categories:
 
 All components are available as direct imports from the package root.
 
-## Setting Up Fonts
+## Theme Mode Configuration
 
-### Google Fonts
-
-The design system uses Google Fonts for its typography. We provide a configuration and helper functions to make font setup easy:
+The ThemeProvider handles light/dark/white mode settings. Available options:
 
 ```tsx
-import { fonts, getGoogleFontsUrl } from '@nathangosselin/design-system/fonts';
+<ThemeProvider
+  theme="light" // 'light' | 'dark' | 'white' | 'system' (default)
+>
+  {children}
+</ThemeProvider>
+```
 
-// In your app's root layout or entry point:
-function RootLayout() {
+You can use the `useTheme` hook to programmatically change themes:
+
+```tsx
+import { useTheme } from '@nathangosselin/design-system';
+
+function ThemeSwitcher() {
+  const { theme, isDark, setTheme } = useTheme();
+
   return (
-    <html>
-      <head>
-        <link href={getGoogleFontsUrl()} rel="stylesheet" />
-      </head>
-      <body>{children}</body>
-    </html>
+    <button onClick={() => setTheme(isDark ? 'light' : 'dark')}>
+      Toggle theme (currently {theme})
+    </button>
   );
 }
 ```
 
-For Next.js applications, you can use the Next.js Font Optimization:
+## Additional Resources
 
-```tsx
-import { Inter, JetBrains_Mono } from 'next/font/google';
-import { Newsreader } from 'next/font/google';
-import { fonts } from '@nathangosselin/design-system/fonts';
-
-// Load fonts with weights from our configuration
-const inter = Inter({
-  subsets: ['latin'],
-  weight: fonts.sans.weights,
-  display: fonts.sans.display,
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: fonts.mono.weights,
-  display: fonts.mono.display,
-});
-
-const newsreader = Newsreader({
-  subsets: ['latin'],
-  weight: fonts.serif.weights,
-  style: fonts.serif.styles,
-  display: fonts.serif.display,
-});
-
-export default function RootLayout({ children }) {
-  return (
-    <html lang="en">
-      <body className={`${inter.className} ${jetbrainsMono.className} ${newsreader.className}`}>
-        {children}
-      </body>
-    </html>
-  );
-}
-```
-
-The design system uses these fonts:
-
-- Newsreader (serif) - For article and long-form content
-- Inter (sans-serif) - For UI elements and navigation
-- JetBrains Mono (monospace) - For code blocks
+- For detailed styling instructions, see the [Styling Guide](./styles.md)
+- For contribution guidelines, see [CONTRIBUTING.md](../../CONTRIBUTING.md)
+- For versioning information, see [VERSIONING.md](../../VERSIONING.md)

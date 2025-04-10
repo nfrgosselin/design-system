@@ -21,13 +21,15 @@
       "types": "./dist/styles/tokens/fonts.d.ts",
       "import": "./dist/styles/tokens/fonts.mjs",
       "require": "./dist/styles/tokens/fonts.js"
-    }
+    },
+    "./tailwind.config": "./tailwind.config.ts"
   },
   "sideEffects": [
     "**/*.css"
   ],
   "files": [
     "dist",
+    "docs/guides",
     "README.md",
     "LICENSE",
     "VERSIONING.md"
