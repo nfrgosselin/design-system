@@ -90,7 +90,8 @@ const componentBuildConfig = {
   format: ['esm'] as Format[],
   dts: true,
   sourcemap: true,
-  clean: false,
+  clean: true,
+  splitting: false,
   external: [
     ...Object.keys(pkg.peerDependencies || {}),
     'react/jsx-runtime',
@@ -108,6 +109,7 @@ const componentBuildConfig = {
     js: '"use client";',
   },
   metafile: true,
+  treeshake: true,
 };
 
 // CSS build configuration
