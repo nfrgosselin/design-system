@@ -91,17 +91,23 @@ const componentBuildConfig = {
   dts: true,
   sourcemap: true,
   clean: false,
-  external: [...Object.keys(pkg.peerDependencies || {}), 'react/jsx-runtime'],
+  external: [
+    ...Object.keys(pkg.peerDependencies || {}),
+    'react/jsx-runtime',
+    'next/dynamic',
+    'next/link',
+  ],
   esbuildOptions(options) {
-    options.jsx = 'automatic'; // Use automatic JSX runtime
-    options.jsxImportSource = 'react'; // Ensure React is the JSX source
-    options.target = 'es2020'; // Modern target for better ESM support
-    options.platform = 'browser'; // Explicitly target browser environment
+    options.jsx = 'automatic';
+    options.jsxImportSource = 'react';
+    options.target = 'es2020';
+    options.platform = 'browser';
     return options;
   },
   banner: {
-    js: '"use client";', // Add use client directive to all client components
+    js: '"use client";',
   },
+  metafile: true,
 };
 
 // CSS build configuration
