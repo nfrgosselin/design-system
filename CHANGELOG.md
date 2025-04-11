@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.5.0](https://github.com/nfrgosselin/design-system/compare/v2.4.2...v2.5.0) (2025-04-11)
+
+### Features
+
+- added topnavcontent component and troubleshooted esm config ([1fffa7b](https://github.com/nfrgosselin/design-system/commit/1fffa7befbf141def49191bd0ffde7e173d0f83d))
+
 ### [2.4.2](https://github.com/nfrgosselin/design-system/compare/v2.4.1...v2.4.2) (2025-04-11)
 
 ### Maintenance
