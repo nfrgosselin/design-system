@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.2](https://github.com/nfrgosselin/design-system/compare/v2.4.1...v2.4.2) (2025-04-11)
+
+### Maintenance
+
+- fixed tailwind require path ([4bfa56e](https://github.com/nfrgosselin/design-system/commit/4bfa56ef4fcd04609049e9ea01fd79bff3720bee))
+
 ### [2.4.1](https://github.com/nfrgosselin/design-system/compare/v2.4.0...v2.4.1) (2025-04-11)
 
 ### Maintenance
