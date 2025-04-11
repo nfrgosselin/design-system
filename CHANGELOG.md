@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.3](https://github.com/nfrgosselin/design-system/compare/v2.5.2...v2.5.3) (2025-04-11)
+
+### Maintenance
+
+- added next dynamic and link dependencies to resolve runtime error ([e7ce223](https://github.com/nfrgosselin/design-system/commit/e7ce223662e5f58f82b69eb60a3f128aba4c53f9))
+
 ### [2.5.2](https://github.com/nfrgosselin/design-system/compare/v2.5.1...v2.5.2) (2025-04-11)
 
 ### Maintenance
