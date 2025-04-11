@@ -91,7 +91,7 @@ const componentBuildConfig = {
   dts: true,
   sourcemap: true,
   clean: false,
-  external: Object.keys(pkg.peerDependencies || {}),
+  external: [...Object.keys(pkg.peerDependencies || {}), 'react/jsx-runtime'],
   esbuildOptions(options) {
     options.jsx = 'automatic'; // Use automatic JSX runtime
     options.jsxImportSource = 'react'; // Ensure React is the JSX source
