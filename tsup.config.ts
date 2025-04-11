@@ -87,7 +87,7 @@ const tokenBuildConfig = {
 // Main component build configuration
 const componentBuildConfig = {
   entry: ['src/index.ts'],
-  format: ['cjs', 'esm'] as Format[],
+  format: ['esm'] as Format[],
   dts: true,
   sourcemap: true,
   clean: false,
@@ -117,4 +117,19 @@ const cssBuildConfig = {
   },
 };
 
-export default defineConfig([tokenBuildConfig, componentBuildConfig, cssBuildConfig]);
+// Tailwind config build configuration
+const tailwindBuildConfig = {
+  entry: ['tailwind.config.ts'],
+  outDir: 'dist',
+  format: ['cjs'] as Format[],
+  dts: false,
+  sourcemap: false,
+  clean: false,
+};
+
+export default defineConfig([
+  tokenBuildConfig,
+  componentBuildConfig,
+  cssBuildConfig,
+  tailwindBuildConfig,
+]);

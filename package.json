@@ -2,14 +2,12 @@
   "name": "@nathangosselin/design-system",
   "version": "2.4.0",
   "description": "A modern, accessible, and customizable design system for React applications",
-  "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.js"
+      "import": "./dist/index.mjs"
     },
     "./styles.css": "./dist/styles.css",
     "./tokens": {
@@ -22,7 +20,10 @@
       "import": "./dist/styles/tokens/fonts.mjs",
       "require": "./dist/styles/tokens/fonts.js"
     },
-    "./tailwind.config": "./tailwind.config.ts"
+    "./tailwind.config": {
+      "import": "./tailwind.config.ts",
+      "require": "./dist/tailwind.config.cjs"
+    }
   },
   "sideEffects": [
     "**/*.css"
@@ -57,7 +58,7 @@
     "release:dry-run": "npm run build && npm run test && echo 'Dry run complete - version bump simulation successful'",
     "lint-staged": "lint-staged",
     "add-component": "ts-node scripts/add-component.ts",
-    "workbench": "vite --port 3000"
+    "workbench": "vite --port 3001"
   },
   "peerDependencies": {
     "react": "^18.0.0 || ^19.0.0",
