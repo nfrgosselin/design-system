@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.4.1](https://github.com/nfrgosselin/design-system/compare/v2.4.0...v2.4.1) (2025-04-11)
+
+### Maintenance
+
+- removing cjs support ([84dc64f](https://github.com/nfrgosselin/design-system/commit/84dc64ff2fdf8f687b3d4b8e14c44aae1929c466))
+
 ## [2.4.0](https://github.com/nfrgosselin/design-system/compare/v2.3.3...v2.4.0) (2025-04-10)
 
 ### Maintenance
