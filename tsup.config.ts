@@ -58,7 +58,7 @@ const pkg = JSON.parse(readFileSync(new URL('./package.json', import.meta.url)).
 
 // Shared PostCSS config
 const postcssConfig = {
-  plugins: [postcssImport(), autoprefixer()],
+  plugins: [postcssImport(), tailwindcss('./tailwind.config.ts'), autoprefixer()],
 };
 
 // Token build configuration
@@ -96,7 +96,7 @@ const componentBuildConfig = {
     options.jsx = 'automatic'; // Use automatic JSX runtime
     options.jsxImportSource = 'react'; // Ensure React is the JSX source
     options.target = 'es2020'; // Modern target for better ESM support
-    options.platform = 'neutral'; // Avoid platform-specific optimizations that might affect directives
+    options.platform = 'browser'; // Explicitly target browser environment
     return options;
   },
   banner: {
