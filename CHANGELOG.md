@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.5.1](https://github.com/nfrgosselin/design-system/compare/v2.5.0...v2.5.1) (2025-04-11)
+
+### Maintenance
+
+- fixing jsx dependency ([f80d7e8](https://github.com/nfrgosselin/design-system/commit/f80d7e8babf004798808eaba111965942ae26a51))
+
 ## [2.5.0](https://github.com/nfrgosselin/design-system/compare/v2.4.2...v2.5.0) (2025-04-11)
 
 ### Features

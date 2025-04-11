@@ -1,6 +1,6 @@
 {
   "name": "@nathangosselin/design-system",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "A modern, accessible, and customizable design system for React applications",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
