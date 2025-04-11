@@ -22,7 +22,7 @@
     },
     "./tailwind.config": {
       "import": "./tailwind.config.ts",
-      "require": "./dist/tailwind.config.cjs"
+      "require": "./dist/tailwind.config.js"
     }
   },
   "sideEffects": [
