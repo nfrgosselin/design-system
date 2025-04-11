@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { Link } from './link';
 import { NavText } from '../typography/ui/NavText';

@@ -4,6 +4,8 @@ import {
   Link,
   Icon,
   buttonVariants,
+  TopNavContent,
+  WorkTopNavContent,
 
   // Registry utilities
   componentRegistry,
@@ -27,6 +29,8 @@ describe('Design System Exports', () => {
     expect(Link).toBeDefined();
     expect(Icon).toBeDefined();
     expect(buttonVariants).toBeDefined();
+    expect(TopNavContent).toBeDefined();
+    expect(WorkTopNavContent).toBeDefined();
   });
 
   test('registry utilities are exported', () => {
@@ -58,5 +62,15 @@ describe('Design System Exports', () => {
 
     expect(metadata).toBeDefined();
     expect(registry).toBeDefined();
+  });
+
+  test('layout components are properly exported', () => {
+    // Test the new generic layout component
+    expect(TopNavContent).toBeDefined();
+    expect(TopNavContent.displayName).toBe('TopNavContent');
+
+    // Test that WorkTopNavContent is still available
+    expect(WorkTopNavContent).toBeDefined();
+    expect(WorkTopNavContent.displayName).toBe('WorkTopNavContent');
   });
 });

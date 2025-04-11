@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { WorkControls } from '../WorkControls';
 import { ThreeColumnGrid } from '../../layout/core/grid';

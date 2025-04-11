@@ -61,6 +61,14 @@ export const componentRegistry: ComponentRegistry = {
     path: '../layout/pages/TopNavSideBarLayout',
   },
 
+  TopNavContent: {
+    name: 'TopNavContent',
+    description:
+      'A generic three-column layout component for top navigation content with responsive behavior',
+    category: 'layout',
+    path: '../layout/TopNavContent',
+  },
+
   // Navigation components
   Link: {
     name: 'Link',
@@ -140,25 +148,11 @@ export const componentRegistry: ComponentRegistry = {
     path: '../navigation/WorkControls',
   },
 
-  WorkTopNavContent: {
+  workTopNavContent: {
     name: 'WorkTopNavContent',
-    description: 'Content component for the top navigation bar in work-related pages',
+    description: 'Work-specific top navigation content with sort and filter controls',
     category: 'navigation',
     path: '../navigation/content/WorkTopNavContent',
-  },
-
-  BlogTopNavContent: {
-    name: 'BlogTopNavContent',
-    description: 'Content component for the blog-specific top navigation bar',
-    category: 'navigation',
-    path: '../navigation/content/BlogTopNavContent',
-  },
-
-  AboutTopNavContent: {
-    name: 'AboutTopNavContent',
-    description: 'Content component for the about page top navigation bar',
-    category: 'navigation',
-    path: '../navigation/content/AboutTopNavContent',
   },
 
   // Typography components

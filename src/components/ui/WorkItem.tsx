@@ -1,3 +1,5 @@
+'use client';
+
 import { cn } from '@/lib/utils';
 import { Pill } from './Pill';
 import { Image } from '../utils/image';

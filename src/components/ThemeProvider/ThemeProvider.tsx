@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useEffect, useState } from 'react';
 import type { ThemeContextValue, ThemeOption } from './types';
 import type { CustomTokens } from './tokens';

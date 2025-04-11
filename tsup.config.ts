@@ -92,6 +92,16 @@ const componentBuildConfig = {
   sourcemap: true,
   clean: false,
   external: Object.keys(pkg.peerDependencies || {}),
+  esbuildOptions(options) {
+    options.jsx = 'automatic'; // Use automatic JSX runtime
+    options.jsxImportSource = 'react'; // Ensure React is the JSX source
+    options.target = 'es2020'; // Modern target for better ESM support
+    options.platform = 'neutral'; // Avoid platform-specific optimizations that might affect directives
+    return options;
+  },
+  banner: {
+    js: '"use client";', // Add use client directive to all client components
+  },
 };
 
 // CSS build configuration

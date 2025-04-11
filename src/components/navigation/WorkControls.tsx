@@ -1,3 +1,5 @@
+'use client';
+
 import { Fragment, useState } from 'react';
 import { NavItem } from './NavItem';
 import { cn } from '../../lib/utils';

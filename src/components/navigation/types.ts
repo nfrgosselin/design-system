@@ -1,7 +1,7 @@
 /**
  * Available variants for the top navigation bar
  */
-export type TopNavVariant = 'work' | 'about' | 'blog';
+export type TopNavVariant = 'work';
 
 /**
  * Base props interface for all top navigation content components
@@ -50,20 +50,4 @@ export interface WorkTopNavContentProps extends TopNavContentProps {
       isActive?: boolean;
     }>;
   };
-}
-
-/**
- * Props for the about page top navigation content
- * Extends base TopNavContentProps with about-specific properties
- */
-export interface AboutTopNavContentProps extends TopNavContentProps {
-  // Add about-specific props here as needed
-}
-
-/**
- * Props for the blog page top navigation content
- * Extends base TopNavContentProps with blog-specific properties
- */
-export interface BlogTopNavContentProps extends TopNavContentProps {
-  // Add blog-specific props here as needed
 }

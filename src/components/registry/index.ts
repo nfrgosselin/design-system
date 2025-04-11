@@ -59,10 +59,12 @@ import {
   Stack,
   Grid,
   TopNavSideBarLayout,
+  TopNavContent,
   type ContainerProps,
   type StackProps,
   type GridProps,
   type TopNavSideBarLayoutProps,
+  type TopNavContentProps,
 } from '../layout';
 // Typography components
 import {
@@ -139,6 +141,7 @@ export {
   Stack,
   Grid,
   TopNavSideBarLayout,
+  TopNavContent,
   // Typography components
   ArticleTitle,
   ArticleSubtitle,
@@ -179,6 +182,7 @@ export {
   type StackProps,
   type GridProps,
   type TopNavSideBarLayoutProps,
+  type TopNavContentProps,
   // Typography Types
   type ArticleTitleProps,
   type ArticleSubtitleProps,
